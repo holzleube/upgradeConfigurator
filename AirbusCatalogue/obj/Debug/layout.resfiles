@@ -1,6 +1,8 @@
 Assets\airbus_logo.png
 Assets\customers\airfrance_2.png
 Assets\customers\airfrance_2_start.png
+Assets\customers\emirates.png
+Assets\customers\emiratesA380.jpg
 Assets\customers\startSceenAirFrance.jpg
 Assets\DarkGray.png
 Assets\LightGray.png
@@ -9,9 +11,13 @@ Assets\MediumGray.png
 Assets\SmallLogo.png
 Assets\SplashScreen.png
 Assets\StoreLogo.png
+Assets\upgrades\ambient.jpg
+Assets\upgrades\bridgestone.jpg
+Assets\upgrades\isis.jpg
 App.xaml
-Common\StandardStyles.xaml
-Common\TileStiles.xaml
+CommonResources\StandardStyles.xaml
+CommonResources\StringValues.xaml
+CommonResources\TileStyles.xaml
 GroupDetailPage.xaml
 GroupedItemsPage.xaml
 ItemDetailPage.xaml

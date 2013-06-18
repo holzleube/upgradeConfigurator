@@ -7,74 +7,92 @@
     <PackageArchitecture>neutral</PackageArchitecture>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\bin\Debug\AppxManifest.xml">
+    <AppXManifest Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\bin\Debug\AirbusCatalogue.exe">
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\AirbusCatalogue.exe">
       <PackagePath>AirbusCatalogue.exe</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\bin\Debug\AirbusCatalogue.pdb">
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\AirbusCatalogue.pdb">
       <PackagePath>AirbusCatalogue.pdb</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\Assets\airbus_logo.png">
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\airbus_logo.png">
       <PackagePath>Assets\airbus_logo.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\Assets\customers\airfrance_2.png">
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\airfrance_2.png">
       <PackagePath>Assets\customers\airfrance_2.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\Assets\customers\airfrance_2_start.png">
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\airfrance_2_start.png">
       <PackagePath>Assets\customers\airfrance_2_start.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\Assets\Logo.png">
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\emirates.png">
+      <PackagePath>Assets\customers\emirates.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\Logo.png">
       <PackagePath>Assets\Logo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\Assets\SmallLogo.png">
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\SmallLogo.png">
       <PackagePath>Assets\SmallLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\Assets\SplashScreen.png">
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\SplashScreen.png">
       <PackagePath>Assets\SplashScreen.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\Assets\LightGray.png">
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\LightGray.png">
       <PackagePath>Assets\LightGray.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\Assets\MediumGray.png">
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\MediumGray.png">
       <PackagePath>Assets\MediumGray.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\Assets\DarkGray.png">
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\DarkGray.png">
       <PackagePath>Assets\DarkGray.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\Assets\customers\startSceenAirFrance.jpg">
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\emiratesA380.jpg">
+      <PackagePath>Assets\customers\emiratesA380.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\startSceenAirFrance.jpg">
       <PackagePath>Assets\customers\startSceenAirFrance.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\bin\Debug\App.xaml">
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\upgrades\ambient.jpg">
+      <PackagePath>Assets\upgrades\ambient.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\upgrades\bridgestone.jpg">
+      <PackagePath>Assets\upgrades\bridgestone.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\upgrades\isis.jpg">
+      <PackagePath>Assets\upgrades\isis.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\App.xaml">
       <PackagePath>App.xaml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\bin\Debug\Common\TileStiles.xaml">
-      <PackagePath>Common\TileStiles.xaml</PackagePath>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\CommonResources\StringValues.xaml">
+      <PackagePath>CommonResources\StringValues.xaml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\bin\Debug\Common\StandardStyles.xaml">
-      <PackagePath>Common\StandardStyles.xaml</PackagePath>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\CommonResources\TileStyles.xaml">
+      <PackagePath>CommonResources\TileStyles.xaml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\bin\Debug\GroupedItemsPage.xaml">
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\CommonResources\StandardStyles.xaml">
+      <PackagePath>CommonResources\StandardStyles.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\GroupedItemsPage.xaml">
       <PackagePath>GroupedItemsPage.xaml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\bin\Debug\GroupDetailPage.xaml">
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\GroupDetailPage.xaml">
       <PackagePath>GroupDetailPage.xaml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\bin\Debug\ItemDetailPage.xaml">
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\ItemDetailPage.xaml">
       <PackagePath>ItemDetailPage.xaml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\bin\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

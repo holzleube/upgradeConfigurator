@@ -27,9 +27,12 @@
             d:Source="{Binding AllGroups, Source={d:DesignInstance Type=data:SampleDataSource, IsDesignTimeCreatable=True}}"/>
         <variableTemplate:VariableTiles x:Key="tileTemplates" 
                                         TopTemplate="{StaticResource BigTemplate}"
-                                        SmallTemplate="{StaticResource Standard250x250ItemTemplate}"/>
+                                        UpgradeTemplate="{StaticResource UpgradeItemTemplateBig}"
+                                        UpgradeTemplateSmall="{StaticResource UpgradeItemTemplateSmall}"
+                                        SmallTemplate="{StaticResource Standard500x130ItemTemplate}"/>
         <variableTemplate:VariableHeader x:Key="headerSelector"
                                          TopTemplate="{StaticResource NoGroupHeader}"
+                                       
                                          SmallTemplate="{StaticResource SimpleGroupHeader}"/>
     </Page.Resources>
 
@@ -55,7 +58,7 @@
             <Image x:Name="startImage" Source="Assets/customers/startSceenAirFrance.jpg" Stretch="Uniform" Grid.Column="0" />-->
        
             <variableTemplate:VariableTileControl
-            
+            Grid.RowSpan="2"
             Margin="10"
             Grid.Row="1"
             x:Name="itemGridView"
@@ -70,7 +73,7 @@
 
                 <!--<GridView.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <VirtualizingStackPanel Orientation="Horizontal"/>
+                        <VariableSizedWrapGrid ItemHeight="10" ItemWidth="10" Orientation="Vertical" Margin="0,0,80,0"/>
                     </ItemsPanelTemplate>
                 </GridView.ItemsPanel>-->
                 <GridView.GroupStyle>
@@ -78,7 +81,7 @@
                        
                         <GroupStyle.Panel>
                             <ItemsPanelTemplate>
-                                <VariableSizedWrapGrid Orientation="Vertical" Margin="0,0,0,0"/>
+                            <VariableSizedWrapGrid ItemHeight="10" ItemWidth="10" Orientation="Vertical" Margin="0,0,80,0"/>
                             </ItemsPanelTemplate>
                         </GroupStyle.Panel>
                     </GroupStyle>
@@ -99,7 +102,7 @@
             </Grid.ColumnDefinitions>
 
            
-            <Image Grid.Column="0"  Source="Assets/customers/airfrance_2.png" Height="130"/>
+            <Image Grid.Column="0"  Source="Assets/customers/emirates.png" Height="130"/>
             <Image Grid.Column="2"  Source="Assets/airbus_logo.png" />
         </Grid>
 

@@ -13,15 +13,21 @@ namespace AirbusCatalogue.VariableTemplate
     {
         protected override void PrepareContainerForItemOverride(Windows.UI.Xaml.DependencyObject element, object item)
         {
-            if (item.GetType() == typeof(HubPageDataItem))
+            try
             {
-                var viewModel = item as HubPageDataItem;
-                element.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, viewModel.ColSpan);
-                element.SetValue(VariableSizedWrapGrid.RowSpanProperty, viewModel.RowSpan);
-                base.PrepareContainerForItemOverride(element, item);
-                return;
+                dynamic _Item = item;
+                element.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, _Item.ColSpan);
+                element.SetValue(VariableSizedWrapGrid.RowSpanProperty, _Item.RowSpan);
             }
-            base.PrepareContainerForItemOverride(element, item);
+            catch
+            {
+                element.SetValue(Windows.UI.Xaml.Controls.VariableSizedWrapGrid.ColumnSpanProperty, 1);
+                element.SetValue(Windows.UI.Xaml.Controls.VariableSizedWrapGrid.RowSpanProperty, 1);
+            }
+            finally
+            {
+                base.PrepareContainerForItemOverride(element, item);
+            }
             
         }
     }

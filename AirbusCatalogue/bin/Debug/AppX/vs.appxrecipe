@@ -13,96 +13,120 @@
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\bin\Debug\AppxManifest.xml">
+    <AppXManifest Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-06-18T08:36:11.110</Modified>
+      <Modified>2013-06-18T12:27:46.962</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\bin\Debug\AirbusCatalogue.exe">
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\AirbusCatalogue.exe">
       <PackagePath>AirbusCatalogue.exe</PackagePath>
-      <Modified>2013-06-18T08:36:10.997</Modified>
+      <Modified>2013-06-18T13:54:49.491</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\bin\Debug\AirbusCatalogue.pdb">
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\AirbusCatalogue.pdb">
       <PackagePath>AirbusCatalogue.pdb</PackagePath>
-      <Modified>2013-06-18T08:36:10.987</Modified>
+      <Modified>2013-06-18T13:54:49.482</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\Assets\airbus_logo.png">
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\airbus_logo.png">
       <PackagePath>Assets\airbus_logo.png</PackagePath>
-      <Modified>2013-06-17T12:46:27.410</Modified>
+      <Modified>2013-06-18T08:47:43.671</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\Assets\customers\airfrance_2.png">
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\airfrance_2.png">
       <PackagePath>Assets\customers\airfrance_2.png</PackagePath>
-      <Modified>2013-06-17T12:46:50.604</Modified>
+      <Modified>2013-06-18T08:47:43.462</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\Assets\customers\airfrance_2_start.png">
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\airfrance_2_start.png">
       <PackagePath>Assets\customers\airfrance_2_start.png</PackagePath>
-      <Modified>2013-06-18T08:14:22.111</Modified>
+      <Modified>2013-06-18T08:47:43.457</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\Assets\Logo.png">
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\emirates.png">
+      <PackagePath>Assets\customers\emirates.png</PackagePath>
+      <Modified>2013-06-18T09:41:50.299</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\Logo.png">
       <PackagePath>Assets\Logo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2012-03-15T18:42:52.000</Modified>
+      <Modified>2013-06-18T08:47:43.432</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\Assets\SmallLogo.png">
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\SmallLogo.png">
       <PackagePath>Assets\SmallLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2012-03-15T18:42:52.000</Modified>
+      <Modified>2013-06-18T08:47:43.674</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\Assets\SplashScreen.png">
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\SplashScreen.png">
       <PackagePath>Assets\SplashScreen.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2012-03-15T18:42:52.000</Modified>
+      <Modified>2013-06-18T08:47:43.679</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2012-03-15T18:42:52.000</Modified>
+      <Modified>2013-06-18T08:47:43.424</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\Assets\LightGray.png">
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\LightGray.png">
       <PackagePath>Assets\LightGray.png</PackagePath>
-      <Modified>2011-12-12T20:08:56.000</Modified>
+      <Modified>2013-06-18T08:47:43.676</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\Assets\MediumGray.png">
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\MediumGray.png">
       <PackagePath>Assets\MediumGray.png</PackagePath>
-      <Modified>2011-12-12T20:08:56.000</Modified>
+      <Modified>2013-06-18T08:47:43.663</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\Assets\DarkGray.png">
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\DarkGray.png">
       <PackagePath>Assets\DarkGray.png</PackagePath>
-      <Modified>2011-12-12T20:08:56.000</Modified>
+      <Modified>2013-06-18T08:47:43.667</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\Assets\customers\startSceenAirFrance.jpg">
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\emiratesA380.jpg">
+      <PackagePath>Assets\customers\emiratesA380.jpg</PackagePath>
+      <Modified>2013-06-18T09:40:29.784</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\startSceenAirFrance.jpg">
       <PackagePath>Assets\customers\startSceenAirFrance.jpg</PackagePath>
-      <Modified>2013-06-17T12:46:15.724</Modified>
+      <Modified>2013-06-18T08:47:43.441</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\bin\Debug\App.xaml">
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\upgrades\ambient.jpg">
+      <PackagePath>Assets\upgrades\ambient.jpg</PackagePath>
+      <Modified>2013-06-18T11:40:09.781</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\upgrades\bridgestone.jpg">
+      <PackagePath>Assets\upgrades\bridgestone.jpg</PackagePath>
+      <Modified>2013-06-18T12:26:43.304</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\upgrades\isis.jpg">
+      <PackagePath>Assets\upgrades\isis.jpg</PackagePath>
+      <Modified>2013-06-18T12:26:21.896</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\App.xaml">
       <PackagePath>App.xaml</PackagePath>
-      <Modified>2013-06-18T06:55:22.065</Modified>
+      <Modified>2013-06-18T11:26:55.646</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\bin\Debug\Common\TileStiles.xaml">
-      <PackagePath>Common\TileStiles.xaml</PackagePath>
-      <Modified>2013-06-18T08:36:06.012</Modified>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\CommonResources\StringValues.xaml">
+      <PackagePath>CommonResources\StringValues.xaml</PackagePath>
+      <Modified>2013-06-18T09:28:42.903</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\bin\Debug\Common\StandardStyles.xaml">
-      <PackagePath>Common\StandardStyles.xaml</PackagePath>
-      <Modified>2013-06-18T08:23:34.058</Modified>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\CommonResources\TileStyles.xaml">
+      <PackagePath>CommonResources\TileStyles.xaml</PackagePath>
+      <Modified>2013-06-18T12:43:21.347</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\bin\Debug\GroupedItemsPage.xaml">
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\CommonResources\StandardStyles.xaml">
+      <PackagePath>CommonResources\StandardStyles.xaml</PackagePath>
+      <Modified>2013-06-18T10:59:54.542</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\GroupedItemsPage.xaml">
       <PackagePath>GroupedItemsPage.xaml</PackagePath>
-      <Modified>2013-06-18T06:57:39.121</Modified>
+      <Modified>2013-06-18T13:50:22.908</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\bin\Debug\GroupDetailPage.xaml">
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\GroupDetailPage.xaml">
       <PackagePath>GroupDetailPage.xaml</PackagePath>
-      <Modified>2013-06-17T12:40:18.208</Modified>
+      <Modified>2013-06-18T08:47:45.185</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\bin\Debug\ItemDetailPage.xaml">
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\ItemDetailPage.xaml">
       <PackagePath>ItemDetailPage.xaml</PackagePath>
-      <Modified>2013-06-17T12:40:18.212</Modified>
+      <Modified>2013-06-18T08:47:45.187</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dane.Leube\documents\visual studio 2012\Projects\AirbusCatalogue\AirbusCatalogue\bin\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2013-06-18T08:15:08.111</Modified>
+      <Modified>2013-06-18T12:27:46.859</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

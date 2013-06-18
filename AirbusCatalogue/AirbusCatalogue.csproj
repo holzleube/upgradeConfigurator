@@ -109,6 +109,7 @@
     </Compile>
     <Compile Include="DataModel\HubDataGroup.cs" />
     <Compile Include="DataModel\HubPageDataItem.cs" />
+    <Compile Include="DataModel\NewUpgradeDataItem.cs" />
     <Compile Include="GroupedItemsPage.xaml.cs">
       <DependentUpon>GroupedItemsPage.xaml</DependentUpon>
     </Compile>
@@ -141,6 +142,8 @@
     <Content Include="Assets\airbus_logo.png" />
     <Content Include="Assets\customers\airfrance_2.png" />
     <Content Include="Assets\customers\airfrance_2_start.png" />
+    <Content Include="Assets\customers\emirates.png" />
+    <Content Include="Assets\customers\emiratesA380.jpg" />
     <Content Include="Assets\customers\startSceenAirFrance.jpg" />
     <Content Include="Assets\Logo.png" />
     <Content Include="Assets\SmallLogo.png" />
@@ -149,17 +152,24 @@
     <Content Include="Assets\LightGray.png" />
     <Content Include="Assets\MediumGray.png" />
     <Content Include="Assets\DarkGray.png" />
+    <Content Include="Assets\upgrades\ambient.jpg" />
+    <Content Include="Assets\upgrades\bridgestone.jpg" />
+    <Content Include="Assets\upgrades\isis.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Common\TileStiles.xaml">
+    <Page Include="CommonResources\StringValues.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Common\StandardStyles.xaml">
+    <Page Include="CommonResources\TileStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CommonResources\StandardStyles.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

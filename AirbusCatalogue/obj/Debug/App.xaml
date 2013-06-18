@@ -14,8 +14,9 @@
                     Styles that define common aspects of the platform look and feel
                     Required by Visual Studio project and item templates
                  -->
-                <ResourceDictionary Source="Common/StandardStyles.xaml"/>
-                <ResourceDictionary Source="Common/TileStiles.xaml"/>
+                <ResourceDictionary Source="CommonResources/StandardStyles.xaml"/>
+                <ResourceDictionary Source="CommonResources/TileStyles.xaml"/>
+                <ResourceDictionary Source="CommonResources/StringValues.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <!-- Application-specific resources -->

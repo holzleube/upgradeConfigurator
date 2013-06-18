@@ -116,15 +116,17 @@ namespace AirbusCatalogue.AirbusCatalogue_XamlTypeInfo
 
         private object Activate_1_VariableTiles() { return new global::AirbusCatalogue.VariableTemplate.VariableTiles(); }
 
-        private object Activate_2_VariableTileControl() { return new global::AirbusCatalogue.VariableTemplate.VariableTileControl(); }
+        private object Activate_2_VariableHeader() { return new global::AirbusCatalogue.VariableTemplate.VariableHeader(); }
 
-        private object Activate_3_GroupedItemsPage() { return new global::AirbusCatalogue.GroupedItemsPage(); }
+        private object Activate_3_VariableTileControl() { return new global::AirbusCatalogue.VariableTemplate.VariableTileControl(); }
 
-        private object Activate_4_GroupDetailPage() { return new global::AirbusCatalogue.GroupDetailPage(); }
+        private object Activate_4_GroupedItemsPage() { return new global::AirbusCatalogue.GroupedItemsPage(); }
 
-        private object Activate_5_RichTextColumns() { return new global::AirbusCatalogue.Common.RichTextColumns(); }
+        private object Activate_5_GroupDetailPage() { return new global::AirbusCatalogue.GroupDetailPage(); }
 
-        private object Activate_6_ItemDetailPage() { return new global::AirbusCatalogue.ItemDetailPage(); }
+        private object Activate_6_RichTextColumns() { return new global::AirbusCatalogue.Common.RichTextColumns(); }
+
+        private object Activate_7_ItemDetailPage() { return new global::AirbusCatalogue.ItemDetailPage(); }
 
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(string typeName)
@@ -176,34 +178,44 @@ namespace AirbusCatalogue.AirbusCatalogue_XamlTypeInfo
                 userType = new global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::AirbusCatalogue.VariableTemplate.VariableTiles), GetXamlTypeByName("Windows.UI.Xaml.Controls.DataTemplateSelector"));
                 userType.Activator = Activate_1_VariableTiles;
                 userType.AddMemberName("TopTemplate");
+                userType.AddMemberName("UpgradeTemplate");
+                userType.AddMemberName("UpgradeTemplateSmall");
                 userType.AddMemberName("SmallTemplate");
-                userType.AddMemberName("WorldNewsBigImageTemplate");
+                userType.AddMemberName("UpgradeTemplateMiddle");
                 userType.AddMemberName("LifeTemplate");
                 userType.AddMemberName("MultimediaTemplate");
                 xamlType = userType;
                 break;
 
+            case "AirbusCatalogue.VariableTemplate.VariableHeader":
+                userType = new global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::AirbusCatalogue.VariableTemplate.VariableHeader), GetXamlTypeByName("Windows.UI.Xaml.Controls.DataTemplateSelector"));
+                userType.Activator = Activate_2_VariableHeader;
+                userType.AddMemberName("TopTemplate");
+                userType.AddMemberName("SmallTemplate");
+                xamlType = userType;
+                break;
+
             case "AirbusCatalogue.VariableTemplate.VariableTileControl":
                 userType = new global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::AirbusCatalogue.VariableTemplate.VariableTileControl), GetXamlTypeByName("Windows.UI.Xaml.Controls.GridView"));
-                userType.Activator = Activate_2_VariableTileControl;
+                userType.Activator = Activate_3_VariableTileControl;
                 xamlType = userType;
                 break;
 
             case "AirbusCatalogue.GroupedItemsPage":
                 userType = new global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::AirbusCatalogue.GroupedItemsPage), GetXamlTypeByName("AirbusCatalogue.Common.LayoutAwarePage"));
-                userType.Activator = Activate_3_GroupedItemsPage;
+                userType.Activator = Activate_4_GroupedItemsPage;
                 xamlType = userType;
                 break;
 
             case "AirbusCatalogue.GroupDetailPage":
                 userType = new global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::AirbusCatalogue.GroupDetailPage), GetXamlTypeByName("AirbusCatalogue.Common.LayoutAwarePage"));
-                userType.Activator = Activate_4_GroupDetailPage;
+                userType.Activator = Activate_5_GroupDetailPage;
                 xamlType = userType;
                 break;
 
             case "AirbusCatalogue.Common.RichTextColumns":
                 userType = new global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::AirbusCatalogue.Common.RichTextColumns), GetXamlTypeByName("Windows.UI.Xaml.Controls.Panel"));
-                userType.Activator = Activate_5_RichTextColumns;
+                userType.Activator = Activate_6_RichTextColumns;
                 userType.SetContentPropertyName("AirbusCatalogue.Common.RichTextColumns.RichTextContent");
                 userType.AddMemberName("RichTextContent");
                 userType.AddMemberName("ColumnTemplate");
@@ -212,7 +224,7 @@ namespace AirbusCatalogue.AirbusCatalogue_XamlTypeInfo
 
             case "AirbusCatalogue.ItemDetailPage":
                 userType = new global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::AirbusCatalogue.ItemDetailPage), GetXamlTypeByName("AirbusCatalogue.Common.LayoutAwarePage"));
-                userType.Activator = Activate_6_ItemDetailPage;
+                userType.Activator = Activate_7_ItemDetailPage;
                 xamlType = userType;
                 break;
 
@@ -231,62 +243,102 @@ namespace AirbusCatalogue.AirbusCatalogue_XamlTypeInfo
             var that = (global::AirbusCatalogue.VariableTemplate.VariableTiles)instance;
             that.TopTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
         }
-        private object get_1_VariableTiles_SmallTemplate(object instance)
+        private object get_1_VariableTiles_UpgradeTemplate(object instance)
+        {
+            var that = (global::AirbusCatalogue.VariableTemplate.VariableTiles)instance;
+            return that.UpgradeTemplate;
+        }
+        private void set_1_VariableTiles_UpgradeTemplate(object instance, object Value)
+        {
+            var that = (global::AirbusCatalogue.VariableTemplate.VariableTiles)instance;
+            that.UpgradeTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_2_VariableTiles_UpgradeTemplateSmall(object instance)
+        {
+            var that = (global::AirbusCatalogue.VariableTemplate.VariableTiles)instance;
+            return that.UpgradeTemplateSmall;
+        }
+        private void set_2_VariableTiles_UpgradeTemplateSmall(object instance, object Value)
+        {
+            var that = (global::AirbusCatalogue.VariableTemplate.VariableTiles)instance;
+            that.UpgradeTemplateSmall = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_3_VariableTiles_SmallTemplate(object instance)
         {
             var that = (global::AirbusCatalogue.VariableTemplate.VariableTiles)instance;
             return that.SmallTemplate;
         }
-        private void set_1_VariableTiles_SmallTemplate(object instance, object Value)
+        private void set_3_VariableTiles_SmallTemplate(object instance, object Value)
         {
             var that = (global::AirbusCatalogue.VariableTemplate.VariableTiles)instance;
             that.SmallTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
         }
-        private object get_2_VariableTiles_WorldNewsBigImageTemplate(object instance)
+        private object get_4_VariableTiles_UpgradeTemplateMiddle(object instance)
         {
             var that = (global::AirbusCatalogue.VariableTemplate.VariableTiles)instance;
-            return that.WorldNewsBigImageTemplate;
+            return that.UpgradeTemplateMiddle;
         }
-        private void set_2_VariableTiles_WorldNewsBigImageTemplate(object instance, object Value)
+        private void set_4_VariableTiles_UpgradeTemplateMiddle(object instance, object Value)
         {
             var that = (global::AirbusCatalogue.VariableTemplate.VariableTiles)instance;
-            that.WorldNewsBigImageTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+            that.UpgradeTemplateMiddle = (global::Windows.UI.Xaml.DataTemplate)Value;
         }
-        private object get_3_VariableTiles_LifeTemplate(object instance)
+        private object get_5_VariableTiles_LifeTemplate(object instance)
         {
             var that = (global::AirbusCatalogue.VariableTemplate.VariableTiles)instance;
             return that.LifeTemplate;
         }
-        private void set_3_VariableTiles_LifeTemplate(object instance, object Value)
+        private void set_5_VariableTiles_LifeTemplate(object instance, object Value)
         {
             var that = (global::AirbusCatalogue.VariableTemplate.VariableTiles)instance;
             that.LifeTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
         }
-        private object get_4_VariableTiles_MultimediaTemplate(object instance)
+        private object get_6_VariableTiles_MultimediaTemplate(object instance)
         {
             var that = (global::AirbusCatalogue.VariableTemplate.VariableTiles)instance;
             return that.MultimediaTemplate;
         }
-        private void set_4_VariableTiles_MultimediaTemplate(object instance, object Value)
+        private void set_6_VariableTiles_MultimediaTemplate(object instance, object Value)
         {
             var that = (global::AirbusCatalogue.VariableTemplate.VariableTiles)instance;
             that.MultimediaTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
         }
-        private object get_5_RichTextColumns_RichTextContent(object instance)
+        private object get_7_VariableHeader_TopTemplate(object instance)
+        {
+            var that = (global::AirbusCatalogue.VariableTemplate.VariableHeader)instance;
+            return that.TopTemplate;
+        }
+        private void set_7_VariableHeader_TopTemplate(object instance, object Value)
+        {
+            var that = (global::AirbusCatalogue.VariableTemplate.VariableHeader)instance;
+            that.TopTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_8_VariableHeader_SmallTemplate(object instance)
+        {
+            var that = (global::AirbusCatalogue.VariableTemplate.VariableHeader)instance;
+            return that.SmallTemplate;
+        }
+        private void set_8_VariableHeader_SmallTemplate(object instance, object Value)
+        {
+            var that = (global::AirbusCatalogue.VariableTemplate.VariableHeader)instance;
+            that.SmallTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_9_RichTextColumns_RichTextContent(object instance)
         {
             var that = (global::AirbusCatalogue.Common.RichTextColumns)instance;
             return that.RichTextContent;
         }
-        private void set_5_RichTextColumns_RichTextContent(object instance, object Value)
+        private void set_9_RichTextColumns_RichTextContent(object instance, object Value)
         {
             var that = (global::AirbusCatalogue.Common.RichTextColumns)instance;
             that.RichTextContent = (global::Windows.UI.Xaml.Controls.RichTextBlock)Value;
         }
-        private object get_6_RichTextColumns_ColumnTemplate(object instance)
+        private object get_10_RichTextColumns_ColumnTemplate(object instance)
         {
             var that = (global::AirbusCatalogue.Common.RichTextColumns)instance;
             return that.ColumnTemplate;
         }
-        private void set_6_RichTextColumns_ColumnTemplate(object instance, object Value)
+        private void set_10_RichTextColumns_ColumnTemplate(object instance, object Value)
         {
             var that = (global::AirbusCatalogue.Common.RichTextColumns)instance;
             that.ColumnTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
@@ -305,43 +357,67 @@ namespace AirbusCatalogue.AirbusCatalogue_XamlTypeInfo
                 xamlMember.Getter = get_0_VariableTiles_TopTemplate;
                 xamlMember.Setter = set_0_VariableTiles_TopTemplate;
                 break;
+            case "AirbusCatalogue.VariableTemplate.VariableTiles.UpgradeTemplate":
+                userType = (global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AirbusCatalogue.VariableTemplate.VariableTiles");
+                xamlMember = new global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlMember(this, "UpgradeTemplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.Getter = get_1_VariableTiles_UpgradeTemplate;
+                xamlMember.Setter = set_1_VariableTiles_UpgradeTemplate;
+                break;
+            case "AirbusCatalogue.VariableTemplate.VariableTiles.UpgradeTemplateSmall":
+                userType = (global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AirbusCatalogue.VariableTemplate.VariableTiles");
+                xamlMember = new global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlMember(this, "UpgradeTemplateSmall", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.Getter = get_2_VariableTiles_UpgradeTemplateSmall;
+                xamlMember.Setter = set_2_VariableTiles_UpgradeTemplateSmall;
+                break;
             case "AirbusCatalogue.VariableTemplate.VariableTiles.SmallTemplate":
                 userType = (global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AirbusCatalogue.VariableTemplate.VariableTiles");
                 xamlMember = new global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlMember(this, "SmallTemplate", "Windows.UI.Xaml.DataTemplate");
-                xamlMember.Getter = get_1_VariableTiles_SmallTemplate;
-                xamlMember.Setter = set_1_VariableTiles_SmallTemplate;
+                xamlMember.Getter = get_3_VariableTiles_SmallTemplate;
+                xamlMember.Setter = set_3_VariableTiles_SmallTemplate;
                 break;
-            case "AirbusCatalogue.VariableTemplate.VariableTiles.WorldNewsBigImageTemplate":
+            case "AirbusCatalogue.VariableTemplate.VariableTiles.UpgradeTemplateMiddle":
                 userType = (global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AirbusCatalogue.VariableTemplate.VariableTiles");
-                xamlMember = new global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlMember(this, "WorldNewsBigImageTemplate", "Windows.UI.Xaml.DataTemplate");
-                xamlMember.Getter = get_2_VariableTiles_WorldNewsBigImageTemplate;
-                xamlMember.Setter = set_2_VariableTiles_WorldNewsBigImageTemplate;
+                xamlMember = new global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlMember(this, "UpgradeTemplateMiddle", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.Getter = get_4_VariableTiles_UpgradeTemplateMiddle;
+                xamlMember.Setter = set_4_VariableTiles_UpgradeTemplateMiddle;
                 break;
             case "AirbusCatalogue.VariableTemplate.VariableTiles.LifeTemplate":
                 userType = (global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AirbusCatalogue.VariableTemplate.VariableTiles");
                 xamlMember = new global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlMember(this, "LifeTemplate", "Windows.UI.Xaml.DataTemplate");
-                xamlMember.Getter = get_3_VariableTiles_LifeTemplate;
-                xamlMember.Setter = set_3_VariableTiles_LifeTemplate;
+                xamlMember.Getter = get_5_VariableTiles_LifeTemplate;
+                xamlMember.Setter = set_5_VariableTiles_LifeTemplate;
                 break;
             case "AirbusCatalogue.VariableTemplate.VariableTiles.MultimediaTemplate":
                 userType = (global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AirbusCatalogue.VariableTemplate.VariableTiles");
                 xamlMember = new global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlMember(this, "MultimediaTemplate", "Windows.UI.Xaml.DataTemplate");
-                xamlMember.Getter = get_4_VariableTiles_MultimediaTemplate;
-                xamlMember.Setter = set_4_VariableTiles_MultimediaTemplate;
+                xamlMember.Getter = get_6_VariableTiles_MultimediaTemplate;
+                xamlMember.Setter = set_6_VariableTiles_MultimediaTemplate;
+                break;
+            case "AirbusCatalogue.VariableTemplate.VariableHeader.TopTemplate":
+                userType = (global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AirbusCatalogue.VariableTemplate.VariableHeader");
+                xamlMember = new global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlMember(this, "TopTemplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.Getter = get_7_VariableHeader_TopTemplate;
+                xamlMember.Setter = set_7_VariableHeader_TopTemplate;
+                break;
+            case "AirbusCatalogue.VariableTemplate.VariableHeader.SmallTemplate":
+                userType = (global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AirbusCatalogue.VariableTemplate.VariableHeader");
+                xamlMember = new global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlMember(this, "SmallTemplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.Getter = get_8_VariableHeader_SmallTemplate;
+                xamlMember.Setter = set_8_VariableHeader_SmallTemplate;
                 break;
             case "AirbusCatalogue.Common.RichTextColumns.RichTextContent":
                 userType = (global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AirbusCatalogue.Common.RichTextColumns");
                 xamlMember = new global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlMember(this, "RichTextContent", "Windows.UI.Xaml.Controls.RichTextBlock");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_5_RichTextColumns_RichTextContent;
-                xamlMember.Setter = set_5_RichTextColumns_RichTextContent;
+                xamlMember.Getter = get_9_RichTextColumns_RichTextContent;
+                xamlMember.Setter = set_9_RichTextColumns_RichTextContent;
                 break;
             case "AirbusCatalogue.Common.RichTextColumns.ColumnTemplate":
                 userType = (global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AirbusCatalogue.Common.RichTextColumns");
                 xamlMember = new global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlMember(this, "ColumnTemplate", "Windows.UI.Xaml.DataTemplate");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_6_RichTextColumns_ColumnTemplate;
-                xamlMember.Setter = set_6_RichTextColumns_ColumnTemplate;
+                xamlMember.Getter = get_10_RichTextColumns_ColumnTemplate;
+                xamlMember.Setter = set_10_RichTextColumns_ColumnTemplate;
                 break;
             }
             return xamlMember;

@@ -30,7 +30,7 @@ namespace AirbusCatalogue.VariableTemplate
                 //if ((item as CategoryDataItem).UniqueId.StartsWith("Small"))
                 //    return SmallTemplate;
                 //if ((item as CategoryDataItem).UniqueId.StartsWith("World"))
-                //    return WorldNewsBigImageTemplate;
+                //    return UpgradeTemplate;
                 //if ((item as CategoryDataItem).UniqueId.StartsWith("life"))
                 //    return LifeTemplate;
                 //if ((item as CategoryDataItem).UniqueId.StartsWith("Multimedia"))
