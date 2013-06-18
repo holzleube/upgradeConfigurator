@@ -56,6 +56,21 @@
     <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\DarkGray.png">
       <PackagePath>Assets\DarkGray.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\aircrafts\a318.jpg">
+      <PackagePath>Assets\aircrafts\a318.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\aircrafts\a319.jpg">
+      <PackagePath>Assets\aircrafts\a319.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\aircrafts\a320_long.jpg">
+      <PackagePath>Assets\aircrafts\a320_long.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\aircrafts\a330_2.jpg">
+      <PackagePath>Assets\aircrafts\a330_2.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\aircrafts\a380_sky.JPG">
+      <PackagePath>Assets\aircrafts\a380_sky.JPG</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\emiratesA380.jpg">
       <PackagePath>Assets\customers\emiratesA380.jpg</PackagePath>
     </AppxPackagedFile>

@@ -179,10 +179,10 @@ namespace AirbusCatalogue.AirbusCatalogue_XamlTypeInfo
                 userType.Activator = Activate_1_VariableTiles;
                 userType.AddMemberName("TopTemplate");
                 userType.AddMemberName("UpgradeTemplate");
+                userType.AddMemberName("ConfigurationTemplate");
                 userType.AddMemberName("UpgradeTemplateSmall");
                 userType.AddMemberName("SmallTemplate");
                 userType.AddMemberName("UpgradeTemplateMiddle");
-                userType.AddMemberName("LifeTemplate");
                 userType.AddMemberName("MultimediaTemplate");
                 xamlType = userType;
                 break;
@@ -253,45 +253,45 @@ namespace AirbusCatalogue.AirbusCatalogue_XamlTypeInfo
             var that = (global::AirbusCatalogue.VariableTemplate.VariableTiles)instance;
             that.UpgradeTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
         }
-        private object get_2_VariableTiles_UpgradeTemplateSmall(object instance)
+        private object get_2_VariableTiles_ConfigurationTemplate(object instance)
+        {
+            var that = (global::AirbusCatalogue.VariableTemplate.VariableTiles)instance;
+            return that.ConfigurationTemplate;
+        }
+        private void set_2_VariableTiles_ConfigurationTemplate(object instance, object Value)
+        {
+            var that = (global::AirbusCatalogue.VariableTemplate.VariableTiles)instance;
+            that.ConfigurationTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_3_VariableTiles_UpgradeTemplateSmall(object instance)
         {
             var that = (global::AirbusCatalogue.VariableTemplate.VariableTiles)instance;
             return that.UpgradeTemplateSmall;
         }
-        private void set_2_VariableTiles_UpgradeTemplateSmall(object instance, object Value)
+        private void set_3_VariableTiles_UpgradeTemplateSmall(object instance, object Value)
         {
             var that = (global::AirbusCatalogue.VariableTemplate.VariableTiles)instance;
             that.UpgradeTemplateSmall = (global::Windows.UI.Xaml.DataTemplate)Value;
         }
-        private object get_3_VariableTiles_SmallTemplate(object instance)
+        private object get_4_VariableTiles_SmallTemplate(object instance)
         {
             var that = (global::AirbusCatalogue.VariableTemplate.VariableTiles)instance;
             return that.SmallTemplate;
         }
-        private void set_3_VariableTiles_SmallTemplate(object instance, object Value)
+        private void set_4_VariableTiles_SmallTemplate(object instance, object Value)
         {
             var that = (global::AirbusCatalogue.VariableTemplate.VariableTiles)instance;
             that.SmallTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
         }
-        private object get_4_VariableTiles_UpgradeTemplateMiddle(object instance)
+        private object get_5_VariableTiles_UpgradeTemplateMiddle(object instance)
         {
             var that = (global::AirbusCatalogue.VariableTemplate.VariableTiles)instance;
             return that.UpgradeTemplateMiddle;
         }
-        private void set_4_VariableTiles_UpgradeTemplateMiddle(object instance, object Value)
+        private void set_5_VariableTiles_UpgradeTemplateMiddle(object instance, object Value)
         {
             var that = (global::AirbusCatalogue.VariableTemplate.VariableTiles)instance;
             that.UpgradeTemplateMiddle = (global::Windows.UI.Xaml.DataTemplate)Value;
-        }
-        private object get_5_VariableTiles_LifeTemplate(object instance)
-        {
-            var that = (global::AirbusCatalogue.VariableTemplate.VariableTiles)instance;
-            return that.LifeTemplate;
-        }
-        private void set_5_VariableTiles_LifeTemplate(object instance, object Value)
-        {
-            var that = (global::AirbusCatalogue.VariableTemplate.VariableTiles)instance;
-            that.LifeTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
         }
         private object get_6_VariableTiles_MultimediaTemplate(object instance)
         {
@@ -363,29 +363,29 @@ namespace AirbusCatalogue.AirbusCatalogue_XamlTypeInfo
                 xamlMember.Getter = get_1_VariableTiles_UpgradeTemplate;
                 xamlMember.Setter = set_1_VariableTiles_UpgradeTemplate;
                 break;
+            case "AirbusCatalogue.VariableTemplate.VariableTiles.ConfigurationTemplate":
+                userType = (global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AirbusCatalogue.VariableTemplate.VariableTiles");
+                xamlMember = new global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlMember(this, "ConfigurationTemplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.Getter = get_2_VariableTiles_ConfigurationTemplate;
+                xamlMember.Setter = set_2_VariableTiles_ConfigurationTemplate;
+                break;
             case "AirbusCatalogue.VariableTemplate.VariableTiles.UpgradeTemplateSmall":
                 userType = (global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AirbusCatalogue.VariableTemplate.VariableTiles");
                 xamlMember = new global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlMember(this, "UpgradeTemplateSmall", "Windows.UI.Xaml.DataTemplate");
-                xamlMember.Getter = get_2_VariableTiles_UpgradeTemplateSmall;
-                xamlMember.Setter = set_2_VariableTiles_UpgradeTemplateSmall;
+                xamlMember.Getter = get_3_VariableTiles_UpgradeTemplateSmall;
+                xamlMember.Setter = set_3_VariableTiles_UpgradeTemplateSmall;
                 break;
             case "AirbusCatalogue.VariableTemplate.VariableTiles.SmallTemplate":
                 userType = (global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AirbusCatalogue.VariableTemplate.VariableTiles");
                 xamlMember = new global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlMember(this, "SmallTemplate", "Windows.UI.Xaml.DataTemplate");
-                xamlMember.Getter = get_3_VariableTiles_SmallTemplate;
-                xamlMember.Setter = set_3_VariableTiles_SmallTemplate;
+                xamlMember.Getter = get_4_VariableTiles_SmallTemplate;
+                xamlMember.Setter = set_4_VariableTiles_SmallTemplate;
                 break;
             case "AirbusCatalogue.VariableTemplate.VariableTiles.UpgradeTemplateMiddle":
                 userType = (global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AirbusCatalogue.VariableTemplate.VariableTiles");
                 xamlMember = new global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlMember(this, "UpgradeTemplateMiddle", "Windows.UI.Xaml.DataTemplate");
-                xamlMember.Getter = get_4_VariableTiles_UpgradeTemplateMiddle;
-                xamlMember.Setter = set_4_VariableTiles_UpgradeTemplateMiddle;
-                break;
-            case "AirbusCatalogue.VariableTemplate.VariableTiles.LifeTemplate":
-                userType = (global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AirbusCatalogue.VariableTemplate.VariableTiles");
-                xamlMember = new global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlMember(this, "LifeTemplate", "Windows.UI.Xaml.DataTemplate");
-                xamlMember.Getter = get_5_VariableTiles_LifeTemplate;
-                xamlMember.Setter = set_5_VariableTiles_LifeTemplate;
+                xamlMember.Getter = get_5_VariableTiles_UpgradeTemplateMiddle;
+                xamlMember.Setter = set_5_VariableTiles_UpgradeTemplateMiddle;
                 break;
             case "AirbusCatalogue.VariableTemplate.VariableTiles.MultimediaTemplate":
                 userType = (global::AirbusCatalogue.AirbusCatalogue_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AirbusCatalogue.VariableTemplate.VariableTiles");

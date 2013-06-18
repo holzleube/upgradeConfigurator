@@ -101,12 +101,12 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <Folder Include="Assets\aircrafts\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataModel\ConfigurationDataItem.cs" />
     <Compile Include="DataModel\HubDataGroup.cs" />
     <Compile Include="DataModel\HubPageDataItem.cs" />
     <Compile Include="DataModel\NewUpgradeDataItem.cs" />
@@ -140,6 +140,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\airbus_logo.png" />
+    <Content Include="Assets\aircrafts\a318.jpg" />
+    <Content Include="Assets\aircrafts\a319.jpg" />
+    <Content Include="Assets\aircrafts\a320_long.jpg" />
+    <Content Include="Assets\aircrafts\a330_2.jpg" />
+    <Content Include="Assets\aircrafts\a380_sky.JPG" />
     <Content Include="Assets\customers\airfrance_2.png" />
     <Content Include="Assets\customers\airfrance_2_start.png" />
     <Content Include="Assets\customers\emirates.png" />

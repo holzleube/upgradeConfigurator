@@ -32,7 +32,7 @@ namespace AirbusCatalogue.VariableTemplate
                 //if ((item as CategoryDataItem).UniqueId.StartsWith("World"))
                 //    return UpgradeTemplate;
                 //if ((item as CategoryDataItem).UniqueId.StartsWith("life"))
-                //    return LifeTemplate;
+                //    return ConfigurationTemplate;
                 //if ((item as CategoryDataItem).UniqueId.StartsWith("Multimedia"))
                 //    return MultimediaTemplate;
 

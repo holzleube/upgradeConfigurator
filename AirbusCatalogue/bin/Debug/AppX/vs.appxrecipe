@@ -16,17 +16,17 @@
     <AppXManifest Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-06-18T12:27:46.962</Modified>
+      <Modified>2013-06-18T15:25:06.667</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\AirbusCatalogue.exe">
       <PackagePath>AirbusCatalogue.exe</PackagePath>
-      <Modified>2013-06-18T13:54:49.491</Modified>
+      <Modified>2013-06-18T15:25:06.547</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\AirbusCatalogue.pdb">
       <PackagePath>AirbusCatalogue.pdb</PackagePath>
-      <Modified>2013-06-18T13:54:49.482</Modified>
+      <Modified>2013-06-18T15:25:06.537</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\airbus_logo.png">
       <PackagePath>Assets\airbus_logo.png</PackagePath>
@@ -76,6 +76,26 @@
       <PackagePath>Assets\DarkGray.png</PackagePath>
       <Modified>2013-06-18T08:47:43.667</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\aircrafts\a318.jpg">
+      <PackagePath>Assets\aircrafts\a318.jpg</PackagePath>
+      <Modified>2013-06-18T14:23:49.605</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\aircrafts\a319.jpg">
+      <PackagePath>Assets\aircrafts\a319.jpg</PackagePath>
+      <Modified>2013-06-18T14:23:49.609</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\aircrafts\a320_long.jpg">
+      <PackagePath>Assets\aircrafts\a320_long.jpg</PackagePath>
+      <Modified>2013-06-18T14:23:49.611</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\aircrafts\a330_2.jpg">
+      <PackagePath>Assets\aircrafts\a330_2.jpg</PackagePath>
+      <Modified>2013-06-18T14:23:49.612</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\aircrafts\a380_sky.JPG">
+      <PackagePath>Assets\aircrafts\a380_sky.JPG</PackagePath>
+      <Modified>2013-06-18T14:27:31.033</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\emiratesA380.jpg">
       <PackagePath>Assets\customers\emiratesA380.jpg</PackagePath>
       <Modified>2013-06-18T09:40:29.784</Modified>
@@ -106,15 +126,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\CommonResources\TileStyles.xaml">
       <PackagePath>CommonResources\TileStyles.xaml</PackagePath>
-      <Modified>2013-06-18T12:43:21.347</Modified>
+      <Modified>2013-06-18T15:21:58.269</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\CommonResources\StandardStyles.xaml">
       <PackagePath>CommonResources\StandardStyles.xaml</PackagePath>
-      <Modified>2013-06-18T10:59:54.542</Modified>
+      <Modified>2013-06-18T15:20:39.027</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\GroupedItemsPage.xaml">
       <PackagePath>GroupedItemsPage.xaml</PackagePath>
-      <Modified>2013-06-18T13:50:22.908</Modified>
+      <Modified>2013-06-18T14:56:32.047</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\GroupDetailPage.xaml">
       <PackagePath>GroupDetailPage.xaml</PackagePath>
@@ -126,7 +146,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2013-06-18T12:27:46.859</Modified>
+      <Modified>2013-06-18T14:27:41.533</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

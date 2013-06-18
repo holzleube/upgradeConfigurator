@@ -18,11 +18,12 @@ namespace AirbusCatalogue.VariableTemplate
                 dynamic _Item = item;
                 element.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, _Item.ColSpan);
                 element.SetValue(VariableSizedWrapGrid.RowSpanProperty, _Item.RowSpan);
+                base.PrepareContainerForItemOverride(element, item);
             }
             catch
             {
-                element.SetValue(Windows.UI.Xaml.Controls.VariableSizedWrapGrid.ColumnSpanProperty, 1);
-                element.SetValue(Windows.UI.Xaml.Controls.VariableSizedWrapGrid.RowSpanProperty, 1);
+                element.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 1);
+                element.SetValue(VariableSizedWrapGrid.RowSpanProperty, 1);
             }
             finally
             {

@@ -16,7 +16,7 @@ namespace AirbusCatalogue.VariableTemplate
         public DataTemplate UpgradeTemplate { get; set; }
         public DataTemplate UpgradeTemplateMiddle { get; set; }
         public DataTemplate UpgradeTemplateSmall { get; set; }
-        public DataTemplate LifeTemplate { get; set; }
+        public DataTemplate ConfigurationTemplate { get; set; }
         public DataTemplate MultimediaTemplate { get; set; }
         protected override DataTemplate SelectTemplateCore(object item, DependencyObject container)
         {
@@ -41,6 +41,10 @@ namespace AirbusCatalogue.VariableTemplate
                             return UpgradeTemplateSmall;
                     }
                 }
+                if (item.GetType() == typeof(ConfigurationDataItem))
+                {
+                    return ConfigurationTemplate;
+                }
                 return SmallTemplate;
 
                 //if ((item as CategoryDataItem).UniqueId.StartsWith("Top"))
@@ -50,7 +54,7 @@ namespace AirbusCatalogue.VariableTemplate
                 //if ((item as CategoryDataItem).UniqueId.StartsWith("World"))
                 //    return UpgradeTemplate;
                 //if ((item as CategoryDataItem).UniqueId.StartsWith("life"))
-                //    return LifeTemplate;
+                //    return ConfigurationTemplate;
                 //if ((item as CategoryDataItem).UniqueId.StartsWith("Multimedia"))
                 //    return MultimediaTemplate;
 

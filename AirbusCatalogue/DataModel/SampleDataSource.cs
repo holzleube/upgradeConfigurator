@@ -275,14 +275,14 @@ namespace AirbusCatalogue.Data
                     "Group Subtitle: 1",
                     "Assets/DarkGray.png",
                     "Group Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tempor scelerisque lorem in vehicula. Aliquam tincidunt, lacus ut sagittis tristique, turpis massa volutpat augue, eu rutrum ligula ante a ante");
-            var itemTest = new HubPageDataItem("Group-1",
+            var startScreenImage = new HubPageDataItem("Group-1",
                    "Group Title: big image",
                    
                    "Assets/customers/emiratesA380.jpg",
                    "Group Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tempor scelerisque lorem in vehicula. Aliquam tincidunt, lacus ut sagittis tristique, turpis massa volutpat augue, eu rutrum ligula ante a ante",
                    ITEM_CONTENT
                    , group1);
-            group1.Items.Add(itemTest);
+            group1.Items.Add(startScreenImage);
             
            
             
@@ -298,75 +298,77 @@ namespace AirbusCatalogue.Data
                     "Assets/upgrades/ambient.jpg",
                     "Item Description: Pellentesque porta, mauris quis interdum vehicula, urna sapien ultrices velit, nec venenatis dui odio in augue. Cras posuere, enim a cursus convallis, neque turpis malesuada erat, ut adipiscing neque tortor ac erat.",
                     ITEM_CONTENT,
-                    group2, Size.Big, 40, 40));
+                    group2, Size.Big, 50, 35));
             group2.Items.Add(new NewUpgradeDataItem("Group-2-Item-2",
                     "Isis Display",
                     "Assets/upgrades/isis.jpg",
                     "Item Description: Pellentesque porta, mauris quis interdum vehicula, urna sapien ultrices velit, nec venenatis dui odio in augue. Cras posuere, enim a cursus convallis, neque turpis malesuada erat, ut adipiscing neque tortor ac erat.",
                     ITEM_CONTENT,
-                    group2, Size.Small, 20,20));
+                    group2, Size.Small, 25, 20));
+            group2.Items.Add(new NewUpgradeDataItem("Group-2-Item-2",
+                   "Isis Display",
+                   "Assets/upgrades/isis.jpg",
+                   "Item Description: Pellentesque porta, mauris quis interdum vehicula, urna sapien ultrices velit, nec venenatis dui odio in augue. Cras posuere, enim a cursus convallis, neque turpis malesuada erat, ut adipiscing neque tortor ac erat.",
+                   ITEM_CONTENT,
+                   group2, Size.Small, 25, 20));
+            group2.Items.Add(new NewUpgradeDataItem("Group-2-Item-2",
+                   "Isis Display",
+                   "Assets/upgrades/isis.jpg",
+                   "Item Description: Pellentesque porta, mauris quis interdum vehicula, urna sapien ultrices velit, nec venenatis dui odio in augue. Cras posuere, enim a cursus convallis, neque turpis malesuada erat, ut adipiscing neque tortor ac erat.",
+                   ITEM_CONTENT,
+                   group2, Size.Small, 24, 20));
             group2.Items.Add(new NewUpgradeDataItem("Group-2-Item-3",
                     "bridgestone tyres",
                     "Assets/upgrades/bridgestone.jpg",
                     "Item Description: Pellentesque porta, mauris quis interdum vehicula, urna sapien ultrices velit, nec venenatis dui odio in augue. Cras posuere, enim a cursus convallis, neque turpis malesuada erat, ut adipiscing neque tortor ac erat.",
                     ITEM_CONTENT,
-                    group2, Size.Small, 20,20));
+                    group2, Size.Small, 24, 20));
             this.AllGroups.Add(group2);
 
             var group3 = new SampleDataGroup("Group-3",
-                    "Group Title: 3",
+                    "last upgrades",
                     "Group Subtitle: 3",
                     "Assets/MediumGray.png",
                     "Group Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tempor scelerisque lorem in vehicula. Aliquam tincidunt, lacus ut sagittis tristique, turpis massa volutpat augue, eu rutrum ligula ante a ante");
-            group3.Items.Add(new BasicDataItem("Group-3-Item-1",
-                    "Item Title: 1",
-                    "Assets/MediumGray.png",
+            group3.Items.Add(new ConfigurationDataItem("Group-3-Item-1",
+                    "16.03.2013",
+                    "Assets/aircrafts/a318.jpg",
                     "Item Description: Pellentesque porta, mauris quis interdum vehicula, urna sapien ultrices velit, nec venenatis dui odio in augue. Cras posuere, enim a cursus convallis, neque turpis malesuada erat, ut adipiscing neque tortor ac erat.",
                     ITEM_CONTENT,
-                    group3, 20, 50));
-            group3.Items.Add(new BasicDataItem("Group-3-Item-2",
-                    "Item Title: 2",
-                    
-                    "Assets/LightGray.png",
+                    group3));
+            group3.Items.Add(new ConfigurationDataItem("Group-3-Item-2",
+                    "16.01.2013",
+                    "Assets/aircrafts/a318.jpg",
                     "Item Description: Pellentesque porta, mauris quis interdum vehicula, urna sapien ultrices velit, nec venenatis dui odio in augue. Cras posuere, enim a cursus convallis, neque turpis malesuada erat, ut adipiscing neque tortor ac erat.",
                     ITEM_CONTENT,
-                    group3, 20, 50));
-            group3.Items.Add(new BasicDataItem("Group-3-Item-3",
-                    "Item Title: 3",
-                    
-                    "Assets/DarkGray.png",
+                    group3));
+            group3.Items.Add(new ConfigurationDataItem("Group-3-Item-3",
+                    "25.10.2012",
+                    "Assets/aircrafts/a319.jpg",
+                    "Items:       2       Aircrafts:      6",
+                    ITEM_CONTENT,
+                    group3));
+            group3.Items.Add(new ConfigurationDataItem("Group-3-Item-4",
+                    "20.05.2012",
+                   "Assets/aircrafts/a320_long.jpg",
                     "Item Description: Pellentesque porta, mauris quis interdum vehicula, urna sapien ultrices velit, nec venenatis dui odio in augue. Cras posuere, enim a cursus convallis, neque turpis malesuada erat, ut adipiscing neque tortor ac erat.",
                     ITEM_CONTENT,
-                    group3, 20, 50));
-            group3.Items.Add(new BasicDataItem("Group-3-Item-4",
-                    "Item Title: 4",
-                   
-                    "Assets/LightGray.png",
+                    group3));
+            group3.Items.Add(new ConfigurationDataItem("Group-3-Item-5",
+                    "04.03.2011",
+                    "Assets/aircrafts/a330_2.jpg",
                     "Item Description: Pellentesque porta, mauris quis interdum vehicula, urna sapien ultrices velit, nec venenatis dui odio in augue. Cras posuere, enim a cursus convallis, neque turpis malesuada erat, ut adipiscing neque tortor ac erat.",
                     ITEM_CONTENT,
-                    group3, 20, 50));
-            group3.Items.Add(new BasicDataItem("Group-3-Item-5",
-                    "Item Title: 5",
-                    
-                    "Assets/MediumGray.png",
+                    group3));
+            group3.Items.Add(new ConfigurationDataItem("Group-3-Item-6",
+                    "28.02.2011",
+                    "Assets/aircrafts/a380_sky.jpg",
                     "Item Description: Pellentesque porta, mauris quis interdum vehicula, urna sapien ultrices velit, nec venenatis dui odio in augue. Cras posuere, enim a cursus convallis, neque turpis malesuada erat, ut adipiscing neque tortor ac erat.",
                     ITEM_CONTENT,
-                    group3, 20, 50));
-            group3.Items.Add(new BasicDataItem("Group-3-Item-6",
-                    "Item Title: 6",
-                    
-                    "Assets/DarkGray.png",
-                    "Item Description: Pellentesque porta, mauris quis interdum vehicula, urna sapien ultrices velit, nec venenatis dui odio in augue. Cras posuere, enim a cursus convallis, neque turpis malesuada erat, ut adipiscing neque tortor ac erat.",
-                    ITEM_CONTENT,
-                    group3, 20, 50));
-            group3.Items.Add(new BasicDataItem("Group-3-Item-7",
-                    "Item Title: 7",
-                   
-                    "Assets/MediumGray.png",
-                    "Item Description: Pellentesque porta, mauris quis interdum vehicula, urna sapien ultrices velit, nec venenatis dui odio in augue. Cras posuere, enim a cursus convallis, neque turpis malesuada erat, ut adipiscing neque tortor ac erat.",
-                    ITEM_CONTENT,
-                    group3, 20, 50));
+                    group3));
+
             this.AllGroups.Add(group3);
+
 
             
         }

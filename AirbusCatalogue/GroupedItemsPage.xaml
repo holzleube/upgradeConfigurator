@@ -28,11 +28,11 @@
         <variableTemplate:VariableTiles x:Key="tileTemplates" 
                                         TopTemplate="{StaticResource BigTemplate}"
                                         UpgradeTemplate="{StaticResource UpgradeItemTemplateBig}"
+                                        ConfigurationTemplate="{StaticResource ConfigurationTemplate}"
                                         UpgradeTemplateSmall="{StaticResource UpgradeItemTemplateSmall}"
                                         SmallTemplate="{StaticResource Standard500x130ItemTemplate}"/>
         <variableTemplate:VariableHeader x:Key="headerSelector"
                                          TopTemplate="{StaticResource NoGroupHeader}"
-                                       
                                          SmallTemplate="{StaticResource SimpleGroupHeader}"/>
     </Page.Resources>
 
@@ -81,7 +81,7 @@
                        
                         <GroupStyle.Panel>
                             <ItemsPanelTemplate>
-                            <VariableSizedWrapGrid ItemHeight="10" ItemWidth="10" Orientation="Vertical" Margin="0,0,80,0"/>
+                            <VariableSizedWrapGrid ItemHeight="10" ItemWidth="10" Orientation="Vertical" Margin="0,0,140,0"/>
                             </ItemsPanelTemplate>
                         </GroupStyle.Panel>
                     </GroupStyle>

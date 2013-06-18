@@ -4,5 +4,6 @@
     <RemoteDebugMachine>172.24.22.92</RemoteDebugMachine>
     <UseAuthentication>True</UseAuthentication>
     <RemoteDebugEnabled>false</RemoteDebugEnabled>
+    <UseSimulator>True</UseSimulator>
   </PropertyGroup>
 </Project>
