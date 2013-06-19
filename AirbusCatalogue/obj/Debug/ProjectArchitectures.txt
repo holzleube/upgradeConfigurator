@@ -1,3 +1,0 @@
-C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue.Model\AirbusCatalogue.Model.csproj;neutral
-C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue.ViewModel\AirbusCatalogue.ViewModel.csproj;neutral
-C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\AirbusCatalogue.csproj;neutral
