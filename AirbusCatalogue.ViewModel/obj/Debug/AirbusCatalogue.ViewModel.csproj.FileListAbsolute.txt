@@ -1,0 +1,14 @@
+C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue.ViewModel\bin\Debug\AirbusCatalogue.ViewModel.dll
+C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue.ViewModel\bin\Debug\AirbusCatalogue.ViewModel.pdb
+C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue.ViewModel\bin\Debug\AirbusCatalogue.ViewModel.pri
+C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue.ViewModel\bin\Debug\AirbusCatalogue.Model.dll
+C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue.ViewModel\bin\Debug\AirbusCatalogue.Model.pdb
+C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue.ViewModel\bin\Debug\AirbusCatalogue.Model.pri
+C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue.ViewModel\obj\Debug\AirbusCatalogue.ViewModel.csprojResolveAssemblyReference.cache
+C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue.ViewModel\obj\Debug\AirbusCatalogue.ViewModel.dll
+C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue.ViewModel\obj\Debug\AirbusCatalogue.ViewModel.pdb
+C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue.ViewModel\obj\Debug\priconfig.xml
+C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue.ViewModel\obj\Debug\layout.resfiles
+C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue.ViewModel\obj\Debug\resources.resfiles
+C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue.ViewModel\obj\Debug\pri.resfiles
+C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue.ViewModel\obj\Debug\LanguageQualifiers.txt

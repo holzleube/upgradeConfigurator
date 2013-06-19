@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AirbusCatalogue.Data;
+using AirbusCatalogue.ViewModel.ViewDataElements;
 
 namespace AirbusCatalogue.DataModel
 {

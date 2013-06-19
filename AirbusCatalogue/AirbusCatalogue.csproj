@@ -101,17 +101,24 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <ProjectReference Include="..\AirbusCatalogue.ViewModel\AirbusCatalogue.ViewModel.csproj">
+      <Project>{0f5e281f-c8ea-4d2c-9164-094183b94b1f}</Project>
+      <Name>AirbusCatalogue.ViewModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Customer\SelectCustomerPage.xaml.cs">
+      <DependentUpon>SelectCustomerPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DataModel\ConfigurationDataItem.cs" />
     <Compile Include="DataModel\HubDataGroup.cs" />
     <Compile Include="DataModel\HubPageDataItem.cs" />
     <Compile Include="DataModel\NewUpgradeDataItem.cs" />
-    <Compile Include="GroupedItemsPage.xaml.cs">
-      <DependentUpon>GroupedItemsPage.xaml</DependentUpon>
+    <Compile Include="StartScreenPage.xaml.cs">
+      <DependentUpon>StartScreenPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="GroupDetailPage.xaml.cs">
       <DependentUpon>GroupDetailPage.xaml</DependentUpon>
@@ -127,6 +134,7 @@
     <Compile Include="Common\LayoutAwarePage.cs" />
     <Compile Include="Common\RichTextColumns.cs" />
     <Compile Include="Common\SuspensionManager.cs" />
+    <Compile Include="VariableTemplate\CustomerTemplateSelector.cs" />
     <Compile Include="VariableTemplate\VariableHeader.cs" />
     <Compile Include="VariableTemplate\VariableTileControl.cs" />
     <Compile Include="VariableTemplate\VariableTiles.cs" />
@@ -145,10 +153,31 @@
     <Content Include="Assets\aircrafts\a320_long.jpg" />
     <Content Include="Assets\aircrafts\a330_2.jpg" />
     <Content Include="Assets\aircrafts\a380_sky.JPG" />
+    <Content Include="Assets\customers\airBerlin.jpg" />
+    <Content Include="Assets\customers\airCanada.gif" />
+    <Content Include="Assets\customers\airChina.png" />
     <Content Include="Assets\customers\airfrance_2.png" />
     <Content Include="Assets\customers\airfrance_2_start.png" />
+    <Content Include="Assets\customers\airIndia.png" />
+    <Content Include="Assets\customers\airJamaica.png" />
+    <Content Include="Assets\customers\airMadrid.jpg" />
+    <Content Include="Assets\customers\americanAirlines.jpg" />
+    <Content Include="Assets\customers\austrianAirline.jpg" />
+    <Content Include="Assets\customers\bangkokAirways.jpg" />
+    <Content Include="Assets\customers\britishAirways.jpg" />
+    <Content Include="Assets\customers\bulgariaAir.gif" />
+    <Content Include="Assets\customers\chinaEastern.jpg" />
+    <Content Include="Assets\customers\condor.png" />
+    <Content Include="Assets\customers\continentalAirlines.jpg" />
+    <Content Include="Assets\customers\danubeWings.jpg" />
+    <Content Include="Assets\customers\deltaAirlines.jpg" />
+    <Content Include="Assets\customers\dragonAir.png" />
+    <Content Include="Assets\customers\drukair.png" />
+    <Content Include="Assets\customers\easyjet.png" />
+    <Content Include="Assets\customers\egyptAir2.jpg" />
     <Content Include="Assets\customers\emirates.png" />
     <Content Include="Assets\customers\emiratesA380.jpg" />
+    <Content Include="Assets\customers\etihadAirways.png" />
     <Content Include="Assets\customers\startSceenAirFrance.jpg" />
     <Content Include="Assets\Logo.png" />
     <Content Include="Assets\SmallLogo.png" />
@@ -178,7 +207,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="GroupedItemsPage.xaml">
+    <Page Include="Customer\SelectCustomerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StartScreenPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

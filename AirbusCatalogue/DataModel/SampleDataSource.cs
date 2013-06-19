@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using AirbusCatalogue.DataModel;
+using AirbusCatalogue.ViewModel.ViewDataElements;
 using Windows.ApplicationModel.Resources.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -23,208 +24,9 @@ using Size = AirbusCatalogue.DataModel.Size;
 
 namespace AirbusCatalogue.Data
 {
-    /// <summary>
-    /// Base class for <see cref="BasicDataItem"/> and <see cref="SampleDataGroup"/> that
-    /// defines properties common to both.
-    /// </summary>
-    [Windows.Foundation.Metadata.WebHostHidden]
-    public abstract class SampleDataCommon : AirbusCatalogue.Common.BindableBase
-    {
-        private static Uri _baseUri = new Uri("ms-appx:///");
+    
 
-        public SampleDataCommon(String uniqueId, String title,  String imagePath, String description)
-        {
-            this._uniqueId = uniqueId;
-            this._title = title;
-            this._description = description;
-            this._imagePath = imagePath;
-        }
-
-        private string _uniqueId = string.Empty;
-        public string UniqueId
-        {
-            get { return this._uniqueId; }
-            set { this.SetProperty(ref this._uniqueId, value); }
-        }
-
-        private string _title = string.Empty;
-        public string Title
-        {
-            get { return this._title; }
-            set { this.SetProperty(ref this._title, value); }
-        }
-
-        private string _description = string.Empty;
-        public string Description
-        {
-            get { return this._description; }
-            set { this.SetProperty(ref this._description, value); }
-        }
-
-        private ImageSource _image = null;
-        private String _imagePath = null;
-        public ImageSource Image
-        {
-            get
-            {
-                if (this._image == null && this._imagePath != null)
-                {
-                    this._image = new BitmapImage(new Uri(SampleDataCommon._baseUri, this._imagePath));
-                }
-                return this._image;
-            }
-
-            set
-            {
-                this._imagePath = null;
-                this.SetProperty(ref this._image, value);
-            }
-        }
-
-        public void SetImage(String path)
-        {
-            _image = null;
-            this._imagePath = path;
-            this.OnPropertyChanged("Image");
-        }
-
-        public override string ToString()
-        {
-            return this.Title;
-        }
-    }
-
-    /// <summary>
-    /// Generic item data model.
-    /// </summary>
-    public class BasicDataItem : SampleDataCommon
-    {
-        public BasicDataItem(String uniqueId, String title,  String imagePath, String description, String content, SampleDataGroup group, int rowSpan, int colSpan)
-            : base(uniqueId, title,  imagePath, description)
-        {
-            this._content = content;
-            this._group = group;
-            this._rowSpan = rowSpan;
-            this._colSpan = colSpan;
-        }
-
-        private string _content = string.Empty;
-        public string Content
-        {
-            get { return this._content; }
-            set { this.SetProperty(ref this._content, value); }
-        }
-
-        private SampleDataGroup _group;
-        private int _rowSpan;
-        private int _colSpan;
-
-        public int RowSpan
-        {
-            get { return _rowSpan; }
-            set { _rowSpan = value; }
-        }
-
-        public int ColSpan
-        {
-            get { return _colSpan; }
-            set { _colSpan = value; }
-        }
-
-        public SampleDataGroup Group
-        {
-            get { return this._group; }
-            set { this.SetProperty(ref this._group, value); }
-        }
-    }
-
-    /// <summary>
-    /// Generic group data model.
-    /// </summary>
-    public class SampleDataGroup : SampleDataCommon
-    {
-        public SampleDataGroup(String uniqueId, String title, String subtitle, String imagePath, String description)
-            : base(uniqueId, title, imagePath, description)
-        {
-            Items.CollectionChanged += ItemsCollectionChanged;
-        }
-
-        private void ItemsCollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-        {
-            // Provides a subset of the full items collection to bind to from a GroupedItemsPage
-            // for two reasons: GridView will not virtualize large items collections, and it
-            // improves the user experience when browsing through groups with large numbers of
-            // items.
-            //
-            // A maximum of 12 items are displayed because it results in filled grid columns
-            // whether there are 1, 2, 3, 4, or 6 rows displayed
-
-            switch (e.Action)
-            {
-                case NotifyCollectionChangedAction.Add:
-                    if (e.NewStartingIndex < 12)
-                    {
-                        TopItems.Insert(e.NewStartingIndex,Items[e.NewStartingIndex]);
-                        if (TopItems.Count > 12)
-                        {
-                            TopItems.RemoveAt(12);
-                        }
-                    }
-                    break;
-                case NotifyCollectionChangedAction.Move:
-                    if (e.OldStartingIndex < 12 && e.NewStartingIndex < 12)
-                    {
-                        TopItems.Move(e.OldStartingIndex, e.NewStartingIndex);
-                    }
-                    else if (e.OldStartingIndex < 12)
-                    {
-                        TopItems.RemoveAt(e.OldStartingIndex);
-                        TopItems.Add(Items[11]);
-                    }
-                    else if (e.NewStartingIndex < 12)
-                    {
-                        TopItems.Insert(e.NewStartingIndex, Items[e.NewStartingIndex]);
-                        TopItems.RemoveAt(12);
-                    }
-                    break;
-                case NotifyCollectionChangedAction.Remove:
-                    if (e.OldStartingIndex < 12)
-                    {
-                        TopItems.RemoveAt(e.OldStartingIndex);
-                        if (Items.Count >= 12)
-                        {
-                            TopItems.Add(Items[11]);
-                        }
-                    }
-                    break;
-                case NotifyCollectionChangedAction.Replace:
-                    if (e.OldStartingIndex < 12)
-                    {
-                        TopItems[e.OldStartingIndex] = Items[e.OldStartingIndex];
-                    }
-                    break;
-                case NotifyCollectionChangedAction.Reset:
-                    TopItems.Clear();
-                    while (TopItems.Count < Items.Count && TopItems.Count < 12)
-                    {
-                        TopItems.Add(Items[TopItems.Count]);
-                    }
-                    break;
-            }
-        }
-
-        private ObservableCollection<BasicDataItem> _items = new ObservableCollection<BasicDataItem>();
-        public ObservableCollection<BasicDataItem> Items
-        {
-            get { return this._items; }
-        }
-
-        private ObservableCollection<BasicDataItem> _topItem = new ObservableCollection<BasicDataItem>();
-        public ObservableCollection<BasicDataItem> TopItems
-        {
-            get {return this._topItem; }
-        }
-    }
+        
 
     /// <summary>
     /// Creates a collection of groups and items with hard-coded content.
@@ -277,7 +79,6 @@ namespace AirbusCatalogue.Data
                     "Group Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tempor scelerisque lorem in vehicula. Aliquam tincidunt, lacus ut sagittis tristique, turpis massa volutpat augue, eu rutrum ligula ante a ante");
             var startScreenImage = new HubPageDataItem("Group-1",
                    "Group Title: big image",
-                   
                    "Assets/customers/emiratesA380.jpg",
                    "Group Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tempor scelerisque lorem in vehicula. Aliquam tincidunt, lacus ut sagittis tristique, turpis massa volutpat augue, eu rutrum ligula ante a ante",
                    ITEM_CONTENT

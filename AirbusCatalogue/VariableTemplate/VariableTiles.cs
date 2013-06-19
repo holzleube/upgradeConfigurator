@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AirbusCatalogue.DataModel;
+using AirbusCatalogue.ViewModel.ViewDataElements;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -42,6 +43,10 @@ namespace AirbusCatalogue.VariableTemplate
                     }
                 }
                 if (item.GetType() == typeof(ConfigurationDataItem))
+                {
+                    return ConfigurationTemplate;
+                }
+                if (item.GetType() == typeof(CustomerDataItem))
                 {
                     return ConfigurationTemplate;
                 }

@@ -1,10 +1,9 @@
 ﻿using AirbusCatalogue.Common;
-using AirbusCatalogue.Data;
-
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using AirbusCatalogue.ViewModel.ViewDataElements;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -14,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using SampleDataSource = AirbusCatalogue.Data.SampleDataSource;
 
 // The Item Detail Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234232
 

@@ -19,8 +19,23 @@
     <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\AirbusCatalogue.pdb">
       <PackagePath>AirbusCatalogue.pdb</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue.ViewModel\bin\Debug\AirbusCatalogue.ViewModel.pdb">
+      <PackagePath>AirbusCatalogue.ViewModel.pdb</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue.Model\bin\Debug\AirbusCatalogue.Model.pdb">
+      <PackagePath>AirbusCatalogue.Model.pdb</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue.ViewModel\bin\Debug\AirbusCatalogue.ViewModel.dll">
+      <PackagePath>AirbusCatalogue.ViewModel.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue.ViewModel\bin\Debug\AirbusCatalogue.Model.dll">
+      <PackagePath>AirbusCatalogue.Model.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\airbus_logo.png">
       <PackagePath>Assets\airbus_logo.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\airChina.png">
+      <PackagePath>Assets\customers\airChina.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\airfrance_2.png">
       <PackagePath>Assets\customers\airfrance_2.png</PackagePath>
@@ -28,8 +43,29 @@
     <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\airfrance_2_start.png">
       <PackagePath>Assets\customers\airfrance_2_start.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\airIndia.png">
+      <PackagePath>Assets\customers\airIndia.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\airJamaica.png">
+      <PackagePath>Assets\customers\airJamaica.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\condor.png">
+      <PackagePath>Assets\customers\condor.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\dragonAir.png">
+      <PackagePath>Assets\customers\dragonAir.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\drukair.png">
+      <PackagePath>Assets\customers\drukair.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\easyjet.png">
+      <PackagePath>Assets\customers\easyjet.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\emirates.png">
       <PackagePath>Assets\customers\emirates.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\etihadAirways.png">
+      <PackagePath>Assets\customers\etihadAirways.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\Logo.png">
       <PackagePath>Assets\Logo.png</PackagePath>
@@ -71,6 +107,39 @@
     <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\aircrafts\a380_sky.JPG">
       <PackagePath>Assets\aircrafts\a380_sky.JPG</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\airBerlin.jpg">
+      <PackagePath>Assets\customers\airBerlin.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\airMadrid.jpg">
+      <PackagePath>Assets\customers\airMadrid.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\americanAirlines.jpg">
+      <PackagePath>Assets\customers\americanAirlines.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\austrianAirline.jpg">
+      <PackagePath>Assets\customers\austrianAirline.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\bangkokAirways.jpg">
+      <PackagePath>Assets\customers\bangkokAirways.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\britishAirways.jpg">
+      <PackagePath>Assets\customers\britishAirways.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\chinaEastern.jpg">
+      <PackagePath>Assets\customers\chinaEastern.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\continentalAirlines.jpg">
+      <PackagePath>Assets\customers\continentalAirlines.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\danubeWings.jpg">
+      <PackagePath>Assets\customers\danubeWings.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\deltaAirlines.jpg">
+      <PackagePath>Assets\customers\deltaAirlines.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\egyptAir2.jpg">
+      <PackagePath>Assets\customers\egyptAir2.jpg</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\emiratesA380.jpg">
       <PackagePath>Assets\customers\emiratesA380.jpg</PackagePath>
     </AppxPackagedFile>
@@ -86,6 +155,12 @@
     <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\upgrades\isis.jpg">
       <PackagePath>Assets\upgrades\isis.jpg</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\airCanada.gif">
+      <PackagePath>Assets\customers\airCanada.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\Assets\customers\bulgariaAir.gif">
+      <PackagePath>Assets\customers\bulgariaAir.gif</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\App.xaml">
       <PackagePath>App.xaml</PackagePath>
     </AppxPackagedFile>
@@ -98,8 +173,11 @@
     <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\CommonResources\StandardStyles.xaml">
       <PackagePath>CommonResources\StandardStyles.xaml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\GroupedItemsPage.xaml">
-      <PackagePath>GroupedItemsPage.xaml</PackagePath>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\Customer\SelectCustomerPage.xaml">
+      <PackagePath>Customer\SelectCustomerPage.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\StartScreenPage.xaml">
+      <PackagePath>StartScreenPage.xaml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue\bin\Debug\GroupDetailPage.xaml">
       <PackagePath>GroupDetailPage.xaml</PackagePath>
