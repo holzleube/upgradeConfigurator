@@ -9,12 +9,18 @@ using System.Threading.Tasks;
 namespace AirbusCatalogue.ViewModel.ViewDataElements
 {
     
-        public class SampleDataGroup : SampleDataCommon
+        public class DataGroup : DataCommon
         {
-            public SampleDataGroup(String uniqueId, String title, String subtitle, String imagePath, String description)
+            public DataGroup(String uniqueId, String title, String imagePath, String description)
                 : base(uniqueId, title, imagePath, description)
             {
                 Items.CollectionChanged += ItemsCollectionChanged;
+            }
+
+            private readonly ObservableCollection<BasicDataItem> _items = new ObservableCollection<BasicDataItem>();
+            public ObservableCollection<BasicDataItem> Items
+            {
+                get { return this._items; }
             }
 
             private void ItemsCollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
@@ -81,17 +87,15 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements
                 }
             }
 
-            private ObservableCollection<BasicDataItem> _items = new ObservableCollection<BasicDataItem>();
-            public ObservableCollection<BasicDataItem> Items
-            {
-                get { return this._items; }
-            }
+            
 
             private ObservableCollection<BasicDataItem> _topItem = new ObservableCollection<BasicDataItem>();
             public ObservableCollection<BasicDataItem> TopItems
             {
                 get { return this._topItem; }
             }
+
+            public int Size { get { return Items.Count; } }
         }
     
 }

@@ -45,7 +45,9 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- Horizontal scrolling grid used in most view states -->
+        <SemanticZoom x:Name="Zoom" Margin="0,-3,0,0" Grid.RowSpan="2">
+            <SemanticZoom.ZoomedInView>
+                <!-- Horizontal scrolling grid used in most view states -->
         <GridView
             x:Name="itemGridView"
             AutomationProperties.AutomationId="ItemGridView"
@@ -53,9 +55,11 @@
             Grid.RowSpan="2"
             Padding="116,137,40,46"
             ItemsSource="{Binding Source={StaticResource groupedItemsViewSource}}"
+            ItemClick="ItemView_ItemClick"
             ItemTemplateSelector="{StaticResource TemplateSelector}"
-           
+            IsItemClickEnabled="True"
             SelectionMode="None"
+            Background="{StaticResource MainBackground}"
             IsSwipeEnabled="false">
 
             <GridView.ItemsPanel>
@@ -87,8 +91,44 @@
                 </GroupStyle>
             </GridView.GroupStyle>
         </GridView>
+            </SemanticZoom.ZoomedInView>
+            <SemanticZoom.ZoomedOutView>
+                <GridView VerticalAlignment="Center" Margin="200 -200 0 0">
+                    <GridView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel HorizontalAlignment="Center">
+                                <TextBlock HorizontalAlignment="Center"
+                                   Text="{Binding Group.Title}"
+                                   Style="{StaticResource HeaderTextStyle}"
+                                   />
+                                <TextBlock HorizontalAlignment="Center"
+                                   Text="{Binding Group.Size}"
+                                   Style="{StaticResource SubheaderTextStyle}"
+                                   />
+                            </StackPanel>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
 
-        <!-- Vertical scrolling list only used when snapped -->
+                    <GridView.ItemContainerStyle>
+                        <Style TargetType="GridViewItem">
+                            <Setter Property="Margin" Value="4" />
+                            <Setter Property="Padding" Value="5" />
+                            <Setter Property="HorizontalContentAlignment" Value="Left" />
+                            <Setter Property="VerticalContentAlignment" Value="Center" />
+                        </Style>
+                    </GridView.ItemContainerStyle>
+
+                    <GridView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapGrid ItemWidth="150" ItemHeight="150"
+                              Orientation="Horizontal" VerticalChildrenAlignment="Center" MaximumRowsOrColumns="5"></WrapGrid>
+                        </ItemsPanelTemplate>
+                    </GridView.ItemsPanel>
+                </GridView>
+            </SemanticZoom.ZoomedOutView>
+            </SemanticZoom>
+
+            <!-- Vertical scrolling list only used when snapped -->
         <ListView
             x:Name="itemListView"
             AutomationProperties.AutomationId="ItemListView"
@@ -122,14 +162,17 @@
             </ListView.GroupStyle>
         </ListView>
 
+                
         <!-- Back button and page title -->
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <TextBlock x:Name="pageTitle" Text="{Binding AppName}" Grid.Column="1" IsHitTestVisible="false" Style="{StaticResource PageHeaderTextStyle}"/>
+            <Image Grid.Column="2"  Source="/Assets/airbus_logo.png" />
         </Grid>
 
         <VisualStateManager.VisualStateGroups>

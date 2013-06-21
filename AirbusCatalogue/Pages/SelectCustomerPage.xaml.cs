@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using AirbusCatalogue.ViewModel.ViewDataElements;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -38,6 +39,23 @@ namespace AirbusCatalogue.Customer
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
             // TODO: Assign a collection of bindable groups to this.DefaultViewModel["Groups"]
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            var collectionGroups = groupedItemsViewSource.View.CollectionGroups;
+            ((ListViewBase)this.Zoom.ZoomedOutView).ItemsSource = collectionGroups;
+            base.OnNavigatedTo(e);
+        }
+
+        void ItemView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            // Navigate to the appropriate destination page, configuring the new page
+            // by passing required information as a navigation parameter
+            //var itemId = ((BasicDataItem)e.ClickedItem).UniqueId;
+            //this.Frame.Navigate(typeof(ItemDetailPage), itemId);
+            var customerId = ((BasicDataItem) e.ClickedItem).UniqueId;
+            Frame.Navigate(typeof(StartScreenPage), customerId);
         }
     }
 }
