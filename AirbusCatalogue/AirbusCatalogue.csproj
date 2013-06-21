@@ -110,27 +110,13 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Customer\SelectCustomerPage.xaml.cs">
+    <Compile Include="Pages\SelectCustomerPage.xaml.cs">
       <DependentUpon>SelectCustomerPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataModel\ConfigurationDataItem.cs" />
-    <Compile Include="DataModel\HubDataGroup.cs" />
-    <Compile Include="DataModel\HubPageDataItem.cs" />
-    <Compile Include="DataModel\NewUpgradeDataItem.cs" />
-    <Compile Include="StartScreenPage.xaml.cs">
+    <Compile Include="Pages\StartScreenPage.xaml.cs">
       <DependentUpon>StartScreenPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GroupDetailPage.xaml.cs">
-      <DependentUpon>GroupDetailPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ItemDetailPage.xaml.cs">
-      <DependentUpon>ItemDetailPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DataModel\SampleDataSource.cs" />
-    <Compile Include="Common\BindableBase.cs" />
-    <Compile Include="Common\BooleanToVisibilityConverter.cs" />
-    <Compile Include="Common\BooleanNegationConverter.cs" />
     <Compile Include="Common\LayoutAwarePage.cs" />
     <Compile Include="Common\RichTextColumns.cs" />
     <Compile Include="Common\SuspensionManager.cs" />
@@ -152,12 +138,14 @@
     <Content Include="Assets\aircrafts\a319.jpg" />
     <Content Include="Assets\aircrafts\a320_long.jpg" />
     <Content Include="Assets\aircrafts\a330_2.jpg" />
+    <Content Include="Assets\aircrafts\a340_09.jpg" />
     <Content Include="Assets\aircrafts\a380_sky.JPG" />
     <Content Include="Assets\customers\airBerlin.jpg" />
     <Content Include="Assets\customers\airCanada.gif" />
     <Content Include="Assets\customers\airChina.png" />
     <Content Include="Assets\customers\airfrance_2.png" />
     <Content Include="Assets\customers\airfrance_2_start.png" />
+    <Content Include="Assets\customers\airHong.png" />
     <Content Include="Assets\customers\airIndia.png" />
     <Content Include="Assets\customers\airJamaica.png" />
     <Content Include="Assets\customers\airMadrid.jpg" />
@@ -178,7 +166,13 @@
     <Content Include="Assets\customers\emirates.png" />
     <Content Include="Assets\customers\emiratesA380.jpg" />
     <Content Include="Assets\customers\etihadAirways.png" />
-    <Content Include="Assets\customers\startSceenAirFrance.jpg" />
+    <Content Include="Assets\customers\iberia.png" />
+    <Content Include="Assets\customers\indonesiaAirAsia.png" />
+    <Content Include="Assets\customers\iranAir.png" />
+    <Content Include="Assets\customers\omanAir.png" />
+    <Content Include="Assets\customers\startScreenAirFrance.jpg" />
+    <Content Include="Assets\customers\thomasCook.png" />
+    <Content Include="Assets\customers\turkish.png" />
     <Content Include="Assets\Logo.png" />
     <Content Include="Assets\SmallLogo.png" />
     <Content Include="Assets\SplashScreen.png" />
@@ -207,22 +201,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Customer\SelectCustomerPage.xaml">
+    <Page Include="Pages\SelectCustomerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StartScreenPage.xaml">
+    <Page Include="Pages\StartScreenPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="GroupDetailPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="ItemDetailPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\NewFolder1\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
     <VisualStudioVersion>11.0</VisualStudioVersion>

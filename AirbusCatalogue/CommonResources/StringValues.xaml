@@ -13,4 +13,5 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <x:String x:Key="NewConfig">new configuration</x:String>
+    <x:String x:Key="EditCustomer">edit customer</x:String>
 </ResourceDictionary>

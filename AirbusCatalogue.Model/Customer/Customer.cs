@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AirbusCatalogue.Model.Templates;
 
-namespace AirbusCatalogue.Model.CustomerModel
+namespace AirbusCatalogue.Model.Customer
 {
-    public class Customer
+    public class Customer : Identable
     {
         public Customer(string id, string imagePath, string name, bool isTextVisible)
         {
@@ -16,8 +12,6 @@ namespace AirbusCatalogue.Model.CustomerModel
             IsTextVisible = isTextVisible;
             CustomerChar = name[0];
         }
-
-        public string UniqueId { get; set; }
 
         public string ImagePath { get; set; }
 

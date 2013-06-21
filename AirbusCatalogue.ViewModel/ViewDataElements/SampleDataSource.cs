@@ -16,15 +16,15 @@ using Windows.UI.Xaml.Media.Imaging;
 namespace AirbusCatalogue.ViewModel.ViewDataElements
 {
     /// <summary>
-    /// Base class for <see cref="BasicDataItem"/> and <see cref="SampleDataGroup"/> that
+    /// Base class for <see cref="BasicDataItem"/> and <see cref="AirbusCatalogue.ViewModel.ViewDataElements.DataGroup"/> that
     /// defines properties common to both.
     /// </summary>
 
-    public abstract class SampleDataCommon : BindableBase
+    public abstract class DataCommon : BindableBase
     {
-        private static Uri _baseUri = new Uri("ms-appx:///");
+        public static Uri BASE_URI = new Uri("ms-appx:///");
 
-        public SampleDataCommon(String uniqueId, String title,  String imagePath, String description)
+        public DataCommon(String uniqueId, String title,  String imagePath, String description)
         {
             this._uniqueId = uniqueId;
             this._title = title;
@@ -61,7 +61,7 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements
             {
                 if (this._image == null && this._imagePath != null)
                 {
-                    this._image = new BitmapImage(new Uri(SampleDataCommon._baseUri, this._imagePath));
+                    this._image = new BitmapImage(new Uri(DataCommon.BASE_URI, this._imagePath));
                 }
                 return this._image;
             }
@@ -89,12 +89,11 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements
     /// <summary>
     /// Generic item data model.
     /// </summary>
-    public class BasicDataItem : SampleDataCommon
+    public class BasicDataItem : DataCommon
     {
-        public BasicDataItem(String uniqueId, String title,  String imagePath, String description, String content, SampleDataGroup group, int rowSpan, int colSpan)
+        public BasicDataItem(String uniqueId, String title,  String imagePath, String description, DataGroup group, int rowSpan, int colSpan)
             : base(uniqueId, title,  imagePath, description)
         {
-            this._content = content;
             this._group = group;
             this._rowSpan = rowSpan;
             this._colSpan = colSpan;
@@ -107,7 +106,7 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements
             set { this.SetProperty(ref this._content, value); }
         }
 
-        private SampleDataGroup _group;
+        private DataGroup _group;
         private int _rowSpan;
         private int _colSpan;
 
@@ -123,7 +122,7 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements
             set { _colSpan = value; }
         }
 
-        public SampleDataGroup Group
+        public DataGroup Group
         {
             get { return this._group; }
             set { this.SetProperty(ref this._group, value); }
@@ -145,13 +144,13 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements
     {
         private static SampleDataSource _sampleDataSource = new SampleDataSource();
 
-        private ObservableCollection<SampleDataGroup> _allGroups = new ObservableCollection<SampleDataGroup>();
-        public ObservableCollection<SampleDataGroup> AllGroups
+        private ObservableCollection<DataGroup> _allGroups = new ObservableCollection<DataGroup>();
+        public ObservableCollection<DataGroup> AllGroups
         {
             get { return this._allGroups; }
         }
 
-        public static IEnumerable<SampleDataGroup> GetGroups(string uniqueId)
+        public static IEnumerable<DataGroup> GetGroups(string uniqueId)
         {
             if (!uniqueId.Equals("AllGroups")) throw new ArgumentException("Only 'AllGroups' is supported as a collection of groups");
             

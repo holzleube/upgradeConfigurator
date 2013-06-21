@@ -14,15 +14,24 @@
 
     <!-- Non-brush values that vary across themes -->
 
+    <Brush x:Key="TileBackground">#FFFFFFFF</Brush>
+
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="MainBackground">
+            <GradientStop Color="White"/>
+            <GradientStop Color="#FF182E70" Offset="1"/>
+            <GradientStop Color="#FFA0AED8" Offset="0.88"/>
+            <GradientStop Color="#FFB5C0E0" Offset="0.384"/>
+    </LinearGradientBrush>
+
     <DataTemplate x:Key="BigTemplate">
-        <Grid x:Name="TopMain" Width="1100" Height="630" Margin="0, 0, 0,0">
+        <Grid x:Name="TopMain" Width="1100" Height="630" Margin="0, 0, 0,0"  >
             
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="80"/>
             </Grid.RowDefinitions>
-            <Image Source="{Binding Image}" Stretch="Fill" Grid.RowSpan="2"/>
-            <StackPanel Grid.Row="1" Background="#90000000" Orientation="Horizontal" >
+            <Image Source="{Binding Image}" HorizontalAlignment="Left" Stretch="Uniform" Grid.RowSpan="2"/>
+            <StackPanel Grid.Row="1" Background="#90000000" Orientation="Horizontal" Width="300" HorizontalAlignment="Left">
                 <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Width="Auto">
                     <TextBlock  Text="{StaticResource NewConfig}" Foreground="#FFFFFFFF" FontFamily="Segoe UI" FontSize="24" Margin="20,5,5,0" VerticalAlignment="Top"/>
                     <TextBlock Text="{StaticResource ChevronGlyph}" Foreground="#FFFFFFFF" FontFamily="Segoe UI Symbol" FontSize="30" VerticalAlignment="Top"/>
@@ -39,9 +48,8 @@
     <DataTemplate x:Key="SimpleGroupHeader">
         <Grid Margin="1,0,0,6">
             <Button
-                                    AutomationProperties.Name="Group Title"
-                                    Click="Header_Click"
-                                    Style="{StaticResource TextPrimaryButtonStyle}" >
+                AutomationProperties.Name="Group Title"
+                Style="{StaticResource TextPrimaryButtonStyle}" >
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="{Binding Title}" Margin="3,-7,10,10" Style="{StaticResource GroupHeaderTextStyle}" />
                     <TextBlock Text="{StaticResource ChevronGlyph}" FontFamily="Segoe UI Symbol" Margin="0,-7,0,10" Style="{StaticResource GroupHeaderTextStyle}"/>
@@ -51,8 +59,8 @@
     </DataTemplate>
 
     <DataTemplate x:Key="UpgradeItemTemplateBig">
-        <!--<Border BorderBrush="Black" BorderThickness="1" Padding="1">-->
-        <Grid x:Name="TopMain" Width="500" Height="350" Background="#FFFFFFFF">
+        <Border BorderBrush="Black" BorderThickness="1" Padding="1">
+        <Grid x:Name="TopMain" Width="500" Height="350" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="*"/>
@@ -60,12 +68,12 @@
             <TextBlock TextWrapping="Wrap" Text="{Binding Title}"  Style="{StaticResource GroupHeaderTextStyle}"  FontSize="24" HorizontalAlignment="Center"/>
             <Image Source="{Binding Image}" Stretch="Uniform" Grid.Row="1"/>
         </Grid>
-            <!--</Border>-->
+            </Border>
     </DataTemplate>
 
     <DataTemplate x:Key="UpgradeItemTemplateSmall">
-        <!--<Border BorderBrush="Black" BorderThickness="1" Padding="1">-->
-            <Grid x:Name="TopMain" Width="200" Height="200" Background="#FFFFFFFF">
+        <Border BorderBrush="Black" BorderThickness="1" Padding="1">
+        <Grid x:Name="TopMain" Width="250" Height="200">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="*"/>
@@ -73,24 +81,31 @@
                 <TextBlock TextWrapping="Wrap" Text="{Binding Title}"  Style="{StaticResource GroupHeaderTextStyle}"  FontSize="24" Margin="10,0" HorizontalAlignment="Center"/>
                 <Image Source="{Binding Image}" Stretch="Uniform" Grid.Row="1"/>
             </Grid>
-        <!--</Border>-->
+            </Border>
     </DataTemplate>
 
     <DataTemplate x:Key="ConfigurationTemplate">
+        <Border BorderBrush="Black" BorderThickness="1" Padding="1">
         <Grid Width="500" Height="200">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="280"/>
-                <ColumnDefinition Width="27*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Image HorizontalAlignment="Left" VerticalAlignment="Top" Source="{Binding Image}" Stretch="Uniform"/>
             <StackPanel  Grid.Column="1">
-                <TextBlock TextWrapping="Wrap" Text="{Binding Title}"  FontSize="18" Margin="10,0" Style="{StaticResource GroupHeaderTextStyle}"/>
-                <TextBlock TextWrapping="Wrap" Text="{Binding Description}" FontSize="13" Margin="10,12,10,0" Style="{StaticResource GroupHeaderTextStyle}"/>
+                <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" Text="{Binding Title}"  FontSize="18" Margin="10,0" Style="{StaticResource GroupHeaderTextStyle}"/>
+                <TextBlock TextWrapping="Wrap" Text="{Binding ItemsCount}" FontSize="13" Margin="10,12,10,0" Style="{StaticResource GroupHeaderTextStyle}"/>
+                <TextBlock TextWrapping="Wrap" Text="{Binding AircraftCount}" FontSize="13" Margin="10,12,10,0" Style="{StaticResource GroupHeaderTextStyle}"/>
+                <StackPanel HorizontalAlignment="Right" Background="{Binding StateColor}" Height="40" Width="120">
+                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding State}" FontSize="18" Style="{StaticResource GroupHeaderTextStyle}"/>
+                </StackPanel>
             </StackPanel>
         </Grid>
+          </Border>
     </DataTemplate>
     <DataTemplate x:Key="CustomerTemplateWithName">
-        <Grid Width="300" Height="100">
+        <Border BorderBrush="Black" BorderThickness="1" Padding="1" >
+        <Grid Width="300" Height="100" Background="#FFFFFFFF">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="100"/>
@@ -100,10 +115,15 @@
                 <TextBlock TextWrapping="Wrap" Text="{Binding Title}"  FontSize="18" Margin="10,0" Style="{StaticResource GroupHeaderTextStyle}"/>
             </StackPanel>
         </Grid>
+        </Border>
     </DataTemplate>
+    
     <DataTemplate x:Key="CustomerTemplateWithoutName">
-        <Grid Width="300" Height="100">
+        <Border BorderBrush="Black" BorderThickness="1" Padding="1">
+        <Grid Width="300" Height="100" Background="#FFFFFFFF">
             <Image HorizontalAlignment="Center" VerticalAlignment="Center" Source="{Binding Image}" Stretch="Uniform"/>
         </Grid>
+        </Border>
     </DataTemplate>
+    
 </ResourceDictionary>

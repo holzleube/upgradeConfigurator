@@ -19,11 +19,11 @@ namespace AirbusCatalogue.ViewModel.ViewModel
 
         private void InitializeCustomers()
         {
-            var allCustomers = _customerModel.GetAllCustomers();
+            var allCustomers = _customerModel.AllCustomers;
             CustomerCollection = new ModelObjectsToViewObjectsConverter().GetConvertedElements(allCustomers);
         }
 
-        public ObservableCollection<SampleDataGroup> CustomerCollection
+        public ObservableCollection<DataGroup> CustomerCollection
         {
             get
             {
@@ -38,7 +38,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel
 
         private string _appName;
         private readonly CustomerModel _customerModel;
-        private ObservableCollection<SampleDataGroup> _customerCollection;
+        private ObservableCollection<DataGroup> _customerCollection;
 
         public string AppName
         {
@@ -46,8 +46,10 @@ namespace AirbusCatalogue.ViewModel.ViewModel
             {
                 return _appName;
             }
-            set { _appName = value;
-            OnPropertyChanged();}
+            set { 
+                _appName = value;
+                OnPropertyChanged();
+            }
         }
     }
 }

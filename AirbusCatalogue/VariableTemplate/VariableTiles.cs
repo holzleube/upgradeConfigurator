@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AirbusCatalogue.DataModel;
-using AirbusCatalogue.ViewModel.ViewDataElements;
+﻿using AirbusCatalogue.ViewModel.ViewDataElements;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -18,7 +12,7 @@ namespace AirbusCatalogue.VariableTemplate
         public DataTemplate UpgradeTemplateMiddle { get; set; }
         public DataTemplate UpgradeTemplateSmall { get; set; }
         public DataTemplate ConfigurationTemplate { get; set; }
-        public DataTemplate MultimediaTemplate { get; set; }
+        
         protected override DataTemplate SelectTemplateCore(object item, DependencyObject container)
         {
             var element = container as FrameworkElement;
@@ -30,17 +24,19 @@ namespace AirbusCatalogue.VariableTemplate
                 }
                 if (item.GetType() == typeof(NewUpgradeDataItem))
                 {
-                    switch ((item as NewUpgradeDataItem).TileSize)
+                    if (((NewUpgradeDataItem) item).Priority == 1)
                     {
-                        case Size.Big:
-                            return UpgradeTemplate;
-                        case Size.Middle:
-                            return UpgradeTemplateMiddle;
-                        case Size.Small:
-                            return UpgradeTemplateSmall;
-                        default:
-                            return UpgradeTemplateSmall;
+                        return UpgradeTemplate;
                     }
+                    if (((NewUpgradeDataItem)item).Priority == 2)
+                    {
+                        return UpgradeTemplateMiddle;
+                    }
+                    if (((NewUpgradeDataItem)item).Priority == 3)
+                    {
+                        return UpgradeTemplateSmall;
+                    }
+
                 }
                 if (item.GetType() == typeof(ConfigurationDataItem))
                 {

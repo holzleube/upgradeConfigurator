@@ -99,14 +99,20 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Converter\CustomerInformationDataToViewObjectsConverter.cs" />
     <Compile Include="Converter\ModelObjectsToViewObjectsConverter.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Templates\BindableBase.cs" />
+    <Compile Include="ViewDataElements\ConfigurationDataItem.cs" />
     <Compile Include="ViewDataElements\CustomerDataItem.cs" />
-    <Compile Include="ViewDataElements\SampleDataGroup.cs" />
+    <Compile Include="ViewDataElements\HubDataGroup.cs" />
+    <Compile Include="ViewDataElements\DataGroup.cs" />
+    <Compile Include="ViewDataElements\HubPageDataItem.cs" />
+    <Compile Include="ViewDataElements\NewUpgradeDataItem.cs" />
     <Compile Include="ViewDataElements\SampleDataSource.cs" />
     <Compile Include="ViewModel\SelectCustomerViewModel.cs" />
+    <Compile Include="ViewModel\StartScreenPageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
