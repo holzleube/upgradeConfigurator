@@ -6,17 +6,14 @@ namespace AirbusCatalogue.Model.ConfigurationData
 {
     public class Configuration : Identable
     {
-        public Configuration(string uniqueId, List<UpgradeItem> upgrades, List<Aircraft> aircrafts, string aircraftImagePath, string configurationDate, string state)
+        public Configuration(string uniqueId, List<UpgradeItem> upgrades, List<Aircraft> aircrafts, string configurationDate, string state, AircraftProgramm programm): base(uniqueId)
         {
-            UniqueId = uniqueId;
             Aircrafts = aircrafts;
             Upgrades = upgrades;
-            AircraftImagePath = aircraftImagePath;
             ConfigurationDate = configurationDate;
             State = state;
+            Programm = programm;
         }
-
-        public string AircraftImagePath { get; set; }
 
         public string ConfigurationDate { get; set; }
 
@@ -26,6 +23,7 @@ namespace AirbusCatalogue.Model.ConfigurationData
 
         public List<UpgradeItem> Upgrades { get; set; }
 
+        public AircraftProgramm Programm { get; set; }
 
 
     }

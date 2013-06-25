@@ -101,20 +101,42 @@
   <ItemGroup>
     <Compile Include="Converter\CustomerInformationDataToViewObjectsConverter.cs" />
     <Compile Include="Converter\ModelObjectsToViewObjectsConverter.cs" />
+    <Compile Include="Navigation\INavigationService.cs" />
+    <Compile Include="Navigation\NavigationService.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Command\RelayCommand.cs" />
     <Compile Include="Templates\BindableBase.cs" />
+    <Compile Include="Templates\GridHolderViewModel.cs" />
+    <Compile Include="Templates\ViewModelBase.cs" />
+    <Compile Include="ViewDataElements\AircraftProgrammGroup.cs" />
     <Compile Include="ViewDataElements\ConfigurationDataItem.cs" />
+    <Compile Include="ViewDataElements\Configuration\ConfigurationGroup.cs" />
     <Compile Include="ViewDataElements\CustomerDataItem.cs" />
     <Compile Include="ViewDataElements\HubDataGroup.cs" />
     <Compile Include="ViewDataElements\DataGroup.cs" />
     <Compile Include="ViewDataElements\HubPageDataItem.cs" />
     <Compile Include="ViewDataElements\NewUpgradeDataItem.cs" />
     <Compile Include="ViewDataElements\SampleDataSource.cs" />
+    <Compile Include="ViewInterfaces\IAircraftSelection.cs" />
+    <Compile Include="ViewInterfaces\IAircraftTypeSelection.cs" />
+    <Compile Include="ViewInterfaces\IAircraftVersionSelection.cs" />
+    <Compile Include="ViewInterfaces\ICustomerSelection.cs" />
+    <Compile Include="ViewInterfaces\IStartScreen.cs" />
+    <Compile Include="ViewInterfaces\ISummary.cs" />
+    <Compile Include="ViewModel\SelectAircraftTypeViewModel.cs" />
+    <Compile Include="ViewModel\SelectAircraftViewModel.cs" />
     <Compile Include="ViewModel\SelectCustomerViewModel.cs" />
     <Compile Include="ViewModel\StartScreenPageViewModel.cs" />
+    <Compile Include="ViewModel\SummaryPageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="GalaSoft.MvvmLight.Extras.Win8">
+      <HintPath>..\..\..\..\Program Files (x86)\Laurent Bugnion (GalaSoft)\Mvvm Light Toolkit\Binaries\Win8\GalaSoft.MvvmLight.Extras.Win8.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\..\..\..\Program Files (x86)\Laurent Bugnion (GalaSoft)\Mvvm Light Toolkit\Binaries\Win8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Collections" />
     <Reference Include="System.ObjectModel" />

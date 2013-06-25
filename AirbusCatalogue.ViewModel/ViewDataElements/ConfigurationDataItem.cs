@@ -1,14 +1,16 @@
-using AirbusCatalogue.Model.ConfigurationData;
+
 using Windows.UI;
 using Windows.UI.Xaml.Media;
+using AirbusCatalogue.Model.ConfigurationData;
 
 namespace AirbusCatalogue.ViewModel.ViewDataElements
 {
     public class ConfigurationDataItem:BasicDataItem
     {
-        private readonly Configuration _configuration;
+        private readonly Model.ConfigurationData.Configuration _configuration;
 
-        public ConfigurationDataItem(Configuration configuration, DataGroup @group) : base(configuration.UniqueId, configuration.ConfigurationDate, configuration.AircraftImagePath, "",  @group, 20, 50)
+        public ConfigurationDataItem(Model.ConfigurationData.Configuration configuration, DataGroup @group)
+            : base(configuration.UniqueId, configuration.ConfigurationDate, configuration.Programm.ImagePath,  @group, 20, 50)
         {
             _configuration = configuration;
         }

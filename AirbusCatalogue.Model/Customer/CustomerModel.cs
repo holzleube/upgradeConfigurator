@@ -13,7 +13,8 @@ namespace AirbusCatalogue.Model.CustomerModel
     /// </summary>
     public class CustomerModel : ICustomerModel
     {
-        private string BASE_PATH = "Assets/customers/";
+        private const string BASE_PATH = "Assets/customers/";
+
         public ICollection<Customer.Customer> AllCustomers{
             get
             {

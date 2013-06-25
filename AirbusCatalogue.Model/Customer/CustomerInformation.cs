@@ -10,9 +10,9 @@ namespace AirbusCatalogue.Model.Customer
 {
     public class CustomerInformation : Identable
     {
-        public CustomerInformation(string uniqueId, List<Configuration> lastConfiguration, List<UpgradeItem> newUpgrades, string customerLogoImagePath, string startPageImagePath)
+        public CustomerInformation(string uniqueId, List<Configuration> lastConfiguration, List<UpgradeItem> newUpgrades,
+                                   string customerLogoImagePath, string startPageImagePath) : base(uniqueId)
         {
-            UniqueId = uniqueId;
             LastConfigurations = lastConfiguration;
             UpgradeRecommendations = newUpgrades;
             CustomerLogoImagePath = customerLogoImagePath;

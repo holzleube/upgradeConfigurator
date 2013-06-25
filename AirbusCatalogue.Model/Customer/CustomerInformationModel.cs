@@ -58,17 +58,29 @@ namespace AirbusCatalogue.Model.Customer
                     new UpgradeItem("bt","bridgestone tyres","new bridgestone tyres","Assets/upgrades/bridgestone.jpg", 3),
                     new UpgradeItem("isisId","isis display","the isis cockpit display","Assets/upgrades/isis.jpg",3)
                 };
-           
-            var lastConfigurations = new List<Configuration>
+            var programms = new List<AircraftProgramm>()
                 {
-                    new Configuration("configuration1",upgrades, aircrafts, "Assets/aircrafts/a340_09.jpg", "16.03.2013", "In Progress"),
-                    new Configuration("configuration2",upgrades, aircrafts, "Assets/aircrafts/a319.jpg", "16.01.2013","In Progress"),
-                    new Configuration("configuration3",upgrades, aircrafts, "Assets/aircrafts/a320_long.jpg", "13.03.2012", "Delivered"),
-                    new Configuration("configuration4",upgrades, aircrafts, "Assets/aircrafts/a380_sky.JPG", "11.09.2010","Delivered"),
-                    new Configuration("configuration5",upgrades, aircrafts, "Assets/aircrafts/a380_sky.JPG", "08.03.2010","Delivered"),
-                    new Configuration("configuration6",upgrades, aircrafts, "Assets/aircrafts/a330_2.jpg", "01.08.2009","Delivered")
+                    new AircraftProgramm("a320", "A320", "Assets/aircrafts/a320_transparent.png"),
+                    new AircraftProgramm("a330", "A330", "Assets/aircrafts/a330_transparent.png"),
+                    new AircraftProgramm("a340", "A340", "Assets/aircrafts/a330_transparent.png"),
+                    new AircraftProgramm("a380", "A380", "Assets/aircrafts/a380_transparent.gif")
+                    
+                };
+            var lastConfigurations = new List<ConfigurationData.Configuration>
+                {
+                    new Configuration("configuration1",upgrades, aircrafts, "16.03.2013", "In Progress", programms[2]),
+                    new Configuration("configuration2",upgrades, aircrafts, "16.01.2013","In Progress", programms[0]),
+                    new Configuration("configuration3",upgrades, aircrafts,  "13.03.2012", "Delivered", programms[0]),
+                    new Configuration("configuration4",upgrades, aircrafts,  "11.09.2010","Delivered",  programms[0]),
+                    new Configuration("configuration5",upgrades, aircrafts,  "08.03.2010","Delivered",  programms[3]),
+                    new Configuration("configuration6",upgrades, aircrafts,  "01.08.2009","Delivered",  programms[3])
                 };
             return lastConfigurations;
+        }
+
+        public CustomerInformation GetLastCustomerInformation()
+        {
+            return GetCustomerInformationById("emirates");
         }
     }
 }

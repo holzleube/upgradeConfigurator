@@ -24,11 +24,10 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements
     {
         public static Uri BASE_URI = new Uri("ms-appx:///");
 
-        public DataCommon(String uniqueId, String title,  String imagePath, String description)
+        public DataCommon(String uniqueId, String title,  String imagePath)
         {
             this._uniqueId = uniqueId;
             this._title = title;
-            this._description = description;
             this._imagePath = imagePath;
         }
 
@@ -91,12 +90,12 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements
     /// </summary>
     public class BasicDataItem : DataCommon
     {
-        public BasicDataItem(String uniqueId, String title,  String imagePath, String description, DataGroup group, int rowSpan, int colSpan)
-            : base(uniqueId, title,  imagePath, description)
+        public BasicDataItem(String uniqueId, String title,  String imagePath, DataGroup group, int rowSpan, int colSpan)
+            : base(uniqueId, title,  imagePath)
         {
             this._group = group;
-            this._rowSpan = rowSpan;
-            this._colSpan = colSpan;
+            this.RowSpan = rowSpan;
+            this.ColSpan = colSpan;
         }
 
         private string _content = string.Empty;
@@ -107,20 +106,10 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements
         }
 
         private DataGroup _group;
-        private int _rowSpan;
-        private int _colSpan;
 
-        public int RowSpan
-        {
-            get { return _rowSpan; }
-            set { _rowSpan = value; }
-        }
+        public int RowSpan { get; set; }
 
-        public int ColSpan
-        {
-            get { return _colSpan; }
-            set { _colSpan = value; }
-        }
+        public int ColSpan { get; set; }
 
         public DataGroup Group
         {
@@ -129,35 +118,5 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements
         }
     }
 
-    /// <summary>
-    /// Generic group data model.
-    /// </summary>
-    
-
-    /// <summary>
-    /// Creates a collection of groups and items with hard-coded content.
-    /// 
-    /// SampleDataSource initializes with placeholder data rather than live production
-    /// data so that sample data is provided at both design-time and run-time.
-    /// </summary>
-    public sealed class SampleDataSource
-    {
-        private static SampleDataSource _sampleDataSource = new SampleDataSource();
-
-        private ObservableCollection<DataGroup> _allGroups = new ObservableCollection<DataGroup>();
-        public ObservableCollection<DataGroup> AllGroups
-        {
-            get { return this._allGroups; }
-        }
-
-        public static IEnumerable<DataGroup> GetGroups(string uniqueId)
-        {
-            if (!uniqueId.Equals("AllGroups")) throw new ArgumentException("Only 'AllGroups' is supported as a collection of groups");
-            
-            return _sampleDataSource.AllGroups;
-        }
-
-
-       
-    }
+ 
 }

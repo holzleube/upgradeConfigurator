@@ -3,7 +3,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <RemoteDebugMachine>172.24.22.92</RemoteDebugMachine>
     <UseAuthentication>True</UseAuthentication>
-    <RemoteDebugEnabled>false</RemoteDebugEnabled>
-    <UseSimulator>True</UseSimulator>
+    <RemoteDebugEnabled>true</RemoteDebugEnabled>
+    <UseSimulator>False</UseSimulator>
   </PropertyGroup>
 </Project>

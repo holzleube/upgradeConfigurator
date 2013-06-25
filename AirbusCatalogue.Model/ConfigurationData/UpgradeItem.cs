@@ -9,9 +9,8 @@ namespace AirbusCatalogue.Model.ConfigurationData
 {
     public class UpgradeItem : Identable
     {
-        public UpgradeItem(string uniqueId, string name, string description, string imagePath, int priority)
+        public UpgradeItem(string uniqueId, string name, string description, string imagePath, int priority): base(uniqueId)
         {
-            UniqueId = uniqueId;
             Name = name;
             Description = description;
             ProductImagePath = imagePath;

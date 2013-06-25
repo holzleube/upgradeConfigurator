@@ -1,0 +1,65 @@
+﻿<Page
+    x:Class="AirbusCatalogue.Pages.GlobalPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <Style x:Key="BackAppBarButtonStyle" TargetType="Button" BasedOn="{StaticResource AppBarButtonStyle}">
+            <Setter Property="Content" Value="&#xE0C4;"/>
+            <Setter Property="AutomationProperties.AutomationId" Value="SuperstarButton"/>
+            <Setter Property="AutomationProperties.Name" Value="Superstar"/>
+        </Style>
+    </Page.Resources>
+
+    <Page.TopAppBar>
+        <AppBar x:Name="globalAppBar" Padding="0">
+            <Grid Height="116">
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF60ADF9"/>
+                        <GradientStop Color="#FF97CAFD" Offset="1"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="8*"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="150"/>
+
+                </Grid.ColumnDefinitions>
+                <Button x:Name="HomeButton" Content="&#xE10F;"
+                		Style="{StaticResource TopAppBarButtonStyleCorner}"
+                		AutomationProperties.Name="Start"  
+                		Click="Start_Button_Clicked" BorderBrush="Black" HorizontalAlignment="Center" Margin="5"/>
+                <Button x:Name="UpgradeItemButton" Content="&#xE11C;" 
+                            Grid.Column="2"
+                            Style="{StaticResource TopAppBarButtonStyleCorner}"
+                            AutomationProperties.Name="upgrades"  
+                            Click="Page1Button_Click" HorizontalAlignment="Center" Background="#7FFFFFFF" Width="150" Margin="5" BorderThickness="0" />
+                <Button x:Name="AircraftButton" Content="&#xE0EB;" 
+                            Grid.Column="4"
+                            Style="{StaticResource TopAppBarButtonStyle2}"
+                            AutomationProperties.Name="aircrafts"  
+                            Margin="5"
+                            Click="Page1Button_Click" HorizontalAlignment="Center" Background="#7FFBFBFB" Width="150"/>
+
+                <Button x:Name="SummaryButton" Content="&#xE14D;" 
+                            Grid.Column="6"
+                            Width="150"
+                            Style="{StaticResource TopAppBarButtonStyleCorner}"
+                            AutomationProperties.Name="summary"  
+                            Click="Page1Button_Click" HorizontalAlignment="Center"/>
+            </Grid>
+        </AppBar>
+    </Page.TopAppBar>
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <Frame x:Name="frame1" Navigated="OnFrameNavigated"/>
+    </Grid>
+</Page>

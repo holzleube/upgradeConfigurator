@@ -1,29 +1,22 @@
 ﻿using AirbusCatalogue.Customer;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using AirbusCatalogue.ViewModel.ViewDataElements;
+using AirbusCatalogue.ViewModel.ViewInterfaces;
 using AirbusCatalogue.ViewModel.ViewModel;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // The Grouped Items Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234231
 
-namespace AirbusCatalogue
+namespace AirbusCatalogue.Pages
 {
     /// <summary>
     /// A page that displays a grouped collection of items.
     /// </summary>
-    public sealed partial class StartScreenPage : AirbusCatalogue.Common.LayoutAwarePage
+    public sealed partial class StartScreenPage : AirbusCatalogue.Common.LayoutAwarePage, IStartScreen
     {
         public StartScreenPage()
         {
@@ -54,12 +47,19 @@ namespace AirbusCatalogue
         /// <param name="e">Event data that describes the item clicked.</param>
         void ItemView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            pageRoot.Background = new SolidColorBrush(Color.FromArgb(0,0,0,0));
+            
             // Navigate to the appropriate destination page, configuring the new page
             // by passing required information as a navigation parameter
             //var itemId = ((BasicDataItem)e.ClickedItem).UniqueId;
             //this.Frame.Navigate(typeof(ItemDetailPage), itemId);
-            Frame.Navigate(typeof(SelectCustomerPage));
+            if (((BasicDataItem)e.ClickedItem).UniqueId.Equals("startScreenImage"))
+            {
+                Frame.Navigate(typeof(SelectAircraftPage));
+            }
+            else
+            {
+                Frame.Navigate(typeof(SelectCustomerPage));
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

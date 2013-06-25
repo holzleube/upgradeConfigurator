@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AirbusCatalogue.Model.Customer;
-using AirbusCatalogue.Model.CustomerModel;
 using AirbusCatalogue.ViewModel.Converter;
 using AirbusCatalogue.ViewModel.Templates;
 using AirbusCatalogue.ViewModel.ViewDataElements;
@@ -14,10 +9,10 @@ using Windows.UI.Xaml.Media.Imaging;
 
 namespace AirbusCatalogue.ViewModel.ViewModel
 {
-    public class StartScreenPageViewModel : BindableBase
+    public class StartScreenPageViewModel : GridHolderViewModel
     {
         private readonly CustomerInformationModel _customerModel;
-        private ObservableCollection<DataGroup> _startPageDataGroups;
+        
 
         public StartScreenPageViewModel()
         {
@@ -26,24 +21,22 @@ namespace AirbusCatalogue.ViewModel.ViewModel
 
         public void ReloadCustomer(string customerId)
         {
-            var customerInformation = _customerModel.GetCustomerInformationById(customerId);
+            CustomerInformation customerInformation;
+            if (customerId != null)
+            {
+                customerInformation = _customerModel.GetCustomerInformationById(customerId);
+            }
+            else
+            {
+                customerInformation = _customerModel.GetLastCustomerInformation();
+            }
+           
             _imagePath = customerInformation.CustomerLogoImagePath;
-            StartPageDataGroups =
+            DataGroupElements =
                 new CustomerInformationDataToViewObjectsConverter().GetConvertedElements(customerInformation);
         }
 
-        public ObservableCollection<DataGroup> StartPageDataGroups
-        {
-            get
-            {
-                return _startPageDataGroups;
-            }
-            set
-            {
-                _startPageDataGroups = value;
-                OnPropertyChanged();
-            }
-        }
+        
 
         private string _imagePath;
 
@@ -67,6 +60,11 @@ namespace AirbusCatalogue.ViewModel.ViewModel
             }
         }
 
-        
+
+        public override void Initialize(object parameter)
+        {
+            var customer = parameter as string;
+            ReloadCustomer(customer);
+        }
     }
 }

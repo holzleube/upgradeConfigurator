@@ -4,9 +4,8 @@ namespace AirbusCatalogue.Model.Customer
 {
     public class Customer : Identable
     {
-        public Customer(string id, string imagePath, string name, bool isTextVisible)
+        public Customer(string id, string imagePath, string name, bool isTextVisible):base(id)
         {
-            UniqueId = id;
             ImagePath = imagePath;
             CustomerName = name;
             IsTextVisible = isTextVisible;

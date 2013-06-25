@@ -7,9 +7,9 @@ namespace AirbusCatalogue.ViewModel.Converter
     public class CustomerInformationDataToViewObjectsConverter
     {
 
-        public ObservableCollection<DataGroup> GetConvertedElements(CustomerInformation customerInformation)
+        public ObservableCollection<DataCommon> GetConvertedElements(CustomerInformation customerInformation)
         {
-            var convertedGroups = new ObservableCollection<DataGroup>();
+            var convertedGroups = new ObservableCollection<DataCommon>();
             var group1 = new HubDataGroup("startPageHubData");
             var startScreenImage = new HubPageDataItem("startScreenImage",
                    customerInformation.CustomerStartPageImagePath
@@ -18,8 +18,8 @@ namespace AirbusCatalogue.ViewModel.Converter
 
             var group2 = new DataGroup("new upgrades",
                     "new upgrades",
-                    "Assets/LightGray.png",
-                    "Group Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tempor scelerisque lorem in vehicula. Aliquam tincidunt, lacus ut sagittis tristique, turpis massa volutpat augue, eu rutrum ligula ante a ante");
+                    "Assets/LightGray.png"
+                   );
             foreach (var upgradeItem in customerInformation.UpgradeRecommendations)
             {
                 var rowSpan = GetRowSpanFromPriority(upgradeItem.Priority);
@@ -29,8 +29,7 @@ namespace AirbusCatalogue.ViewModel.Converter
             
             var group3 = new DataGroup("last configurations",
                                        "last configurations",
-                                       "Assets/LightGray.png",
-                                       "");
+                                       "Assets/LightGray.png");
             foreach (var configuration in customerInformation.LastConfigurations)
             {
                 group3.Items.Add(new ConfigurationDataItem(configuration, group3));

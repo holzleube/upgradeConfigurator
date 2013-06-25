@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using AirbusCatalogue.Pages;
 using AirbusCatalogue.ViewModel.ViewDataElements;
 using Windows.Foundation;
 using Windows.Foundation.Collections;

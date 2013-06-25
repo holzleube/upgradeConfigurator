@@ -12,9 +12,9 @@ namespace AirbusCatalogue.ViewModel.Converter
 {
     public class ModelObjectsToViewObjectsConverter
     {
-        public ObservableCollection<DataGroup> GetConvertedElements(ICollection<Customer> allCustomers)
+        public ObservableCollection<DataCommon> GetConvertedElements(ICollection<Customer> allCustomers)
         {
-            var result = new ObservableCollection<DataGroup>();
+            var result = new ObservableCollection<DataCommon>();
            
             var groupToCharDictionary = new Dictionary<Char, DataGroup>();
            
@@ -27,32 +27,14 @@ namespace AirbusCatalogue.ViewModel.Converter
                 }
                 catch (KeyNotFoundException)
                 {
-                    group = new DataGroup("group" + customer.CustomerChar, customer.CustomerChar.ToString(),  "Assets/DarkGray.png", "");
+                    group = new DataGroup("group" + customer.CustomerChar, customer.CustomerChar.ToString(), "Assets/DarkGray.png");
                     groupToCharDictionary.Add(customer.CustomerChar, group);
                     result.Add(group);
                 }
                 group.Items.Add(new CustomerDataItem(customer, group));
 
             }
-
-
-           
             return result;
         }
-
-        public class GroupInfoList<T> : List<object>
-        {
-
-            public object Key { get; set; }
-
-
-            public new IEnumerator<object> GetEnumerator()
-            {
-                return (System.Collections.Generic.IEnumerator<object>)base.GetEnumerator();
-            }
-        }
-
-       
-       
     }
 }

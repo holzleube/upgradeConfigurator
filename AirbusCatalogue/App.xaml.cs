@@ -1,20 +1,15 @@
 ﻿using AirbusCatalogue.Common;
 
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+using AirbusCatalogue.Customer;
+using AirbusCatalogue.Pages;
+using AirbusCatalogue.ViewModel.Navigation;
+using AirbusCatalogue.ViewModel.ViewInterfaces;
+using GalaSoft.MvvmLight.Ioc;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // The Grid App template is documented at http://go.microsoft.com/fwlink/?LinkId=234226
 
@@ -33,6 +28,13 @@ namespace AirbusCatalogue
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            SimpleIoc.Default.Register<IStartScreen, StartScreenPage>();
+            SimpleIoc.Default.Register<ISummary, SummaryPage>();
+            SimpleIoc.Default.Register<ICustomerSelection, SelectCustomerPage>();
+            SimpleIoc.Default.Register<IAircraftSelection, SelectAircraftPage>();
+            SimpleIoc.Default.Register<IAircraftTypeSelection, SelectAircraftTypePage>();
+            SimpleIoc.Default.Register<IAircraftVersionSelection, SelectAircraftVersionPage>();
+            SimpleIoc.Default.Register<INavigationService, NavigationService>();
         }
 
         /// <summary>
@@ -77,7 +79,7 @@ namespace AirbusCatalogue
                 // When the navigation stack isn't restored navigate to the first page,
                 // configuring the new page by passing required information as a navigation
                 // parameter
-                if (!rootFrame.Navigate(typeof(StartScreenPage), "emirates"))
+                if (!rootFrame.Navigate(typeof(GlobalPage)))
                 {
                     throw new Exception("Failed to create initial page");
                 }

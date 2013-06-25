@@ -14,4 +14,6 @@
 
     <x:String x:Key="NewConfig">new configuration</x:String>
     <x:String x:Key="EditCustomer">edit customer</x:String>
+    <x:String x:Key="SummaryHeadline">summary</x:String>
+    <x:String x:Key="SelectAircraftTypeHeadline">select aircraft type</x:String>
 </ResourceDictionary>

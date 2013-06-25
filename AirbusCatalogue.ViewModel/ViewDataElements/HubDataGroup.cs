@@ -2,7 +2,7 @@
 {
     public class HubDataGroup : DataGroup
     {
-        public HubDataGroup(string uniqueId) : base(uniqueId, "hub dataGroup", "", "")
+        public HubDataGroup(string uniqueId) : base(uniqueId, "hub dataGroup", "")
         {
         }
     }

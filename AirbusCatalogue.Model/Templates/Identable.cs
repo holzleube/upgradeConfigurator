@@ -8,6 +8,10 @@ namespace AirbusCatalogue.Model.Templates
 {
     public class Identable
     {
+        public Identable(string uniqueId)
+        {
+            UniqueId = uniqueId;
+        }
         public string UniqueId { get; set; }
     }
 }

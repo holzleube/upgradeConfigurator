@@ -18,9 +18,7 @@
 
     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="MainBackground">
             <GradientStop Color="White"/>
-            <GradientStop Color="#FF182E70" Offset="1"/>
-            <GradientStop Color="#FFA0AED8" Offset="0.88"/>
-            <GradientStop Color="#FFB5C0E0" Offset="0.384"/>
+            <GradientStop Color="#FF98B0FB" Offset="1"/>
     </LinearGradientBrush>
 
     <DataTemplate x:Key="BigTemplate">
@@ -45,6 +43,20 @@
            
         </Grid>
     </DataTemplate>
+    <DataTemplate x:Key="SummaryHeaderTemplate">
+        <Grid Margin="1,0,0,6">
+            <Button
+                AutomationProperties.Name="Group Title"
+                Style="{StaticResource TextPrimaryButtonStyle}" >
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding Title}" Style="{StaticResource GroupHeaderTextStyle}" />
+                    <TextBlock Text="{StaticResource ChevronGlyph}" Margin="10,0,0,10" FontFamily="Segoe UI Symbol"  Style="{StaticResource GroupHeaderTextStyle}"/>
+                </StackPanel>
+            </Button>
+        </Grid>
+    </DataTemplate>
+
+    
     <DataTemplate x:Key="SimpleGroupHeader">
         <Grid Margin="1,0,0,6">
             <Button
@@ -117,7 +129,35 @@
         </Grid>
         </Border>
     </DataTemplate>
-    
+
+    <DataTemplate x:Key="AircraftProgrammTemplate">
+            <Grid Width="800" Height="600" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Image HorizontalAlignment="Left" Grid.RowSpan="2" VerticalAlignment="Center" Source="{Binding Image}" Stretch="Uniform"/>
+                <StackPanel  Grid.Row="0">
+                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" Text="{Binding Title}"  FontSize="50" Margin="10" Style="{StaticResource GroupHeaderTextStyle}"/>
+                </StackPanel>
+            </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="AircraftTypeTemplate">
+        <Border BorderBrush="Black" BorderThickness="1">
+        <Grid Width="400" Height="200" >
+            <Grid.ColumnDefinitions>
+               <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="70"/>
+            </Grid.ColumnDefinitions>
+            <Image Margin="10" HorizontalAlignment="Left" Grid.ColumnSpan="2" VerticalAlignment="Center" Source="{Binding Image}" Stretch="Uniform"/>
+            <StackPanel  Grid.Row="0">
+                <TextBlock TextWrapping="Wrap" HorizontalAlignment="Right" Text="{Binding Title}"  FontSize="30" Style="{StaticResource GroupHeaderTextStyle}"/>
+            </StackPanel>
+        </Grid>
+        </Border>
+    </DataTemplate>
+
     <DataTemplate x:Key="CustomerTemplateWithoutName">
         <Border BorderBrush="Black" BorderThickness="1" Padding="1">
         <Grid Width="300" Height="100" Background="#FFFFFFFF">
@@ -125,5 +165,87 @@
         </Grid>
         </Border>
     </DataTemplate>
-    
+
+    <Style x:Key="TopAppBarButtonStyle" TargetType="ButtonBase">
+        <!--<Setter Property="Foreground" Value="{StaticResource AppBarItemForegroundThemeBrush}"/>-->
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="FontFamily" Value="Segoe UI Symbol"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="BorderThickness" Value="4"/>
+        <Setter Property="BorderBrush" Value="Black"/>
+    </Style>
+
+    <Style x:Key="TopAppBarButtonStyle2" TargetType="ButtonBase">
+        <Setter Property="Foreground" Value="{StaticResource AppBarItemForegroundThemeBrush}"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="FontFamily" Value="Segoe UI Symbol"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="FontSize" Value="40"/>
+        <Setter Property="AutomationProperties.ItemType" Value="App Bar Button"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ButtonBase">
+                    <Grid x:Name="RootGrid">
+                        <StackPanel VerticalAlignment="Top" Margin="0,12,0,11" >
+                            <Grid Width="60" Height="50" Margin="0,0,0,5" HorizontalAlignment="Center">
+                                <!--<TextBlock x:Name="BackgroundGlyph" Text="&#xE0A8;" FontFamily="Segoe UI Symbol" FontSize="60" Margin="-4,-19,0,0" Foreground="{StaticResource AppBarItemBackgroundThemeBrush}"/>-->
+                                <!--<TextBlock x:Name="OutlineGlyph" Text="&#xE0A7;" FontFamily="Segoe UI Symbol" FontSize="60" Margin="-4,-19,0,0"/>-->
+                                <ContentPresenter x:Name="Content" HorizontalAlignment="Center" Margin="-1,-1,0,0" VerticalAlignment="Center"/>
+                            </Grid>
+                            <TextBlock
+                                x:Name="TextLabel"
+                                Text="{TemplateBinding AutomationProperties.Name}"
+                                Foreground="{StaticResource AppBarItemForegroundThemeBrush}"
+                                Margin="0,0,2,0"
+                                FontSize="20"
+                                TextAlignment="Center"
+                                Width="88"
+                                MaxHeight="32"
+                                TextTrimming="WordEllipsis"
+                                Style="{StaticResource BasicTextStyle}"/>
+                        </StackPanel>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <Style x:Key="TopAppBarButtonStyleCorner" TargetType="ButtonBase">
+        <Setter Property="Foreground" Value="{StaticResource AppBarItemForegroundThemeBrush}"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="FontFamily" Value="Segoe UI Symbol"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="AutomationProperties.ItemType" Value="App Bar Button"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ButtonBase">
+                    <Grid x:Name="RootGrid">
+                        <StackPanel VerticalAlignment="Top" Margin="0,12,0,11" >
+                            <Grid Width="60" Height="50" Margin="0,0,0,5" HorizontalAlignment="Center">
+                                <!--<TextBlock x:Name="BackgroundGlyph" Text="&#xE0A8;" FontFamily="Segoe UI Symbol" FontSize="70" Margin="-4,-19,0,0" Foreground="{StaticResource AppBarItemBackgroundThemeBrush}"/>-->
+                                <TextBlock x:Name="OutlineGlyph" Text="&#xE0A7;" FontFamily="Segoe UI Symbol" FontSize="64" Margin="1,-21,0,0"/>
+                                <ContentPresenter x:Name="Content" HorizontalAlignment="Center" Margin="-1,-1,0,0" VerticalAlignment="Center"/>
+                            </Grid>
+                            <TextBlock
+                                x:Name="TextLabel"
+                                Text="{TemplateBinding AutomationProperties.Name}"
+                                Foreground="{StaticResource AppBarItemForegroundThemeBrush}"
+                                Margin="0,0,2,0"
+                                FontSize="20"
+                                TextAlignment="Center"
+                                Width="88"
+                                MaxHeight="32"
+                                TextTrimming="WordEllipsis"
+                                Style="{StaticResource BasicTextStyle}"/>
+                        </StackPanel>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>

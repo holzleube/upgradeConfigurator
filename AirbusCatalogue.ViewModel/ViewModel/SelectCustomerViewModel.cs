@@ -8,11 +8,12 @@ using AirbusCatalogue.ViewModel.ViewDataElements;
 
 namespace AirbusCatalogue.ViewModel.ViewModel
 {
-    public class SelectCustomerViewModel:BindableBase
+    public class SelectCustomerViewModel:GridHolderViewModel
     {
+        private readonly CustomerModel _customerModel;
         public SelectCustomerViewModel()
         {
-            AppName = "select customer";
+            Headline = "select customer";
             _customerModel = new CustomerModel();
             InitializeCustomers();
         }
@@ -20,36 +21,13 @@ namespace AirbusCatalogue.ViewModel.ViewModel
         private void InitializeCustomers()
         {
             var allCustomers = _customerModel.AllCustomers;
-            CustomerCollection = new ModelObjectsToViewObjectsConverter().GetConvertedElements(allCustomers);
+            DataGroupElements = new ModelObjectsToViewObjectsConverter().GetConvertedElements(allCustomers);
         }
 
-        public ObservableCollection<DataGroup> CustomerCollection
-        {
-            get
-            {
-                return _customerCollection;
-            }
-            set
-            {
-                _customerCollection = value;
-                OnPropertyChanged();
-            }
-        }
 
-        private string _appName;
-        private readonly CustomerModel _customerModel;
-        private ObservableCollection<DataGroup> _customerCollection;
-
-        public string AppName
+        public override void Initialize(object parameter)
         {
-            get
-            {
-                return _appName;
-            }
-            set { 
-                _appName = value;
-                OnPropertyChanged();
-            }
+            
         }
     }
 }

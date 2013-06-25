@@ -11,8 +11,8 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements
     
         public class DataGroup : DataCommon
         {
-            public DataGroup(String uniqueId, String title, String imagePath, String description)
-                : base(uniqueId, title, imagePath, description)
+            public DataGroup(String uniqueId, String title, String imagePath)
+                : base(uniqueId, title, imagePath)
             {
                 Items.CollectionChanged += ItemsCollectionChanged;
             }
@@ -20,7 +20,10 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements
             private readonly ObservableCollection<BasicDataItem> _items = new ObservableCollection<BasicDataItem>();
             public ObservableCollection<BasicDataItem> Items
             {
-                get { return this._items; }
+                get
+                {
+                    return this._items;
+                }
             }
 
             private void ItemsCollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
