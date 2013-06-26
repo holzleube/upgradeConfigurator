@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using AirbusCatalogue.Common.DataObjects.Aircrafts;
 using AirbusCatalogue.Common.DataObjects.Config;
+using AirbusCatalogue.Common.DataObjects.Customers;
 using AirbusCatalogue.Model.Aircrafts;
 using AirbusCatalogue.Model.Templates;
 
@@ -7,7 +9,7 @@ namespace AirbusCatalogue.Model.ConfigurationData
 {
     public class Configuration : Identable,IConfiguration
     {
-        public Configuration(string uniqueId, List<UpgradeItem> upgrades, List<string> aircrafts, string configurationDate, string state, AircraftProgramm programm): base(uniqueId)
+        public Configuration(string uniqueId, List<IUpgradeItem> upgrades, List<IAircraft> aircrafts, string configurationDate, string state, IAircraftProgramm programm): base(uniqueId)
         {
             AircraftIds = aircrafts;
             Upgrades = upgrades;
@@ -24,8 +26,8 @@ namespace AirbusCatalogue.Model.ConfigurationData
 
         public List<IUpgradeItem> Upgrades { get; set; }
 
-        public AircraftProgramm Programm { get; set; }
+        public IAircraftProgramm Programm { get; set; }
 
-        public Customer.Customer ConfigurationCustomer { get; set; }
+        public ICustomer ConfigurationCustomer { get; set; }
     }
 }

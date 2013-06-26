@@ -7,8 +7,10 @@ using AirbusCatalogue.Common.DataObjects.General;
 
 namespace AirbusCatalogue.Common.DataObjects.Aircrafts
 {
-    public interface IAircraftProgramm:IAircraftBase
+    public interface IAircraftBase:IIdentable
     {
-       
+        string Name { get; set; }
+
+        string ImagePath { get; set; }
     }
 }

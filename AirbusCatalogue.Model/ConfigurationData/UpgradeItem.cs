@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AirbusCatalogue.Common.DataObjects.Config;
 using AirbusCatalogue.Model.Templates;
 
 namespace AirbusCatalogue.Model.ConfigurationData
 {
-    public class UpgradeItem : Identable
+    public class UpgradeItem : Identable, IUpgradeItem
     {
         public UpgradeItem(string uniqueId, string name, string description, string imagePath, int priority): base(uniqueId)
         {

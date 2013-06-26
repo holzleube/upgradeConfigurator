@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AirbusCatalogue.Common.DataObjects.Aircrafts;
 using AirbusCatalogue.Model.Aircrafts;
 using AirbusCatalogue.ViewModel.Templates;
 using AirbusCatalogue.ViewModel.ViewDataElements;
@@ -22,7 +23,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel
 
         public override void Initialize(object parameter)
         {
-            var aircraftType = parameter as string;
+            var aircraftType = parameter as IAircraftType;
             var aircrafts = _model.GetAircraftVersionsByType(aircraftType);
             DataGroupElements = GetAsViewData(aircrafts);
             
@@ -41,10 +42,10 @@ namespace AirbusCatalogue.ViewModel.ViewModel
                 {
                     var newItem = new AircraftDataItem(aircraft, group);
                     group.Items.Add(newItem);
-                    //if (selectedAircrafts.Contains(aircraft))
-                    //{
-                    //    SelectedItems.Add(newItem);
-                    //}
+                    if (selectedAircrafts.Contains(aircraft))
+                    {
+                        SelectedItems.Add(newItem);
+                    }
 
                 }
                 result.Add(group);
@@ -71,7 +72,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel
             var item = clickedItem as AircraftDataItem;
             if (item != null)
             {
-                _model.SelectOrRemoveAircraft(item.UniqueId);
+                _model.SelectOrRemoveAircraft(item.DataItem);
             }
         }
     }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AirbusCatalogue.Common.DataObjects.Aircrafts;
+using AirbusCatalogue.Common.DataObjects.Config;
 using AirbusCatalogue.Model.Aircrafts;
 using AirbusCatalogue.Model.ConfigurationData;
 using AirbusCatalogue.Model.Templates;
@@ -22,7 +24,7 @@ namespace AirbusCatalogue.Model.Customer
         {
             if (! SimpleIoc.Default.IsRegistered<IConfiguration>())
             {
-                var configuration = new Configuration("id", new List<UpgradeItem>(), new List<string>(),
+                var configuration = new Configuration("id", new List<IUpgradeItem>(), new List<IAircraft>(),
                                                       System.DateTime.Now.ToString(), "In Progress", null);
                 SimpleIoc.Default.Register<IConfiguration>(() => configuration);
             }
@@ -60,20 +62,20 @@ namespace AirbusCatalogue.Model.Customer
 
         private List<Configuration> GetConfigurationForAirFrance()
         {
-            var aircrafts = new List<Aircraft>
+            var aircrafts = new List<IAircraft>
                 {
                     new Aircraft("N-001","MSN-001",BASE_PATH + "A318_transparent.png", "001", "AFR01"),
                     new Aircraft("N-001","MSN-001",BASE_PATH + "A318_transparent.png", "001", "AFR01"),
                     new Aircraft("N-001","MSN-001",BASE_PATH + "A318_transparent.png", "001", "AFR01"),
                     new Aircraft("N-001","MSN-001",BASE_PATH + "A318_transparent.png", "001", "AFR01")
                 };
-            var upgrades = new List<UpgradeItem>()
+            var upgrades = new List<IUpgradeItem>()
                 {
                     new UpgradeItem("al","Ambient Light","perfect Ambilight","Assets/upgrades/ambient.jpg", 1),
                     new UpgradeItem("bt","bridgestone tyres","new bridgestone tyres","Assets/upgrades/bridgestone.jpg", 3),
                     new UpgradeItem("isisId","isis display","the isis cockpit display","Assets/upgrades/isis.jpg",3)
                 };
-            var programms = new List<AircraftProgramm>()
+            var programms = new List<IAircraftProgramm>()
                 {
                     new AircraftProgramm("a320", "A320", "Assets/aircrafts/a320_transparent.png"),
                     new AircraftProgramm("a330", "A330", "Assets/aircrafts/a330_transparent.png"),

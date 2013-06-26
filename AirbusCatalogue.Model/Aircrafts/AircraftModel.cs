@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AirbusCatalogue.Common.DataObjects.Aircrafts;
+using AirbusCatalogue.Common.DataObjects.Config;
 using AirbusCatalogue.Model.Templates;
 using GalaSoft.MvvmLight.Ioc;
 
@@ -24,53 +26,53 @@ namespace AirbusCatalogue.Model.Aircrafts
             return result;
         }
 
-        public List<AircraftType> GetAircraftTypesByProgramm(string programmId)
+        public List<IAircraftType> GetAircraftTypesByProgramm(string programmId)
         {
-            var result = new List<AircraftType>
+            var result = new List<IAircraftType>
                 {
                     new AircraftType("A318", "A318", BASE_PATH + "A318_transparent.png"),
-                    new AircraftType("A319", "A319", BASE_PATH + "A319_transparent_2.png"),
+                    new AircraftType("A319", "A319", BASE_PATH + "A319_transparent.png"),
                     new AircraftType("A320", "A320", BASE_PATH + "A320_transparent.png"),
                     new AircraftType("A321", "A321", BASE_PATH + "A321_transparent.png")
                 };
             return result;
         }
 
-        public List<AircraftVersion> GetAircraftVersionsByType(string aircraftType)
+        public List<AircraftVersion> GetAircraftVersionsByType(IAircraftType aircraftType)
         {
-            
+            var image = aircraftType.ImagePath;
 
             var list = new List<Aircraft>
                 {
-                    new Aircraft("N-001", "MSN-001", BASE_PATH + "A318_transparent.png", "001", "AFR01"),
-                    new Aircraft("N-002", "MSN-002", BASE_PATH + "A318_transparent.png", "001", "AFR01"),
-                    new Aircraft("N-003", "MSN-003", BASE_PATH + "A318_transparent.png", "001", "AFR01"),
-                    new Aircraft("N-004", "MSN-004", BASE_PATH + "A318_transparent.png", "001", "AFR01")
+                    new Aircraft("N-001", "MSN-001",  image, "001", "AFR01"),
+                    new Aircraft("N-002", "MSN-002",  image, "001", "AFR01"),
+                    new Aircraft("N-003", "MSN-003",  image, "001", "AFR01"),
+                    new Aircraft("N-004", "MSN-004",  image, "001", "AFR01")
                 };
             
             var list2 =  new List<Aircraft>
                 {
-                    new Aircraft("N-001","MSN-004",BASE_PATH + "A318_transparent.png", "001", "AFR02"),
-                    new Aircraft("N-001","MSN-005",BASE_PATH + "A318_transparent.png", "001", "AFR02"),
-                    new Aircraft("N-001","MSN-006",BASE_PATH + "A318_transparent.png", "001", "AFR05") };
+                    new Aircraft("N-005","MSN-004", image, "001", "AFR02"),
+                    new Aircraft("N-006","MSN-005", image, "001", "AFR02"),
+                    new Aircraft("N-007","MSN-006", image, "001", "AFR05") };
            
            
             var list3 = new List<Aircraft>
                 {
-                    new Aircraft("N-001","MSN-007",BASE_PATH + "A318_transparent.png", "001", "AFR05"),
-                    new Aircraft("N-001","MSN-008",BASE_PATH + "A318_transparent.png", "001", "AFR05"),
-                    new Aircraft("N-001","MSN-009",BASE_PATH + "A318_transparent.png", "001", "AFR05"),
-                    new Aircraft("N-001","MSN-010",BASE_PATH + "A318_transparent.png", "001", "AFR05"),
-                    new Aircraft("N-001","MSN-011",BASE_PATH + "A318_transparent.png", "001", "AFR05"),
-                    new Aircraft("N-001","MSN-012",BASE_PATH + "A318_transparent.png", "001", "AFR07") };
+                    new Aircraft("N-008","MSN-007", image, "001", "AFR05"),
+                    new Aircraft("N-009","MSN-008", image, "001", "AFR05"),
+                    new Aircraft("N-0011","MSN-009", image, "001", "AFR05"),
+                    new Aircraft("N-0012","MSN-010", image, "001", "AFR05"),
+                    new Aircraft("N-0013","MSN-011", image, "001", "AFR05"),
+                    new Aircraft("N-0014","MSN-012", image, "001", "AFR07") };
             list4 = new List<Aircraft>
                 {
-                    new Aircraft("N-001","MSN-013",BASE_PATH + "A318_transparent.png", "001", "AFR07"),
-                    new Aircraft("N-001","MSN-014",BASE_PATH + "A318_transparent.png", "001", "AFR07") };
+                    new Aircraft("N-0015","MSN-013", image, "001", "AFR07"),
+                    new Aircraft("N-0016","MSN-014", image, "001", "AFR07") };
             var list5 = new List<Aircraft>
                 {
-                    new Aircraft("N-001","MSN-015",BASE_PATH + "A318_transparent.png", "001", "AFR09"),
-                    new Aircraft("N-001","MSN-016",BASE_PATH + "A318_transparent.png", "001", "AFR09"),
+                    new Aircraft("N-0017","MSN-015", image, "001", "AFR09"),
+                    new Aircraft("N-0018","MSN-016", image, "001", "AFR09"),
                 };
             var aircraftVersion1 = new AircraftVersion("AFR-01", "AFR01") { Aircrafts = list };
             var aircraftVersion2 = new AircraftVersion("AFR-02", "AFR02") { Aircrafts = list2 };
@@ -80,10 +82,17 @@ namespace AirbusCatalogue.Model.Aircrafts
             return  new List<AircraftVersion> {aircraftVersion1, aircraftVersion2, aircraftVersion3, 
                  aircraftVersion5, aircraftVersion6};
         }
+       
 
-        public List<Aircraft> GetSelectedAircrafts()
+        public List<IAircraft> GetSelectedAircrafts()
         {
-            return list4;
+            var configuration = GetCurrentConfiguration();
+            return configuration.AircraftIds;
+        }
+
+        private static IConfiguration GetCurrentConfiguration()
+        {
+            return SimpleIoc.Default.GetInstance<IConfiguration>();
         }
 
         public void SelectAircraftProgramm(AircraftProgramm programm)
@@ -92,9 +101,9 @@ namespace AirbusCatalogue.Model.Aircrafts
             configuration.Programm = programm;
         }
 
-        public void SelectOrRemoveAircraft(string aircraftId)
+        public void SelectOrRemoveAircraft(IAircraft aircraftId)
         {
-            var configuration = SimpleIoc.Default.GetInstance<IConfiguration>();
+            var configuration = GetCurrentConfiguration();
             if (configuration.AircraftIds.Contains(aircraftId))
             {
                 configuration.AircraftIds.Remove(aircraftId);

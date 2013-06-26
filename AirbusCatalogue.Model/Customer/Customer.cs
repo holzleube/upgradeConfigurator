@@ -1,4 +1,5 @@
-﻿using AirbusCatalogue.Model.Templates;
+﻿using AirbusCatalogue.Common.DataObjects.Customers;
+using AirbusCatalogue.Model.Templates;
 
 namespace AirbusCatalogue.Model.Customer
 {

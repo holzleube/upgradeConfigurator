@@ -102,8 +102,10 @@
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="DataObjects\Aircrafts\IAircraft.cs" />
+    <Compile Include="DataObjects\Aircrafts\IAircraftBase.cs" />
     <Compile Include="DataObjects\Aircrafts\IAircraftProgramm.cs" />
+    <Compile Include="DataObjects\Aircrafts\IAircraftType.cs" />
     <Compile Include="DataObjects\Config\IConfiguration.cs" />
     <Compile Include="DataObjects\Config\IUpgradeItem.cs" />
     <Compile Include="DataObjects\Customers\ICustomer.cs" />

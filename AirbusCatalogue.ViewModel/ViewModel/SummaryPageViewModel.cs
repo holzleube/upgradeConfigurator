@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
+using AirbusCatalogue.Common.DataObjects.Aircrafts;
 using AirbusCatalogue.Model.Aircrafts;
 using AirbusCatalogue.Model.Config;
 using AirbusCatalogue.Model.ConfigurationData;
@@ -36,7 +37,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel
             DataGroupElements.Add(programmGroup);
         }
 
-        private ConfigurationGroup GetProgrammGroup(AircraftProgramm programm)
+        private ConfigurationGroup GetProgrammGroup(IAircraftProgramm programm)
         {
             var group = new ConfigurationGroup("aircraftProgrammGroup", "aircraft family", "&#xE093;");
             group.Items.Add(new BasicDataItem(programm.UniqueId, programm.Name, programm.ImagePath, group, 60, 80));

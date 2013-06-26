@@ -111,6 +111,7 @@
     <Compile Include="Templates\GridHolderViewModel.cs" />
     <Compile Include="Templates\ViewModelBase.cs" />
     <Compile Include="ViewDataElements\Aircraft\AircraftDataItem.cs" />
+    <Compile Include="ViewDataElements\Aircraft\AircraftProgrammDataItem.cs" />
     <Compile Include="ViewDataElements\Aircraft\AircraftProgrammGroup.cs" />
     <Compile Include="ViewDataElements\ConfigurationDataItem.cs" />
     <Compile Include="ViewDataElements\Configuration\ConfigurationGroup.cs" />

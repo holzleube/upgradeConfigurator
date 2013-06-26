@@ -159,8 +159,8 @@
     <Content Include="Assets\aircrafts\a318.jpg" />
     <Content Include="Assets\aircrafts\a318_transparent.png" />
     <Content Include="Assets\aircrafts\a319.jpg" />
+    <Content Include="Assets\aircrafts\a319_transparent_old.png" />
     <Content Include="Assets\aircrafts\a319_transparent.png" />
-    <Content Include="Assets\aircrafts\a319_transparent_2.png" />
     <Content Include="Assets\aircrafts\A320.jpg" />
     <Content Include="Assets\aircrafts\a320_long.jpg" />
     <Content Include="Assets\aircrafts\a320_transparent.png" />

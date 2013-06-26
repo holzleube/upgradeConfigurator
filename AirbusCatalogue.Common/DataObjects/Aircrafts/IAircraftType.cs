@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AirbusCatalogue.Common
+namespace AirbusCatalogue.Common.DataObjects.Aircrafts
 {
-    public class Class1
+    public interface IAircraftType: IAircraftBase
     {
     }
 }

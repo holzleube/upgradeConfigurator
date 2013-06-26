@@ -11,7 +11,7 @@ namespace AirbusCatalogue.Common.DataObjects.Config
 
         string State { get; set; }
 
-        List<string> AircraftIds { get; set; }
+        List<IAircraft> AircraftIds { get; set; }
 
         List<IUpgradeItem> Upgrades { get; set; }
 

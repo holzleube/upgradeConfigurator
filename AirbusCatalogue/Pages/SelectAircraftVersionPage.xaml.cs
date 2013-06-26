@@ -45,10 +45,10 @@ namespace AirbusCatalogue.Pages
         /// session.  This will be null the first time a page is visited.</param>
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
-            //foreach (var item in _viewModel.SelectedItems)
-            //{
-            //    //itemGridView.SelectedItems.Add(item);
-            //}
+            foreach (var item in _viewModel.SelectedItems)
+            {
+                itemGridView.SelectedItems.Add(item);
+            }
         }
 
       
@@ -72,16 +72,14 @@ namespace AirbusCatalogue.Pages
         private void ItemClicked(object sender, ItemClickEventArgs e)
         {
             _viewModel.UpdateSelection(e.ClickedItem);
-            //if (itemGridView.SelectedItems.Contains(e.ClickedItem))
-            //{
-            //    itemGridView.SelectedItems.Remove(e.ClickedItem);
-            //    RemoveItemFromViewModel(e.ClickedItem);
-            //}
-            //else
-            //{
-            //    itemGridView.SelectedItems.Add(e.ClickedItem);
-            //    AddItemToViewModel(e.ClickedItem);
-            //}
+            if (itemGridView.SelectedItems.Contains(e.ClickedItem))
+            {
+                itemGridView.SelectedItems.Remove(e.ClickedItem);
+            }
+            else
+            {
+                itemGridView.SelectedItems.Add(e.ClickedItem);
+            }
         }
     }
 }
