@@ -1,0 +1,14 @@
+C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue.Common\bin\Release\AirbusCatalogue.Common.dll
+C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue.Common\bin\Release\AirbusCatalogue.Common.pdb
+C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue.Common\bin\Release\AirbusCatalogue.Common.pri
+C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue.Common\obj\Release\AirbusCatalogue.Common.dll
+C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue.Common\obj\Release\AirbusCatalogue.Common.pdb
+C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue.Common\obj\Release\priconfig.xml.intermediate
+C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue.Common\obj\Release\layout.resfiles.intermediate
+C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue.Common\obj\Release\resources.resfiles.intermediate
+C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue.Common\obj\Release\pri.resfiles.intermediate
+C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue.Common\obj\Release\priconfig.xml
+C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue.Common\obj\Release\layout.resfiles
+C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue.Common\obj\Release\resources.resfiles
+C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue.Common\obj\Release\pri.resfiles
+C:\develop\workspaces\AirbusCatalogue\AirbusCatalogue.Common\obj\Release\LanguageQualifiers.txt
