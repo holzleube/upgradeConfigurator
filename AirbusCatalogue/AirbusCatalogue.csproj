@@ -101,6 +101,10 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <ProjectReference Include="..\AirbusCatalogue.Common\AirbusCatalogue.Common.csproj">
+      <Project>{b7e435c5-162e-4566-804c-e19787eb8c8a}</Project>
+      <Name>AirbusCatalogue.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AirbusCatalogue.ViewModel\AirbusCatalogue.ViewModel.csproj">
       <Project>{0f5e281f-c8ea-4d2c-9164-094183b94b1f}</Project>
       <Name>AirbusCatalogue.ViewModel</Name>
@@ -113,8 +117,8 @@
     <Compile Include="Common\BindableBase.cs" />
     <Compile Include="Common\BooleanNegationConverter.cs" />
     <Compile Include="Common\BooleanToVisibilityConverter.cs" />
-    <Compile Include="Pages\SelectAircraftPage.xaml.cs">
-      <DependentUpon>SelectAircraftPage.xaml</DependentUpon>
+    <Compile Include="Pages\SelectAircraftFamilyPage.xaml.cs">
+      <DependentUpon>SelectAircraftFamilyPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\GlobalPage.xaml.cs">
       <DependentUpon>GlobalPage.xaml</DependentUpon>
@@ -153,10 +157,14 @@
   <ItemGroup>
     <Content Include="Assets\airbus_logo.png" />
     <Content Include="Assets\aircrafts\a318.jpg" />
+    <Content Include="Assets\aircrafts\a318_transparent.png" />
     <Content Include="Assets\aircrafts\a319.jpg" />
+    <Content Include="Assets\aircrafts\a319_transparent.png" />
+    <Content Include="Assets\aircrafts\a319_transparent_2.png" />
     <Content Include="Assets\aircrafts\A320.jpg" />
     <Content Include="Assets\aircrafts\a320_long.jpg" />
     <Content Include="Assets\aircrafts\a320_transparent.png" />
+    <Content Include="Assets\aircrafts\a321_transparent.png" />
     <Content Include="Assets\aircrafts\a330.jpg" />
     <Content Include="Assets\aircrafts\a330_2.jpg" />
     <Content Include="Assets\aircrafts\a330_transparent.png" />
@@ -186,6 +194,7 @@
     <Content Include="Assets\customers\condor.png" />
     <Content Include="Assets\customers\continentalAirlines.jpg" />
     <Content Include="Assets\customers\danubeWings.jpg" />
+    <Content Include="Assets\customers\delta.png" />
     <Content Include="Assets\customers\deltaAirlines.jpg" />
     <Content Include="Assets\customers\dragonAir.png" />
     <Content Include="Assets\customers\drukair.png" />
@@ -230,7 +239,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Pages\SelectAircraftPage.xaml">
+    <Page Include="Pages\SelectAircraftFamilyPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -17,12 +17,16 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements
                 Items.CollectionChanged += ItemsCollectionChanged;
             }
 
-            private readonly ObservableCollection<BasicDataItem> _items = new ObservableCollection<BasicDataItem>();
+            private ObservableCollection<BasicDataItem> _items = new ObservableCollection<BasicDataItem>();
             public ObservableCollection<BasicDataItem> Items
             {
                 get
                 {
                     return this._items;
+                }
+
+                set { _items = value;
+                    _topItem = value;
                 }
             }
 
@@ -93,6 +97,8 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements
             
 
             private ObservableCollection<BasicDataItem> _topItem = new ObservableCollection<BasicDataItem>();
+
+            
             public ObservableCollection<BasicDataItem> TopItems
             {
                 get { return this._topItem; }

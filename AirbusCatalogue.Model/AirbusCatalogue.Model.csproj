@@ -127,6 +127,12 @@
       <HintPath>..\..\..\..\Program Files (x86)\Laurent Bugnion (GalaSoft)\Mvvm Light Toolkit\Binaries\Win8\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AirbusCatalogue.Common\AirbusCatalogue.Common.csproj">
+      <Project>{B7E435C5-162E-4566-804C-E19787EB8C8A}</Project>
+      <Name>AirbusCatalogue.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
     <VisualStudioVersion>11.0</VisualStudioVersion>
   </PropertyGroup>

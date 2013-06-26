@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AirbusCatalogue.Model.Customer;
+using AirbusCatalogue.Model.Templates;
+using GalaSoft.MvvmLight.Ioc;
 
 
 namespace AirbusCatalogue.Model.CustomerModel
@@ -47,7 +49,7 @@ namespace AirbusCatalogue.Model.CustomerModel
                 allCustomers.Add(customer);
                 customer = new Customer.Customer("condor", BASE_PATH + "condor.png", "Condor", false);
                 allCustomers.Add(customer);
-                customer = new Customer.Customer("delta", BASE_PATH + "deltaAirlines.jpg", "Delta Airlines", false);
+                customer = new Customer.Customer("delta", BASE_PATH + "delta.png", "Delta Airlines", false);
                 allCustomers.Add(customer);
                 customer = new Customer.Customer("dragonair", BASE_PATH + "dragonAir.png", "Dragon Air", false);
                 allCustomers.Add(customer);
@@ -76,5 +78,12 @@ namespace AirbusCatalogue.Model.CustomerModel
                 return allCustomers;
             }
         }
+    
+        public void SetCustomer(Customer.Customer customer)
+        {
+            var configuration = SimpleIoc.Default.GetInstance<IConfiguration>();
+            configuration.ConfigurationCustomer = customer;
+        }
+    
     }
 }

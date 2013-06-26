@@ -251,6 +251,12 @@ namespace AirbusCatalogue.Sample
             get { return this._aircraftType; }
         }
 
+        private ObservableCollection<DataGroup> _aircraftVersion = new ObservableCollection<DataGroup>();
+        public ObservableCollection<DataGroup> AircraftVersion
+        {
+            get { return this._aircraftVersion; }
+        }
+
         public static IEnumerable<DataGroup> GetGroups(string uniqueId)
         {
             if (!uniqueId.Equals("AllGroups")) throw new ArgumentException("Only 'AllGroups' is supported as a collection of groups");
@@ -290,13 +296,34 @@ namespace AirbusCatalogue.Sample
                     "Assets/DarkGray.png"
                     );
             group2.Items.Add(new BasicDataItem("", "A320", "Assets/aircrafts/a320_transparent.png", group1, 40, 80));
-            this.AllGroups.Add(group1);
-            this.AllGroups.Add(group2);
+            this.AircraftVersion.Add(group1);
+            this.AircraftVersion.Add(group2);
 
             AircraftType.Add(new BasicDataItem("", "A318", "Assets/aircrafts/a320_transparent.png", group1, 60, 80));
             AircraftType.Add(new BasicDataItem("", "A319", "Assets/aircrafts/a320_transparent.png", group1, 60, 80));
             AircraftType.Add(new BasicDataItem("", "A320", "Assets/aircrafts/a320_transparent.png", group1, 60, 80));
             AircraftType.Add(new BasicDataItem("", "A321", "Assets/aircrafts/a320_transparent.png", group1, 60, 80));
+
+            var group3 = new DataGroup("Group-1",
+                    "AFR01",
+                    "Assets/DarkGray.png"
+                    );
+            group3.Items.Add(new BasicDataItem("", "A320", "Assets/aircrafts/a320_transparent.png", group3, 25, 25));
+            group3.Items.Add(new BasicDataItem("", "A320", "Assets/aircrafts/a320_transparent.png", group3, 25, 25));
+            group3.Items.Add(new BasicDataItem("", "A320", "Assets/aircrafts/a320_transparent.png", group3, 25, 25));
+            group3.Items.Add(new BasicDataItem("", "A320", "Assets/aircrafts/a320_transparent.png", group3, 25, 25));
+
+            var group4 = new DataGroup("Group-1",
+                    "AFR02",
+                    "Assets/DarkGray.png"
+                    );
+            group4.Items.Add(new BasicDataItem("first", "A320", "Assets/aircrafts/a320_transparent.png", group4, 25, 25));
+            group4.Items.Add(new BasicDataItem("sec", "A320", "Assets/aircrafts/a320_transparent.png", group4, 25, 25));
+            group4.Items.Add(new BasicDataItem("thi", "A320", "Assets/aircrafts/a320_transparent.png", group4, 25, 25));
+            group4.Items.Add(new BasicDataItem("fou", "A320", "Assets/aircrafts/a320_transparent.png", group4, 25, 25));
+            group4.Items.Add(new BasicDataItem("fift", "A320", "Assets/aircrafts/a320_transparent.png", group4, 25, 25));
+            this.AircraftVersion.Add(group3);
+            this.AircraftVersion.Add(group4);
 
             //group1.Items.Add(new SampleDataItem("Group-1-Item-2",
             //        "Item Title: 2",

@@ -8,6 +8,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModel="using:AirbusCatalogue.ViewModel.ViewModel" xmlns:sample="using:AirbusCatalogue.Sample"
+    xmlns:command="using:AirbusCatalogue.ViewModel.Command"
     mc:Ignorable="d">
     <Page.DataContext>
         <viewModel:SelectAircraftTypeViewModel/>
@@ -35,7 +36,7 @@
 
         <!-- Horizontal scrolling grid used in most view states -->
         <GridView
-            Padding="10"
+            Padding="36,10,10,10"
             x:Name="itemGridView"
             AutomationProperties.AutomationId="ItemsGridView"
             AutomationProperties.Name="Items"
@@ -45,6 +46,8 @@
             ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
             ItemTemplate="{StaticResource AircraftTypeTemplate}"
             SelectionMode="None"
+            IsItemClickEnabled="True"
+            command:ItemClickCommand.Command="{Binding ItemSelected}"
             IsSwipeEnabled="false"/>
 
         <!-- Vertical scrolling list only used when snapped -->
@@ -60,6 +63,7 @@
             ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
             ItemTemplate="{StaticResource Standard80ItemTemplate}"
             SelectionMode="None"
+            
             IsSwipeEnabled="false"/>
 
         <!-- Back button and page title -->
@@ -67,9 +71,11 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
-            <TextBlock x:Name="pageTitle" Grid.Column="1" Text="{StaticResource SelectAircraftTypeHeadline}" IsHitTestVisible="false" Style="{StaticResource PageHeaderTextStyle}"/>
+            <TextBlock x:Name="pageTitle" Text="{StaticResource SelectAircraftTypeHeadline}" Grid.Column="1" IsHitTestVisible="false" Style="{StaticResource PageHeaderTextStyle}"/>
+            <Image Grid.Column="2"  Source="/Assets/airbus_logo.png" />
         </Grid>
 
         <VisualStateManager.VisualStateGroups>

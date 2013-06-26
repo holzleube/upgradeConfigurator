@@ -2,7 +2,7 @@
 
 namespace AirbusCatalogue.Model.Customer
 {
-    public class Customer : Identable
+    public class Customer : Identable, ICustomer
     {
         public Customer(string id, string imagePath, string name, bool isTextVisible):base(id)
         {

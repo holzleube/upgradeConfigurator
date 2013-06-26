@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using AirbusCatalogue.ViewModel.ViewDataElements;
 using AirbusCatalogue.ViewModel.ViewInterfaces;
+using AirbusCatalogue.ViewModel.ViewModel;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -22,9 +24,14 @@ namespace AirbusCatalogue.Pages
     /// </summary>
     public sealed partial class SelectAircraftVersionPage : IAircraftVersionSelection
     {
+        private SelectAircraftVersionViewModel _viewModel;
+
         public SelectAircraftVersionPage()
         {
             this.InitializeComponent();
+            _viewModel = new SelectAircraftVersionViewModel();
+            DataContext = _viewModel;
+
         }
 
         /// <summary>
@@ -38,7 +45,43 @@ namespace AirbusCatalogue.Pages
         /// session.  This will be null the first time a page is visited.</param>
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
-            // TODO: Assign a collection of bindable groups to this.DefaultViewModel["Groups"]
+            //foreach (var item in _viewModel.SelectedItems)
+            //{
+            //    //itemGridView.SelectedItems.Add(item);
+            //}
+        }
+
+      
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            var collectionGroups = groupedItemsViewSource.View.CollectionGroups;
+            ((ListViewBase)this.Zoom.ZoomedOutView).ItemsSource = collectionGroups;
+        }
+
+        //private void RemoveItemFromViewModel(object removedItem)
+        //{
+        //    _viewModel.SelectedItems.Remove((DataCommon)removedItem);
+        //}
+
+        //private void AddItemToViewModel(object addItem)
+        //{
+        //    _viewModel.SelectedItems.Add((DataCommon)addItem);
+        //}
+
+        private void ItemClicked(object sender, ItemClickEventArgs e)
+        {
+            _viewModel.UpdateSelection(e.ClickedItem);
+            //if (itemGridView.SelectedItems.Contains(e.ClickedItem))
+            //{
+            //    itemGridView.SelectedItems.Remove(e.ClickedItem);
+            //    RemoveItemFromViewModel(e.ClickedItem);
+            //}
+            //else
+            //{
+            //    itemGridView.SelectedItems.Add(e.ClickedItem);
+            //    AddItemToViewModel(e.ClickedItem);
+            //}
         }
     }
 }

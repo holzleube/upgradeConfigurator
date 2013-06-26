@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using AirbusCatalogue.Model.Aircrafts;
 using AirbusCatalogue.Model.ConfigurationData;
+using AirbusCatalogue.Model.Templates;
+using GalaSoft.MvvmLight.Ioc;
 
 namespace AirbusCatalogue.Model.Customer
 {
@@ -13,6 +15,19 @@ namespace AirbusCatalogue.Model.Customer
     /// </summary>
     public class CustomerInformationModel
     {
+   
+        private const string BASE_PATH = "Assets/aircrafts/";
+
+        public CustomerInformationModel()
+        {
+            if (! SimpleIoc.Default.IsRegistered<IConfiguration>())
+            {
+                var configuration = new Configuration("id", new List<UpgradeItem>(), new List<string>(),
+                                                      System.DateTime.Now.ToString(), "In Progress", null);
+                SimpleIoc.Default.Register<IConfiguration>(() => configuration);
+            }
+        }
+
         public CustomerInformation GetCustomerInformationById(string uniqueId)
         {
             var lastConfiguration = new List<Configuration>();
@@ -47,10 +62,10 @@ namespace AirbusCatalogue.Model.Customer
         {
             var aircrafts = new List<Aircraft>
                 {
-                    new Aircraft(),
-                    new Aircraft(),
-                    new Aircraft(),
-                    new Aircraft()
+                    new Aircraft("N-001","MSN-001",BASE_PATH + "A318_transparent.png", "001", "AFR01"),
+                    new Aircraft("N-001","MSN-001",BASE_PATH + "A318_transparent.png", "001", "AFR01"),
+                    new Aircraft("N-001","MSN-001",BASE_PATH + "A318_transparent.png", "001", "AFR01"),
+                    new Aircraft("N-001","MSN-001",BASE_PATH + "A318_transparent.png", "001", "AFR01")
                 };
             var upgrades = new List<UpgradeItem>()
                 {

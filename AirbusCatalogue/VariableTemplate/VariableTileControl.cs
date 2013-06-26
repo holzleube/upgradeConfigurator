@@ -11,7 +11,7 @@ namespace AirbusCatalogue.VariableTemplate
                 dynamic _Item = item;
                 element.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, _Item.ColSpan);
                 element.SetValue(VariableSizedWrapGrid.RowSpanProperty, _Item.RowSpan);
-                base.PrepareContainerForItemOverride(element, item);
+                //base.PrepareContainerForItemOverride(element, item);
             }
             catch
             {
@@ -22,7 +22,7 @@ namespace AirbusCatalogue.VariableTemplate
             {
                 base.PrepareContainerForItemOverride(element, item);
             }
-            
+
         }
     }
 }

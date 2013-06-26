@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using AirbusCatalogue.Model.Aircrafts;
 using AirbusCatalogue.Model.ConfigurationData;
+using AirbusCatalogue.Model.Templates;
+using GalaSoft.MvvmLight.Ioc;
 
 namespace AirbusCatalogue.Model.Config
 {
@@ -12,8 +14,9 @@ namespace AirbusCatalogue.Model.Config
     {
         public Configuration GetCurrentConfiguration()
         {
-            var programm = new AircraftProgramm("a320", "A320", "Assets/aircrafts/a320_transparent.png");
-            return new Configuration("config001", new List<UpgradeItem>(),new List<Aircraft>(), "today", "in Progress", programm);
+            var currentConfiguration = SimpleIoc.Default.GetInstance<IConfiguration>();
+            //var programm = new AircraftProgramm("a320", "A320", "Assets/aircrafts/a320_transparent.png");
+            return new Configuration("config001", new List<UpgradeItem>(),new List<string>(), "today", "in Progress", currentConfiguration.Programm);
         }
     }
 }

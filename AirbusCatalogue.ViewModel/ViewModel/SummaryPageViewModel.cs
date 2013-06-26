@@ -24,7 +24,6 @@ namespace AirbusCatalogue.ViewModel.ViewModel
         public SummaryPageViewModel()
         {
             _model = new ConfigurationModel();
-            Headline = "Summary";
             InitializeDataGrid();
             
         }
@@ -39,8 +38,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel
 
         private ConfigurationGroup GetProgrammGroup(AircraftProgramm programm)
         {
-            var group = new ConfigurationGroup("aircraftProgrammGroup", "basic aircraft", "&#xE093;");
-            group.Items.Add(new BasicDataItem(programm.UniqueId, programm.Name, programm.ImagePath, group, 60, 80));
+            var group = new ConfigurationGroup("aircraftProgrammGroup", "aircraft family", "&#xE093;");
             group.Items.Add(new BasicDataItem(programm.UniqueId, programm.Name, programm.ImagePath, group, 60, 80));
             return group;
         }
@@ -72,7 +70,6 @@ namespace AirbusCatalogue.ViewModel.ViewModel
 
         public override void Initialize(object parameter)
         {
-
 
         }
     }

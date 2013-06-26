@@ -99,6 +99,7 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Command\ItemClickCommand.cs" />
     <Compile Include="Converter\CustomerInformationDataToViewObjectsConverter.cs" />
     <Compile Include="Converter\ModelObjectsToViewObjectsConverter.cs" />
     <Compile Include="Navigation\INavigationService.cs" />
@@ -109,7 +110,8 @@
     <Compile Include="Templates\BindableBase.cs" />
     <Compile Include="Templates\GridHolderViewModel.cs" />
     <Compile Include="Templates\ViewModelBase.cs" />
-    <Compile Include="ViewDataElements\AircraftProgrammGroup.cs" />
+    <Compile Include="ViewDataElements\Aircraft\AircraftDataItem.cs" />
+    <Compile Include="ViewDataElements\Aircraft\AircraftProgrammGroup.cs" />
     <Compile Include="ViewDataElements\ConfigurationDataItem.cs" />
     <Compile Include="ViewDataElements\Configuration\ConfigurationGroup.cs" />
     <Compile Include="ViewDataElements\CustomerDataItem.cs" />
@@ -125,7 +127,8 @@
     <Compile Include="ViewInterfaces\IStartScreen.cs" />
     <Compile Include="ViewInterfaces\ISummary.cs" />
     <Compile Include="ViewModel\SelectAircraftTypeViewModel.cs" />
-    <Compile Include="ViewModel\SelectAircraftViewModel.cs" />
+    <Compile Include="ViewModel\SelectAircraftFamilyViewModel.cs" />
+    <Compile Include="ViewModel\SelectAircraftVersionViewModel.cs" />
     <Compile Include="ViewModel\SelectCustomerViewModel.cs" />
     <Compile Include="ViewModel\StartScreenPageViewModel.cs" />
     <Compile Include="ViewModel\SummaryPageViewModel.cs" />
@@ -144,6 +147,10 @@
     <Reference Include="Windows" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AirbusCatalogue.Common\AirbusCatalogue.Common.csproj">
+      <Project>{b7e435c5-162e-4566-804c-e19787eb8c8a}</Project>
+      <Name>AirbusCatalogue.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AirbusCatalogue.Model\AirbusCatalogue.Model.csproj">
       <Project>{7e94f5f7-0206-4654-a77d-c329f98e76b9}</Project>
       <Name>AirbusCatalogue.Model</Name>

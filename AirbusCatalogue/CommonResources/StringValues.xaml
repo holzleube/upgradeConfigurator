@@ -16,4 +16,7 @@
     <x:String x:Key="EditCustomer">edit customer</x:String>
     <x:String x:Key="SummaryHeadline">summary</x:String>
     <x:String x:Key="SelectAircraftTypeHeadline">select aircraft type</x:String>
+    <x:String x:Key="SelectAircraftVersionHeadline">select aircraft version</x:String>
+    <x:String x:Key="SelectAircraftFamilyHeadline">select aircraft family</x:String>
+    <x:String x:Key="SelectCustomerHeadline">select customer</x:String>
 </ResourceDictionary>

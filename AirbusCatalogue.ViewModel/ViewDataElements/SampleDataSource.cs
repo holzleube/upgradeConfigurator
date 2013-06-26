@@ -60,7 +60,7 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements
             {
                 if (this._image == null && this._imagePath != null)
                 {
-                    this._image = new BitmapImage(new Uri(DataCommon.BASE_URI, this._imagePath));
+                    this._image = new BitmapImage(new Uri(BASE_URI, this._imagePath));
                 }
                 return this._image;
             }

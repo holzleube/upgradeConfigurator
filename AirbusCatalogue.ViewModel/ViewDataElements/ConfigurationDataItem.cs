@@ -17,7 +17,7 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements
 
         public string ItemsCount { get { return "Items:   " + _configuration.Upgrades.Count; } }
 
-        public string AircraftCount { get { return "Aircrafts:   " + _configuration.Upgrades.Count; } }
+        public string AircraftCount { get { return "AircraftIds:   " + _configuration.Upgrades.Count; } }
 
         public string State { get { return _configuration.State; } }
 

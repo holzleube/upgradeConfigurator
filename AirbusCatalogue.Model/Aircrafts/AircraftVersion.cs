@@ -8,8 +8,10 @@ namespace AirbusCatalogue.Model.Aircrafts
 {
     public class AircraftVersion: AAircraftBase
     {
-        public AircraftVersion(string uniqueId, string name, string imagePath) : base(uniqueId, name, imagePath)
+        public AircraftVersion(string uniqueId, string name) : base(uniqueId, name, "")
         {
         }
+
+        public List<Aircraft> Aircrafts { get; set; } 
     }
 }

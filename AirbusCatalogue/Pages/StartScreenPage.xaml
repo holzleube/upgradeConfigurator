@@ -60,13 +60,11 @@
         
             <variableTemplate:VariableTileControl
             Grid.RowSpan="2"
-            Margin="0"
             Grid.Row="1"
             x:Name="itemGridView"
             Background="{StaticResource MainBackground}"
             AutomationProperties.AutomationId="ItemGridView"
             AutomationProperties.Name="Grouped Items"
-            Padding="0,0,0,0"
             ItemsSource="{Binding Source={StaticResource GroupedItemsViewSource}}"
             ItemTemplateSelector="{StaticResource tileTemplates}"
             SelectionMode="None"
@@ -77,7 +75,7 @@
                     <GroupStyle HeaderTemplateSelector="{StaticResource headerSelector}">
                         <GroupStyle.Panel>
                             <ItemsPanelTemplate>
-                            <VariableSizedWrapGrid ItemHeight="10" ItemWidth="10" Orientation="Vertical" Margin="0,0,10,0"/>
+                            <VariableSizedWrapGrid ItemHeight="10" ItemWidth="10" Orientation="Vertical"/>
                             </ItemsPanelTemplate>
                         </GroupStyle.Panel>
                     </GroupStyle>
@@ -94,8 +92,6 @@
 				 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-
-           
             <Image Grid.Column="0"  Source="{Binding Image}" Height="130"/>
             <Image Grid.Column="2"  Source="/Assets/airbus_logo.png" />
         </Grid>

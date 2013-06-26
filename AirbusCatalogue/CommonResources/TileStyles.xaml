@@ -22,7 +22,7 @@
     </LinearGradientBrush>
 
     <DataTemplate x:Key="BigTemplate">
-        <Grid x:Name="TopMain" Width="1100" Height="630" Margin="0, 0, 0,0"  >
+        <Grid x:Name="TopMain" Width="1100" Height="630"  >
             
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -143,9 +143,20 @@
             </Grid>
     </DataTemplate>
 
+    <DataTemplate x:Key="AircraftVersionTemplate">
+        <Grid HorizontalAlignment="Left" Width="250" Height="150">
+            <!--<Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}">-->
+                <Image Source="{Binding Image}" Stretch="Uniform" AutomationProperties.Name="{Binding Title}"/>
+            <!--</Border>-->
+            <StackPanel VerticalAlignment="Bottom" Background="{StaticResource ListViewItemOverlayBackgroundThemeBrush}">
+                <TextBlock Text="{Binding Title}" FontSize="25" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextStyle}" Height="40" Margin="15,0,15,0"/>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
     <DataTemplate x:Key="AircraftTypeTemplate">
-        <Border BorderBrush="Black" BorderThickness="1">
-        <Grid Width="400" Height="200" >
+        <!--<Border BorderBrush="Black" BorderThickness="1">-->
+        <Grid Width="600" Height="250" >
             <Grid.ColumnDefinitions>
                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="70"/>
@@ -155,7 +166,7 @@
                 <TextBlock TextWrapping="Wrap" HorizontalAlignment="Right" Text="{Binding Title}"  FontSize="30" Style="{StaticResource GroupHeaderTextStyle}"/>
             </StackPanel>
         </Grid>
-        </Border>
+        <!--</Border>-->
     </DataTemplate>
 
     <DataTemplate x:Key="CustomerTemplateWithoutName">

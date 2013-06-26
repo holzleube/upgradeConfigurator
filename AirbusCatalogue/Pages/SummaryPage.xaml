@@ -43,8 +43,8 @@
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-            
-        <Grid Grid.Row="1">
+
+        <Grid Grid.Row="1" Background="{StaticResource MainBackground}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="100"/>
@@ -82,6 +82,7 @@
         <!-- Horizontal scrolling grid used in most view states -->
         <variableTemplate:VariableTileControl
             x:Name="itemGridView"
+            Background="{StaticResource MainBackground}"
             AutomationProperties.AutomationId="ItemGridView"
             AutomationProperties.Name="Grouped Items"
             Grid.Column="1"
@@ -147,9 +148,11 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <TextBlock x:Name="pageTitle" Text="{StaticResource SummaryHeadline}" Grid.Column="1" IsHitTestVisible="false" Style="{StaticResource PageHeaderTextStyle}"/>
+            <Image Grid.Column="2"  Source="/Assets/airbus_logo.png" />
         </Grid>
     
 

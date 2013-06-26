@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using AirbusCatalogue.ViewModel.ViewInterfaces;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -19,7 +20,7 @@ namespace AirbusCatalogue.Pages
     /// <summary>
     /// A page that displays a grouped collection of items.
     /// </summary>
-    public sealed partial class SummaryPage : AirbusCatalogue.Common.LayoutAwarePage
+    public sealed partial class SummaryPage : ISummary
     {
         public SummaryPage()
         {
