@@ -1,6 +1,6 @@
 using AirbusCatalogue.Model.ConfigurationData;
 
-namespace AirbusCatalogue.ViewModel.ViewDataElements
+namespace AirbusCatalogue.ViewModel.ViewDataElements.Upgrades
 {
     public class NewUpgradeDataItem: BasicDataItem
     {

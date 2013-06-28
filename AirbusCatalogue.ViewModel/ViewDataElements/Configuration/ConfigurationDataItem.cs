@@ -1,23 +1,21 @@
-
 using Windows.UI;
 using Windows.UI.Xaml.Media;
-using AirbusCatalogue.Model.ConfigurationData;
 
-namespace AirbusCatalogue.ViewModel.ViewDataElements
+namespace AirbusCatalogue.ViewModel.ViewDataElements.Configuration
 {
     public class ConfigurationDataItem:BasicDataItem
     {
         private readonly Model.ConfigurationData.Configuration _configuration;
 
         public ConfigurationDataItem(Model.ConfigurationData.Configuration configuration, DataGroup @group)
-            : base(configuration.UniqueId, configuration.ConfigurationDate, configuration.Programm.ImagePath,  @group, 20, 50)
+            : base(configuration.UniqueId, configuration.ConfigurationDate, configuration.Programm.ImagePath,  @group, 18, 50)
         {
             _configuration = configuration;
         }
 
         public string ItemsCount { get { return "Items:   " + _configuration.Upgrades.Count; } }
 
-        public string AircraftCount { get { return "AircraftIds:   " + _configuration.Upgrades.Count; } }
+        public string AircraftCount { get { return "SelectedAircrafts:   " + _configuration.Upgrades.Count; } }
 
         public string State { get { return _configuration.State; } }
 
