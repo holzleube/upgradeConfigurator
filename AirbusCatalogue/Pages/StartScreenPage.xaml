@@ -58,8 +58,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
-            <variableTemplate:VariableTileControl
-            Grid.RowSpan="2"
+       <variableTemplate:VariableTileControl
             Grid.Row="1"
             x:Name="itemGridView"
             Background="{StaticResource MainBackground}"
@@ -75,15 +74,12 @@
                     <GroupStyle HeaderTemplateSelector="{StaticResource headerSelector}">
                         <GroupStyle.Panel>
                             <ItemsPanelTemplate>
-                            <VariableSizedWrapGrid ItemHeight="10" ItemWidth="10" Orientation="Vertical"/>
+                                <VariableSizedWrapGrid ItemHeight="10" ItemWidth="10" Orientation="Vertical"/>
                             </ItemsPanelTemplate>
                         </GroupStyle.Panel>
                     </GroupStyle>
                 </GridView.GroupStyle>
-            </variableTemplate:VariableTileControl>
-        <!--</Grid>-->
-        <!-- Horizontal scrolling grid used in most view states -->
-       
+       </variableTemplate:VariableTileControl>
 
         <!-- Back button and page title -->
         <Grid x:Name="topGrid">

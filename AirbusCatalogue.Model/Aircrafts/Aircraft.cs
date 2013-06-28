@@ -9,15 +9,18 @@ namespace AirbusCatalogue.Model.Aircrafts
 {
     public class Aircraft : AAircraftBase, IAircraft
     {
-        public Aircraft(string uniqueId, string name, string imagePath, string msnNumber, string version) : base(uniqueId, name, imagePath)
+        public Aircraft(string uniqueId, string name, string imagePath, string msnNumber, string version, string aircraftType) : base(uniqueId, name, imagePath)
         {
             MsnNumber = msnNumber;
             Version = version;
+            AircraftType = aircraftType;
         }
 
         public string MsnNumber { get; set; }
 
         public string Version { get; set; }
+
+        public string AircraftType { get; set; }
 
         public override bool Equals(object obj)
         {
@@ -28,5 +31,7 @@ namespace AirbusCatalogue.Model.Aircrafts
             }
             return base.Equals(obj);
         }
+
+        
     }
 }

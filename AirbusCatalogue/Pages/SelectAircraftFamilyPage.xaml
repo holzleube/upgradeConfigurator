@@ -58,10 +58,7 @@
                     </GroupStyle>
                 </GridView.GroupStyle>
             </variableTemplate:VariableTileControl>
-        <!--</Grid>-->
-        <!-- Horizontal scrolling grid used in most view states -->
        
-
         <!-- Back button and page title -->
         <Grid>
             <Grid.ColumnDefinitions>

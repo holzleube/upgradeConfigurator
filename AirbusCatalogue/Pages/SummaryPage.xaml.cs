@@ -41,10 +41,5 @@ namespace AirbusCatalogue.Pages
             
         }
 
-
-        private void Select_Aircrafts_Clicked(object sender, RoutedEventArgs e)
-        {
-            //Frame.Navigate(typeof (StartScreenPage));
-        }
     }
 }

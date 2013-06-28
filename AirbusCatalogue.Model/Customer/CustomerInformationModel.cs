@@ -64,10 +64,10 @@ namespace AirbusCatalogue.Model.Customer
         {
             var aircrafts = new List<IAircraft>
                 {
-                    new Aircraft("N-001","MSN-001",BASE_PATH + "A318_transparent.png", "001", "AFR01"),
-                    new Aircraft("N-001","MSN-001",BASE_PATH + "A318_transparent.png", "001", "AFR01"),
-                    new Aircraft("N-001","MSN-001",BASE_PATH + "A318_transparent.png", "001", "AFR01"),
-                    new Aircraft("N-001","MSN-001",BASE_PATH + "A318_transparent.png", "001", "AFR01")
+                    new Aircraft("N-001","MSN-001",BASE_PATH + "A318_transparent.png", "001", "AFR01", "A320"),
+                    new Aircraft("N-001","MSN-001",BASE_PATH + "A318_transparent.png", "001", "AFR01", "A320"),
+                    new Aircraft("N-001","MSN-001",BASE_PATH + "A318_transparent.png", "001", "AFR01", "A320"),
+                    new Aircraft("N-001","MSN-001",BASE_PATH + "A318_transparent.png", "001", "AFR01", "A320")
                 };
             var upgrades = new List<IUpgradeItem>()
                 {

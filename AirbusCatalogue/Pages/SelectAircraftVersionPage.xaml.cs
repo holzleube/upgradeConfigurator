@@ -72,6 +72,7 @@ namespace AirbusCatalogue.Pages
         private void ItemClicked(object sender, ItemClickEventArgs e)
         {
             _viewModel.UpdateSelection(e.ClickedItem);
+            bottomAppBar.IsOpen = true;
             if (itemGridView.SelectedItems.Contains(e.ClickedItem))
             {
                 itemGridView.SelectedItems.Remove(e.ClickedItem);
@@ -80,6 +81,16 @@ namespace AirbusCatalogue.Pages
             {
                 itemGridView.SelectedItems.Add(e.ClickedItem);
             }
+            if (itemGridView.SelectedItems.Count == 0)
+            {
+                bottomAppBar.IsOpen = false;
+            }
+        }
+
+        private void UpdateZoomOutView(object sender, SelectionChangedEventArgs e)
+        {
+            var collectionGroups = groupedItemsViewSource.View.CollectionGroups;
+            ((ListViewBase)this.Zoom.ZoomedOutView).ItemsSource = collectionGroups;
         }
     }
 }

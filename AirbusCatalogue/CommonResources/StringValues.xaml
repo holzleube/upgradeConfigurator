@@ -19,4 +19,5 @@
     <x:String x:Key="SelectAircraftVersionHeadline">select aircraft version</x:String>
     <x:String x:Key="SelectAircraftFamilyHeadline">select aircraft family</x:String>
     <x:String x:Key="SelectCustomerHeadline">select customer</x:String>
+    <x:String x:Key="CheckAircraftButtonText">validate and select</x:String>
 </ResourceDictionary>

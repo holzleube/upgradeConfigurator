@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using AirbusCatalogue.Model.Customer;
 using AirbusCatalogue.Model.CustomerModel;
 using AirbusCatalogue.ViewModel.ViewDataElements;
+using AirbusCatalogue.ViewModel.ViewDataElements.Customer;
 
 namespace AirbusCatalogue.ViewModel.Converter
 {

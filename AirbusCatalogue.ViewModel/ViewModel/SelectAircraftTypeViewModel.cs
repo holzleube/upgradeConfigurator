@@ -17,7 +17,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel
     public class SelectAircraftTypeViewModel: GridHolderViewModel
     {
         private AircraftModel _model;
-        private RelayCommand<AircraftProgrammDataItem> __itemSelected;
+        private RelayCommand<AircraftTypeDataItem> __itemSelected;
 
         public SelectAircraftTypeViewModel()
         {
@@ -31,15 +31,15 @@ namespace AirbusCatalogue.ViewModel.ViewModel
             foreach (var aircraftType in result) 
             {
                 DataGroupElements.Add(new
-                AircraftProgrammDataItem(aircraftType, null));
+                AircraftTypeDataItem(aircraftType, null));
             }
         }
 
-        public RelayCommand<AircraftProgrammDataItem> ItemSelected {
-            get { return __itemSelected ?? (__itemSelected = new RelayCommand<AircraftProgrammDataItem>(AircraftTypeWasSelected)); }
+        public RelayCommand<AircraftTypeDataItem> ItemSelected {
+            get { return __itemSelected ?? (__itemSelected = new RelayCommand<AircraftTypeDataItem>(AircraftTypeWasSelected)); }
         }
 
-        private void AircraftTypeWasSelected(AircraftProgrammDataItem item)
+        private void AircraftTypeWasSelected(AircraftTypeDataItem item)
         {
             var aircraftVersionSelection = SimpleIoc.Default.GetInstance<IAircraftVersionSelection>();
             var navigationService = SimpleIoc.Default.GetInstance<INavigationService>();

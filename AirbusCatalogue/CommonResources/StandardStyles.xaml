@@ -149,7 +149,7 @@
         TextButtonStyle is used to style a Button using subheader-styled text with no other adornment.  There
         are two styles that are based on TextButtonStyle (TextPrimaryButtonStyle and TextSecondaryButtonStyle)
         which are used in the GroupedItemsPage as a group header and in the FileOpenPickerPage for triggering
-        commands.
+        xmands.
     -->
     <Style x:Key="TextButtonStyle" TargetType="ButtonBase">
         <Setter Property="MinWidth" Value="0"/>
@@ -465,13 +465,13 @@
         <Setter Property="AutomationProperties.AutomationId" Value="NoAppBarButton"/>
         <Setter Property="AutomationProperties.Name" Value="No"/>
         <Setter Property="Content" Value="&#xE10A;"/>
-    </Style>
+    </Style>-->
     <Style x:Key="YesAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
         <Setter Property="AutomationProperties.AutomationId" Value="YesAppBarButton"/>
-        <Setter Property="AutomationProperties.Name" Value="Yes"/>
+        
         <Setter Property="Content" Value="&#xE10B;"/>
-    </Style>
-    <Style x:Key="MoreAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
+   </Style>
+    <!--  <Style x:Key="MoreAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
         <Setter Property="AutomationProperties.AutomationId" Value="MoreAppBarButton"/>
         <Setter Property="AutomationProperties.Name" Value="More"/>
         <Setter Property="Content" Value="&#xE10C;"/>

@@ -1,6 +1,9 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Input;
 using AirbusCatalogue.Common.DataObjects.Aircrafts;
+using AirbusCatalogue.Common.DataObjects.Config;
 using AirbusCatalogue.Model.Aircrafts;
 using AirbusCatalogue.Model.Config;
 using AirbusCatalogue.Model.ConfigurationData;
@@ -8,6 +11,7 @@ using AirbusCatalogue.ViewModel.Command;
 using AirbusCatalogue.ViewModel.Navigation;
 using AirbusCatalogue.ViewModel.Templates;
 using AirbusCatalogue.ViewModel.ViewDataElements;
+using AirbusCatalogue.ViewModel.ViewDataElements.Aircraft;
 using AirbusCatalogue.ViewModel.ViewDataElements.Configuration;
 using AirbusCatalogue.ViewModel.ViewInterfaces;
 using GalaSoft.MvvmLight.Ioc;
@@ -19,7 +23,8 @@ namespace AirbusCatalogue.ViewModel.ViewModel
     {
         private readonly ConfigurationModel _model;
         private ICommand _selectAircraftCommand;
-        private Configuration _configuration;
+
+        public IConfiguration Configuration { get; set; }
 
 
         public SummaryPageViewModel()
@@ -31,17 +36,27 @@ namespace AirbusCatalogue.ViewModel.ViewModel
 
         private void InitializeDataGrid()
         {
-            _configuration = _model.GetCurrentConfiguration();
-            var programmGroup = GetProgrammGroup(_configuration.Programm);
-
-            DataGroupElements.Add(programmGroup);
+            Configuration = _model.GetCurrentConfiguration();
+            AddAircraftGroup(Configuration.SelectedAircrafts); 
         }
 
-        private ConfigurationGroup GetProgrammGroup(IAircraftProgramm programm)
+        private void AddAircraftGroup(List<IAircraft> aircrafts)
         {
-            var group = new ConfigurationGroup("aircraftProgrammGroup", "aircraft family", "&#xE093;");
-            group.Items.Add(new BasicDataItem(programm.UniqueId, programm.Name, programm.ImagePath, group, 60, 80));
-            return group;
+            if (aircrafts.Count == 0)
+            {
+                return;
+            }
+            var aircraftGroup = new ConfigurationGroup("selectedAircraftGroup", "selected aircrafts", "&#xE0EB;");
+            var aircraftItems = GetSelectedAircraftItemsOrderedByVersions(aircrafts, aircraftGroup);
+            aircraftGroup.Items = aircraftItems;
+            DataGroupElements.Add(aircraftGroup);
+        }
+
+        private ObservableCollection<BasicDataItem> GetSelectedAircraftItemsOrderedByVersions(IEnumerable<IAircraft> aircrafts, DataGroup aircraftGroup)
+        {
+            var aircraftsByCategory = aircrafts.GroupBy(x => x.Version)
+                .Select(x => new AircraftVersionSelectionGroup(aircraftGroup, x.ToList()));
+            return new ObservableCollection<BasicDataItem>(aircraftsByCategory);
         }
 
         public ICommand SelectAircraftCommand
@@ -56,17 +71,9 @@ namespace AirbusCatalogue.ViewModel.ViewModel
 
         private void NavigateToSelectAircraft()
         {
-            object classToNavigate;
-            if (_configuration.Programm.UniqueId.Equals("R-Series"))
-            {
-                classToNavigate = SimpleIoc.Default.GetInstance<IAircraftVersionSelection>();
-            }
-            else
-            {
-                classToNavigate = SimpleIoc.Default.GetInstance<IAircraftTypeSelection>();
-            }
+            var classToNavigate = SimpleIoc.Default.GetInstance<IAircraftVersionSelection>();
             var navigationService = SimpleIoc.Default.GetInstance<INavigationService>();
-            navigationService.Navigate(classToNavigate.GetType(), _configuration.Programm.UniqueId);
+            navigationService.Navigate(classToNavigate.GetType(), Configuration.Programm);
         }
 
         public override void Initialize(object parameter)

@@ -14,10 +14,10 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-// Version information for an assembly consists of the following four values:
+// Title information for an assembly consists of the following four values:
 //
-//      Major Version
-//      Minor Version 
+//      Major Title
+//      Minor Title 
 //      Build Number
 //      Revision
 //

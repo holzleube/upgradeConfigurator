@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="using:AirbusCatalogue.ViewModel.ViewModel"
     mc:Ignorable="d">
 
     <Page.Resources>
@@ -17,6 +18,9 @@
     <Page.TopAppBar>
         <AppBar x:Name="globalAppBar" Padding="0">
             <Grid Height="116">
+                <Grid.DataContext>
+                    <viewModel:GlobalPageViewModel/>
+                </Grid.DataContext>
                 <Grid.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FF60ADF9"/>
@@ -41,20 +45,23 @@
                             Grid.Column="2"
                             Style="{StaticResource TopAppBarButtonStyleCorner}"
                             AutomationProperties.Name="upgrades"  
-                            Click="Page1Button_Click" HorizontalAlignment="Center" Background="#7FFFFFFF" Width="150" Margin="5" BorderThickness="0" />
+                            Command="{Binding NavigateToUpgradePage}"
+                            HorizontalAlignment="Center" Background="#7FFFFFFF" Width="150" Margin="5" BorderThickness="0" />
                 <Button x:Name="AircraftButton" Content="&#xE0EB;" 
                             Grid.Column="4"
                             Style="{StaticResource TopAppBarButtonStyle2}"
                             AutomationProperties.Name="aircrafts"  
+                            Command="{Binding NavigateToAircraftSelectionPage}"
                             Margin="5"
-                            Click="Page1Button_Click" HorizontalAlignment="Center" Background="#7FFBFBFB" Width="150"/>
+                             HorizontalAlignment="Center" Background="#7FFBFBFB" Width="150"/>
 
                 <Button x:Name="SummaryButton" Content="&#xE14D;" 
                             Grid.Column="6"
                             Width="150"
+                            Command="{Binding NavigateToSummaryPage}"
                             Style="{StaticResource TopAppBarButtonStyleCorner}"
                             AutomationProperties.Name="summary"  
-                            Click="Page1Button_Click" HorizontalAlignment="Center"/>
+                            HorizontalAlignment="Center"/>
             </Grid>
         </AppBar>
     </Page.TopAppBar>

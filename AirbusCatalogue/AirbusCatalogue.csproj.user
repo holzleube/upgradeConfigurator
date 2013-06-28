@@ -4,6 +4,9 @@
     <RemoteDebugMachine>172.24.22.92</RemoteDebugMachine>
     <UseAuthentication>True</UseAuthentication>
     <RemoteDebugEnabled>false</RemoteDebugEnabled>
-    <UseSimulator>False</UseSimulator>
+    <UseSimulator>True</UseSimulator>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <UseSimulator>True</UseSimulator>
   </PropertyGroup>
 </Project>

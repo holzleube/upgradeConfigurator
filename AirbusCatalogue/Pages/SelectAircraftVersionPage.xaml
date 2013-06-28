@@ -3,16 +3,34 @@
     x:Class="AirbusCatalogue.Pages.SelectAircraftVersionPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:AirbusCatalogue.Pages"
     xmlns:common="using:AirbusCatalogue.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sample="using:AirbusCatalogue.Sample"
     xmlns:viewModel="using:AirbusCatalogue.ViewModel.ViewModel"
+    xmlns:customControl="using:AirbusCatalogue.CustomControl"
     mc:Ignorable="d">
     <Page.DataContext>
         <viewModel:SelectAircraftVersionViewModel/>
     </Page.DataContext>
 
+    <Page.BottomAppBar>
+        <AppBar x:Name="bottomAppBar" Padding="0" IsSticky="True">
+            <Grid >
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF72A4D6"/>
+                        <GradientStop Color="#FF5970B6" Offset="1"/>
+                        <GradientStop Color="#FF5970B6" Offset="0.992"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Style="{StaticResource BottomAppBarButtonStyleCorner}"
+                            Content="&#xE10B;"
+                            AutomationProperties.Name="{StaticResource CheckAircraftButtonText}"   Command="{Binding CheckAircraftSelectionCommand}"/>
+                </StackPanel>
+            </Grid>
+        </AppBar>
+    </Page.BottomAppBar>
     <Page.Resources>
 
         <!--
@@ -37,11 +55,12 @@
             <RowDefinition Height="140"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="1" Background="{StaticResource MainBackground}"/> <!--This is for background-->
-        <SemanticZoom x:Name="Zoom" Margin="0,-3,0,0" Grid.Row="1" >
-            <SemanticZoom.ZoomedInView>
-                <!-- Horizontal scrolling grid used in most view states -->
-         <GridView
+        <Grid Grid.Row="1" Background="{StaticResource MainBackground}">
+
+            <SemanticZoom x:Name="Zoom" Margin="0,-3,0,0" Grid.Row="1" >
+                <SemanticZoom.ZoomedInView>
+                    <!-- Horizontal scrolling grid used in most view states -->
+                    <GridView
             x:Name="itemGridView"
             AutomationProperties.AutomationId="ItemGridView"
             AutomationProperties.Name="Grouped Items"
@@ -53,72 +72,73 @@
             ItemClick="ItemClicked"
             SelectionMode="Multiple"
             IsSwipeEnabled="False">
-                    <GridView.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <VirtualizingStackPanel Orientation="Horizontal"/>
-                        </ItemsPanelTemplate>
-                    </GridView.ItemsPanel>
-                    <GridView.GroupStyle>
-                        <GroupStyle>
-                            <GroupStyle.HeaderTemplate>
-                                <DataTemplate>
-                                    <Grid Margin="1,0,0,6">
-                                        <Button
+                        <GridView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <VirtualizingStackPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </GridView.ItemsPanel>
+                        <GridView.GroupStyle>
+                            <GroupStyle>
+                                <GroupStyle.HeaderTemplate>
+                                    <DataTemplate>
+                                        <Grid Margin="1,0,0,6">
+                                            <Button
                                     AutomationProperties.Name="Group Title"
                                     Style="{StaticResource TextPrimaryButtonStyle}">
-                                            <StackPanel Orientation="Horizontal">
-                                                <TextBlock Text="{Binding Title}" Margin="3,-7,10,10" Style="{StaticResource GroupHeaderTextStyle}" />
-                                                <TextBlock Text="{StaticResource ChevronGlyph}" FontFamily="Segoe UI Symbol" Margin="0,-7,0,10" Style="{StaticResource GroupHeaderTextStyle}"/>
-                                            </StackPanel>
-                                        </Button>
-                                    </Grid>
-                                </DataTemplate>
-                            </GroupStyle.HeaderTemplate>
-                            <GroupStyle.Panel>
-                                <ItemsPanelTemplate>
-                                    <VariableSizedWrapGrid Orientation="Vertical" Margin="0,0,80,0"/>
-                                </ItemsPanelTemplate>
-                            </GroupStyle.Panel>
-                        </GroupStyle>
-                    </GridView.GroupStyle>
-                </GridView>
-            </SemanticZoom.ZoomedInView>
-            <SemanticZoom.ZoomedOutView>
-                <GridView VerticalAlignment="Center" Margin="200 -200 0 0">
-                    <GridView.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel HorizontalAlignment="Center">
-                                <TextBlock HorizontalAlignment="Center"
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Text="{Binding Title}" Margin="3,-7,10,10" Style="{StaticResource GroupHeaderTextStyle}" />
+                                                    <TextBlock Text="{StaticResource ChevronGlyph}" FontFamily="Segoe UI Symbol" Margin="0,-7,0,10" Style="{StaticResource GroupHeaderTextStyle}"/>
+                                                </StackPanel>
+                                            </Button>
+                                        </Grid>
+                                    </DataTemplate>
+                                </GroupStyle.HeaderTemplate>
+                                <GroupStyle.Panel>
+                                    <ItemsPanelTemplate>
+                                        <VariableSizedWrapGrid Orientation="Vertical" Margin="0,0,80,0"/>
+                                    </ItemsPanelTemplate>
+                                </GroupStyle.Panel>
+                            </GroupStyle>
+                        </GridView.GroupStyle>
+                    </GridView>
+                </SemanticZoom.ZoomedInView>
+                <SemanticZoom.ZoomedOutView>
+                    <GridView VerticalAlignment="Center" Margin="200 -200 0 0">
+                        <GridView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel HorizontalAlignment="Center">
+                                    <TextBlock HorizontalAlignment="Center"
                                    Text="{Binding Group.Title}"
                                    FontSize="45"
                                    Style="{StaticResource HeaderTextStyle}"
                                    />
-                                <TextBlock HorizontalAlignment="Center"
+                                    <TextBlock HorizontalAlignment="Center"
                                    Text="{Binding Group.Size}"
                                    Style="{StaticResource SubheaderTextStyle}"
                                    />
-                            </StackPanel>
-                        </DataTemplate>
-                    </GridView.ItemTemplate>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
 
-                    <GridView.ItemContainerStyle>
-                        <Style TargetType="GridViewItem">
-                            <Setter Property="Margin" Value="4" />
-                            <Setter Property="Padding" Value="5" />
-                            <Setter Property="HorizontalContentAlignment" Value="Left" />
-                            <Setter Property="VerticalContentAlignment" Value="Center" />
-                        </Style>
-                    </GridView.ItemContainerStyle>
+                        <GridView.ItemContainerStyle>
+                            <Style TargetType="GridViewItem">
+                                <Setter Property="Margin" Value="4" />
+                                <Setter Property="Padding" Value="5" />
+                                <Setter Property="HorizontalContentAlignment" Value="Left" />
+                                <Setter Property="VerticalContentAlignment" Value="Center" />
+                            </Style>
+                        </GridView.ItemContainerStyle>
 
-                    <GridView.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapGrid ItemWidth="150" ItemHeight="150"
+                        <GridView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapGrid ItemWidth="150" ItemHeight="150"
                               Orientation="Horizontal" VerticalChildrenAlignment="Center" MaximumRowsOrColumns="10" />
-                        </ItemsPanelTemplate>
-                    </GridView.ItemsPanel>
-                </GridView>
-            </SemanticZoom.ZoomedOutView>
-        </SemanticZoom>
+                            </ItemsPanelTemplate>
+                        </GridView.ItemsPanel>
+                    </GridView>
+                </SemanticZoom.ZoomedOutView>
+            </SemanticZoom>
+        </Grid>
 
         <!-- Vertical scrolling list only used when snapped -->
         <ListView
@@ -158,12 +178,14 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <TextBlock x:Name="pageTitle" Text="{StaticResource SelectAircraftVersionHeadline}" Grid.Column="1" IsHitTestVisible="false" Style="{StaticResource PageHeaderTextStyle}"/>
-            <Image Grid.Column="2"  Source="/Assets/airbus_logo.png" />        
+            <ComboBox ItemsSource="{Binding FilterList}" SelectionChanged="UpdateZoomOutView" FontFamily="{StaticResource ContentControlThemeFontFamily}" SelectedItem="{Binding SelectedFilterValue, Mode=TwoWay}" FontSize="26" Grid.Column="2"  Width="300" Margin="134,56,133,36" />
+            <Image Grid.Column="3"  Source="/Assets/airbus_logo.png" />
         </Grid>
 
         <VisualStateManager.VisualStateGroups>

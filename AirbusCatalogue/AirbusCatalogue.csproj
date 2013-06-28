@@ -144,6 +144,7 @@
     <Compile Include="Common\SuspensionManager.cs" />
     <Compile Include="Sample\SampleDataSource.cs" />
     <Compile Include="VariableTemplate\CustomerTemplateSelector.cs" />
+    <Compile Include="VariableTemplate\SummaryTemplateSelector.cs" />
     <Compile Include="VariableTemplate\VariableHeader.cs" />
     <Compile Include="VariableTemplate\VariableTileControl.cs" />
     <Compile Include="VariableTemplate\VariableTiles.cs" />
@@ -268,9 +269,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Reference Include="GalaSoft.MvvmLight.Extras.Win8">
       <HintPath>..\..\..\..\Program Files (x86)\Laurent Bugnion (GalaSoft)\Mvvm Light Toolkit\Binaries\Win8\GalaSoft.MvvmLight.Extras.Win8.dll</HintPath>

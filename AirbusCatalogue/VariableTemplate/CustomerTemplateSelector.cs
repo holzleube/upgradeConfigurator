@@ -1,4 +1,5 @@
 ﻿using AirbusCatalogue.ViewModel.ViewDataElements;
+using AirbusCatalogue.ViewModel.ViewDataElements.Customer;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 

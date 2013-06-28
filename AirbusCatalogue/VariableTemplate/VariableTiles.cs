@@ -1,4 +1,7 @@
 ﻿using AirbusCatalogue.ViewModel.ViewDataElements;
+using AirbusCatalogue.ViewModel.ViewDataElements.Configuration;
+using AirbusCatalogue.ViewModel.ViewDataElements.Customer;
+using AirbusCatalogue.ViewModel.ViewDataElements.Upgrades;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -42,24 +45,6 @@ namespace AirbusCatalogue.VariableTemplate
                 {
                     return ConfigurationTemplate;
                 }
-                if (item.GetType() == typeof(CustomerDataItem))
-                {
-                    return ConfigurationTemplate;
-                }
-                return SmallTemplate;
-
-                //if ((item as CategoryDataItem).UniqueId.StartsWith("Top"))
-                //    return TopTemplate;
-                //if ((item as CategoryDataItem).UniqueId.StartsWith("Small"))
-                //    return SmallTemplate;
-                //if ((item as CategoryDataItem).UniqueId.StartsWith("World"))
-                //    return UpgradeTemplate;
-                //if ((item as CategoryDataItem).UniqueId.StartsWith("life"))
-                //    return ConfigurationTemplate;
-                //if ((item as CategoryDataItem).UniqueId.StartsWith("Multimedia"))
-                //    return MultimediaTemplate;
-
-
             }
             return base.SelectTemplateCore(item, container);
         }

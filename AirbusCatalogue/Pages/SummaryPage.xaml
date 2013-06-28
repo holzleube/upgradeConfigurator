@@ -26,6 +26,11 @@
             IsSourceGrouped="true"
             ItemsPath="TopItems"
             d:Source="{Binding AllGroups, Source={d:DesignInstance Type=sample:SampleDataSource, IsDesignTimeCreatable=True}}"/>
+
+        <variableTemplate:SummaryTemplateSelector x:Key="TemplateSelector" 
+                                        AircraftTile="{StaticResource AircraftSelectionTemplate}"
+                                        ProgrammTile="{StaticResource AircraftProgrammTemplate}"
+                                        />
     </Page.Resources>
 
     <!--
@@ -43,8 +48,9 @@
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        <Grid Grid.Row="1" Grid.ColumnSpan="2" Background="{StaticResource MainBackground}"/>
 
-        <Grid Grid.Row="1" Background="{StaticResource MainBackground}">
+        <Grid Grid.Row="1" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="100"/>
@@ -66,7 +72,6 @@
                 </StackPanel>
                 <StackPanel Margin="10,0,0,0" Grid.Row="3" VerticalAlignment="Center">
                     <Button
-                            Click="Select_Aircrafts_Clicked"
                             AutomationProperties.Name="Group Title"
                             Command="{Binding SelectAircraftCommand}"
                             Style="{StaticResource TextPrimaryButtonStyle}" >
@@ -82,13 +87,12 @@
         <!-- Horizontal scrolling grid used in most view states -->
         <variableTemplate:VariableTileControl
             x:Name="itemGridView"
-            Background="{StaticResource MainBackground}"
             AutomationProperties.AutomationId="ItemGridView"
             AutomationProperties.Name="Grouped Items"
             Grid.Column="1"
             Grid.Row="1"
             ItemsSource="{Binding Source={StaticResource groupedItemsViewSource}}"
-            ItemTemplate="{StaticResource AircraftProgrammTemplate}"
+            ItemTemplateSelector="{Binding Source={StaticResource TemplateSelector}}"
             SelectionMode="None"
             IsSwipeEnabled="false">
 
@@ -101,7 +105,7 @@
                     <GroupStyle HeaderTemplate="{StaticResource SummaryHeaderTemplate}">
                         <GroupStyle.Panel>
                             <ItemsPanelTemplate>
-                                <VariableSizedWrapGrid ItemHeight="10" ItemWidth="10" Orientation="Vertical" Margin="0,0,10,0"/>
+                                <VariableSizedWrapGrid ItemHeight="10" ItemWidth="10" Orientation="Vertical" Margin="0,0,0,0"/>
                             </ItemsPanelTemplate>
                         </GroupStyle.Panel>
                     </GroupStyle>
@@ -144,15 +148,27 @@
 
         
         <!-- Back button and page title -->
-        <Grid Grid.Row="0" ColumnSpan="2">
+        <Grid Grid.Row="0" ColumnSpan="2" DataContext="{Binding Configuration}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
+            <Grid Grid.Column="2" DataContext="{Binding Programm}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                
+                <Image Grid.Row="2" Grid.RowSpan="3" Source="{Binding Image}" Stretch="Uniform" />
+                <TextBlock  Grid.Row="1" Text="{Binding Name}"  HorizontalAlignment="Left" FontSize="25"  Style="{StaticResource TitleTextStyle}" />
+            </Grid>
             <TextBlock x:Name="pageTitle" Text="{StaticResource SummaryHeadline}" Grid.Column="1" IsHitTestVisible="false" Style="{StaticResource PageHeaderTextStyle}"/>
-            <Image Grid.Column="2"  Source="/Assets/airbus_logo.png" />
+            <Image Grid.Column="4"  Source="/Assets/airbus_logo.png" />
         </Grid>
     
 

@@ -38,41 +38,41 @@ namespace AirbusCatalogue.Model.Aircrafts
             return result;
         }
 
-        public List<AircraftVersion> GetAircraftVersionsByType(IAircraftType aircraftType)
+        public List<AircraftVersion> GetAircraftVersionsByProgramm(IAircraftBase aircraftType)
         {
             var image = aircraftType.ImagePath;
 
             var list = new List<Aircraft>
                 {
-                    new Aircraft("N-001", "MSN-001",  image, "001", "AFR01"),
-                    new Aircraft("N-002", "MSN-002",  image, "001", "AFR01"),
-                    new Aircraft("N-003", "MSN-003",  image, "001", "AFR01"),
-                    new Aircraft("N-004", "MSN-004",  image, "001", "AFR01")
+                    new Aircraft("N-001", "MSN-001",  image, "001", "AFR01", "A320"),
+                    new Aircraft("N-002", "MSN-002",  image, "001", "AFR01", "A320"),
+                    new Aircraft("N-003", "MSN-003",  image, "001", "AFR01", "A320"),
+                    new Aircraft("N-004", "MSN-004",  image, "001", "AFR01", "A320")
                 };
             
             var list2 =  new List<Aircraft>
                 {
-                    new Aircraft("N-005","MSN-004", image, "001", "AFR02"),
-                    new Aircraft("N-006","MSN-005", image, "001", "AFR02"),
-                    new Aircraft("N-007","MSN-006", image, "001", "AFR05") };
+                    new Aircraft("N-005","MSN-004", image, "001", "AFR02", "A320"),
+                    new Aircraft("N-006","MSN-005", image, "001", "AFR02", "A320"),
+                    new Aircraft("N-007","MSN-006", image, "001", "AFR02", "A320") };
            
            
             var list3 = new List<Aircraft>
                 {
-                    new Aircraft("N-008","MSN-007", image, "001", "AFR05"),
-                    new Aircraft("N-009","MSN-008", image, "001", "AFR05"),
-                    new Aircraft("N-0011","MSN-009", image, "001", "AFR05"),
-                    new Aircraft("N-0012","MSN-010", image, "001", "AFR05"),
-                    new Aircraft("N-0013","MSN-011", image, "001", "AFR05"),
-                    new Aircraft("N-0014","MSN-012", image, "001", "AFR07") };
+                    new Aircraft("N-008","MSN-007", image, "001", "AFR05", "A320"),
+                    new Aircraft("N-009","MSN-008", image, "001", "AFR05", "A320"),
+                    new Aircraft("N-0011","MSN-009", image, "001", "AFR05", "A320"),
+                    new Aircraft("N-0012","MSN-010", image, "001", "AFR05", "A320"),
+                    new Aircraft("N-0013","MSN-011", image, "001", "AFR05", "A320"),
+                    new Aircraft("N-0014","MSN-012", image, "001", "AFR05", "A320") };
             list4 = new List<Aircraft>
                 {
-                    new Aircraft("N-0015","MSN-013", image, "001", "AFR07"),
-                    new Aircraft("N-0016","MSN-014", image, "001", "AFR07") };
+                    new Aircraft("N-0015","MSN-013", image, "001", "AFR07", "A319"),
+                    new Aircraft("N-0016","MSN-014", image, "001", "AFR07", "A319") };
             var list5 = new List<Aircraft>
                 {
-                    new Aircraft("N-0017","MSN-015", image, "001", "AFR09"),
-                    new Aircraft("N-0018","MSN-016", image, "001", "AFR09"),
+                    new Aircraft("N-0017","MSN-015", image, "001", "AFR09", "A319"),
+                    new Aircraft("N-0018","MSN-016", image, "001", "AFR09", "A319"),
                 };
             var aircraftVersion1 = new AircraftVersion("AFR-01", "AFR01") { Aircrafts = list };
             var aircraftVersion2 = new AircraftVersion("AFR-02", "AFR02") { Aircrafts = list2 };
@@ -87,7 +87,7 @@ namespace AirbusCatalogue.Model.Aircrafts
         public List<IAircraft> GetSelectedAircrafts()
         {
             var configuration = GetCurrentConfiguration();
-            return configuration.AircraftIds;
+            return configuration.SelectedAircrafts;
         }
 
         private static IConfiguration GetCurrentConfiguration()
@@ -99,19 +99,19 @@ namespace AirbusCatalogue.Model.Aircrafts
         {
             var configuration = SimpleIoc.Default.GetInstance<IConfiguration>();
             configuration.Programm = programm;
+            configuration.SelectedAircrafts = new List<IAircraft>();
+            configuration.Upgrades = new List<IUpgradeItem>();
         }
 
-        public void SelectOrRemoveAircraft(IAircraft aircraftId)
+        public void SetAircraftsInConfiguration(List<IAircraft> aircrafts)
         {
             var configuration = GetCurrentConfiguration();
-            if (configuration.AircraftIds.Contains(aircraftId))
-            {
-                configuration.AircraftIds.Remove(aircraftId);
-            }
-            else
-            {
-                configuration.AircraftIds.Add(aircraftId);
-            }
+            configuration.SelectedAircrafts = aircrafts;
+        }
+
+        public IAircraftBase GetCurrentAircraftProgramm()
+        {
+            return GetCurrentConfiguration().Programm;
         }
     }
 }

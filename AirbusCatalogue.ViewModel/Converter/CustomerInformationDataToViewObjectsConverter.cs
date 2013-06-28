@@ -1,6 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 using AirbusCatalogue.Model.Customer;
 using AirbusCatalogue.ViewModel.ViewDataElements;
+using AirbusCatalogue.ViewModel.ViewDataElements.Configuration;
+using AirbusCatalogue.ViewModel.ViewDataElements.Upgrades;
 
 namespace AirbusCatalogue.ViewModel.Converter
 {
@@ -35,8 +37,8 @@ namespace AirbusCatalogue.ViewModel.Converter
                 group3.Items.Add(new ConfigurationDataItem(configuration, group3));
             }
             convertedGroups.Add(group1);
-            convertedGroups.Add(group2);
             convertedGroups.Add(group3);
+            convertedGroups.Add(group2);
 
             return convertedGroups;
         }

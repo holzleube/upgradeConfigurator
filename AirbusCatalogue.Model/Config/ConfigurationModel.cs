@@ -14,11 +14,11 @@ namespace AirbusCatalogue.Model.Config
 {
     public class ConfigurationModel
     {
-        public Configuration GetCurrentConfiguration()
+        public IConfiguration GetCurrentConfiguration()
         {
-            var currentConfiguration = SimpleIoc.Default.GetInstance<IConfiguration>();
+            return SimpleIoc.Default.GetInstance<IConfiguration>();
             //var programm = new AircraftProgramm("a320", "A320", "Assets/aircrafts/a320_transparent.png");
-            return new Configuration("config001", new List<IUpgradeItem>(),new List<IAircraft>(), "today", "in Progress", currentConfiguration.Programm);
+            //return new Configuration("config001", new List<IUpgradeItem>(),currentConfiguration.SelectedAircrafts, "today", "in Progress", currentConfiguration.Programm);
         }
     }
 }
