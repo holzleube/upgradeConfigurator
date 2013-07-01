@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AirbusCatalogue.Common.DataObjects.Aircrafts;
 using AirbusCatalogue.Common.DataObjects.Config;
+using AirbusCatalogue.Common.DataObjects.Upgrades;
 using AirbusCatalogue.Model.Templates;
 using GalaSoft.MvvmLight.Ioc;
 

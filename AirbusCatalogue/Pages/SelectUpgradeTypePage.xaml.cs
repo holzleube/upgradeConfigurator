@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using AirbusCatalogue.Common;
 using AirbusCatalogue.ViewModel.ViewInterfaces;
-using AirbusCatalogue.ViewModel.ViewInterfaces.Aircraft;
+using AirbusCatalogue.ViewModel.ViewInterfaces.Upgrades;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -14,17 +15,16 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Items Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234233
+// The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
 namespace AirbusCatalogue.Pages
 {
     /// <summary>
-    /// A page that displays a collection of item previews.  In the Split Application this page
-    /// is used to display and select one of the available groups.
+    /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class SelectAircraftTypePage : AirbusCatalogue.Common.LayoutAwarePage, IAircraftTypeSelection
+    public sealed partial class SelectUpgradeTypePage : IUpgradeTypeSelection
     {
-        public SelectAircraftTypePage()
+        public SelectUpgradeTypePage()
         {
             this.InitializeComponent();
         }
@@ -40,7 +40,17 @@ namespace AirbusCatalogue.Pages
         /// session.  This will be null the first time a page is visited.</param>
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
-            // TODO: Assign a bindable collection of items to this.DefaultViewModel["Items"]
+
+        }
+
+        /// <summary>
+        /// Preserves state associated with this page in case the application is suspended or the
+        /// page is discarded from the navigation cache.  Values must conform to the serialization
+        /// requirements of <see cref="SuspensionManager.SessionState"/>.
+        /// </summary>
+        /// <param name="pageState">An empty dictionary to be populated with serializable state.</param>
+        protected override void SaveState(Dictionary<String, Object> pageState)
+        {
         }
     }
 }

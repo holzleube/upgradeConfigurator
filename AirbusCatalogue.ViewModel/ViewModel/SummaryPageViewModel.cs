@@ -14,6 +14,8 @@ using AirbusCatalogue.ViewModel.ViewDataElements;
 using AirbusCatalogue.ViewModel.ViewDataElements.Aircraft;
 using AirbusCatalogue.ViewModel.ViewDataElements.Configuration;
 using AirbusCatalogue.ViewModel.ViewInterfaces;
+using AirbusCatalogue.ViewModel.ViewInterfaces.Aircraft;
+using AirbusCatalogue.ViewModel.ViewInterfaces.Upgrades;
 using GalaSoft.MvvmLight.Ioc;
 
 
@@ -23,6 +25,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel
     {
         private readonly ConfigurationModel _model;
         private ICommand _selectAircraftCommand;
+        private ICommand _selectUpgradeCommand;
 
         public IConfiguration Configuration { get; set; }
 
@@ -68,12 +71,33 @@ namespace AirbusCatalogue.ViewModel.ViewModel
                 OnPropertyChanged();
             }
         }
+        
+        public ICommand SelectUpgradeCommand
+        {
+            get { return _selectUpgradeCommand ?? (_selectUpgradeCommand = new RelayCommand(NavigateToSelectUpgrade)); }
+            set 
+            {
+                _selectUpgradeCommand = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private void NavigateToSelectUpgrade()
+        {
+            var classToNavigate = SimpleIoc.Default.GetInstance<IUpgradeTypeSelection>();
+            NavigateToClass(classToNavigate, null);
+        }
 
         private void NavigateToSelectAircraft()
         {
             var classToNavigate = SimpleIoc.Default.GetInstance<IAircraftVersionSelection>();
+            NavigateToClass(classToNavigate, Configuration.Programm);
+        }
+
+        private void NavigateToClass(object classToNavigate, object parameter)
+        {
             var navigationService = SimpleIoc.Default.GetInstance<INavigationService>();
-            navigationService.Navigate(classToNavigate.GetType(), Configuration.Programm);
+            navigationService.Navigate(classToNavigate.GetType(),parameter);
         }
 
         public override void Initialize(object parameter)

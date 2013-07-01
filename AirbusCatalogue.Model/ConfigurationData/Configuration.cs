@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using AirbusCatalogue.Common.DataObjects.Aircrafts;
 using AirbusCatalogue.Common.DataObjects.Config;
 using AirbusCatalogue.Common.DataObjects.Customers;
+using AirbusCatalogue.Common.DataObjects.Upgrades;
 using AirbusCatalogue.Model.Aircrafts;
 using AirbusCatalogue.Model.Templates;
 using Windows.UI.Xaml.Media;

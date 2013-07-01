@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AirbusCatalogue.ViewModel.ViewInterfaces
+namespace AirbusCatalogue.ViewModel.ViewInterfaces.Upgrades
 {
-    public interface IAircraftSelection
+    public interface ISystemUpgrade
     {
     }
 }

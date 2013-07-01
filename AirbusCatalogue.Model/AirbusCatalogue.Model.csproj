@@ -106,7 +106,6 @@
     <Compile Include="Aircrafts\AircraftType.cs" />
     <Compile Include="Aircrafts\AircraftVersion.cs" />
     <Compile Include="ConfigurationData\Configuration.cs" />
-    <Compile Include="ConfigurationData\UpgradeItem.cs" />
     <Compile Include="Config\ConfigurationModel.cs" />
     <Compile Include="Customer\Customer.cs" />
     <Compile Include="Customer\CustomerInformation.cs" />
@@ -115,6 +114,11 @@
     <Compile Include="Customer\ICustomerModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Templates\Identable.cs" />
+    <Compile Include="Upgrades\AtaChapter.cs" />
+    <Compile Include="Upgrades\SubAtaChapter.cs" />
+    <Compile Include="Upgrades\UpgradeItem.cs" />
+    <Compile Include="Upgrades\UpgradeModel.cs" />
+    <Compile Include="Upgrades\UpgradeType.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="GalaSoft.MvvmLight.Extras.Win8">

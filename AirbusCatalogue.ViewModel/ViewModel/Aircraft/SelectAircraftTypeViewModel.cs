@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AirbusCatalogue.Model.Aircrafts;
 using AirbusCatalogue.ViewModel.Command;
 using AirbusCatalogue.ViewModel.Navigation;
 using AirbusCatalogue.ViewModel.Templates;
-using AirbusCatalogue.ViewModel.ViewDataElements;
 using AirbusCatalogue.ViewModel.ViewDataElements.Aircraft;
 using AirbusCatalogue.ViewModel.ViewInterfaces;
+using AirbusCatalogue.ViewModel.ViewInterfaces.Aircraft;
 using GalaSoft.MvvmLight.Ioc;
 
-namespace AirbusCatalogue.ViewModel.ViewModel
+namespace AirbusCatalogue.ViewModel.ViewModel.Aircraft
 {
     public class SelectAircraftTypeViewModel: GridHolderViewModel
     {

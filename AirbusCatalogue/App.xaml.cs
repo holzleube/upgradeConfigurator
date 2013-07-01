@@ -5,6 +5,9 @@ using AirbusCatalogue.Customer;
 using AirbusCatalogue.Pages;
 using AirbusCatalogue.ViewModel.Navigation;
 using AirbusCatalogue.ViewModel.ViewInterfaces;
+using AirbusCatalogue.ViewModel.ViewInterfaces.Aircraft;
+using AirbusCatalogue.ViewModel.ViewInterfaces.Customer;
+using AirbusCatalogue.ViewModel.ViewInterfaces.Upgrades;
 using GalaSoft.MvvmLight.Ioc;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -34,6 +37,8 @@ namespace AirbusCatalogue
             SimpleIoc.Default.Register<IAircraftSelection, SelectAircraftPage>();
             SimpleIoc.Default.Register<IAircraftTypeSelection, SelectAircraftTypePage>();
             SimpleIoc.Default.Register<IAircraftVersionSelection, SelectAircraftVersionPage>();
+            SimpleIoc.Default.Register<IUpgradeTypeSelection, SelectUpgradeTypePage>();
+            SimpleIoc.Default.Register<ISystemUpgrade, SystemUpgradePage>();
             SimpleIoc.Default.Register<INavigationService, NavigationService>();
         }
 

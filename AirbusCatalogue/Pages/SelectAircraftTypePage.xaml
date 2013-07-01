@@ -7,11 +7,12 @@
     xmlns:common="using:AirbusCatalogue.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:viewModel="using:AirbusCatalogue.ViewModel.ViewModel" xmlns:sample="using:AirbusCatalogue.Sample"
+    xmlns:viewModel="using:AirbusCatalogue.ViewModel.ViewModel"
     xmlns:command="using:AirbusCatalogue.ViewModel.Command"
+    xmlns:aircraft="using:AirbusCatalogue.ViewModel.ViewModel.Aircraft" xmlns:sample="using:AirbusCatalogue.Sample"
     mc:Ignorable="d">
     <Page.DataContext>
-        <viewModel:SelectAircraftTypeViewModel/>
+        <aircraft:SelectAircraftTypeViewModel/>
     </Page.DataContext>
 
     <Page.Resources>

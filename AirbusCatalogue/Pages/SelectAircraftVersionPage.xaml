@@ -5,12 +5,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:common="using:AirbusCatalogue.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sample="using:AirbusCatalogue.Sample"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModel="using:AirbusCatalogue.ViewModel.ViewModel"
     xmlns:customControl="using:AirbusCatalogue.CustomControl"
+    xmlns:aircraft="using:AirbusCatalogue.ViewModel.ViewModel.Aircraft" xmlns:sample="using:AirbusCatalogue.Sample"
     mc:Ignorable="d">
     <Page.DataContext>
-        <viewModel:SelectAircraftVersionViewModel/>
+        <aircraft:SelectAircraftVersionViewModel/>
     </Page.DataContext>
 
     <Page.BottomAppBar>

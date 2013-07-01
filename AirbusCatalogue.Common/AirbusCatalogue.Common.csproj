@@ -108,9 +108,13 @@
     <Compile Include="DataObjects\Aircrafts\IAircraftType.cs" />
     <Compile Include="DataObjects\Aircrafts\IAircraftVersion.cs" />
     <Compile Include="DataObjects\Config\IConfiguration.cs" />
-    <Compile Include="DataObjects\Config\IUpgradeItem.cs" />
     <Compile Include="DataObjects\Customers\ICustomer.cs" />
     <Compile Include="DataObjects\General\IIdentable.cs" />
+    <Compile Include="DataObjects\General\INameable.cs" />
+    <Compile Include="DataObjects\Upgrades\IAtaChapter.cs" />
+    <Compile Include="DataObjects\Upgrades\ISubAtaChapter.cs" />
+    <Compile Include="DataObjects\Upgrades\IUpgradeItem.cs" />
+    <Compile Include="DataObjects\Upgrades\IUpgradeType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">

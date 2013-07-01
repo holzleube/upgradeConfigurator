@@ -1,12 +1,13 @@
-﻿using System;
-using System.Linq;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.Linq;
+using AirbusCatalogue.Common.DataObjects.Upgrades;
 using AirbusCatalogue.ViewModel.Templates;
 using AirbusCatalogue.ViewModel.ViewDataElements;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
-using System.Collections.Specialized;
 
 // The data model defined by this file serves as a representative example of a strongly-typed
 // model that supports notification when members are added, removed, or modified.  The property
@@ -121,6 +122,8 @@ namespace AirbusCatalogue.Sample
         {
             this._content = content;
             this._group = group;
+            Name = title;
+            AtaChapterNumber = 23;
 
         }
 
@@ -131,6 +134,10 @@ namespace AirbusCatalogue.Sample
             set { this.SetProperty(ref this._content, value); }
         }
 
+
+        public string Name { get; set; }
+
+        public int AtaChapterNumber { get; set; }
 
 
         private SampleDataGroup _group;
@@ -257,6 +264,12 @@ namespace AirbusCatalogue.Sample
             get { return this._aircraftVersion; }
         }
 
+        private ObservableCollection<SampleDataItem> _SampleDataItems = new ObservableCollection<SampleDataItem>();
+        public ObservableCollection<SampleDataItem> SampleDataItems
+        {
+            get { return this._SampleDataItems; }
+        }
+
         public static IEnumerable<DataGroup> GetGroups(string uniqueId)
         {
             if (!uniqueId.Equals("AllGroups")) throw new ArgumentException("Only 'AllGroups' is supported as a collection of groups");
@@ -325,6 +338,18 @@ namespace AirbusCatalogue.Sample
             this.AircraftVersion.Add(group3);
             this.AircraftVersion.Add(group4);
 
+            _SampleDataItems = new ObservableCollection<SampleDataItem>()
+                {
+                    new SampleDataItem("communicationAta", "Communications","","","","",null),
+                    new SampleDataItem("electricalPowerAta", "Electrical Power","","","","",null),
+                    new SampleDataItem("equipmentAta", "Equipment/furnishings","","","","",null),
+                    new SampleDataItem("navigationAta", "Navigation","","","","",null),
+                    new SampleDataItem("autoFlightAta", "Auto flight","","","","",null),
+                    new SampleDataItem("fireProtectionAta", "Fire protection","","","","",null),
+                    new SampleDataItem("oxygenAta", "Oxygen","","","","",null),
+                    new SampleDataItem("informationSystemsAta", "InformationSystems","","","","",null),
+                    new SampleDataItem("windowsAta", "Windows","","","","",null)
+                };
             //group1.Items.Add(new SampleDataItem("Group-1-Item-2",
             //        "Item Title: 2",
             //        "Item Subtitle: 2",

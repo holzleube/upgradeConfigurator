@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AirbusCatalogue.Common.DataObjects.Config
+namespace AirbusCatalogue.Common.DataObjects.General
 {
-    public interface IUpgradeItem
+    public interface INameable
     {
+        string Name { get; set; }
     }
 }

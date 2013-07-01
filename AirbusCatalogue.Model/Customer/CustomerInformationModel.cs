@@ -5,9 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using AirbusCatalogue.Common.DataObjects.Aircrafts;
 using AirbusCatalogue.Common.DataObjects.Config;
+using AirbusCatalogue.Common.DataObjects.Upgrades;
 using AirbusCatalogue.Model.Aircrafts;
 using AirbusCatalogue.Model.ConfigurationData;
 using AirbusCatalogue.Model.Templates;
+using AirbusCatalogue.Model.Upgrades;
 using GalaSoft.MvvmLight.Ioc;
 
 namespace AirbusCatalogue.Model.Customer

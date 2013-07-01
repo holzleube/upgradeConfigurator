@@ -2,6 +2,8 @@
 using AirbusCatalogue.ViewModel.Command;
 using AirbusCatalogue.ViewModel.Navigation;
 using AirbusCatalogue.ViewModel.ViewInterfaces;
+using AirbusCatalogue.ViewModel.ViewInterfaces.Aircraft;
+using AirbusCatalogue.ViewModel.ViewInterfaces.Upgrades;
 using GalaSoft.MvvmLight.Ioc;
 
 namespace AirbusCatalogue.ViewModel.ViewModel
@@ -25,7 +27,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel
 
         private void NavigateToUpgrade()
         {
-            var upgradePage = SimpleIoc.Default.GetInstance<IUpgradeSelection>();
+            var upgradePage = SimpleIoc.Default.GetInstance<IUpgradeTypeSelection>();
             Navigate(upgradePage.GetType());
         }
 

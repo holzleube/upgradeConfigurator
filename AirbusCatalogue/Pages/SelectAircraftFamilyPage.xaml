@@ -8,9 +8,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:variableTemplate="using:AirbusCatalogue.VariableTemplate"
     xmlns:viewModel="using:AirbusCatalogue.ViewModel.ViewModel" xmlns:command="using:AirbusCatalogue.ViewModel.Command"
+    xmlns:aircraft="using:AirbusCatalogue.ViewModel.ViewModel.Aircraft"
     mc:Ignorable="d">
     <Page.DataContext>
-        <viewModel:SelectAircraftFamilyViewModel/>
+        <aircraft:SelectAircraftFamilyViewModel/>
     </Page.DataContext>
     <Page.Resources>
 

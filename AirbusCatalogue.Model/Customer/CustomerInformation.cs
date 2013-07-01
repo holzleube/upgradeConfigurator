@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AirbusCatalogue.Model.ConfigurationData;
 using AirbusCatalogue.Model.Templates;
+using AirbusCatalogue.Model.Upgrades;
 
 namespace AirbusCatalogue.Model.Customer
 {

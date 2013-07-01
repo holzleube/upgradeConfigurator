@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using AirbusCatalogue.Model.Aircrafts;
 using AirbusCatalogue.ViewModel.Command;
@@ -13,10 +9,8 @@ using AirbusCatalogue.ViewModel.ViewDataElements;
 using AirbusCatalogue.ViewModel.ViewDataElements.Aircraft;
 using AirbusCatalogue.ViewModel.ViewInterfaces;
 using GalaSoft.MvvmLight.Ioc;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
 
-namespace AirbusCatalogue.ViewModel.ViewModel
+namespace AirbusCatalogue.ViewModel.ViewModel.Aircraft
 {
     public class SelectAircraftFamilyViewModel : GridHolderViewModel
     {

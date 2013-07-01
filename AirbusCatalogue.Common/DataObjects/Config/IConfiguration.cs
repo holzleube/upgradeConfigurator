@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using AirbusCatalogue.Common.DataObjects.Aircrafts;
 using AirbusCatalogue.Common.DataObjects.Customers;
 using AirbusCatalogue.Common.DataObjects.General;
+using AirbusCatalogue.Common.DataObjects.Upgrades;
 
 namespace AirbusCatalogue.Common.DataObjects.Config
 {

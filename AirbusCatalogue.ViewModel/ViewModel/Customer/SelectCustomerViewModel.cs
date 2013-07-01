@@ -1,12 +1,8 @@
-﻿
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using AirbusCatalogue.Model.CustomerModel;
 using AirbusCatalogue.ViewModel.Converter;
 using AirbusCatalogue.ViewModel.Templates;
-using AirbusCatalogue.ViewModel.ViewDataElements;
 
-namespace AirbusCatalogue.ViewModel.ViewModel
+namespace AirbusCatalogue.ViewModel.ViewModel.Customer
 {
     public class SelectCustomerViewModel:GridHolderViewModel
     {

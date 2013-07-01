@@ -20,4 +20,10 @@
     <x:String x:Key="SelectAircraftFamilyHeadline">select aircraft family</x:String>
     <x:String x:Key="SelectCustomerHeadline">select customer</x:String>
     <x:String x:Key="CheckAircraftButtonText">validate and select</x:String>
+    <x:String x:Key="SelectUpgradeType">select upgrade type</x:String>
+    <x:String x:Key="CabinUpgradeText">Cabin</x:String>
+    <x:String x:Key="SystemUpgradeText">System</x:String>
+    <x:String x:Key="EngineUpgradeText">Engines</x:String>
+    <x:String x:Key="FuselageUpgradeText">Fuselage</x:String>
+    <x:String x:Key="SystemUpgradeHeadline">system</x:String>
 </ResourceDictionary>

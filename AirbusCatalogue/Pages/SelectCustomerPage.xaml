@@ -11,9 +11,10 @@
     xmlns:viewModel="using:AirbusCatalogue.ViewModel.ViewModel"
     xmlns:data="using:AirbusCatalogue.ViewModel.ViewDataElements"
     xmlns:variableTemplate="using:AirbusCatalogue.VariableTemplate"
+    xmlns:customer="using:AirbusCatalogue.ViewModel.ViewModel.Customer"
     mc:Ignorable="d">
     <Page.DataContext>
-        <viewModel:SelectCustomerViewModel/>
+        <customer:SelectCustomerViewModel/>
     </Page.DataContext>
 
     <Page.Resources>
@@ -45,6 +46,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+        <Grid Grid.Row="1" Background="{StaticResource MainBackground}"/>
         <SemanticZoom x:Name="Zoom" Margin="0,-3,0,0" Grid.RowSpan="2">
             <SemanticZoom.ZoomedInView>
                 <!-- Horizontal scrolling grid used in most view states -->
@@ -59,7 +61,6 @@
             ItemTemplateSelector="{StaticResource TemplateSelector}"
             IsItemClickEnabled="True"
             SelectionMode="None"
-            Background="{StaticResource MainBackground}"
             IsSwipeEnabled="false">
 
             <GridView.ItemsPanel>
