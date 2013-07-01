@@ -32,12 +32,87 @@
             <RowDefinition Height="140"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
+        <!--<Grid.ColumnDefinitions>
             <ColumnDefinition x:Name="primaryColumn" Width="400"/>
             <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-
+        </Grid.ColumnDefinitions>-->
         <Grid Grid.Row="1" Grid.ColumnSpan="2" Background="{StaticResource MainBackground}"/>
+        <FlipView Grid.Row="1">
+            <FlipView.Items>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition x:Name="primaryColumn" Width="400"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <ListView
+                    x:Name="itemListView"
+                    AutomationProperties.AutomationId="ItemsListView"
+                    AutomationProperties.Name="Items"
+                    Grid.Row="1"
+                    ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
+                    IsSwipeEnabled="False"
+                    ItemTemplate="{StaticResource AtaChapterSelectionTemplate}" />
+
+                    <Grid x:Name="itemDetailGrid" Margin="0,0,0,0"  Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid >
+                            <Grid.Background>
+                                <ImageBrush Stretch="Uniform" ImageSource="/Assets/background/cockpit.jpg" AlignmentX="Left" AlignmentY="Top"/>
+                            </Grid.Background>
+                            <Button Content="23 communication" HorizontalAlignment="Left" Margin="244,101,0,0" VerticalAlignment="Top" Background="White" BorderBrush="Black" BorderThickness="1" Width="161" Height="45"/>
+                            <Button Content="24 electrical power" HorizontalAlignment="Left" Margin="31,213,0,0" VerticalAlignment="Top" Background="White" BorderBrush="Black" BorderThickness="1" Width="161" Height="45"/>
+                            <Button Content="46 &#xD;&#xA;Information&#xD;&#xA;Systems" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="244,283,0,0" VerticalAlignment="Top" Background="White" BorderBrush="Black" BorderThickness="1" Width="112" Height="90"/>
+                        </Grid>
+                        <Grid Grid.Column="2">
+                            <Grid.Background>
+                                <ImageBrush Stretch="Uniform" ImageSource="/Assets/background/a320_top.png" AlignmentX="Center" AlignmentY="Center"/>
+                            </Grid.Background>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition x:Name="primaryColumn2" Width="400"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <ListView
+                    x:Name="itemListView2"
+                    AutomationProperties.AutomationId="ItemsListView"
+                    AutomationProperties.Name="Items"
+                    Grid.Row="1"
+                    ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
+                    IsSwipeEnabled="False"
+                    ItemTemplate="{StaticResource AtaChapterSelectionTemplate}" />
+
+                    <Grid x:Name="itemDetailGrid2" Margin="0,0,0,0"  Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid >
+                            <Grid.Background>
+                                <ImageBrush Stretch="Uniform" ImageSource="/Assets/background/cockpit.jpg" AlignmentX="Left" AlignmentY="Top"/>
+                            </Grid.Background>
+                            <Button Content="23 communication" HorizontalAlignment="Left" Margin="244,101,0,0" VerticalAlignment="Top" Background="White" BorderBrush="Black" BorderThickness="1" Width="161" Height="45"/>
+                            <Button Content="24 electrical power" HorizontalAlignment="Left" Margin="31,213,0,0" VerticalAlignment="Top" Background="White" BorderBrush="Black" BorderThickness="1" Width="161" Height="45"/>
+                            <Button Content="46 &#xD;&#xA;Information&#xD;&#xA;Systems" HorizontalAlignment="Left" Margin="244,283,0,0" VerticalAlignment="Top" Background="White" BorderBrush="Black" BorderThickness="1" Width="112" Height="90"/>
+                        </Grid>
+                        <Grid Grid.Column="2">
+                            <Grid.Background>
+                                <ImageBrush Stretch="Uniform" ImageSource="/Assets/background/a320_top.png" AlignmentX="Center" AlignmentY="Center"/>
+                            </Grid.Background>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </FlipView.Items>
+        </FlipView>
+        
+        
         <!-- Back button and page title -->
         <Grid Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
@@ -49,17 +124,9 @@
             <TextBlock x:Name="pageTitle" Text="{StaticResource SystemUpgradeHeadline}" Grid.Column="1" IsHitTestVisible="false" Style="{StaticResource PageHeaderTextStyle}"/>
             <Image Grid.Column="2"  Source="/Assets/airbus_logo.png" />
         </Grid>
-
+        
         <!-- Vertical scrolling item list -->
-        <ListView
-            x:Name="itemListView"
-            AutomationProperties.AutomationId="ItemsListView"
-            AutomationProperties.Name="Items"
-            Grid.Row="1"
-            ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
-            IsSwipeEnabled="False"
-            
-            ItemTemplate="{StaticResource AtaChapterSelectionTemplate}" />
+        
 
         <!-- Details for selected item -->
         <ScrollViewer
@@ -69,26 +136,7 @@
             Grid.Row="1"
             Style="{StaticResource HorizontalScrollViewerStyle}">
 
-            <Grid x:Name="itemDetailGrid" Margin="0,0,0,0" Width="1700">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid >
-                    <Grid.Background>
-                        <ImageBrush Stretch="Uniform" ImageSource="/Assets/background/cockpit.jpg" AlignmentX="Left" AlignmentY="Top"/>
-                    </Grid.Background>
-                	<Button Content="23 communication" HorizontalAlignment="Left" Margin="244,101,0,0" VerticalAlignment="Top" Background="White" BorderBrush="Black" BorderThickness="1" Width="161" Height="45"/>
-                	<Button Content="24 electrical power" HorizontalAlignment="Left" Margin="31,213,0,0" VerticalAlignment="Top" Background="White" BorderBrush="Black" BorderThickness="1" Width="161" Height="45"/>
-                	<Button Content="46 &#xD;&#xA;Information&#xD;&#xA;Systems" HorizontalAlignment="Left" Margin="244,283,0,0" VerticalAlignment="Top" Background="White" BorderBrush="Black" BorderThickness="1" Width="112" Height="90"/>
-                </Grid>
-                <Grid Grid.Column="2">
-                    <Grid.Background>
-                        <ImageBrush Stretch="Uniform" ImageSource="/Assets/background/a320_top.png" AlignmentX="Center" AlignmentY="Center"/>
-                    </Grid.Background>
-                </Grid>
-            </Grid>
+            
             
         </ScrollViewer>
 
