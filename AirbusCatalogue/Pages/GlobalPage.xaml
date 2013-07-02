@@ -16,8 +16,8 @@
     </Page.Resources>
 
     <Page.TopAppBar>
-        <AppBar x:Name="globalAppBar" Padding="0">
-            <Grid Height="116">
+        <AppBar x:Name="globalAppBar">
+            <Grid Height="137" Margin="-9,0,-10,0">
                 <Grid.DataContext>
                     <viewModel:GlobalPageViewModel/>
                 </Grid.DataContext>

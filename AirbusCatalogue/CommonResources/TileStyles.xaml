@@ -14,7 +14,7 @@
 
     <!-- Non-brush values that vary across themes -->
 
-    <Brush x:Key="TileBackground">#FFFFFFFF</Brush>
+    <Brush x:Key="TileBackground">WhiteSmoke</Brush>
 
     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="MainBackground">
             <GradientStop Color="White"/>
@@ -71,43 +71,43 @@
     </DataTemplate>
 
     <DataTemplate x:Key="UpgradeItemTemplateBig">
-        <Border BorderBrush="Black" BorderThickness="1" Padding="1">
-        <Grid x:Name="TopMain">
+        <Border BorderBrush="Black" BorderThickness="1" Padding="1" Background="{StaticResource TileBackground}">
+        <Grid x:Name="TopMain" Width="500" Height="350">
             <Grid.RowDefinitions>
-                <RowDefinition Height="40"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="60"/>
             </Grid.RowDefinitions>
-            <TextBlock TextWrapping="Wrap" Text="{Binding Title}"  Style="{StaticResource GroupHeaderTextStyle}"  FontSize="24" HorizontalAlignment="Center"/>
-            <Image Source="{Binding Image}" Stretch="Uniform" Grid.Row="1"/>
+            <Image Source="{Binding Image}" Margin="5" Stretch="Uniform" />
+            <TextBlock TextWrapping="Wrap" Grid.Row="1" Text="{Binding Title}"  Style="{StaticResource GroupHeaderTextStyle}"  FontSize="24" HorizontalAlignment="Center"/>
         </Grid>
             </Border>
     </DataTemplate>
 
     <DataTemplate x:Key="UpgradeItemTemplateSmall">
-        <Border BorderBrush="Black" BorderThickness="1" Padding="1">
-            <Grid x:Name="TopMain">
+        <Border BorderBrush="Black" BorderThickness="1" Background="{StaticResource TileBackground}">
+            <Grid x:Name="TopMain" Width="250" Height="200">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="40"/>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="60"/>
                 </Grid.RowDefinitions>
-                <TextBlock TextWrapping="Wrap" Text="{Binding Title}"  Style="{StaticResource GroupHeaderTextStyle}"  FontSize="24" Margin="10,0" HorizontalAlignment="Center"/>
-                <Image Source="{Binding Image}" Stretch="Uniform" Grid.Row="1"/>
+                <Image Source="{Binding Image}" Margin="5" Stretch="Uniform" />
+                <TextBlock TextWrapping="Wrap" Grid.Row="1" Text="{Binding Title}"  Style="{StaticResource GroupHeaderTextStyle}"  FontSize="24" Margin="10,0" HorizontalAlignment="Center"/>
             </Grid>
         </Border>
     </DataTemplate>
 
     <DataTemplate x:Key="ConfigurationTemplate">
-        <Border BorderBrush="Black" BorderThickness="1" >
-        <Grid Width="500" Height="180">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="280"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Image Source="{Binding Image}" Stretch="Uniform"/>
-            <StackPanel Grid.Column="1" >
-                <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" Text="{Binding Title}"  FontSize="18" Margin="10,0" Style="{StaticResource GroupHeaderTextStyle}"/>
-                <TextBlock TextWrapping="Wrap" Text="{Binding ItemsCount}" FontSize="13" Margin="10,12,10,0" Style="{StaticResource GroupHeaderTextStyle}"/>
-                <TextBlock TextWrapping="Wrap" Text="{Binding AircraftCount}" FontSize="13" Margin="10,12,10,0" Style="{StaticResource GroupHeaderTextStyle}"/>
+        <Border BorderBrush="Black" BorderThickness="1" Background="{StaticResource TileBackground}" >
+        <Grid Width="250" Height="280" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="150"/>
+            </Grid.RowDefinitions>
+            <Image Source="{Binding Image}" Stretch="Uniform" Margin="5"/>
+            <StackPanel Grid.Row="1" >
+                <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" Text="{Binding Title}"  FontSize="24" Margin="5,0" Style="{StaticResource GroupHeaderTextStyle}"/>
+                <TextBlock TextWrapping="Wrap" Text="{Binding ItemsCount}" FontSize="13" Margin="10,5,10,0" Style="{StaticResource GroupHeaderTextStyle}"/>
+                <TextBlock TextWrapping="Wrap" Text="{Binding AircraftCount}" FontSize="13" Margin="10,5,10,0" Style="{StaticResource GroupHeaderTextStyle}"/>
                 <StackPanel HorizontalAlignment="Right" Background="{Binding StateColor}" Height="40" Width="120">
                     <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding State}" FontSize="18" Style="{StaticResource GroupHeaderTextStyle}"/>
                 </StackPanel>
@@ -117,30 +117,30 @@
     </DataTemplate>
     <DataTemplate x:Key="CustomerTemplateWithName">
         <Border BorderBrush="Black" BorderThickness="1" Padding="1" >
-        <Grid Width="300" Height="100" Background="#FFFFFFFF">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
-                <ColumnDefinition Width="100"/>
-            </Grid.ColumnDefinitions>
-            <Image HorizontalAlignment="Left" VerticalAlignment="Center" Source="{Binding Image}" Stretch="Uniform"/>
-            <StackPanel  Grid.Column="1">
-                <TextBlock TextWrapping="Wrap" Text="{Binding Title}"  FontSize="18" Margin="10,0" Style="{StaticResource GroupHeaderTextStyle}"/>
-            </StackPanel>
+        <Grid Width="300" Height="150" Background="{StaticResource TileBackground}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Image HorizontalAlignment="Center" Margin="5" Source="{Binding Image}" Stretch="Uniform"/>
+            <TextBlock TextWrapping="Wrap" Grid.Row="1" HorizontalAlignment="Center" Text="{Binding Title}"  FontSize="20" Margin="10,0" Style="{StaticResource GroupHeaderTextStyle}"/>
         </Grid>
         </Border>
     </DataTemplate>
 
     <DataTemplate x:Key="AircraftProgrammTemplate">
-            <Grid Width="800" Height="600" >
+        <Border BorderBrush="Black" BorderThickness="1" Padding="1" >
+            <Grid Width="800" Height="600" Background="{StaticResource TileBackground}">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="50"/>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="70"/>
                 </Grid.RowDefinitions>
-                <Image HorizontalAlignment="Left" Grid.RowSpan="2" VerticalAlignment="Center" Source="{Binding Image}" Stretch="Uniform"/>
-                <StackPanel  Grid.Row="0">
+                <Image HorizontalAlignment="Left" Margin="5" VerticalAlignment="Center" Source="{Binding Image}" Stretch="Uniform"/>
+                <StackPanel  Grid.Row="1">
                     <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" Text="{Binding Title}"  FontSize="50" Margin="10" Style="{StaticResource GroupHeaderTextStyle}"/>
                 </StackPanel>
             </Grid>
+            </Border>
     </DataTemplate>
 
     <DataTemplate x:Key="AircraftVersionTemplate">

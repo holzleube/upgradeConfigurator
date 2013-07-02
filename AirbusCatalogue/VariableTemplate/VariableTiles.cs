@@ -25,25 +25,17 @@ namespace AirbusCatalogue.VariableTemplate
                 {
                         return TopTemplate;
                 }
-                if (item.GetType() == typeof(NewUpgradeDataItem))
+                if (item.GetType() == typeof(NewUpgradeSmallDataItem))
                 {
-                    if (((NewUpgradeDataItem) item).Priority == 1)
-                    {
-                        return UpgradeTemplate;
-                    }
-                    if (((NewUpgradeDataItem)item).Priority == 2)
-                    {
-                        return UpgradeTemplateMiddle;
-                    }
-                    if (((NewUpgradeDataItem)item).Priority == 3)
-                    {
-                        return UpgradeTemplateSmall;
-                    }
-
+                   return UpgradeTemplateSmall;
                 }
                 if (item.GetType() == typeof(ConfigurationDataItem))
                 {
                     return ConfigurationTemplate;
+                } 
+                if (item.GetType() == typeof(NewUpgradeBigDataItem))
+                {
+                    return UpgradeTemplate;
                 }
             }
             return base.SelectTemplateCore(item, container);

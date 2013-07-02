@@ -24,9 +24,17 @@ namespace AirbusCatalogue.ViewModel.Converter
                    );
             foreach (var upgradeItem in customerInformation.UpgradeRecommendations)
             {
-                var rowSpan = GetRowSpanFromPriority(upgradeItem.Priority);
-                var colSpan = GetColSpanFromPriority(upgradeItem.Priority);
-                group2.Items.Add(new NewUpgradeDataItem(upgradeItem, group2, rowSpan,colSpan)); 
+                BasicDataItem item;
+                if (upgradeItem.Priority == 1)
+                {
+                    item = new NewUpgradeBigDataItem(upgradeItem, group2);
+                }
+                else
+                {
+                    item = new NewUpgradeSmallDataItem(upgradeItem, group2);
+                }
+                
+                group2.Items.Add(item); 
             }
             
             var group3 = new DataGroup("last configurations",
@@ -43,32 +51,6 @@ namespace AirbusCatalogue.ViewModel.Converter
             return convertedGroups;
         }
 
-        private int GetRowSpanFromPriority(int priority)
-        {
-            if (priority == 1)
-            {
-                return 35;
-            }
-            if (priority == 2)
-            {
-                return 30;
-            }
-           return 20;
-            
-        }
-
-        private int GetColSpanFromPriority(int priority)
-        {
-            if (priority == 1)
-            {
-                return 50;
-            }
-            if (priority == 2)
-            {
-                return 30;
-            }
-           return 25;
-            
-        }
+       
     }
 }

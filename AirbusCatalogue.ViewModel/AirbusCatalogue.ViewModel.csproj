@@ -123,7 +123,8 @@
     <Compile Include="ViewDataElements\DataGroup.cs" />
     <Compile Include="ViewDataElements\HubPageDataItem.cs" />
     <Compile Include="ViewDataElements\SampleDataSource.cs" />
-    <Compile Include="ViewDataElements\Upgrades\NewUpgradeDataItem.cs" />
+    <Compile Include="ViewDataElements\Upgrades\NewUpgradeBigDataItem.cs" />
+    <Compile Include="ViewDataElements\Upgrades\NewUpgradeSmallDataItem.cs" />
     <Compile Include="ViewInterfaces\Aircraft\IAircraftSelection.cs" />
     <Compile Include="ViewInterfaces\Aircraft\IAircraftTypeSelection.cs" />
     <Compile Include="ViewInterfaces\Aircraft\IAircraftVersionSelection.cs" />

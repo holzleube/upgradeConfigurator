@@ -58,7 +58,7 @@
             Padding="116,137,40,46"
             ItemsSource="{Binding Source={StaticResource groupedItemsViewSource}}"
             ItemClick="ItemView_ItemClick"
-            ItemTemplateSelector="{StaticResource TemplateSelector}"
+            ItemTemplate="{StaticResource CustomerTemplateWithName}"
             IsItemClickEnabled="True"
             SelectionMode="None"
             IsSwipeEnabled="false">
