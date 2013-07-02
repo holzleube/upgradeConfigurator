@@ -8,6 +8,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:upgrades="using:AirbusCatalogue.ViewModel.ViewModel.Upgrades" xmlns:sample="using:AirbusCatalogue.Sample"
+    xmlns:controls="using:Callisto.Controls"
     mc:Ignorable="d">
     <Page.DataContext>
         <upgrades:SystemUpgradeViewModel/>
@@ -17,9 +18,14 @@
 
         <!-- Collection of items displayed by this page -->
         <CollectionViewSource
-            x:Name="itemsViewSource"
+            x:Name="completeViewSource"
             Source="{Binding AtaChapters}"
             d:Source="{Binding SampleDataItems, Source={d:DesignInstance Type=sample:SampleDataSource, IsDesignTimeCreatable=True}}"/>
+        <CollectionViewSource
+            x:Name="cockpitViewSource"
+            Source="{Binding CockpitAtaChapters}"
+            d:Source="{Binding SampleDataItems, Source={d:DesignInstance Type=sample:SampleDataSource, IsDesignTimeCreatable=True}}"/>
+        
     </Page.Resources>
 
     <!--
@@ -36,8 +42,19 @@
             <ColumnDefinition x:Name="primaryColumn" Width="400"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>-->
-        <Grid Grid.Row="1" Grid.ColumnSpan="2" Background="{StaticResource MainBackground}"/>
-        <FlipView Grid.Row="1">
+        <!--<Grid Grid.Row="1"  Background="{StaticResource MainBackground}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>-->
+        <Grid Grid.Row="1" Background="{StaticResource MainBackground}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+
+
+        <FlipView x:Name="MyFlipView" Grid.RowSpan="2" SelectionChanged="MyFlipView_OnSelectionChanged" >
             <FlipViewItem>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -49,9 +66,10 @@
                     AutomationProperties.AutomationId="ItemsListView"
                     AutomationProperties.Name="Items"
                     Grid.Row="1"
-                    ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
+                    SelectedItem="{Binding SelectedAtaChapter}"
+                    ItemsSource="{Binding Source={StaticResource cockpitViewSource}}"
                     IsSwipeEnabled="False"
-                    ItemTemplate="{StaticResource AtaChapterSelectionTemplate}" />
+                    ItemTemplate="{StaticResource AtaChapterSelectionTemplate}" SelectionMode="None" />
 
                     <Grid x:Name="itemDetailGrid" Margin="0,0,0,0"  Grid.Column="1">
                         <Grid.RowDefinitions>
@@ -64,44 +82,48 @@
                             </Grid.Background>
                             <Button Content="23 communication" HorizontalAlignment="Left" Margin="244,101,0,0" VerticalAlignment="Top" Background="White" BorderBrush="Black" BorderThickness="1" Width="161" Height="45"/>
                             <Button Content="24 electrical power" HorizontalAlignment="Left" Margin="31,213,0,0" VerticalAlignment="Top" Background="White" BorderBrush="Black" BorderThickness="1" Width="161" Height="45"/>
-                            <Button Content="46 &#xD;&#xA;Information&#xD;&#xA;Systems" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="244,283,0,0" VerticalAlignment="Top" Background="White" BorderBrush="Black" BorderThickness="1" Width="112" Height="90"/>
+                            <Button Content="46 &#xA;Information&#xA;Systems" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="244,283,0,0" VerticalAlignment="Top" Background="White" BorderBrush="Black" BorderThickness="1" Width="112" Height="90"/>
                         </Grid>
+                        
                         <Button x:Name="UpgradeItemButton" Content="&#xE0AD;" 
                             Grid.Row="1"
                             Foreground="White"
                             Style="{StaticResource TopAppBarButtonStyleCorner}"
                             HorizontalAlignment="Right" Background="#7FFFFFFF" Width="150" Margin="5" BorderThickness="0" />
-
                     </Grid>
                 </Grid>
             </FlipViewItem>
-            <FlipViewItem>
-                
-            
-            <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition x:Name="primaryColumn2" Width="400"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <ListView
-                    x:Name="itemListView2"
-                    AutomationProperties.AutomationId="ItemsListView"
-                    AutomationProperties.Name="Items"
-                    Grid.Row="1"
-                    ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
-                    IsSwipeEnabled="False"
-                    ItemTemplate="{StaticResource AtaChapterSelectionTemplate}" />
+			<FlipViewItem>
+            	<Grid>
+            		<Grid.ColumnDefinitions>
+            			<ColumnDefinition Width="*"/>
+						<ColumnDefinition x:Name="primaryColumn2" Width="400"/>
+            		</Grid.ColumnDefinitions>
+            		<ListView
+            			x:Name="itemListView2"
+            			AutomationProperties.AutomationId="ItemsListView"
+            			AutomationProperties.Name="Items"
+            			Grid.Row="1"
+						Grid.Column="1"
+                        SelectedItem="{Binding SelectedAtaChapter}"
+            			ItemsSource="{Binding Source={StaticResource completeViewSource}}"
+            			IsSwipeEnabled="False"
+            			ItemTemplate="{StaticResource AtaChapterSelectionTemplate}" SelectionMode="Single" />
 
-                    <Grid x:Name="itemDetailGrid2" Margin="0,0,0,0"  Grid.Column="1">
-                        <Grid.Background>
-                            <ImageBrush Stretch="Uniform" ImageSource="/Assets/background/a320_top.png" AlignmentX="Center" AlignmentY="Center"/>
-                        </Grid.Background>
-                    </Grid>
-                </Grid>
+            		<Grid x:Name="itemDetailGrid2" Margin="0,0,0,0"  >
+            			<Grid.Background>
+            				<ImageBrush Stretch="Uniform" ImageSource="/Assets/background/a320_top.png" AlignmentX="Center" AlignmentY="Center"/>
+            			</Grid.Background>
+            		</Grid>
+            	</Grid>
             </FlipViewItem>
-        </FlipView>
-        
-        
+		</FlipView>
+        <ToggleSwitch HorizontalAlignment="Center" x:Name="ToggleSwitchButton"  Grid.Row="1" VerticalAlignment="Center" Style="{StaticResource ToggleSwitchStyle1}" Height="60" Width="50" />
+       
+        <!--<FlipView x:Name="fakeFlip" ItemsSource="{Binding FlipItems}" Visibility="Collapsed"/>
+        <controls:FlipViewIndicator Width="100" Grid.Row="1" x:Name="Indicator" ItemsSource="{Binding FlipItems}"  FlipView="{Binding ElementName=fakeFlip}"/>-->
+        </Grid>
+        <!--</Grid>-->
         <!-- Back button and page title -->
         <Grid Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>

@@ -9,14 +9,15 @@ namespace AirbusCatalogue.Model.Upgrades
 {
     public class AtaChapter:IAtaChapter
     {
-        public AtaChapter(string ataChapterId, string ataChapterName, int ataNumber)
+        public AtaChapter(string ataChapterId, string ataChapterName, int ataNumber, string category)
         {
             UniqueId = ataChapterId;
             Name = ataChapterName;
             AtaChapterNumber = ataNumber;
+            Category = category;
         }
 
-        public AtaChapter(string ataChapterId, string ataChapterName, int ataNumber, List<ISubAtaChapter> subAtaChapters): this(ataChapterId, ataChapterName, ataNumber)
+        public AtaChapter(string ataChapterId, string ataChapterName, int ataNumber, List<ISubAtaChapter> subAtaChapters, string category): this(ataChapterId, ataChapterName, ataNumber, category)
         {
             SubAtaChapters = subAtaChapters;
         }
@@ -28,5 +29,7 @@ namespace AirbusCatalogue.Model.Upgrades
         public int AtaChapterNumber { get; set; }
 
         public List<ISubAtaChapter> SubAtaChapters { get; set; }
+
+        public string Category { get; set; }
     }
 }

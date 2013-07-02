@@ -13,5 +13,7 @@ namespace AirbusCatalogue.Common.DataObjects.Upgrades
 
         List<ISubAtaChapter> SubAtaChapters { get; set; }
 
+        string Category { get; set; }
+
     }
 }

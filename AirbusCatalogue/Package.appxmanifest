@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
-  <Identity Name="e17f94d8-59e6-47a0-86aa-96780d479ee5" Publisher="CN=Dane.Leube" Version="1.0.0.0" />
+  <Identity Name="e17f94d8-59e6-47a0-86aa-96780d479ee5" Publisher="CN=Dane.Leube" Version="1.0.0.3" />
   <Properties>
     <DisplayName>AirbusCatalogue</DisplayName>
     <PublisherDisplayName>Dane.Leube</PublisherDisplayName>
@@ -15,7 +15,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="AirbusCatalogue.App">
-      <VisualElements DisplayName="AirbusCatalogue" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="AirbusCatalogue" ForegroundText="light" BackgroundColor="#464646">
+      <VisualElements DisplayName="AirbusCatalogue" Logo="Assets\Logo_mid.png" SmallLogo="Assets\SmallLogo.png" Description="AirbusCatalogue" ForegroundText="light" BackgroundColor="#464646">
         <DefaultTile ShowName="allLogos" />
         <SplashScreen Image="Assets\SplashScreen.png" />
         <InitialRotationPreference>

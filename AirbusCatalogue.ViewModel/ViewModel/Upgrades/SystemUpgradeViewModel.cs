@@ -25,6 +25,27 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Upgrades
             }
         }
 
+        public IAtaChapter SelectedAtaChapter { 
+            get { return _selectedAtaChapter; } 
+            set
+            {
+                _selectedAtaChapter = value;
+            } }
+
+        private ObservableCollection<IAtaChapter> _cockpitAtaChapters = new ObservableCollection<IAtaChapter>();
+        private IAtaChapter _selectedAtaChapter;
+
+        public ObservableCollection<IAtaChapter> CockpitAtaChapters
+        {
+            get { return _cockpitAtaChapters; }
+            set
+            {
+                _cockpitAtaChapters = value;
+                OnPropertyChanged();
+            }
+        }
+
+       
         public SystemUpgradeViewModel()
         {
             _model = new UpgradeModel();
@@ -37,7 +58,10 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Upgrades
                 return;
             }
             var concreteType = _model.GetUpgradeTypeById(type.UniqueId);
-            AtaChapters = new ObservableCollection<IAtaChapter>(concreteType.AtaChapters);
+            var cockpitAtas = concreteType.AtaChapters.Select(x => x).Where(x => x.Category.Equals("Cockpit")).ToList();
+            var completeAtas = concreteType.AtaChapters.Select(x => x).Where(x => x.Category.Equals("Complete")).ToList();
+            CockpitAtaChapters = new ObservableCollection<IAtaChapter>(cockpitAtas);
+            AtaChapters = new ObservableCollection<IAtaChapter>(completeAtas);
         }
     }
 }

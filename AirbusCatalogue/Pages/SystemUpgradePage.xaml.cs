@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using AirbusCatalogue.Common;
 using AirbusCatalogue.ViewModel.ViewInterfaces.Upgrades;
+using Callisto.Controls;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.ViewManagement;
@@ -24,6 +26,8 @@ namespace AirbusCatalogue.Pages
     /// </summary>
     public sealed partial class SystemUpgradePage : AirbusCatalogue.Common.LayoutAwarePage, ISystemUpgrade
     {
+
+        
         public SystemUpgradePage()
         {
             this.InitializeComponent();
@@ -49,15 +53,15 @@ namespace AirbusCatalogue.Pages
             {
                 // When this is a new page, select the first item automatically unless logical page
                 // navigation is being used (see the logical page navigation #region below.)
-                if (!this.UsingLogicalPageNavigation() && this.itemsViewSource.View != null)
+                if (!this.UsingLogicalPageNavigation() && this.cockpitViewSource.View != null)
                 {
-                    this.itemsViewSource.View.MoveCurrentToFirst();
+                    this.cockpitViewSource.View.MoveCurrentToFirst();
                 }
             }
             else
             {
                 // Restore the previously saved state associated with this page
-                if (pageState.ContainsKey("SelectedItem") && this.itemsViewSource.View != null)
+                if (pageState.ContainsKey("SelectedItem") && this.cockpitViewSource.View != null)
                 {
                     // TODO: Invoke this.itemsViewSource.View.MoveCurrentTo() with the selected
                     //       item as specified by the value of pageState["SelectedItem"]
@@ -73,9 +77,9 @@ namespace AirbusCatalogue.Pages
         /// <param name="pageState">An empty dictionary to be populated with serializable state.</param>
         protected override void SaveState(Dictionary<String, Object> pageState)
         {
-            if (this.itemsViewSource.View != null)
+            if (this.cockpitViewSource.View != null)
             {
-                var selectedItem = this.itemsViewSource.View.CurrentItem;
+                var selectedItem = this.cockpitViewSource.View.CurrentItem;
                 // TODO: Derive a serializable navigation parameter and assign it to
                 //       pageState["SelectedItem"]
             }
@@ -182,5 +186,12 @@ namespace AirbusCatalogue.Pages
         }
 
         #endregion
+
+        private void MyFlipView_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(ToggleSwitchButton == null)
+                return;
+            ToggleSwitchButton.IsOn = !ToggleSwitchButton.IsOn;
+        }
     }
 }

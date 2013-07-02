@@ -23,15 +23,22 @@ namespace AirbusCatalogue.Model.Upgrades
         {
             var ataChapters = new List<IAtaChapter>
                 {
-                    new AtaChapter("communicationAta", "Communications", 23),
-                    new AtaChapter("electricalPowerAta", "Electrical Power", 24),
-                    new AtaChapter("equipmentAta", "Equipment/furnishings", 25),
-                    new AtaChapter("navigationAta", "Navigation", 34),
-                    new AtaChapter("autoFlightAta", "Auto flight", 22),
-                    new AtaChapter("fireProtectionAta", "Fire protection", 26),
-                    new AtaChapter("oxygenAta", "Oxygen", 35),
-                    new AtaChapter("informationSystemsAta", "InformationSystems", 35),
-                    new AtaChapter("windowsAta", "Windows", 56)
+                    new AtaChapter("autoFlightAta", "Auto flight", 22, "Cockpit"),
+                    new AtaChapter("communicationAta", "Communications", 23, "Cockpit"),
+                    new AtaChapter("electricalPowerAta", "Electrical Power", 24, "Cockpit"),
+                    new AtaChapter("equipmentAta", "Equipment/furnishings", 25, "Cockpit"),
+                    new AtaChapter("fireProtectionAta", "Fire protection", 26, "Cockpit"),
+                    new AtaChapter("fuelSystemsAta", "Fuel", 28, "Complete"),
+                    new AtaChapter("navigationAta", "Navigation", 34, "Cockpit"),
+                    new AtaChapter("oxygenAta", "Oxygen", 35, "Cockpit"),
+                    new AtaChapter("windowsAta", "Windows", 56, "Cockpit"),
+                    new AtaChapter("landingGearAta", "Landing gear", 32, "Complete"),
+                    new AtaChapter("waterWasteAta", "Water/Waste", 38, "Complete"),
+                    new AtaChapter("structuresAta", "Structures", 51, "Complete"),
+                    new AtaChapter("doorsAta", "Doors", 52, "Complete"),
+                    new AtaChapter("stabilizersAta", "Stabilizers", 55, "Complete"),
+                    new AtaChapter("wingsAta", "Wings", 57, "Complete")
+                    
                 };
             var upgradeType = new UpgradeType("systemUpgrade", "System", ataChapters);
             return upgradeType;
@@ -70,7 +77,7 @@ namespace AirbusCatalogue.Model.Upgrades
                                       "The basic boomsets are replaced by alternate equipment complying with ARINC 535A and 538B specifications",
                                       "Individual")
                 };
-            IAtaChapter chapter = new AtaChapter("communicationAta", "Communications", 23, subAtaChapters);
+            IAtaChapter chapter = new AtaChapter("communicationAta", "Communications", 23, subAtaChapters, "Cockpit");
             return chapter;
         }
 
