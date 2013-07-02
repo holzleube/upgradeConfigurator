@@ -38,7 +38,7 @@
         </Grid.ColumnDefinitions>-->
         <Grid Grid.Row="1" Grid.ColumnSpan="2" Background="{StaticResource MainBackground}"/>
         <FlipView Grid.Row="1">
-            <FlipView.Items>
+            <FlipViewItem>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition x:Name="primaryColumn" Width="400"/>
@@ -54,27 +54,31 @@
                     ItemTemplate="{StaticResource AtaChapterSelectionTemplate}" />
 
                     <Grid x:Name="itemDetailGrid" Margin="0,0,0,0"  Grid.Column="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="100"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="85"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.RowSpan="2">
                             <Grid.Background>
-                                <ImageBrush Stretch="Uniform" ImageSource="/Assets/background/cockpit.jpg" AlignmentX="Left" AlignmentY="Top"/>
+                                <ImageBrush Stretch="Fill" ImageSource="/Assets/background/cockpit.jpg" AlignmentX="Left" AlignmentY="Top"/>
                             </Grid.Background>
                             <Button Content="23 communication" HorizontalAlignment="Left" Margin="244,101,0,0" VerticalAlignment="Top" Background="White" BorderBrush="Black" BorderThickness="1" Width="161" Height="45"/>
                             <Button Content="24 electrical power" HorizontalAlignment="Left" Margin="31,213,0,0" VerticalAlignment="Top" Background="White" BorderBrush="Black" BorderThickness="1" Width="161" Height="45"/>
                             <Button Content="46 &#xD;&#xA;Information&#xD;&#xA;Systems" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="244,283,0,0" VerticalAlignment="Top" Background="White" BorderBrush="Black" BorderThickness="1" Width="112" Height="90"/>
                         </Grid>
-                        <Grid Grid.Column="2">
-                            <Grid.Background>
-                                <ImageBrush Stretch="Uniform" ImageSource="/Assets/background/a320_top.png" AlignmentX="Center" AlignmentY="Center"/>
-                            </Grid.Background>
-                        </Grid>
+                        <Button x:Name="UpgradeItemButton" Content="&#xE0AD;" 
+                            Grid.Row="1"
+                            Foreground="White"
+                            Style="{StaticResource TopAppBarButtonStyleCorner}"
+                            HorizontalAlignment="Right" Background="#7FFFFFFF" Width="150" Margin="5" BorderThickness="0" />
+
                     </Grid>
                 </Grid>
-                <Grid>
+            </FlipViewItem>
+            <FlipViewItem>
+                
+            
+            <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition x:Name="primaryColumn2" Width="400"/>
                         <ColumnDefinition Width="*"/>
@@ -89,27 +93,12 @@
                     ItemTemplate="{StaticResource AtaChapterSelectionTemplate}" />
 
                     <Grid x:Name="itemDetailGrid2" Margin="0,0,0,0"  Grid.Column="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="100"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid >
-                            <Grid.Background>
-                                <ImageBrush Stretch="Uniform" ImageSource="/Assets/background/cockpit.jpg" AlignmentX="Left" AlignmentY="Top"/>
-                            </Grid.Background>
-                            <Button Content="23 communication" HorizontalAlignment="Left" Margin="244,101,0,0" VerticalAlignment="Top" Background="White" BorderBrush="Black" BorderThickness="1" Width="161" Height="45"/>
-                            <Button Content="24 electrical power" HorizontalAlignment="Left" Margin="31,213,0,0" VerticalAlignment="Top" Background="White" BorderBrush="Black" BorderThickness="1" Width="161" Height="45"/>
-                            <Button Content="46 &#xD;&#xA;Information&#xD;&#xA;Systems" HorizontalAlignment="Left" Margin="244,283,0,0" VerticalAlignment="Top" Background="White" BorderBrush="Black" BorderThickness="1" Width="112" Height="90"/>
-                        </Grid>
-                        <Grid Grid.Column="2">
-                            <Grid.Background>
-                                <ImageBrush Stretch="Uniform" ImageSource="/Assets/background/a320_top.png" AlignmentX="Center" AlignmentY="Center"/>
-                            </Grid.Background>
-                        </Grid>
+                        <Grid.Background>
+                            <ImageBrush Stretch="Uniform" ImageSource="/Assets/background/a320_top.png" AlignmentX="Center" AlignmentY="Center"/>
+                        </Grid.Background>
                     </Grid>
                 </Grid>
-            </FlipView.Items>
+            </FlipViewItem>
         </FlipView>
         
         
@@ -129,7 +118,7 @@
         
 
         <!-- Details for selected item -->
-        <ScrollViewer
+        <!--<ScrollViewer
             x:Name="itemDetail"
             AutomationProperties.AutomationId="ItemDetailScrollViewer"
             Grid.Column="1"
@@ -138,7 +127,7 @@
 
             
             
-        </ScrollViewer>
+        </ScrollViewer>-->
 
         <VisualStateManager.VisualStateGroups>
 
