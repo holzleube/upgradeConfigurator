@@ -10,6 +10,7 @@ using AirbusCatalogue.Model.Upgrades;
 using AirbusCatalogue.ViewModel.Command;
 using AirbusCatalogue.ViewModel.Navigation;
 using AirbusCatalogue.ViewModel.Templates;
+using AirbusCatalogue.ViewModel.ViewDataElements;
 using AirbusCatalogue.ViewModel.ViewInterfaces.Upgrades;
 using GalaSoft.MvvmLight.Ioc;
 
@@ -44,6 +45,18 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Upgrades
             var navigationService = SimpleIoc.Default.GetInstance<INavigationService>();
             var ataChapterPage = SimpleIoc.Default.GetInstance<IUpgradeSelection>();
             navigationService.Navigate(ataChapterPage.GetType(), ataChapterId);
+        }
+
+        private ICommand _listViewItemWasSelectedCommand;
+        public ICommand ListViewItemWasSelectedCommand
+        {
+            get { return _listViewItemWasSelectedCommand ?? (_listViewItemWasSelectedCommand = new RelayCommand<IAtaChapter>(ListViewItemWasSelected)); }
+            
+        }
+
+        private void ListViewItemWasSelected(IAtaChapter obj)
+        {
+            NavigateToSelectedCommand(obj.AtaChapterNumber + " "+ obj.Name);
         }
 
         public IAtaChapter SelectedAtaChapter { get; set; }

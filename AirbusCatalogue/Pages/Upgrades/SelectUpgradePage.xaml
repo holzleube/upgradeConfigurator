@@ -18,7 +18,7 @@
         <!-- Collection of items displayed by this page -->
         <CollectionViewSource
             x:Name="itemsViewSource"
-            Source="{Binding Items}"
+            Source="{Binding SubAtaChapter}"
             d:Source="{Binding SampleDataItems, Source={d:DesignInstance Type=sample:SampleDataSource, IsDesignTimeCreatable=True}}"/>
     </Page.Resources>
 
@@ -46,7 +46,7 @@
         </Grid>
         <Grid Grid.Row="1" Background="{StaticResource MainBackground}">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="400"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
         
@@ -55,6 +55,7 @@
             x:Name="itemListView"
             AutomationProperties.AutomationId="ItemsListView"
             AutomationProperties.Name="Items"
+            Margin="10,0,0,0"
             TabIndex="1"
             ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
             IsSwipeEnabled="False"
