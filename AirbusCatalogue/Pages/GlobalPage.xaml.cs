@@ -1,11 +1,11 @@
 ﻿using AirbusCatalogue.Common;
-using AirbusCatalogue.Customer;
 using AirbusCatalogue.ViewModel.Navigation;
 using AirbusCatalogue.ViewModel.Templates;
 using GalaSoft.MvvmLight.Ioc;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using SelectCustomerPage = AirbusCatalogue.Pages.Customer.SelectCustomerPage;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 

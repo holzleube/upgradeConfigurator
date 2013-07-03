@@ -121,23 +121,20 @@
     <Compile Include="Common\BooleanNegationConverter.cs" />
     <Compile Include="Common\BooleanToVisibilityConverter.cs" />
     <Compile Include="Common\FlipViewIndicatorProperty.cs" />
-    <Compile Include="Pages\SelectAircraftFamilyPage.xaml.cs">
+    <Compile Include="Pages\Aircrafts\SelectAircraftFamilyPage.xaml.cs">
       <DependentUpon>SelectAircraftFamilyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Aircrafts\SelectAircraftTypePage.xaml.cs">
+      <DependentUpon>SelectAircraftTypePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Aircrafts\SelectAircraftVersionPage.xaml.cs">
+      <DependentUpon>SelectAircraftVersionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Customer\SelectCustomerPage.xaml.cs">
+      <DependentUpon>SelectCustomerPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\GlobalPage.xaml.cs">
       <DependentUpon>GlobalPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\SelectAircraftTypePage.xaml.cs">
-      <DependentUpon>SelectAircraftTypePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\SelectAircraftVersionPage.xaml.cs">
-      <DependentUpon>SelectAircraftVersionPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\SelectCustomerPage.xaml.cs">
-      <DependentUpon>SelectCustomerPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\SelectUpgradeTypePage.xaml.cs">
-      <DependentUpon>SelectUpgradeTypePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\StartScreenPage.xaml.cs">
       <DependentUpon>StartScreenPage.xaml</DependentUpon>
@@ -145,7 +142,13 @@
     <Compile Include="Pages\SummaryPage.xaml.cs">
       <DependentUpon>SummaryPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\SystemUpgradePage.xaml.cs">
+    <Compile Include="Pages\Upgrades\SelectUpgradePage.xaml.cs">
+      <DependentUpon>SelectUpgradePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Upgrades\SelectUpgradeTypePage.xaml.cs">
+      <DependentUpon>SelectUpgradeTypePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Upgrades\SystemUpgradePage.xaml.cs">
       <DependentUpon>SystemUpgradePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -232,6 +235,7 @@
     <Content Include="Assets\LightGray.png" />
     <Content Include="Assets\MediumGray.png" />
     <Content Include="Assets\DarkGray.png" />
+    <Content Include="Assets\background\cockpit_2.jpg" />
     <Content Include="Assets\upgrades\ambient.jpg" />
     <Content Include="Assets\upgrades\bridgestone.jpg" />
     <Content Include="Assets\upgrades\holmberg.jpg" />
@@ -260,27 +264,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Pages\SelectAircraftFamilyPage.xaml">
+    <Page Include="Pages\Aircrafts\SelectAircraftFamilyPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Aircrafts\SelectAircraftTypePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Aircrafts\SelectAircraftVersionPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Customer\SelectCustomerPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\GlobalPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\SelectAircraftTypePage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\SelectAircraftVersionPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\SelectCustomerPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\SelectUpgradeTypePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -292,9 +292,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\SystemUpgradePage.xaml">
+    <Page Include="Pages\Upgrades\SelectUpgradePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Upgrades\SelectUpgradeTypePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Upgrades\SystemUpgradePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup />

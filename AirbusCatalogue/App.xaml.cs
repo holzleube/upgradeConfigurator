@@ -1,8 +1,9 @@
 ﻿using AirbusCatalogue.Common;
 
 using System;
-using AirbusCatalogue.Customer;
 using AirbusCatalogue.Pages;
+using AirbusCatalogue.Pages.Customer;
+using AirbusCatalogue.Pages.Upgrades;
 using AirbusCatalogue.ViewModel.Navigation;
 using AirbusCatalogue.ViewModel.ViewInterfaces;
 using AirbusCatalogue.ViewModel.ViewInterfaces.Aircraft;
@@ -13,6 +14,11 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using SelectAircraftPage = AirbusCatalogue.Pages.Aircrafts.SelectAircraftPage;
+using SelectAircraftTypePage = AirbusCatalogue.Pages.Aircrafts.SelectAircraftTypePage;
+using SelectAircraftVersionPage = AirbusCatalogue.Pages.Aircrafts.SelectAircraftVersionPage;
+using SelectUpgradeTypePage = AirbusCatalogue.Pages.Upgrades.SelectUpgradeTypePage;
+using SystemUpgradePage = AirbusCatalogue.Pages.Upgrades.SystemUpgradePage;
 
 // The Grid App template is documented at http://go.microsoft.com/fwlink/?LinkId=234226
 
@@ -39,6 +45,7 @@ namespace AirbusCatalogue
             SimpleIoc.Default.Register<IAircraftVersionSelection, SelectAircraftVersionPage>();
             SimpleIoc.Default.Register<IUpgradeTypeSelection, SelectUpgradeTypePage>();
             SimpleIoc.Default.Register<ISystemUpgrade, SystemUpgradePage>();
+            SimpleIoc.Default.Register<IUpgradeSelection, SelectUpgradePage>();
             SimpleIoc.Default.Register<INavigationService, NavigationService>();
         }
 

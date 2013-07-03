@@ -4,9 +4,14 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using AirbusCatalogue.Common.DataObjects.Upgrades;
 using AirbusCatalogue.Model.Upgrades;
+using AirbusCatalogue.ViewModel.Command;
+using AirbusCatalogue.ViewModel.Navigation;
 using AirbusCatalogue.ViewModel.Templates;
+using AirbusCatalogue.ViewModel.ViewInterfaces.Upgrades;
+using GalaSoft.MvvmLight.Ioc;
 
 namespace AirbusCatalogue.ViewModel.ViewModel.Upgrades
 {
@@ -25,15 +30,25 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Upgrades
             }
         }
 
-        public IAtaChapter SelectedAtaChapter { 
-            get { return _selectedAtaChapter; } 
-            set
-            {
-                _selectedAtaChapter = value;
-            } }
+        private ICommand _ataChapterSelectedCommand;
+        public ICommand AtaChapterSelectedCommand
+        {
+            get {
+                return _ataChapterSelectedCommand ??
+                       (_ataChapterSelectedCommand = new RelayCommand<String>(NavigateToSelectedCommand));
+            }
+        }
+
+        private void NavigateToSelectedCommand(string ataChapterId)
+        {
+            var navigationService = SimpleIoc.Default.GetInstance<INavigationService>();
+            var ataChapterPage = SimpleIoc.Default.GetInstance<IUpgradeSelection>();
+            navigationService.Navigate(ataChapterPage.GetType(), ataChapterId);
+        }
+
+        public IAtaChapter SelectedAtaChapter { get; set; }
 
         private ObservableCollection<IAtaChapter> _cockpitAtaChapters = new ObservableCollection<IAtaChapter>();
-        private IAtaChapter _selectedAtaChapter;
 
         public ObservableCollection<IAtaChapter> CockpitAtaChapters
         {

@@ -1,13 +1,11 @@
-﻿using AirbusCatalogue.Customer;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using AirbusCatalogue.ViewModel.ViewDataElements;
 using AirbusCatalogue.ViewModel.ViewInterfaces;
 using AirbusCatalogue.ViewModel.ViewModel;
-using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
+using SelectCustomerPage = AirbusCatalogue.Pages.Customer.SelectCustomerPage;
 
 // The Grouped Items Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234231
 
@@ -54,7 +52,7 @@ namespace AirbusCatalogue.Pages
             //this.Frame.Navigate(typeof(ItemDetailPage), itemId);
             if (((BasicDataItem)e.ClickedItem).UniqueId.Equals("startScreenImage"))
             {
-                Frame.Navigate(typeof(SelectAircraftPage));
+                Frame.Navigate(typeof(Aircrafts.SelectAircraftPage));
             }
             else
             {
