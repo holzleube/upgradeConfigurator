@@ -46,18 +46,7 @@ namespace AirbusCatalogue.Model.Upgrades
 
         public IAtaChapter GetAtaChapterById(string uniqueId)
         {
-            var upgradeItems = new List<IUpgradeItem>
-                {
-                    new UpgradeItem("1046GT2102", "Boomset basic equipment - Holmberg",
-                                    "DC resistance, soft ear cushions, 70-inch straight cord",
-                                    "/Assets/upgrades/holmberg_headphone.png", "/Assets/upgrades/holmberg_logo.jpg", 0,0),
-                    new UpgradeItem("1046GT2102", "Boomset alternate equipment - Telex",
-                                    "DC resistance, soft ear cushions, 70-inch straight cord", "/Assets/upgrades/telex_headphone.png",
-                                    "/Assets/upgrades/telex_logo.png", 27,0),
-                    new UpgradeItem("1046GT2102", "Boomset alternate equipment - Sennheiser",
-                                    "DC resistance, soft ear cushions, 70-inch straight cord", "/Assets/upgrades/sennheiser_headphone.png",
-                                    "/Assets/upgrades/sennheiser_logo.png", 30,0)
-                };
+            var upgradeItems = GetUpgradeItems();
             var subAtaChapters = new List<ISubAtaChapter>
                 {
                     new SubAtaChapter("11.116", "Installation of singe HF system (SFE)", 11, 116,
@@ -94,24 +83,29 @@ namespace AirbusCatalogue.Model.Upgrades
 
         public ISubAtaChapter GetSubAtaChapterById(string uniqueId)
         {
-            var upgradeItems = new List<IUpgradeItem>
-                {
-                    new UpgradeItem("1046GT2102", "Boomset basic equipment - Holmberg",
-                                    "DC resistance, soft ear cushions, 70-inch straight cord",
-                                    "/Assets/upgrades/holmberg.jpg", "/Assets/upgrades/holmberg_logo.jpg", 0,0),
-                    new UpgradeItem("1046GT2102", "Boomset alternate equipment - Telex",
-                                    "DC resistance, soft ear cushions, 70-inch straight cord", "/Assets/upgrades/telex.jpg",
-                                    "/Assets/upgrades/telex_logo.jpg", 27,0),
-                    new UpgradeItem("1046GT2102", "Boomset alternate equipment - Sennheiser",
-                                    "DC resistance, soft ear cushions, 70-inch straight cord", "/Assets/upgrades/telex.jpg",
-                                    "/Assets/upgrades/sennheiser_logo.jpg", 30,0)
-                };
+            var upgradeItems = GetUpgradeItems();
             ISubAtaChapter subChapter = new SubAtaChapter("51.136", "Boomsets alternate equipment", 51, 136,
                                       "To provide alternate equipment for boomsets",
                                       "two jack panels, one for the Captaion and one for the First Officer, each with two connectors, one at each pilots station",
                                       "The basic boomsets are replaced by alternate equipment complying with ARINC 535A and 538B specifications",
                                       "Individual", upgradeItems);
             return subChapter;
+        }
+
+        private static List<IUpgradeItem> GetUpgradeItems()
+        {
+            return new List<IUpgradeItem>
+                {
+                    new UpgradeItem("1046GT2102", "Boomset basic equipment - Holmberg",
+                                    "DC resistance, soft ear cushions, 70-inch straight cord",
+                                    "/Assets/upgrades/holmberg_headphone.png", "/Assets/upgrades/holmberg_logo.jpg", 0,0, true),
+                    new UpgradeItem("1046GT2102", "Boomset alternate equipment - Telex",
+                                    "DC resistance, soft ear cushions, 70-inch straight cord", "/Assets/upgrades/telex_headphone.png",
+                                    "/Assets/upgrades/telex_logo.png", 27,0, false),
+                    new UpgradeItem("1046GT2102", "Boomset alternate equipment - Sennheiser",
+                                    "DC resistance, soft ear cushions, 70-inch straight cord", "/Assets/upgrades/sennheiser_headphone.png",
+                                    "/Assets/upgrades/sennheiser_logo.png", 30,0, false)
+                };
         }
 
         public void SelectUpgradeItem(IUpgradeItem upgradeItem)

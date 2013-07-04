@@ -10,7 +10,7 @@ namespace AirbusCatalogue.Model.Upgrades
     public class UpgradeItem:IUpgradeItem
     {
 
-        public UpgradeItem(string id, string name, string description, string productImage, string sellerLogo, int tduNumber, int priority)
+        public UpgradeItem(string id, string name, string description, string productImage, string sellerLogo, int tduNumber, int priority, bool isDefault)
         {
             SellerImagePath = sellerLogo;
             TduNumber = tduNumber;
@@ -19,6 +19,7 @@ namespace AirbusCatalogue.Model.Upgrades
             Description = description;
             ProductImagePath = productImage;
             Priority = priority;
+            IsDefault = isDefault;
         }
 
         public string UniqueId { get; set; }

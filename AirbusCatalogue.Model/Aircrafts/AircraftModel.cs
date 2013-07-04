@@ -41,7 +41,11 @@ namespace AirbusCatalogue.Model.Aircrafts
 
         public List<AircraftVersion> GetAircraftVersionsByProgramm(IAircraftBase aircraftType)
         {
-            var image = aircraftType.ImagePath;
+            string image = "Assets/aircrafts/a320_transparent.png";
+            if (aircraftType != null)
+            {
+                 image = aircraftType.ImagePath;
+            }
 
             var list = new List<Aircraft>
                 {

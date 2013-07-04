@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using AirbusCatalogue.Common.DataObjects.Upgrades;
 using AirbusCatalogue.ViewModel.ViewInterfaces.Upgrades;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -183,11 +184,25 @@ namespace AirbusCatalogue.Pages.Upgrades
 
         #endregion
 
-        
-
-        private void ListViewBase_OnItemClick(object sender, ItemClickEventArgs e)
+        private void Upgrade_Item_Selected(object sender, ItemClickEventArgs e)
         {
-            
+            var item = e.ClickedItem as IUpgradeItem;
+            if (item == null || item.IsDefault)
+            {
+                return;
+            }
+            if (UpgradeItemGridView.SelectedItems.Contains(e.ClickedItem))
+            {
+                UpgradeItemGridView.SelectedItem = null;
+            }
+            else
+            {
+                UpgradeItemGridView.SelectedItem = e.ClickedItem;
+            }
+            if (UpgradeItemGridView.SelectedItem != null)
+            {
+                
+            }
         }
     }
 }

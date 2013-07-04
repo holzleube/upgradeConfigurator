@@ -56,9 +56,9 @@ namespace AirbusCatalogue.Model.Customer
         {
             return new List<UpgradeItem>()
                 {
-                    new UpgradeItem("al","Ambient Light","perfect Ambilight","Assets/upgrades/ambient.jpg","", 1,1),
-                    new UpgradeItem("bt","bridgestone tyres","new bridgestone tyres","Assets/upgrades/bridgestone.jpg","", 3,0),
-                    new UpgradeItem("isisId","isis display","the isis cockpit display","Assets/upgrades/isis.jpg","",3,0)
+                    new UpgradeItem("al","Ambient Light","perfect Ambilight","Assets/upgrades/ambient.jpg","", 1,1, false),
+                    new UpgradeItem("bt","bridgestone tyres","new bridgestone tyres","Assets/upgrades/bridgestone.jpg","", 3,0, false),
+                    new UpgradeItem("isisId","isis display","the isis cockpit display","Assets/upgrades/isis.jpg","",3,0, false)
                 };
         }
 
@@ -71,12 +71,7 @@ namespace AirbusCatalogue.Model.Customer
                     new Aircraft("N-001","MSN-001",BASE_PATH + "A318_transparent.png", "001", "AFR01", "A320"),
                     new Aircraft("N-001","MSN-001",BASE_PATH + "A318_transparent.png", "001", "AFR01", "A320")
                 };
-            var upgrades = new List<IUpgradeItem>()
-                {
-                    new UpgradeItem("al","Ambient Light","perfect Ambilight","Assets/upgrades/ambient.jpg","", 10,1),
-                    new UpgradeItem("bt","bridgestone tyres","new bridgestone tyres","Assets/upgrades/bridgestone.jpg","",24, 3),
-                    new UpgradeItem("isisId","isis display","the isis cockpit display","Assets/upgrades/isis.jpg","",24,3)
-                };
+            var upgrades = GetUpgradeItems();
             var programms = new List<IAircraftProgramm>()
                 {
                     new AircraftProgramm("a320", "A320", "Assets/aircrafts/a320_transparent.png"),
@@ -95,6 +90,16 @@ namespace AirbusCatalogue.Model.Customer
                     new Configuration("configuration6",upgrades, aircrafts,  "01.08.2009","Delivered",  programms[3])
                 };
             return lastConfigurations;
+        }
+
+        private static List<IUpgradeItem> GetUpgradeItems()
+        {
+            return new List<IUpgradeItem>()
+                {
+                    new UpgradeItem("al","Ambient Light","perfect Ambilight","Assets/upgrades/ambient.jpg","", 10,1, false),
+                    new UpgradeItem("bt","bridgestone tyres","new bridgestone tyres","Assets/upgrades/bridgestone.jpg","",24, 3, false),
+                    new UpgradeItem("isisId","isis display","the isis cockpit display","Assets/upgrades/isis.jpg","",24,3, false)
+                };
         }
 
         public CustomerInformation GetLastCustomerInformation()

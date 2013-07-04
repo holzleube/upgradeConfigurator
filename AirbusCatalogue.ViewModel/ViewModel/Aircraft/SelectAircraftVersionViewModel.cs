@@ -43,6 +43,10 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Aircraft
 
         private void AddAircraftTypesToFilter(IAircraftBase aircraftProgramm)
         {
+            if (aircraftProgramm == null)
+            {
+                return;
+            }
             var aircraftTypes = _model.GetAircraftTypesByProgramm(aircraftProgramm.UniqueId);
             FilterList.Add(AllItems);
             foreach (var aircraftType in aircraftTypes)

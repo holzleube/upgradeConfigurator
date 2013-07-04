@@ -15,8 +15,7 @@
     </Page.DataContext>
 
     <Page.Resources>
-
-        <!-- Collection of items displayed by this page -->
+        
         <CollectionViewSource
             x:Name="itemsViewSource"
             Source="{Binding SubAtaChapter}"
@@ -81,15 +80,14 @@
                     Style="{StaticResource HorizontalScrollViewerStyle}">
                     
                     <StackPanel Orientation="Horizontal">
-                        <GridView x:Name="UpgradeItemGridView2"
+                        <GridView x:Name="UpgradeItemGridView"
                                   AutomationProperties.AutomationId="ItemGridView"
                                   AutomationProperties.Name="Grouped Items"
                                   ItemsSource="{Binding UpgradeItems}"
-                                  IsSwipeEnabled="True"
+                                  IsSwipeEnabled="False"
                                   IsItemClickEnabled="True"
                                   SelectionMode="Single"
-                                  command:ItemClickCommand.Command="{Binding UpgradeItemSelectedCommand}"
-                                  ItemClick="ListViewBase_OnItemClick"
+                                  ItemClick="Upgrade_Item_Selected"
                                   ItemTemplate="{StaticResource TduSelectionTemplate}"
                               >
                             <GridView.ItemsPanel>
@@ -117,7 +115,7 @@
                             </Grid.ColumnDefinitions>
 
                             <Image Source="{Binding DescriptionImage}" VerticalAlignment="Top" Height="550" Grid.Column="2" Stretch="UniformToFill"/>
-                            <Grid Grid.Column="1" >
+                            <Grid Grid.Column="1" Margin="40,0,0,0" >
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="20"/>
