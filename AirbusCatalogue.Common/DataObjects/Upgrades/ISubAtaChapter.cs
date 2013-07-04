@@ -18,6 +18,8 @@ namespace AirbusCatalogue.Common.DataObjects.Upgrades
         string BasicAircraft { get; set; }
 
         string Description { get; set; }
+        
+        string DescriptionImage { get; set; }
 
         string EpacSelectionMode { get; set; }
 

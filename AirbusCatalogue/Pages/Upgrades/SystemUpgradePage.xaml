@@ -12,7 +12,6 @@
     <Page.DataContext>
         <upgrades:SystemUpgradeViewModel/>
     </Page.DataContext>
-
     <Page.Resources>
 
         <!-- Collection of items displayed by this page -->

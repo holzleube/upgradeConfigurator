@@ -23,7 +23,6 @@
 
     <DataTemplate x:Key="BigTemplate">
         <Grid x:Name="TopMain" Grid.RowSpan="2">
-            
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="80"/>
@@ -147,6 +146,17 @@
         <Grid HorizontalAlignment="Left" Width="250" Height="150">
             <!--<Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}">-->
                 <Image Source="{Binding Image}" Stretch="Uniform" AutomationProperties.Name="{Binding Title}"/>
+            <!--</Border>-->
+            <StackPanel VerticalAlignment="Bottom" Background="{StaticResource ListViewItemOverlayBackgroundThemeBrush}">
+                <TextBlock Text="{Binding Title}" FontSize="25" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextStyle}" Height="40" Margin="15,0,15,0"/>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="UpgradeDetailSection">
+        <Grid HorizontalAlignment="Left" Width="250" Height="150">
+
+            <Image Source="{Binding Image}" Stretch="Uniform" AutomationProperties.Name="{Binding Title}"/>
             <!--</Border>-->
             <StackPanel VerticalAlignment="Bottom" Background="{StaticResource ListViewItemOverlayBackgroundThemeBrush}">
                 <TextBlock Text="{Binding Title}" FontSize="25" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextStyle}" Height="40" Margin="15,0,15,0"/>
