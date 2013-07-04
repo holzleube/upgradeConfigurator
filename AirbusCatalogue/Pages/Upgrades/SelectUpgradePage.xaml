@@ -60,7 +60,7 @@
             ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
             IsSwipeEnabled="False"
             SelectionChanged="ItemListView_SelectionChanged"
-            ItemTemplate="{StaticResource AtaChapterSelectionTemplate}"/>
+            ItemTemplate="{StaticResource SubAtaChapterSelectionTemplate}"/>
 
         <!-- Details for selected item -->
         <ScrollViewer

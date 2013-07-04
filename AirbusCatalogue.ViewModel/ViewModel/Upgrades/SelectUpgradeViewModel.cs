@@ -16,6 +16,11 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Upgrades
         private readonly UpgradeModel _model;
         private ObservableCollection<ISubAtaChapter> _subAtaChapter;
 
+        public SelectUpgradeViewModel()
+        {
+            _model = new UpgradeModel();
+        }
+
         public ObservableCollection<ISubAtaChapter> SubAtaChapter
         {
             get { return _subAtaChapter; }
@@ -26,12 +31,6 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Upgrades
             }
         } 
 
-
-        public SelectUpgradeViewModel()
-        {
-            _model = new UpgradeModel();
-        }
-        
         public string AtaChapterTitle
         {
             get { return _ataChapterTitle; }
