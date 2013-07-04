@@ -9,19 +9,16 @@ namespace AirbusCatalogue.Model.Upgrades
 {
     public class UpgradeItem:IUpgradeItem
     {
-        public UpgradeItem(string id, string name, string description, string productImage, int priority)
+
+        public UpgradeItem(string id, string name, string description, string productImage, string sellerLogo, int tduNumber, int priority)
         {
+            SellerImagePath = sellerLogo;
+            TduNumber = tduNumber;
             UniqueId = id;
             Name = name;
             Description = description;
             ProductImagePath = productImage;
             Priority = priority;
-        }
-
-        public UpgradeItem(string id, string name, string description, string productImage, string sellerLogo, int tduNumber):this(id, name, description,productImage, 0)
-        {
-            SellerImagePath = sellerLogo;
-            TduNumber = tduNumber;
         }
 
         public string UniqueId { get; set; }

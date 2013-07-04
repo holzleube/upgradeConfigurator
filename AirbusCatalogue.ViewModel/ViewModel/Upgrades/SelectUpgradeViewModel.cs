@@ -4,8 +4,10 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using AirbusCatalogue.Common.DataObjects.Upgrades;
 using AirbusCatalogue.Model.Upgrades;
+using AirbusCatalogue.ViewModel.Command;
 using AirbusCatalogue.ViewModel.Templates;
 
 namespace AirbusCatalogue.ViewModel.ViewModel.Upgrades
@@ -49,6 +51,19 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Upgrades
             }
             AtaChapterTitle = ataChapterId;
             SubAtaChapter = new ObservableCollection<ISubAtaChapter>(_model.GetAtaChapterById(ataChapterId).SubAtaChapters);
+        }
+
+        public ICommand UpgradeItemSelectedCommand
+        {
+            get
+            {
+                return new RelayCommand(UpgradeWasSelectedCommand);
+            }
+        }
+
+        private void UpgradeWasSelectedCommand()
+        {
+            var i = 1 + 1;
         }
     }
 }

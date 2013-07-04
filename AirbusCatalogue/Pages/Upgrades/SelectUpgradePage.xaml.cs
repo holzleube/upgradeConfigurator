@@ -182,5 +182,12 @@ namespace AirbusCatalogue.Pages.Upgrades
         }
 
         #endregion
+
+        
+
+        private void ListViewBase_OnItemClick(object sender, ItemClickEventArgs e)
+        {
+            
+        }
     }
 }

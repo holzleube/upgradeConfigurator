@@ -50,13 +50,13 @@ namespace AirbusCatalogue.Model.Upgrades
                 {
                     new UpgradeItem("1046GT2102", "Boomset basic equipment - Holmberg",
                                     "DC resistance, soft ear cushions, 70-inch straight cord",
-                                    "/Assets/upgrades/holmberg.jpg", "/Assets/upgrades/holmberg_logo.jpg", 0),
+                                    "/Assets/upgrades/holmberg_headphone.png", "/Assets/upgrades/holmberg_logo.jpg", 0,0),
                     new UpgradeItem("1046GT2102", "Boomset alternate equipment - Telex",
-                                    "DC resistance, soft ear cushions, 70-inch straight cord", "/Assets/upgrades/telex.jpg",
-                                    "/Assets/upgrades/telex_logo.jpg", 27),
+                                    "DC resistance, soft ear cushions, 70-inch straight cord", "/Assets/upgrades/telex_headphone.png",
+                                    "/Assets/upgrades/telex_logo.png", 27,0),
                     new UpgradeItem("1046GT2102", "Boomset alternate equipment - Sennheiser",
-                                    "DC resistance, soft ear cushions, 70-inch straight cord", "/Assets/upgrades/telex.jpg",
-                                    "/Assets/upgrades/sennheiser_logo.jpg", 30)
+                                    "DC resistance, soft ear cushions, 70-inch straight cord", "/Assets/upgrades/sennheiser_headphone.png",
+                                    "/Assets/upgrades/sennheiser_logo.png", 30,0)
                 };
             var subAtaChapters = new List<ISubAtaChapter>
                 {
@@ -98,13 +98,13 @@ namespace AirbusCatalogue.Model.Upgrades
                 {
                     new UpgradeItem("1046GT2102", "Boomset basic equipment - Holmberg",
                                     "DC resistance, soft ear cushions, 70-inch straight cord",
-                                    "/Assets/upgrades/holmberg.jpg", "/Assets/upgrades/holmberg_logo.jpg", 0),
+                                    "/Assets/upgrades/holmberg.jpg", "/Assets/upgrades/holmberg_logo.jpg", 0,0),
                     new UpgradeItem("1046GT2102", "Boomset alternate equipment - Telex",
                                     "DC resistance, soft ear cushions, 70-inch straight cord", "/Assets/upgrades/telex.jpg",
-                                    "/Assets/upgrades/telex_logo.jpg", 27),
+                                    "/Assets/upgrades/telex_logo.jpg", 27,0),
                     new UpgradeItem("1046GT2102", "Boomset alternate equipment - Sennheiser",
                                     "DC resistance, soft ear cushions, 70-inch straight cord", "/Assets/upgrades/telex.jpg",
-                                    "/Assets/upgrades/sennheiser_logo.jpg", 30)
+                                    "/Assets/upgrades/sennheiser_logo.jpg", 30,0)
                 };
             ISubAtaChapter subChapter = new SubAtaChapter("51.136", "Boomsets alternate equipment", 51, 136,
                                       "To provide alternate equipment for boomsets",

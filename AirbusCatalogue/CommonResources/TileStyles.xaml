@@ -154,25 +154,34 @@
     </DataTemplate>
 
     <DataTemplate x:Key="TduSelectionTemplate">
-        <Grid  Width="400" Height="500" Background="{StaticResource TileBackground}">
+        <Border BorderBrush="Black" BorderThickness="1">
+        <Grid  Width="400" Height="550" Background="{StaticResource TileBackground}" Margin="0,0,0,0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
+                <RowDefinition Height="80"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
-            <Image Source="{Binding SellerImagePath}" Stretch="Uniform" />
+            <Image VerticalAlignment="Top" Source="{Binding SellerImagePath}" HorizontalAlignment="Center" Stretch="Uniform" />
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
                 <Image Source="{Binding ProductImagePath}" Stretch="Uniform" />
-                <TextBlock Text="{Binding Description}" Grid.Column="1" FontSize="15"  Style="{StaticResource TitleTextStyle}"  />
+                <TextBlock VerticalAlignment="Center" Margin="5" Text="{Binding Description}" Grid.Column="1" FontSize="20"  Style="{StaticResource TitleTextStyle}"  />
+                <Rectangle Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right">
+                        
+                    </Rectangle>
             </Grid>
             <StackPanel Grid.Row="2" VerticalAlignment="Bottom" Background="{StaticResource ListViewItemOverlayBackgroundThemeBrush}">
                 <TextBlock Text="{Binding Name}" FontSize="25" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextStyle}" Height="60" Margin="15,0,15,0"/>
             </StackPanel>
         </Grid>
+        </Border>
     </DataTemplate>
 
     <DataTemplate x:Key="AircraftTypeTemplate">

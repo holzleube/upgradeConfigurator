@@ -56,9 +56,9 @@ namespace AirbusCatalogue.Model.Customer
         {
             return new List<UpgradeItem>()
                 {
-                    new UpgradeItem("al","Ambient Light","perfect Ambilight","Assets/upgrades/ambient.jpg", 1),
-                    new UpgradeItem("bt","bridgestone tyres","new bridgestone tyres","Assets/upgrades/bridgestone.jpg", 3),
-                    new UpgradeItem("isisId","isis display","the isis cockpit display","Assets/upgrades/isis.jpg",3)
+                    new UpgradeItem("al","Ambient Light","perfect Ambilight","Assets/upgrades/ambient.jpg","", 1,1),
+                    new UpgradeItem("bt","bridgestone tyres","new bridgestone tyres","Assets/upgrades/bridgestone.jpg","", 3,0),
+                    new UpgradeItem("isisId","isis display","the isis cockpit display","Assets/upgrades/isis.jpg","",3,0)
                 };
         }
 
@@ -73,9 +73,9 @@ namespace AirbusCatalogue.Model.Customer
                 };
             var upgrades = new List<IUpgradeItem>()
                 {
-                    new UpgradeItem("al","Ambient Light","perfect Ambilight","Assets/upgrades/ambient.jpg", 1),
-                    new UpgradeItem("bt","bridgestone tyres","new bridgestone tyres","Assets/upgrades/bridgestone.jpg", 3),
-                    new UpgradeItem("isisId","isis display","the isis cockpit display","Assets/upgrades/isis.jpg",3)
+                    new UpgradeItem("al","Ambient Light","perfect Ambilight","Assets/upgrades/ambient.jpg","", 10,1),
+                    new UpgradeItem("bt","bridgestone tyres","new bridgestone tyres","Assets/upgrades/bridgestone.jpg","",24, 3),
+                    new UpgradeItem("isisId","isis display","the isis cockpit display","Assets/upgrades/isis.jpg","",24,3)
                 };
             var programms = new List<IAircraftProgramm>()
                 {

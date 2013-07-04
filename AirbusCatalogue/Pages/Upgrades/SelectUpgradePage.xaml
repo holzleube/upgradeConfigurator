@@ -8,7 +8,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:upgrades="using:AirbusCatalogue.ViewModel.ViewModel.Upgrades" xmlns:sample="using:AirbusCatalogue.Sample"
-    xmlns:system="using:System"
+    xmlns:system="using:System" xmlns:command="using:AirbusCatalogue.ViewModel.Command"
     mc:Ignorable="d">
     <Page.DataContext>
         <upgrades:SelectUpgradeViewModel/>
@@ -34,7 +34,7 @@
             <RowDefinition Height="140"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
+		
 
         <Grid Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
@@ -51,9 +51,10 @@
                 <ColumnDefinition Width="400"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-        
-        <!-- Vertical scrolling item list -->
-        <ListView
+
+
+            <!-- Vertical scrolling item list -->
+            <ListView
             x:Name="itemListView"
             AutomationProperties.AutomationId="ItemsListView"
             AutomationProperties.Name="Items"
@@ -64,87 +65,117 @@
             SelectionChanged="ItemListView_SelectionChanged"
             ItemTemplate="{StaticResource SubAtaChapterSelectionTemplate}"/>
 
-        <!-- Details for selected item -->
-        <ScrollViewer
-            x:Name="itemDetail"
-            AutomationProperties.AutomationId="ItemDetailScrollViewer"
-            Grid.Column="1"
-            DataContext="{Binding SelectedItem, ElementName=itemListView}"
-            Style="{StaticResource HorizontalScrollViewerStyle}">
-
-            <Grid x:Name="itemDetailGrid" >
+            <!-- Details for selected item -->
+            <Grid x:Name="itemDetailGrid"  Grid.Column="1" DataContext="{Binding SelectedItem, ElementName=itemListView}">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/> 
+                    <RowDefinition Height="40"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
+                <TextBlock x:Name="itemTitle"  Text="{Binding Name}" Style="{StaticResource SubheaderTextStyle}"/>
                 
-                    <TextBlock x:Name="itemTitle" Margin="0,-10,0,0" Text="{Binding Name}" Style="{StaticResource SubheaderTextStyle}"/>
-                    <Grid Grid.Row="1" Margin="0,20,0,20">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <GridView ItemsSource="{Binding UpgradeItems}"
-                              ItemTemplate="{StaticResource TduSelectionTemplate}"
-                              Grid.Column="0"/>
-                        <Image Source="{Binding DescriptionImage}" Margin="5" Grid.Column="2" Stretch="Uniform"/>
-                        <Grid Grid.Column="1" >
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="20"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="20"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="20"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="40"/>
-                                    <RowDefinition Height="auto"/>
-                                </Grid.RowDefinitions>
-                                <TextBlock Text="Objective" FontSize="25" Style="{StaticResource GroupHeaderTextStyle}"/>
-                                <TextBlock Grid.Row="1" Text="{Binding Objective}" FontSize="15" Style="{StaticResource GroupHeaderTextStyle}"/>
-                            </Grid>
-                            <Grid Grid.Row="2">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="40"/>
-                                    <RowDefinition Height="auto"/>
-                                </Grid.RowDefinitions>
-                                <TextBlock Text="Basic Aircraft" FontSize="25" Style="{StaticResource GroupHeaderTextStyle}"/>
-                                <TextBlock Grid.Row="1" Text="{Binding BasicAircraft}" FontSize="15" Style="{StaticResource GroupHeaderTextStyle}"/>
-                            </Grid>
-                            <Grid Grid.Row="4">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="40"/>
-                                    <RowDefinition Height="auto"/>
-                                </Grid.RowDefinitions>
-                                <TextBlock Text="Description" FontSize="25" Style="{StaticResource GroupHeaderTextStyle}"/>
-                                <TextBlock Grid.Row="1" Text="{Binding Description}" FontSize="15" Style="{StaticResource GroupHeaderTextStyle}"/>
-                            </Grid>
-                            <Grid Grid.Row="6">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="40"/>
-                                    <RowDefinition Height="auto"/>
-                                </Grid.RowDefinitions>
-                                <TextBlock Text="Epac selection mode" FontSize="25" Style="{StaticResource GroupHeaderTextStyle}"/>
-                                <TextBlock Grid.Row="1" Text="{Binding EpacSelectionMode}" FontSize="15" Style="{StaticResource GroupHeaderTextStyle}"/>
-                            </Grid>
-                            
-                        </Grid>
-                    </Grid>
+                <ScrollViewer
+                    x:Name="itemDetail"
+                    Grid.Row="1"
+                    AutomationProperties.AutomationId="ItemDetailScrollViewer"
                     
-                
-                <StackPanel x:Name="itemDetailTitlePanel" Grid.Row="1" Grid.Column="1">
+                    Style="{StaticResource HorizontalScrollViewerStyle}">
                     
-                    <TextBlock x:Name="itemSubtitle" Margin="0,0,0,20" Text="{Binding Subtitle}" Style="{StaticResource SubtitleTextStyle}"/>
-                </StackPanel>
-                <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Margin="0,20,0,0" Text="{Binding Content}" Style="{StaticResource BodyTextStyle}"/>
+                    <StackPanel Orientation="Horizontal">
+                        <GridView x:Name="UpgradeItemGridView2"
+                                  AutomationProperties.AutomationId="ItemGridView"
+                                  AutomationProperties.Name="Grouped Items"
+                                  ItemsSource="{Binding UpgradeItems}"
+                                  IsSwipeEnabled="True"
+                                  IsItemClickEnabled="True"
+                                  SelectionMode="Single"
+                                  command:ItemClickCommand.Command="{Binding UpgradeItemSelectedCommand}"
+                                  ItemClick="ListViewBase_OnItemClick"
+                                  ItemTemplate="{StaticResource TduSelectionTemplate}"
+                              >
+                            <GridView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <VirtualizingStackPanel Orientation="Horizontal"/>
+                                </ItemsPanelTemplate>
+                            </GridView.ItemsPanel>
+                            <GridView.GroupStyle>
+                                <GroupStyle>
+                                    <GroupStyle.Panel>
+                                        <ItemsPanelTemplate>
+                                            <VariableSizedWrapGrid Orientation="Vertical" Margin="0,0,80,0"/>
+                                        </ItemsPanelTemplate>
+                                    </GroupStyle.Panel>
+                                </GroupStyle>
+                            </GridView.GroupStyle>
+
+                        </GridView>
+
+                        <Grid Margin="0,20,0,20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="600"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="{Binding DescriptionImage}" VerticalAlignment="Top" Height="550" Grid.Column="2" Stretch="UniformToFill"/>
+                            <Grid Grid.Column="1" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Text="Objective" FontSize="25" Style="{StaticResource GroupHeaderTextStyle}"/>
+                                    <TextBlock Grid.Row="1" Text="{Binding Objective}" FontSize="15" Style="{StaticResource GroupHeaderTextStyle}"/>
+                                </Grid>
+                                <Grid Grid.Row="2">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Text="Basic Aircraft" FontSize="25" Style="{StaticResource GroupHeaderTextStyle}"/>
+                                    <TextBlock Grid.Row="1" Text="{Binding BasicAircraft}" FontSize="15" Style="{StaticResource GroupHeaderTextStyle}"/>
+                                </Grid>
+                                <Grid Grid.Row="4">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Text="Description" FontSize="25" Style="{StaticResource GroupHeaderTextStyle}"/>
+                                    <TextBlock Grid.Row="1" Text="{Binding Description}" FontSize="15" Style="{StaticResource GroupHeaderTextStyle}"/>
+                                </Grid>
+                                <Grid Grid.Row="6">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Text="Epac selection mode" FontSize="25" Style="{StaticResource GroupHeaderTextStyle}"/>
+                                    <TextBlock Grid.Row="1" Text="{Binding EpacSelectionMode}" FontSize="15" Style="{StaticResource GroupHeaderTextStyle}"/>
+                                </Grid>
+
+                            </Grid>
+                        
+
+
+                        <StackPanel x:Name="itemDetailTitlePanel" Grid.Row="1" Grid.Column="1">
+
+                            <TextBlock x:Name="itemSubtitle" Margin="0,0,0,20" Text="{Binding Subtitle}" Style="{StaticResource SubtitleTextStyle}"/>
+                        </StackPanel>
+                        <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Margin="0,20,0,0" Text="{Binding Content}" Style="{StaticResource BodyTextStyle}"/>
             </Grid>
-        </ScrollViewer>
+            </StackPanel>
+
+
+            </ScrollViewer>
         </Grid>
+    </Grid>
         <VisualStateManager.VisualStateGroups>
 
             <!-- Visual states reflect the application's view state -->
