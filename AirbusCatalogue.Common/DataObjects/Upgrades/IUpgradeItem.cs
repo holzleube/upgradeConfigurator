@@ -13,5 +13,7 @@ namespace AirbusCatalogue.Common.DataObjects.Upgrades
         int Priority { get; set; }
 
         int TduNumber { get; set; }
+
+        bool IsDefault { get; set; }
     }
 }

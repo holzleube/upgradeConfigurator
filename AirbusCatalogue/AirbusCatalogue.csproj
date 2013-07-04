@@ -237,6 +237,7 @@
     <Content Include="Assets\DarkGray.png" />
     <Content Include="Assets\background\cockpit_2.jpg" />
     <Content Include="Assets\upgrades\ambient.jpg" />
+    <Content Include="Assets\upgrades\boomset_alternate_picture.png" />
     <Content Include="Assets\upgrades\bridgestone.jpg" />
     <Content Include="Assets\upgrades\holmberg.jpg" />
     <Content Include="Assets\upgrades\holmberg_logo.gif" />

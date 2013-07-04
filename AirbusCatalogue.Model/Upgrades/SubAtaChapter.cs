@@ -19,6 +19,7 @@ namespace AirbusCatalogue.Model.Upgrades
             BasicAircraft = basicAircraft;
             Description = description;
             EpacSelectionMode = epacSelection;
+            DescriptionImage = "/Assets/upgrades/boomset_alternate_picture.png";
         }
 
         public SubAtaChapter(string id, string name, int ataChapterNumber, int subAtaChapterSecondNumber, string objective, string basicAircraft, string description, string epacSelection, List<IUpgradeItem> upgradeItems):this(id,name,ataChapterNumber, subAtaChapterSecondNumber,objective,basicAircraft,description,epacSelection)
@@ -39,6 +40,8 @@ namespace AirbusCatalogue.Model.Upgrades
         public string BasicAircraft { get; set; }
 
         public string Description { get; set; }
+
+        public string DescriptionImage { get; set; }
 
         public string EpacSelectionMode { get; set; }
 

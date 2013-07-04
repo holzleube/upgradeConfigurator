@@ -37,5 +37,7 @@ namespace AirbusCatalogue.Model.Upgrades
         public int Priority { get; set; }
 
         public int TduNumber { get; set; }
+
+        public bool IsDefault { get; set; }
     }
 }
