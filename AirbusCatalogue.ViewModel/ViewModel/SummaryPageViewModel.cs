@@ -4,16 +4,14 @@ using System.Linq;
 using System.Windows.Input;
 using AirbusCatalogue.Common.DataObjects.Aircrafts;
 using AirbusCatalogue.Common.DataObjects.Config;
-using AirbusCatalogue.Model.Aircrafts;
 using AirbusCatalogue.Model.Config;
-using AirbusCatalogue.Model.ConfigurationData;
 using AirbusCatalogue.ViewModel.Command;
 using AirbusCatalogue.ViewModel.Navigation;
 using AirbusCatalogue.ViewModel.Templates;
 using AirbusCatalogue.ViewModel.ViewDataElements;
 using AirbusCatalogue.ViewModel.ViewDataElements.Aircraft;
 using AirbusCatalogue.ViewModel.ViewDataElements.Configuration;
-using AirbusCatalogue.ViewModel.ViewInterfaces;
+using AirbusCatalogue.ViewModel.ViewDataElements.Summary;
 using AirbusCatalogue.ViewModel.ViewInterfaces.Aircraft;
 using AirbusCatalogue.ViewModel.ViewInterfaces.Upgrades;
 using GalaSoft.MvvmLight.Ioc;
@@ -40,7 +38,20 @@ namespace AirbusCatalogue.ViewModel.ViewModel
         private void InitializeDataGrid()
         {
             Configuration = _model.GetCurrentConfiguration();
-            AddAircraftGroup(Configuration.SelectedAircrafts); 
+            AddAircraftProgramm(Configuration.Programm);
+            AddAircraftGroup(Configuration.SelectedAircrafts);
+        }
+
+        private void AddAircraftProgramm(IAircraftProgramm programm)
+        {
+            var group = new HubDataGroup("aircraft programm goup");
+            var aircraftProgramm = new AircraftProgrammDataItem(programm, group, 60, 60);
+            var aircraftSelection = new SummarySelectionDataItem("aircraftSelection", "upgrades", "\uE11C", group, Configuration.Upgrades.Count);
+            var upgradeSelection = new SummarySelectionDataItem("aircraftSelection", "aircrafts", "\uE0EB", group, Configuration.SelectedAircrafts.Count);
+            group.Items.Add(aircraftProgramm);
+            group.Items.Add(aircraftSelection);
+            group.Items.Add(upgradeSelection);
+            DataGroupElements.Add(group);
         }
 
         private void AddAircraftGroup(List<IAircraft> aircrafts)

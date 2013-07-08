@@ -9,6 +9,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModel="using:AirbusCatalogue.ViewModel.ViewModel"
     xmlns:variableTemplate="using:AirbusCatalogue.VariableTemplate" xmlns:sample="using:AirbusCatalogue.Sample"
+    xmlns:command="using:AirbusCatalogue.ViewModel.Command"
     mc:Ignorable="d">
     <Page.DataContext>
         <viewModel:SummaryPageViewModel/>
@@ -27,9 +28,13 @@
             ItemsPath="TopItems"
             d:Source="{Binding AllGroups, Source={d:DesignInstance Type=sample:SampleDataSource, IsDesignTimeCreatable=True}}"/>
 
+        <variableTemplate:VariableHeader x:Key="headerSelector"
+                                         TopTemplate="{StaticResource NoGroupHeader}"
+                                         SmallTemplate="{StaticResource SummaryHeaderTemplate}"/>
         <variableTemplate:SummaryTemplateSelector x:Key="TemplateSelector" 
                                         AircraftTile="{StaticResource AircraftSelectionTemplate}"
-                                        ProgrammTile="{StaticResource AircraftProgrammTemplate}"
+                                        ProgrammTile="{StaticResource AircraftProgrammTemplateSummary}"
+                                        SelectionTile="{StaticResource AircraftUpgradeSummaryTile}"
                                         />
     </Page.Resources>
 
@@ -43,48 +48,8 @@
             <RowDefinition Height="140"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
         <Grid Grid.Row="1" Grid.ColumnSpan="2" Background="{StaticResource MainBackground}"/>
-
-        <Grid Grid.Row="1" >
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="100"/>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="100"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-
-                <StackPanel Grid.Row="1" Margin="10,0,0,0" VerticalAlignment="Center">
-                        <Button
-                            AutomationProperties.Name="Group Title"
-                            Command="{Binding SelectUpgradeCommand}"
-                            Style="{StaticResource TextPrimaryButtonStyle}" >
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="&#xE11C;" FontFamily="Segoe UI Symbol" FontSize="30" Margin="5,0,0,0"/>
-                                <TextBlock Text="upgrades" Style="{StaticResource GroupHeaderTextStyle}" />
-                                <TextBlock Text="{StaticResource ChevronGlyph}" FontFamily="Segoe UI Symbol" FontSize="50" Margin="5,-20,0,0"/>
-                            </StackPanel>
-                        </Button>
-                </StackPanel>
-                <StackPanel Margin="10,0,0,0" Grid.Row="3" VerticalAlignment="Center">
-                    <Button
-                            AutomationProperties.Name="Group Title"
-                            Command="{Binding SelectAircraftCommand}"
-                            Style="{StaticResource TextPrimaryButtonStyle}" >
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="&#xE0EB;" FontFamily="Segoe UI Symbol" FontSize="30" Margin="5,0,5,0"/>
-                            <TextBlock Text="aircrafts" Style="{StaticResource GroupHeaderTextStyle}" />
-                            <TextBlock Text="{StaticResource ChevronGlyph}" FontFamily="Segoe UI Symbol" FontSize="50" Margin="5,-20,0,0"/>
-                        </StackPanel>
-                    </Button>
-                </StackPanel>
-            </Grid>
-
+        
         <!-- Horizontal scrolling grid used in most view states -->
         <variableTemplate:VariableTileControl
             x:Name="itemGridView"
@@ -94,6 +59,7 @@
             Grid.Row="1"
             ItemsSource="{Binding Source={StaticResource groupedItemsViewSource}}"
             ItemTemplateSelector="{Binding Source={StaticResource TemplateSelector}}"
+            command:ItemClickCommand.Command="{Binding SummaryItemSelectedCommand}"
             SelectionMode="None"
             IsSwipeEnabled="false">
 
@@ -103,7 +69,7 @@
                 </ItemsPanelTemplate>
             </GridView.ItemsPanel>
                 <GridView.GroupStyle>
-                    <GroupStyle HeaderTemplate="{StaticResource SummaryHeaderTemplate}">
+                    <GroupStyle HeaderTemplateSelector="{StaticResource headerSelector}" >
                         <GroupStyle.Panel>
                             <ItemsPanelTemplate>
                                 <VariableSizedWrapGrid ItemHeight="10" ItemWidth="10" Orientation="Vertical" Margin="0,0,0,0"/>

@@ -27,4 +27,6 @@
     <x:String x:Key="FuselageUpgradeText">Fuselage</x:String>
     <x:String x:Key="SystemUpgradeHeadline">system</x:String>
     <x:String x:Key="SelectUpgradeButtonText">select upgrades</x:String>
+    <x:String x:Key="AircraftIcon">&#xE0EB;</x:String>
+    <x:String x:Key="UpgradeIcon">&#xE11C;</x:String>
 </ResourceDictionary>

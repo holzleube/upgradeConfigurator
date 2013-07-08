@@ -18,6 +18,7 @@
                 <ResourceDictionary Source="CommonResources/StandardStyles.xaml"/>
                 <ResourceDictionary Source="CommonResources/TileStyles.xaml"/>
                 <ResourceDictionary Source="CommonResources/Converter.xaml"/>
+                <ResourceDictionary Source="CommonResources/SummaryTiles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <!-- Application-specific resources -->
