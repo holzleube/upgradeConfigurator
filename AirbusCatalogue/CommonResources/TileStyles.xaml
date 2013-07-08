@@ -153,6 +153,19 @@
             </Border>
     </DataTemplate>
 
+    <DataTemplate x:Key="BottomAppBarSelectedUpgradeItem">
+        <Border BorderBrush="Black" BorderThickness="1" Padding="1" Background="{StaticResource TileBackground}">
+            <Grid x:Name="TopMain" Width="150" Height="100">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Image Source="{Binding ProductImagePath}" Stretch="Uniform" />
+                <TextBlock TextWrapping="Wrap" Grid.Row="1" Text="{Binding Name}"  Style="{StaticResource GroupHeaderTextStyle}"  FontSize="13" HorizontalAlignment="Center"/>
+            </Grid>
+        </Border>
+    </DataTemplate>
+
     <DataTemplate x:Key="TduSelectionTemplate">
         <Border BorderBrush="Black" BorderThickness="1">
         <Grid  Width="400" Height="550" Background="{StaticResource TileBackground}" Margin="0,0,0,0">

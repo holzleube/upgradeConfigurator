@@ -26,4 +26,5 @@
     <x:String x:Key="EngineUpgradeText">Engines</x:String>
     <x:String x:Key="FuselageUpgradeText">Fuselage</x:String>
     <x:String x:Key="SystemUpgradeHeadline">system</x:String>
+    <x:String x:Key="SelectUpgradeButtonText">select upgrades</x:String>
 </ResourceDictionary>

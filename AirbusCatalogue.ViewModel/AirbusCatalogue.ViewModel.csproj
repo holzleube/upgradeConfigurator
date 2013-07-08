@@ -109,6 +109,7 @@
     <Compile Include="Command\RelayCommand.cs" />
     <Compile Include="Templates\BindableBase.cs" />
     <Compile Include="Templates\GridHolderViewModel.cs" />
+    <Compile Include="Templates\IUpgradeSelectionViewModel.cs" />
     <Compile Include="Templates\ViewModelBase.cs" />
     <Compile Include="ViewDataElements\Aircraft\AircraftDataItem.cs" />
     <Compile Include="ViewDataElements\Aircraft\AircraftProgrammDataItem.cs" />

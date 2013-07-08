@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using AirbusCatalogue.Common.DataObjects.Upgrades;
+using AirbusCatalogue.ViewModel.Templates;
 using AirbusCatalogue.ViewModel.ViewInterfaces.Upgrades;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -186,23 +188,28 @@ namespace AirbusCatalogue.Pages.Upgrades
 
         private void Upgrade_Item_Selected(object sender, ItemClickEventArgs e)
         {
+            var viewModel = DataContext as IUpgradeSelectionViewModel;
             var item = e.ClickedItem as IUpgradeItem;
-            if (item == null || item.IsDefault)
+            var isSelected = false;
+            if (item == null || item.IsDefault || viewModel == null)
             {
                 return;
             }
-            if (UpgradeItemGridView.SelectedItems.Contains(e.ClickedItem))
+            if (UpgradeItemGridView.SelectedItem == item)
             {
                 UpgradeItemGridView.SelectedItem = null;
             }
             else
             {
-                UpgradeItemGridView.SelectedItem = e.ClickedItem;
+                UpgradeItemGridView.SelectedItem = item;
+                isSelected = true;
             }
-            if (UpgradeItemGridView.SelectedItem != null)
+            viewModel.UpdateSelection(item, isSelected);
+            if (UpgradeItemGridView.SelectedItem != null && BottomAppBar != null)
             {
-                
+                BottomAppBar.IsOpen = true;
             }
+            
         }
     }
 }

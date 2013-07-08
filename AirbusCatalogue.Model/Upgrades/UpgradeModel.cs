@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using AirbusCatalogue.Common.DataObjects.Config;
 using AirbusCatalogue.Common.DataObjects.Upgrades;
 using GalaSoft.MvvmLight.Ioc;
@@ -99,10 +100,10 @@ namespace AirbusCatalogue.Model.Upgrades
                     new UpgradeItem("1046GT2102", "Boomset basic equipment - Holmberg",
                                     "DC resistance, soft ear cushions, 70-inch straight cord",
                                     "/Assets/upgrades/holmberg_headphone.png", "/Assets/upgrades/holmberg_logo.jpg", 0,0, true),
-                    new UpgradeItem("1046GT2102", "Boomset alternate equipment - Telex",
+                    new UpgradeItem("1046GT2103", "Boomset alternate equipment - Telex",
                                     "DC resistance, soft ear cushions, 70-inch straight cord", "/Assets/upgrades/telex_headphone.png",
                                     "/Assets/upgrades/telex_logo.png", 27,0, false),
-                    new UpgradeItem("1046GT2102", "Boomset alternate equipment - Sennheiser",
+                    new UpgradeItem("1046GT2104", "Boomset alternate equipment - Sennheiser",
                                     "DC resistance, soft ear cushions, 70-inch straight cord", "/Assets/upgrades/sennheiser_headphone.png",
                                     "/Assets/upgrades/sennheiser_logo.png", 30,0, false)
                 };
@@ -110,8 +111,23 @@ namespace AirbusCatalogue.Model.Upgrades
 
         public void SelectUpgradeItem(IUpgradeItem upgradeItem)
         {
-            var currentConfiguration = SimpleIoc.Default.GetInstance<IConfiguration>();
+            var currentConfiguration = GetCurrentConfiguration();
             currentConfiguration.Upgrades.Add(upgradeItem);
+        }
+
+        public void SelectUpgradeItem(List<IUpgradeItem> selectedUpgradeItems)
+        {
+            var currentConfiguration = GetCurrentConfiguration();
+            foreach (var selectedUpgradeItem in selectedUpgradeItems)
+            {
+                currentConfiguration.Upgrades.Add(selectedUpgradeItem);
+            }
+            
+        }
+
+        private static IConfiguration GetCurrentConfiguration()
+        {
+            return SimpleIoc.Default.GetInstance<IConfiguration>();
         }
     }
 }
