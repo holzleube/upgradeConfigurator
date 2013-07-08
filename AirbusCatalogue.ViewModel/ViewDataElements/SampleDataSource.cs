@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using AirbusCatalogue.Common.DataObjects.General;
 using AirbusCatalogue.ViewModel.Templates;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
@@ -20,7 +21,7 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements
     /// defines properties common to both.
     /// </summary>
 
-    public abstract class DataCommon : BindableBase
+    public abstract class DataCommon : BindableBase, IIdentable
     {
         public static Uri BASE_URI = new Uri("ms-appx:///");
 

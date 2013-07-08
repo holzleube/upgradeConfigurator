@@ -52,7 +52,7 @@ namespace AirbusCatalogue.Pages
             //this.Frame.Navigate(typeof(ItemDetailPage), itemId);
             if (((BasicDataItem)e.ClickedItem).UniqueId.Equals("startScreenImage"))
             {
-                Frame.Navigate(typeof(Aircrafts.SelectAircraftPage));
+                Frame.Navigate(typeof(Aircrafts.SelectAircraftFamilyPage));
             }
             else
             {

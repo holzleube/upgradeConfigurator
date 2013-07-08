@@ -124,10 +124,12 @@
     <Compile Include="ViewDataElements\DataGroup.cs" />
     <Compile Include="ViewDataElements\HubPageDataItem.cs" />
     <Compile Include="ViewDataElements\SampleDataSource.cs" />
+    <Compile Include="ViewDataElements\Summary\NoConfigurationDataItem.cs" />
+    <Compile Include="ViewDataElements\Summary\SummaryConfigurationGroup.cs" />
     <Compile Include="ViewDataElements\Summary\SummarySelectionDataItem.cs" />
     <Compile Include="ViewDataElements\Upgrades\NewUpgradeBigDataItem.cs" />
     <Compile Include="ViewDataElements\Upgrades\NewUpgradeSmallDataItem.cs" />
-    <Compile Include="ViewInterfaces\Aircraft\IAircraftSelection.cs" />
+    <Compile Include="ViewInterfaces\Aircraft\IAircraftFamilySelection.cs" />
     <Compile Include="ViewInterfaces\Aircraft\IAircraftTypeSelection.cs" />
     <Compile Include="ViewInterfaces\Aircraft\IAircraftVersionSelection.cs" />
     <Compile Include="ViewInterfaces\Customer\ICustomerSelection.cs" />
