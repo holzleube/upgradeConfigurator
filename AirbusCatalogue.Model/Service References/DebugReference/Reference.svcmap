@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9610bbd4-aa68-41c4-a003-1d1ac4314423" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f4c58a49-8480-4681-9bd6-ad70b1243e4d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -21,10 +21,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://cpj-61-501:9090/H970live/services/Configuration?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:9090/H970live/services/Configuration?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Configuration.wsdl" MetadataType="Wsdl" ID="b9324837-ecec-4c1f-a4b3-dbbd224d5bba" SourceId="1" SourceUrl="http://localhost:8080/H970live/services/Configuration?wsdl" />
+    <MetadataFile FileName="Configuration.wsdl" MetadataType="Wsdl" ID="7264908e-c433-432f-b2e9-e2e07edec071" SourceId="1" SourceUrl="http://localhost:9090/H970live/services/Configuration?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

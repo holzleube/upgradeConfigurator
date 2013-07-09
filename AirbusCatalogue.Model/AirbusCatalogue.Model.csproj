@@ -123,6 +123,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\DebugReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Templates\Identable.cs" />
     <Compile Include="Upgrades\AtaChapter.cs" />
     <Compile Include="Upgrades\SubAtaChapter.cs" />
@@ -190,10 +195,12 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\de.cas.web.consultation.webservices.configuration\Configuration.wsdl" />
+    <None Include="Service References\DebugReference\Configuration.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\Acmm\" />
     <WCFMetadataStorage Include="Service References\de.cas.web.consultation.webservices.configuration\" />
+    <WCFMetadataStorage Include="Service References\DebugReference\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\Acmm\configuration91.svcinfo" />
@@ -215,6 +222,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\de.cas.web.consultation.webservices.configuration\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DebugReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DebugReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DebugReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
