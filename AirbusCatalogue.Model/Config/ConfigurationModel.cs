@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AirbusCatalogue.Common.DataObjects.Aircrafts;
 using AirbusCatalogue.Common.DataObjects.Config;
-using AirbusCatalogue.Model.Aircrafts;
-using AirbusCatalogue.Model.ConfigurationData;
-using AirbusCatalogue.Model.Templates;
+using AirbusCatalogue.Model.de.cas.web.consultation.webservices.configuration;
 using GalaSoft.MvvmLight.Ioc;
 
 namespace AirbusCatalogue.Model.Config
@@ -16,9 +9,24 @@ namespace AirbusCatalogue.Model.Config
     {
         public IConfiguration GetCurrentConfiguration()
         {
+            CheckConfiguration();
             return SimpleIoc.Default.GetInstance<IConfiguration>();
-            //var programm = new AircraftProgramm("a320", "A320", "Assets/aircrafts/a320_transparent.png");
-            //return new Configuration("config001", new List<IUpgradeItem>(),currentConfiguration.SelectedAircrafts, "today", "in Progress", currentConfiguration.Programm);
+        }
+
+        public async void CheckConfiguration()
+        {
+            var locator =
+                new AirbusConfigurationWebServiceClient();
+
+            try
+            {
+                var result = await locator.checkAircraftValidityAsync(new string[] {"N-0001", "N-0002"},
+                                                                      "/SA/02/12/Net flight path");
+            }
+            catch (Exception e)
+            {
+                
+            } 
         }
     }
 }

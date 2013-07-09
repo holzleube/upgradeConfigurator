@@ -113,6 +113,16 @@
     <Compile Include="Customer\CustomerInformationModel.cs" />
     <Compile Include="Customer\ICustomerModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\Acmm\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\de.cas.web.consultation.webservices.configuration\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Templates\Identable.cs" />
     <Compile Include="Upgrades\AtaChapter.cs" />
     <Compile Include="Upgrades\SubAtaChapter.cs" />
@@ -136,6 +146,78 @@
       <Project>{B7E435C5-162E-4566-804C-E19787EB8C8A}</Project>
       <Name>AirbusCatalogue.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
+    <None Include="Service References\Acmm\Acmm.wsdl" />
+    <None Include="Service References\de.cas.web.consultation.webservices.configuration\AirbusCatalogue.Model.de.cas.web.consultation.webservices.configuration.calculateSbReportResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\de.cas.web.consultation.webservices.configuration\AirbusCatalogue.Model.de.cas.web.consultation.webservices.configuration.checkAircraftValidityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\de.cas.web.consultation.webservices.configuration\AirbusCatalogue.Model.de.cas.web.consultation.webservices.configuration.checkCombinationValidityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\de.cas.web.consultation.webservices.configuration\AirbusCatalogue.Model.de.cas.web.consultation.webservices.configuration.checkForValidVersionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\de.cas.web.consultation.webservices.configuration\AirbusCatalogue.Model.de.cas.web.consultation.webservices.configuration.checkServiceAvailabilityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\de.cas.web.consultation.webservices.configuration\AirbusCatalogue.Model.de.cas.web.consultation.webservices.configuration.deleteScheduledUserjobsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\de.cas.web.consultation.webservices.configuration\AirbusCatalogue.Model.de.cas.web.consultation.webservices.configuration.generateMixabilityNowResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\de.cas.web.consultation.webservices.configuration\AirbusCatalogue.Model.de.cas.web.consultation.webservices.configuration.getAllScheduledUserjobsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\de.cas.web.consultation.webservices.configuration\AirbusCatalogue.Model.de.cas.web.consultation.webservices.configuration.getPossiblyReachedStatesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\de.cas.web.consultation.webservices.configuration\AirbusCatalogue.Model.de.cas.web.consultation.webservices.configuration.pingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\de.cas.web.consultation.webservices.configuration\AirbusCatalogue.Model.de.cas.web.consultation.webservices.configuration.testReadFTPConnectionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\de.cas.web.consultation.webservices.configuration\AirbusCatalogue.Model.de.cas.web.consultation.webservices.configuration.testWriteFTPConnectionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\de.cas.web.consultation.webservices.configuration\Configuration.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\Acmm\" />
+    <WCFMetadataStorage Include="Service References\de.cas.web.consultation.webservices.configuration\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Acmm\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Acmm\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Acmm\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\de.cas.web.consultation.webservices.configuration\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\de.cas.web.consultation.webservices.configuration\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\de.cas.web.consultation.webservices.configuration\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
     <VisualStudioVersion>11.0</VisualStudioVersion>

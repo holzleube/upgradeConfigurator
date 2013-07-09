@@ -1,0 +1,798 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:intf="http://localhost:8080/H970live/services/Acmm" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns1="http://webservice.common.server.cas.de" xmlns:tns2="http://entity.webservice.airbus.server.cas.de" xmlns:impl="http://localhost:8080/H970live/services/Acmm" targetNamespace="http://localhost:8080/H970live/services/Acmm" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://localhost:8080/H970live/services/Acmm">
+      <xsd:import namespace="http://entity.webservice.airbus.server.cas.de" />
+      <xsd:import namespace="http://webservice.common.server.cas.de" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="ArrayOf_xsd_string">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_tns2_AircraftConfiguration">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns2:AircraftConfiguration" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_tns2_MsnEntityTransferable">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns2:MsnEntityTransferable" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://webservice.common.server.cas.de">
+      <xsd:import namespace="http://localhost:8080/H970live/services/Acmm" />
+      <xsd:import namespace="http://entity.webservice.airbus.server.cas.de" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="WebServiceRequestException">
+        <xsd:sequence>
+          <xsd:element name="message" nillable="true" type="xsd:string" />
+          <xsd:element name="type" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://entity.webservice.airbus.server.cas.de">
+      <xsd:import namespace="http://localhost:8080/H970live/services/Acmm" />
+      <xsd:import namespace="http://webservice.common.server.cas.de" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="AircraftConfiguration">
+        <xsd:sequence>
+          <xsd:element name="aircraftType" nillable="true" type="xsd:string" />
+          <xsd:element name="correctionInfo" nillable="true" type="xsd:string" />
+          <xsd:element name="correctionStatus" nillable="true" type="xsd:string" />
+          <xsd:element name="engineManufacturer" nillable="true" type="xsd:string" />
+          <xsd:element name="maybeModifications" nillable="true" type="impl:ArrayOf_xsd_string" />
+          <xsd:element name="modConsols" nillable="true" type="impl:ArrayOf_xsd_string" />
+          <xsd:element name="modifications" nillable="true" type="impl:ArrayOf_xsd_string" />
+          <xsd:element name="modsInProd" nillable="true" type="impl:ArrayOf_xsd_string" />
+          <xsd:element name="modsInSB" nillable="true" type="impl:ArrayOf_xsd_string" />
+          <xsd:element name="operatorCode" nillable="true" type="xsd:string" />
+          <xsd:element name="ownerCode" nillable="true" type="xsd:string" />
+          <xsd:element name="progMsn" nillable="true" type="xsd:string" />
+          <xsd:element name="projectName" nillable="true" type="xsd:string" />
+          <xsd:element name="sbRelationshipBulletins" nillable="true" type="impl:ArrayOf_xsd_string" />
+          <xsd:element name="sbRelationshipMods" nillable="true" type="impl:ArrayOf_xsd_string" />
+          <xsd:element name="unprocessedModifications" nillable="true" type="impl:ArrayOf_xsd_string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="MsnEntityTransferable">
+        <xsd:sequence>
+          <xsd:element name="aipAllocationType" nillable="true" type="xsd:string" />
+          <xsd:element name="aipModel" nillable="true" type="xsd:string" />
+          <xsd:element name="aipRank" nillable="true" type="xsd:string" />
+          <xsd:element name="aipVersion" nillable="true" type="xsd:string" />
+          <xsd:element name="aircraftModel" nillable="true" type="xsd:string" />
+          <xsd:element name="authority" nillable="true" type="xsd:string" />
+          <xsd:element name="customer" nillable="true" type="xsd:string" />
+          <xsd:element name="customerDelivery" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="customerRank" nillable="true" type="xsd:string" />
+          <xsd:element name="fal" nillable="true" type="xsd:string" />
+          <xsd:element name="falRank" nillable="true" type="xsd:string" />
+          <xsd:element name="filterAcProgram" nillable="true" type="xsd:string" />
+          <xsd:element name="filterEngineManufacturer" nillable="true" type="xsd:string" />
+          <xsd:element name="filterFamily" nillable="true" type="xsd:string" />
+          <xsd:element name="filterFleetCode" nillable="true" type="xsd:string" />
+          <xsd:element name="filterModel" nillable="true" type="xsd:string" />
+          <xsd:element name="filterOperator" nillable="true" type="xsd:string" />
+          <xsd:element name="filterOwner" nillable="true" type="xsd:string" />
+          <xsd:element name="filterProject" nillable="true" type="xsd:string" />
+          <xsd:element name="filterStandard" nillable="true" type="xsd:string" />
+          <xsd:element name="filterType" nillable="true" type="xsd:string" />
+          <xsd:element name="filterVersion" nillable="true" type="xsd:string" />
+          <xsd:element name="fleet" nillable="true" type="xsd:string" />
+          <xsd:element name="fleetType" nillable="true" type="xsd:string" />
+          <xsd:element name="industrialDelivery" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="industrialStandard" nillable="true" type="xsd:string" />
+          <xsd:element name="industrialVariant" nillable="true" type="xsd:string" />
+          <xsd:element name="lastAipDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="lastFlightDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="lastFlightReasonCode" nillable="true" type="xsd:string" />
+          <xsd:element name="lastFlightReasonText" nillable="true" type="xsd:string" />
+          <xsd:element name="msn" nillable="true" type="xsd:string" />
+          <xsd:element name="msnVersion" nillable="true" type="xsd:string" />
+          <xsd:element name="operator" nillable="true" type="xsd:string" />
+          <xsd:element name="program" nillable="true" type="xsd:string" />
+          <xsd:element name="revisionOfSpecification" nillable="true" type="xsd:string" />
+          <xsd:element name="specificationIssue" nillable="true" type="xsd:string" />
+          <xsd:element name="standard" nillable="true" type="xsd:string" />
+          <xsd:element name="station40" nillable="true" type="xsd:dateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getSbReportedStatusResponse">
+    <wsdl:part name="getSbReportedStatusReturn" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="getlastAIPUpdateRequest" />
+  <wsdl:message name="getServiceBulletinsForIdsResponse">
+    <wsdl:part name="getServiceBulletinsForIdsReturn" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="getMsnEntitiesForIdsRequest">
+    <wsdl:part name="msnIds" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="getAllServiceBulletinIdsRequest" />
+  <wsdl:message name="checkServiceAvailabilityRequest" />
+  <wsdl:message name="getEpacTdusForIdsRequest">
+    <wsdl:part name="epacTduIds" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="getModtreeValidationResponse">
+    <wsdl:part name="getModtreeValidationReturn" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="getAllEpacTduIdsRequest" />
+  <wsdl:message name="pingRequest">
+    <wsdl:part name="text" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getModTitlesResponse">
+    <wsdl:part name="getModTitlesReturn" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="getServiceBulletinsForIdsRequest">
+    <wsdl:part name="sbIds" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="pingResponse">
+    <wsdl:part name="pingReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getMsnEntitiesForIdsResponse">
+    <wsdl:part name="getMsnEntitiesForIdsReturn" type="impl:ArrayOf_tns2_MsnEntityTransferable" />
+  </wsdl:message>
+  <wsdl:message name="getAllModificationsRequest">
+    <wsdl:part name="refresh" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="getSbModTripletsResponse">
+    <wsdl:part name="getSbModTripletsReturn" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="getAircraftProductsResponse">
+    <wsdl:part name="getAircraftProductsReturn" type="impl:ArrayOf_tns2_AircraftConfiguration" />
+  </wsdl:message>
+  <wsdl:message name="checkForValidVersionResponse" />
+  <wsdl:message name="getServiceBulletinIdsInProgramResponse">
+    <wsdl:part name="getServiceBulletinIdsInProgramReturn" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="getServiceBulletinIdsInProgramRequest">
+    <wsdl:part name="program" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getModificationLevelsForModsResponse">
+    <wsdl:part name="getModificationLevelsForModsReturn" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="getAircraftProductsRequest">
+    <wsdl:part name="msns" type="impl:ArrayOf_xsd_string" />
+    <wsdl:part name="relevantMods" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="getCinTitlesInProgramRequest">
+    <wsdl:part name="program" type="xsd:string" />
+    <wsdl:part name="startNumber" type="xsd:int" />
+    <wsdl:part name="useCache" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="getAllAircraftModelsRequest" />
+  <wsdl:message name="getInvalidAircraftTypesRequest">
+    <wsdl:part name="acTypesToCheck" type="impl:ArrayOf_xsd_string" />
+    <wsdl:part name="refresh" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="getAllACCodesMappedRequest" />
+  <wsdl:message name="getEpacTdusForIdsResponse">
+    <wsdl:part name="getEpacTdusForIdsReturn" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="getAllModificationsResponse">
+    <wsdl:part name="getAllModificationsReturn" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="getAllMsnIdsRequest" />
+  <wsdl:message name="checkForValidVersionRequest">
+    <wsdl:part name="version" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getModConsolsResponse">
+    <wsdl:part name="getModConsolsReturn" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="getCinsForModificationsResponse">
+    <wsdl:part name="getCinsForModificationsReturn" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="getCinTitlesInProgramResponse">
+    <wsdl:part name="getCinTitlesInProgramReturn" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="getAllAircraftModelsResponse">
+    <wsdl:part name="getAllAircraftModelsReturn" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="getAllACCodesMappedResponse">
+    <wsdl:part name="getAllACCodesMappedReturn" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="getAllServiceBulletinIdsResponse">
+    <wsdl:part name="getAllServiceBulletinIdsReturn" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="getAllEpacTduIdsResponse">
+    <wsdl:part name="getAllEpacTduIdsReturn" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="getAircraftProductRequest">
+    <wsdl:part name="msn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getAllAircraftTypesResponse">
+    <wsdl:part name="getAllAircraftTypesReturn" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="WebServiceRequestException">
+    <wsdl:part name="fault" type="tns1:WebServiceRequestException" />
+  </wsdl:message>
+  <wsdl:message name="getModConsolsRequest">
+    <wsdl:part name="mods" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="getModificationLevelsForModsRequest">
+    <wsdl:part name="modIds" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="getSbModTripletsRequest">
+    <wsdl:part name="sbsIn" type="impl:ArrayOf_xsd_string" />
+    <wsdl:part name="msnsIn" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="getCinsForModificationsRequest">
+    <wsdl:part name="modifications" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="getAircraftProductResponse">
+    <wsdl:part name="getAircraftProductReturn" type="tns2:AircraftConfiguration" />
+  </wsdl:message>
+  <wsdl:message name="getModTitlesRequest">
+    <wsdl:part name="mods" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="getInvalidAircraftTypesResponse">
+    <wsdl:part name="getInvalidAircraftTypesReturn" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="getMsnIdsInProgramRequest">
+    <wsdl:part name="acProgram" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getInvalidModificationsRequest">
+    <wsdl:part name="modificationsToCheck" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="getInvalidMSNsRequest">
+    <wsdl:part name="msnsToTest" type="impl:ArrayOf_xsd_string" />
+    <wsdl:part name="refresh" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="getAircraftProductsForTenantRequest">
+    <wsdl:part name="msns" type="impl:ArrayOf_xsd_string" />
+    <wsdl:part name="relevantMods" type="impl:ArrayOf_xsd_string" />
+    <wsdl:part name="vTenant" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getDiversifiedCinsForModificationsResponse">
+    <wsdl:part name="getDiversifiedCinsForModificationsReturn" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="getAllAircraftTypesRequest">
+    <wsdl:part name="refresh" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="getAllMsnIdsResponse">
+    <wsdl:part name="getAllMsnIdsReturn" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="getDiversifiedCinsForModificationsRequest">
+    <wsdl:part name="modifications" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="getInvalidMSNsResponse">
+    <wsdl:part name="getInvalidMSNsReturn" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="getInvalidModificationsResponse">
+    <wsdl:part name="getInvalidModificationsReturn" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="checkServiceAvailabilityResponse" />
+  <wsdl:message name="getAircraftProductsForTenantResponse">
+    <wsdl:part name="getAircraftProductsForTenantReturn" type="impl:ArrayOf_tns2_AircraftConfiguration" />
+  </wsdl:message>
+  <wsdl:message name="getModtreeValidationRequest">
+    <wsdl:part name="tree" type="xsd:string" />
+    <wsdl:part name="msns" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="getlastAIPUpdateResponse">
+    <wsdl:part name="getlastAIPUpdateReturn" type="xsd:dateTime" />
+  </wsdl:message>
+  <wsdl:message name="getSbReportedStatusRequest">
+    <wsdl:part name="sbsIn" type="impl:ArrayOf_xsd_string" />
+    <wsdl:part name="msnsIn" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="getMsnIdsInProgramResponse">
+    <wsdl:part name="getMsnIdsInProgramReturn" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:portType name="AcmmWebService">
+    <wsdl:operation name="getModConsols" parameterOrder="mods">
+      <wsdl:input name="getModConsolsRequest" message="impl:getModConsolsRequest" />
+      <wsdl:output name="getModConsolsResponse" message="impl:getModConsolsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllModifications" parameterOrder="refresh">
+      <wsdl:input name="getAllModificationsRequest" message="impl:getAllModificationsRequest" />
+      <wsdl:output name="getAllModificationsResponse" message="impl:getAllModificationsResponse" />
+      <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
+    </wsdl:operation>
+    <wsdl:operation name="getInvalidModifications" parameterOrder="modificationsToCheck">
+      <wsdl:input name="getInvalidModificationsRequest" message="impl:getInvalidModificationsRequest" />
+      <wsdl:output name="getInvalidModificationsResponse" message="impl:getInvalidModificationsResponse" />
+      <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
+    </wsdl:operation>
+    <wsdl:operation name="getCinTitlesInProgram" parameterOrder="program startNumber useCache">
+      <wsdl:input name="getCinTitlesInProgramRequest" message="impl:getCinTitlesInProgramRequest" />
+      <wsdl:output name="getCinTitlesInProgramResponse" message="impl:getCinTitlesInProgramResponse" />
+      <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllMsnIds">
+      <wsdl:input name="getAllMsnIdsRequest" message="impl:getAllMsnIdsRequest" />
+      <wsdl:output name="getAllMsnIdsResponse" message="impl:getAllMsnIdsResponse" />
+      <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
+    </wsdl:operation>
+    <wsdl:operation name="getMsnIdsInProgram" parameterOrder="acProgram">
+      <wsdl:input name="getMsnIdsInProgramRequest" message="impl:getMsnIdsInProgramRequest" />
+      <wsdl:output name="getMsnIdsInProgramResponse" message="impl:getMsnIdsInProgramResponse" />
+      <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
+    </wsdl:operation>
+    <wsdl:operation name="getAircraftProduct" parameterOrder="msn">
+      <wsdl:input name="getAircraftProductRequest" message="impl:getAircraftProductRequest" />
+      <wsdl:output name="getAircraftProductResponse" message="impl:getAircraftProductResponse" />
+      <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
+    </wsdl:operation>
+    <wsdl:operation name="getAircraftProducts" parameterOrder="msns relevantMods">
+      <wsdl:input name="getAircraftProductsRequest" message="impl:getAircraftProductsRequest" />
+      <wsdl:output name="getAircraftProductsResponse" message="impl:getAircraftProductsResponse" />
+      <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllAircraftTypes" parameterOrder="refresh">
+      <wsdl:input name="getAllAircraftTypesRequest" message="impl:getAllAircraftTypesRequest" />
+      <wsdl:output name="getAllAircraftTypesResponse" message="impl:getAllAircraftTypesResponse" />
+      <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllAircraftModels">
+      <wsdl:input name="getAllAircraftModelsRequest" message="impl:getAllAircraftModelsRequest" />
+      <wsdl:output name="getAllAircraftModelsResponse" message="impl:getAllAircraftModelsResponse" />
+      <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllEpacTduIds">
+      <wsdl:input name="getAllEpacTduIdsRequest" message="impl:getAllEpacTduIdsRequest" />
+      <wsdl:output name="getAllEpacTduIdsResponse" message="impl:getAllEpacTduIdsResponse" />
+      <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
+    </wsdl:operation>
+    <wsdl:operation name="getSbReportedStatus" parameterOrder="sbsIn msnsIn">
+      <wsdl:input name="getSbReportedStatusRequest" message="impl:getSbReportedStatusRequest" />
+      <wsdl:output name="getSbReportedStatusResponse" message="impl:getSbReportedStatusResponse" />
+      <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
+    </wsdl:operation>
+    <wsdl:operation name="getSbModTriplets" parameterOrder="sbsIn msnsIn">
+      <wsdl:input name="getSbModTripletsRequest" message="impl:getSbModTripletsRequest" />
+      <wsdl:output name="getSbModTripletsResponse" message="impl:getSbModTripletsResponse" />
+      <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
+    </wsdl:operation>
+    <wsdl:operation name="getCinsForModifications" parameterOrder="modifications">
+      <wsdl:input name="getCinsForModificationsRequest" message="impl:getCinsForModificationsRequest" />
+      <wsdl:output name="getCinsForModificationsResponse" message="impl:getCinsForModificationsResponse" />
+      <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
+    </wsdl:operation>
+    <wsdl:operation name="getDiversifiedCinsForModifications" parameterOrder="modifications">
+      <wsdl:input name="getDiversifiedCinsForModificationsRequest" message="impl:getDiversifiedCinsForModificationsRequest" />
+      <wsdl:output name="getDiversifiedCinsForModificationsResponse" message="impl:getDiversifiedCinsForModificationsResponse" />
+      <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
+    </wsdl:operation>
+    <wsdl:operation name="getModificationLevelsForMods" parameterOrder="modIds">
+      <wsdl:input name="getModificationLevelsForModsRequest" message="impl:getModificationLevelsForModsRequest" />
+      <wsdl:output name="getModificationLevelsForModsResponse" message="impl:getModificationLevelsForModsResponse" />
+      <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
+    </wsdl:operation>
+    <wsdl:operation name="getInvalidMSNs" parameterOrder="msnsToTest refresh">
+      <wsdl:input name="getInvalidMSNsRequest" message="impl:getInvalidMSNsRequest" />
+      <wsdl:output name="getInvalidMSNsResponse" message="impl:getInvalidMSNsResponse" />
+      <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
+    </wsdl:operation>
+    <wsdl:operation name="getInvalidAircraftTypes" parameterOrder="acTypesToCheck refresh">
+      <wsdl:input name="getInvalidAircraftTypesRequest" message="impl:getInvalidAircraftTypesRequest" />
+      <wsdl:output name="getInvalidAircraftTypesResponse" message="impl:getInvalidAircraftTypesResponse" />
+      <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
+    </wsdl:operation>
+    <wsdl:operation name="getModTitles" parameterOrder="mods">
+      <wsdl:input name="getModTitlesRequest" message="impl:getModTitlesRequest" />
+      <wsdl:output name="getModTitlesResponse" message="impl:getModTitlesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getEpacTdusForIds" parameterOrder="epacTduIds">
+      <wsdl:input name="getEpacTdusForIdsRequest" message="impl:getEpacTdusForIdsRequest" />
+      <wsdl:output name="getEpacTdusForIdsResponse" message="impl:getEpacTdusForIdsResponse" />
+      <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
+    </wsdl:operation>
+    <wsdl:operation name="getMsnEntitiesForIds" parameterOrder="msnIds">
+      <wsdl:input name="getMsnEntitiesForIdsRequest" message="impl:getMsnEntitiesForIdsRequest" />
+      <wsdl:output name="getMsnEntitiesForIdsResponse" message="impl:getMsnEntitiesForIdsResponse" />
+      <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllServiceBulletinIds">
+      <wsdl:input name="getAllServiceBulletinIdsRequest" message="impl:getAllServiceBulletinIdsRequest" />
+      <wsdl:output name="getAllServiceBulletinIdsResponse" message="impl:getAllServiceBulletinIdsResponse" />
+      <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
+    </wsdl:operation>
+    <wsdl:operation name="getServiceBulletinIdsInProgram" parameterOrder="program">
+      <wsdl:input name="getServiceBulletinIdsInProgramRequest" message="impl:getServiceBulletinIdsInProgramRequest" />
+      <wsdl:output name="getServiceBulletinIdsInProgramResponse" message="impl:getServiceBulletinIdsInProgramResponse" />
+      <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
+    </wsdl:operation>
+    <wsdl:operation name="getServiceBulletinsForIds" parameterOrder="sbIds">
+      <wsdl:input name="getServiceBulletinsForIdsRequest" message="impl:getServiceBulletinsForIdsRequest" />
+      <wsdl:output name="getServiceBulletinsForIdsResponse" message="impl:getServiceBulletinsForIdsResponse" />
+      <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
+    </wsdl:operation>
+    <wsdl:operation name="getAircraftProductsForTenant" parameterOrder="msns relevantMods vTenant">
+      <wsdl:input name="getAircraftProductsForTenantRequest" message="impl:getAircraftProductsForTenantRequest" />
+      <wsdl:output name="getAircraftProductsForTenantResponse" message="impl:getAircraftProductsForTenantResponse" />
+      <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
+    </wsdl:operation>
+    <wsdl:operation name="getModtreeValidation" parameterOrder="tree msns">
+      <wsdl:input name="getModtreeValidationRequest" message="impl:getModtreeValidationRequest" />
+      <wsdl:output name="getModtreeValidationResponse" message="impl:getModtreeValidationResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllACCodesMapped">
+      <wsdl:input name="getAllACCodesMappedRequest" message="impl:getAllACCodesMappedRequest" />
+      <wsdl:output name="getAllACCodesMappedResponse" message="impl:getAllACCodesMappedResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getlastAIPUpdate">
+      <wsdl:input name="getlastAIPUpdateRequest" message="impl:getlastAIPUpdateRequest" />
+      <wsdl:output name="getlastAIPUpdateResponse" message="impl:getlastAIPUpdateResponse" />
+      <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
+    </wsdl:operation>
+    <wsdl:operation name="ping" parameterOrder="text">
+      <wsdl:input name="pingRequest" message="impl:pingRequest" />
+      <wsdl:output name="pingResponse" message="impl:pingResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="checkServiceAvailability">
+      <wsdl:input name="checkServiceAvailabilityRequest" message="impl:checkServiceAvailabilityRequest" />
+      <wsdl:output name="checkServiceAvailabilityResponse" message="impl:checkServiceAvailabilityResponse" />
+      <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
+    </wsdl:operation>
+    <wsdl:operation name="checkForValidVersion" parameterOrder="version">
+      <wsdl:input name="checkForValidVersionRequest" message="impl:checkForValidVersionRequest" />
+      <wsdl:output name="checkForValidVersionResponse" message="impl:checkForValidVersionResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AcmmSoapBinding" type="impl:AcmmWebService">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="getModConsols">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getModConsolsRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="getModConsolsResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Acmm" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllModifications">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAllModificationsRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="getAllModificationsResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Acmm" />
+      </wsdl:output>
+      <wsdl:fault name="WebServiceRequestException">
+        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getInvalidModifications">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getInvalidModificationsRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="getInvalidModificationsResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Acmm" />
+      </wsdl:output>
+      <wsdl:fault name="WebServiceRequestException">
+        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getCinTitlesInProgram">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getCinTitlesInProgramRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="getCinTitlesInProgramResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Acmm" />
+      </wsdl:output>
+      <wsdl:fault name="WebServiceRequestException">
+        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllMsnIds">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAllMsnIdsRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="getAllMsnIdsResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Acmm" />
+      </wsdl:output>
+      <wsdl:fault name="WebServiceRequestException">
+        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getMsnIdsInProgram">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getMsnIdsInProgramRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="getMsnIdsInProgramResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Acmm" />
+      </wsdl:output>
+      <wsdl:fault name="WebServiceRequestException">
+        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAircraftProduct">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAircraftProductRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="getAircraftProductResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Acmm" />
+      </wsdl:output>
+      <wsdl:fault name="WebServiceRequestException">
+        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAircraftProducts">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAircraftProductsRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="getAircraftProductsResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Acmm" />
+      </wsdl:output>
+      <wsdl:fault name="WebServiceRequestException">
+        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllAircraftTypes">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAllAircraftTypesRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="getAllAircraftTypesResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Acmm" />
+      </wsdl:output>
+      <wsdl:fault name="WebServiceRequestException">
+        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllAircraftModels">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAllAircraftModelsRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="getAllAircraftModelsResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Acmm" />
+      </wsdl:output>
+      <wsdl:fault name="WebServiceRequestException">
+        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllEpacTduIds">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAllEpacTduIdsRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="getAllEpacTduIdsResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Acmm" />
+      </wsdl:output>
+      <wsdl:fault name="WebServiceRequestException">
+        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getSbReportedStatus">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getSbReportedStatusRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="getSbReportedStatusResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Acmm" />
+      </wsdl:output>
+      <wsdl:fault name="WebServiceRequestException">
+        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getSbModTriplets">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getSbModTripletsRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="getSbModTripletsResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Acmm" />
+      </wsdl:output>
+      <wsdl:fault name="WebServiceRequestException">
+        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getCinsForModifications">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getCinsForModificationsRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="getCinsForModificationsResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Acmm" />
+      </wsdl:output>
+      <wsdl:fault name="WebServiceRequestException">
+        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getDiversifiedCinsForModifications">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getDiversifiedCinsForModificationsRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="getDiversifiedCinsForModificationsResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Acmm" />
+      </wsdl:output>
+      <wsdl:fault name="WebServiceRequestException">
+        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getModificationLevelsForMods">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getModificationLevelsForModsRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="getModificationLevelsForModsResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Acmm" />
+      </wsdl:output>
+      <wsdl:fault name="WebServiceRequestException">
+        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getInvalidMSNs">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getInvalidMSNsRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="getInvalidMSNsResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Acmm" />
+      </wsdl:output>
+      <wsdl:fault name="WebServiceRequestException">
+        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getInvalidAircraftTypes">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getInvalidAircraftTypesRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="getInvalidAircraftTypesResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Acmm" />
+      </wsdl:output>
+      <wsdl:fault name="WebServiceRequestException">
+        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getModTitles">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getModTitlesRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="getModTitlesResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Acmm" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEpacTdusForIds">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getEpacTdusForIdsRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="getEpacTdusForIdsResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Acmm" />
+      </wsdl:output>
+      <wsdl:fault name="WebServiceRequestException">
+        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getMsnEntitiesForIds">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getMsnEntitiesForIdsRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="getMsnEntitiesForIdsResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Acmm" />
+      </wsdl:output>
+      <wsdl:fault name="WebServiceRequestException">
+        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllServiceBulletinIds">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAllServiceBulletinIdsRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="getAllServiceBulletinIdsResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Acmm" />
+      </wsdl:output>
+      <wsdl:fault name="WebServiceRequestException">
+        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getServiceBulletinIdsInProgram">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getServiceBulletinIdsInProgramRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="getServiceBulletinIdsInProgramResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Acmm" />
+      </wsdl:output>
+      <wsdl:fault name="WebServiceRequestException">
+        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getServiceBulletinsForIds">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getServiceBulletinsForIdsRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="getServiceBulletinsForIdsResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Acmm" />
+      </wsdl:output>
+      <wsdl:fault name="WebServiceRequestException">
+        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAircraftProductsForTenant">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAircraftProductsForTenantRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="getAircraftProductsForTenantResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Acmm" />
+      </wsdl:output>
+      <wsdl:fault name="WebServiceRequestException">
+        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getModtreeValidation">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getModtreeValidationRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="getModtreeValidationResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Acmm" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllACCodesMapped">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAllACCodesMappedRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="getAllACCodesMappedResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Acmm" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getlastAIPUpdate">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getlastAIPUpdateRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="getlastAIPUpdateResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Acmm" />
+      </wsdl:output>
+      <wsdl:fault name="WebServiceRequestException">
+        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ping">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="pingRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.common.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="pingResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Acmm" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkServiceAvailability">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="checkServiceAvailabilityRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.common.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="checkServiceAvailabilityResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Acmm" />
+      </wsdl:output>
+      <wsdl:fault name="WebServiceRequestException">
+        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="checkForValidVersion">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="checkForValidVersionRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.common.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="checkForValidVersionResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Acmm" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AcmmWebServiceService">
+    <wsdl:port name="Acmm" binding="impl:AcmmSoapBinding">
+      <wsdlsoap:address location="http://localhost:8080/H970live/services/Acmm" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
