@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:intf="http://localhost:8080/H970live/services/Configuration" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns1="http://entity.webservice.airbus.server.cas.de" xmlns:tns2="http://webservice.common.server.cas.de" xmlns:impl="http://localhost:8080/H970live/services/Configuration" targetNamespace="http://localhost:8080/H970live/services/Configuration" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:intf="http://localhost:8080/H970sandbox/services/Configuration" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns1="http://entity.webservice.airbus.server.cas.de" xmlns:tns2="http://webservice.common.server.cas.de" xmlns:impl="http://localhost:8080/H970sandbox/services/Configuration" targetNamespace="http://localhost:8080/H970sandbox/services/Configuration" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
-    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://localhost:8080/H970live/services/Configuration">
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://localhost:8080/H970sandbox/services/Configuration">
       <xsd:import namespace="http://entity.webservice.airbus.server.cas.de" />
       <xsd:import namespace="http://webservice.common.server.cas.de" />
       <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
       <xsd:complexType name="ArrayOf_xsd_string">
         <xsd:sequence>
           <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_tns1_ScheduledJobTransferable">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns1:ScheduledJobTransferable" />
         </xsd:sequence>
       </xsd:complexType>
       <xsd:complexType name="ArrayOf_xsd_int">
@@ -35,16 +40,43 @@
           <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns1:ServiceBulletinEntityTransferable" />
         </xsd:sequence>
       </xsd:complexType>
-      <xsd:complexType name="ArrayOf_tns1_ScheduledJobTransferable">
-        <xsd:sequence>
-          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns1:ScheduledJobTransferable" />
-        </xsd:sequence>
-      </xsd:complexType>
     </xsd:schema>
     <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://entity.webservice.airbus.server.cas.de">
+      <xsd:import namespace="http://localhost:8080/H970sandbox/services/Configuration" />
       <xsd:import namespace="http://webservice.common.server.cas.de" />
-      <xsd:import namespace="http://localhost:8080/H970live/services/Configuration" />
       <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="ReachedStatesResultTransferable">
+        <xsd:sequence>
+          <xsd:element name="acProgMsn" nillable="true" type="xsd:string" />
+          <xsd:element name="acType" nillable="true" type="xsd:string" />
+          <xsd:element name="calculationStatus" nillable="true" type="xsd:string" />
+          <xsd:element name="consolidatedModsReached" nillable="true" type="impl:ArrayOf_xsd_string" />
+          <xsd:element name="error" nillable="true" type="xsd:string" />
+          <xsd:element name="hyperlinksWithMissingMods" nillable="true" type="impl:ArrayOf_xsd_string" />
+          <xsd:element name="maybeReachedStates" nillable="true" type="impl:ArrayOf_xsd_string" />
+          <xsd:element name="missingMods" nillable="true" type="impl:ArrayOf_xsd_string" />
+          <xsd:element name="missingModsMaybe" nillable="true" type="impl:ArrayOf_xsd_string" />
+          <xsd:element name="modsInProduction" nillable="true" type="impl:ArrayOf_xsd_string" />
+          <xsd:element name="modsInRetrofit" nillable="true" type="impl:ArrayOf_xsd_string" />
+          <xsd:element name="modsMaybe" nillable="true" type="impl:ArrayOf_xsd_string" />
+          <xsd:element name="nodesCausingContradiction" nillable="true" type="impl:ArrayOf_xsd_string" />
+          <xsd:element name="possiblyReachedStates" nillable="true" type="impl:ArrayOf_xsd_string" />
+          <xsd:element name="reachedStates" nillable="true" type="impl:ArrayOf_xsd_string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ScheduledJobTransferable">
+        <xsd:sequence>
+          <xsd:element name="endTime" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="id" nillable="true" type="xsd:string" />
+          <xsd:element name="jobName" nillable="true" type="xsd:string" />
+          <xsd:element name="jobType" nillable="true" type="xsd:string" />
+          <xsd:element name="loginUserId" nillable="true" type="xsd:string" />
+          <xsd:element name="request" nillable="true" type="xsd:string" />
+          <xsd:element name="result" nillable="true" type="xsd:string" />
+          <xsd:element name="startTime" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="status" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
       <xsd:complexType name="SbcrAndValidityInputTransferable">
         <xsd:sequence>
           <xsd:element name="aircraftProgram" nillable="true" type="xsd:string" />
@@ -151,42 +183,10 @@
           <xsd:element name="validityResult" nillable="true" type="tns1:ValidityMatrixResultTransferable" />
         </xsd:sequence>
       </xsd:complexType>
-      <xsd:complexType name="ReachedStatesResultTransferable">
-        <xsd:sequence>
-          <xsd:element name="acProgMsn" nillable="true" type="xsd:string" />
-          <xsd:element name="acType" nillable="true" type="xsd:string" />
-          <xsd:element name="calculationStatus" nillable="true" type="xsd:string" />
-          <xsd:element name="consolidatedModsReached" nillable="true" type="impl:ArrayOf_xsd_string" />
-          <xsd:element name="error" nillable="true" type="xsd:string" />
-          <xsd:element name="hyperlinksWithMissingMods" nillable="true" type="impl:ArrayOf_xsd_string" />
-          <xsd:element name="maybeReachedStates" nillable="true" type="impl:ArrayOf_xsd_string" />
-          <xsd:element name="missingMods" nillable="true" type="impl:ArrayOf_xsd_string" />
-          <xsd:element name="missingModsMaybe" nillable="true" type="impl:ArrayOf_xsd_string" />
-          <xsd:element name="modsInProduction" nillable="true" type="impl:ArrayOf_xsd_string" />
-          <xsd:element name="modsInRetrofit" nillable="true" type="impl:ArrayOf_xsd_string" />
-          <xsd:element name="modsMaybe" nillable="true" type="impl:ArrayOf_xsd_string" />
-          <xsd:element name="nodesCausingContradiction" nillable="true" type="impl:ArrayOf_xsd_string" />
-          <xsd:element name="possiblyReachedStates" nillable="true" type="impl:ArrayOf_xsd_string" />
-          <xsd:element name="reachedStates" nillable="true" type="impl:ArrayOf_xsd_string" />
-        </xsd:sequence>
-      </xsd:complexType>
-      <xsd:complexType name="ScheduledJobTransferable">
-        <xsd:sequence>
-          <xsd:element name="endTime" nillable="true" type="xsd:dateTime" />
-          <xsd:element name="id" nillable="true" type="xsd:string" />
-          <xsd:element name="jobName" nillable="true" type="xsd:string" />
-          <xsd:element name="jobType" nillable="true" type="xsd:string" />
-          <xsd:element name="loginUserId" nillable="true" type="xsd:string" />
-          <xsd:element name="request" nillable="true" type="xsd:string" />
-          <xsd:element name="result" nillable="true" type="xsd:string" />
-          <xsd:element name="startTime" nillable="true" type="xsd:dateTime" />
-          <xsd:element name="status" nillable="true" type="xsd:string" />
-        </xsd:sequence>
-      </xsd:complexType>
     </xsd:schema>
     <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://webservice.common.server.cas.de">
+      <xsd:import namespace="http://localhost:8080/H970sandbox/services/Configuration" />
       <xsd:import namespace="http://entity.webservice.airbus.server.cas.de" />
-      <xsd:import namespace="http://localhost:8080/H970live/services/Configuration" />
       <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
       <xsd:complexType name="WebServiceRequestException">
         <xsd:sequence>
@@ -196,30 +196,120 @@
       </xsd:complexType>
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="getReachedStatesAndMissingModsRequest">
+  <wsdl:message name="checkServiceAvailabilityRequest" />
+  <wsdl:message name="getReachedStatesAndMissingModsForTenantRequest">
     <wsdl:part name="modtree" type="xsd:string" />
     <wsdl:part name="msn" type="xsd:string" />
+    <wsdl:part name="virtualTenantID" type="xsd:string" />
   </wsdl:message>
-  <wsdl:message name="scheduleNewReachedStatesJobResponse" />
+  <wsdl:message name="generateMixabilityNowRequest">
+    <wsdl:part name="delayInMillis" type="xsd:long" />
+  </wsdl:message>
+  <wsdl:message name="WebServiceRequestException">
+    <wsdl:part name="fault" type="tns2:WebServiceRequestException" />
+  </wsdl:message>
+  <wsdl:message name="getPossiblyReachedStatesResponse">
+    <wsdl:part name="getPossiblyReachedStatesReturn" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="calculateExecoLicensedEnhancedValidityMatrixRequest">
+    <wsdl:part name="userIpAddess" type="xsd:string" />
+    <wsdl:part name="vmInput" type="tns1:SbcrAndValidityInputTransferable" />
+  </wsdl:message>
+  <wsdl:message name="calculateExecoLicensedConcurrentSbRequirementsResponse">
+    <wsdl:part name="calculateExecoLicensedConcurrentSbRequirementsReturn" type="tns1:ConcurrentSbResultTransferable" />
+  </wsdl:message>
+  <wsdl:message name="scheduleNewPossiblyReachedStatesJobResponse" />
+  <wsdl:message name="calculateConcurrentSbRequirementsRequest">
+    <wsdl:part name="sbcrInput" type="tns1:SbcrAndValidityInputTransferable" />
+    <wsdl:part name="sandboxUser" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="calculateSbReportRequest">
+    <wsdl:part name="sbsIn" type="impl:ArrayOf_xsd_string" />
+    <wsdl:part name="msnsIn" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="calculateExecoLicensedEnhancedValidityMatrixResponse">
+    <wsdl:part name="calculateExecoLicensedEnhancedValidityMatrixReturn" type="tns1:ValidityMatrixResultTransferable" />
+  </wsdl:message>
+  <wsdl:message name="calculateEnhancedValidityMatrixRequest">
+    <wsdl:part name="vmInput" type="tns1:SbcrAndValidityInputTransferable" />
+  </wsdl:message>
+  <wsdl:message name="testWriteFTPConnectionRequest">
+    <wsdl:part name="connectionUrlString" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="checkMultipleModsOnServerRequest">
+    <wsdl:part name="tenant" type="xsd:string" />
+    <wsdl:part name="maturityState" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="checkForValidVersionResponse" />
+  <wsdl:message name="calculateSbReportResponse">
+    <wsdl:part name="calculateSbReportReturn" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="checkMultipleModsOnServerResponse">
+    <wsdl:part name="checkMultipleModsOnServerReturn" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="getAllScheduledUserjobsRequest" />
+  <wsdl:message name="getReachedStatesAndMissingModsResponse">
+    <wsdl:part name="getReachedStatesAndMissingModsReturn" type="tns1:ReachedStatesResultTransferable" />
+  </wsdl:message>
+  <wsdl:message name="getAllScheduledUserjobsResponse">
+    <wsdl:part name="getAllScheduledUserjobsReturn" type="impl:ArrayOf_tns1_ScheduledJobTransferable" />
+  </wsdl:message>
+  <wsdl:message name="pingResponse">
+    <wsdl:part name="pingReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="checkAircraftValidityRequest">
+    <wsdl:part name="msns" type="impl:ArrayOf_xsd_string" />
+    <wsdl:part name="modtree" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pingRequest">
+    <wsdl:part name="text" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="calculateExecoLicensedConcurrentSbRequirementsRequest">
+    <wsdl:part name="userIpAddress" type="xsd:string" />
+    <wsdl:part name="sbcrInput" type="tns1:SbcrAndValidityInputTransferable" />
+    <wsdl:part name="sandboxUser" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="scheduleNewPossiblyReachedStatesJobRequest">
+    <wsdl:part name="jobname" type="xsd:string" />
+    <wsdl:part name="request" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="calculateEnhancedValidityMatrixResponse">
+    <wsdl:part name="calculateEnhancedValidityMatrixReturn" type="tns1:ValidityMatrixResultTransferable" />
+  </wsdl:message>
+  <wsdl:message name="deleteScheduledUserjobsResponse" />
+  <wsdl:message name="getPossiblyReachedStatesRequest">
+    <wsdl:part name="states" type="impl:ArrayOf_xsd_string" />
+    <wsdl:part name="msn" type="xsd:string" />
+    <wsdl:part name="modtree" type="xsd:string" />
+    <wsdl:part name="missingModsToIgnore" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
+  <wsdl:message name="generateMixabilityNowResponse" />
+  <wsdl:message name="calculateConcurrentSbRequirementsResponse">
+    <wsdl:part name="calculateConcurrentSbRequirementsReturn" type="tns1:ConcurrentSbResultTransferable" />
+  </wsdl:message>
+  <wsdl:message name="testReadFTPConnectionRequest">
+    <wsdl:part name="connectionUrl" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="checkCombinationValidityResponse">
+    <wsdl:part name="checkCombinationValidityReturn" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="testReadFTPConnectionResponse" />
+  <wsdl:message name="testWriteFTPConnectionResponse" />
+  <wsdl:message name="getReachedStatesAndMissingModsForTenantResponse">
+    <wsdl:part name="getReachedStatesAndMissingModsForTenantReturn" type="tns1:ReachedStatesResultTransferable" />
+  </wsdl:message>
+  <wsdl:message name="deleteScheduledUserjobsRequest">
+    <wsdl:part name="jobIDsToDelete" type="impl:ArrayOf_xsd_string" />
+  </wsdl:message>
   <wsdl:message name="checkCombinationValidityRequest">
     <wsdl:part name="modCombination" type="impl:ArrayOf_xsd_string" />
     <wsdl:part name="modtreeName" type="xsd:string" />
     <wsdl:part name="stateToBeReachedId" type="xsd:string" />
   </wsdl:message>
-  <wsdl:message name="deleteScheduledUserjobsRequest">
-    <wsdl:part name="jobIDsToDelete" type="impl:ArrayOf_xsd_string" />
-  </wsdl:message>
-  <wsdl:message name="getReachedStatesAndMissingModsForTenantResponse">
-    <wsdl:part name="getReachedStatesAndMissingModsForTenantReturn" type="tns1:ReachedStatesResultTransferable" />
-  </wsdl:message>
-  <wsdl:message name="testWriteFTPConnectionResponse" />
-  <wsdl:message name="checkCombinationValidityResponse">
-    <wsdl:part name="checkCombinationValidityReturn" type="xsd:boolean" />
-  </wsdl:message>
-  <wsdl:message name="testReadFTPConnectionResponse" />
-  <wsdl:message name="checkServiceAvailabilityResponse" />
-  <wsdl:message name="checkForValidVersionRequest">
-    <wsdl:part name="version" type="xsd:string" />
+  <wsdl:message name="scheduleNewReachedStatesJobResponse" />
+  <wsdl:message name="getReachedStatesAndMissingModsRequest">
+    <wsdl:part name="modtree" type="xsd:string" />
+    <wsdl:part name="msn" type="xsd:string" />
   </wsdl:message>
   <wsdl:message name="scheduleNewReachedStatesJobRequest">
     <wsdl:part name="jobname" type="xsd:string" />
@@ -228,109 +318,76 @@
   <wsdl:message name="checkAircraftValidityResponse">
     <wsdl:part name="checkAircraftValidityReturn" type="impl:ArrayOf_xsd_string" />
   </wsdl:message>
-  <wsdl:message name="deleteScheduledUserjobsResponse" />
-  <wsdl:message name="calculateEnhancedValidityMatrixResponse">
-    <wsdl:part name="calculateEnhancedValidityMatrixReturn" type="tns1:ValidityMatrixResultTransferable" />
+  <wsdl:message name="checkForValidVersionRequest">
+    <wsdl:part name="version" type="xsd:string" />
   </wsdl:message>
-  <wsdl:message name="scheduleNewPossiblyReachedStatesJobRequest">
-    <wsdl:part name="jobname" type="xsd:string" />
-    <wsdl:part name="request" type="xsd:string" />
-  </wsdl:message>
-  <wsdl:message name="testReadFTPConnectionRequest">
-    <wsdl:part name="connectionUrl" type="xsd:string" />
-  </wsdl:message>
-  <wsdl:message name="calculateConcurrentSbRequirementsResponse">
-    <wsdl:part name="calculateConcurrentSbRequirementsReturn" type="tns1:ConcurrentSbResultTransferable" />
-  </wsdl:message>
-  <wsdl:message name="generateMixabilityNowResponse" />
-  <wsdl:message name="getPossiblyReachedStatesRequest">
-    <wsdl:part name="states" type="impl:ArrayOf_xsd_string" />
-    <wsdl:part name="msn" type="xsd:string" />
-    <wsdl:part name="modtree" type="xsd:string" />
-    <wsdl:part name="missingModsToIgnore" type="impl:ArrayOf_xsd_string" />
-  </wsdl:message>
-  <wsdl:message name="getAllScheduledUserjobsRequest" />
-  <wsdl:message name="checkForValidVersionResponse" />
-  <wsdl:message name="checkMultipleModsOnServerResponse">
-    <wsdl:part name="checkMultipleModsOnServerReturn" type="impl:ArrayOf_xsd_string" />
-  </wsdl:message>
-  <wsdl:message name="calculateSbReportResponse">
-    <wsdl:part name="calculateSbReportReturn" type="impl:ArrayOf_xsd_string" />
-  </wsdl:message>
-  <wsdl:message name="calculateExecoLicensedConcurrentSbRequirementsRequest">
-    <wsdl:part name="userIpAddress" type="xsd:string" />
-    <wsdl:part name="sbcrInput" type="tns1:SbcrAndValidityInputTransferable" />
-    <wsdl:part name="sandboxUser" type="xsd:string" />
-  </wsdl:message>
-  <wsdl:message name="pingRequest">
-    <wsdl:part name="text" type="xsd:string" />
-  </wsdl:message>
-  <wsdl:message name="checkAircraftValidityRequest">
-    <wsdl:part name="msns" type="impl:ArrayOf_xsd_string" />
-    <wsdl:part name="modtree" type="xsd:string" />
-  </wsdl:message>
-  <wsdl:message name="pingResponse">
-    <wsdl:part name="pingReturn" type="xsd:string" />
-  </wsdl:message>
-  <wsdl:message name="getReachedStatesAndMissingModsResponse">
-    <wsdl:part name="getReachedStatesAndMissingModsReturn" type="tns1:ReachedStatesResultTransferable" />
-  </wsdl:message>
-  <wsdl:message name="getAllScheduledUserjobsResponse">
-    <wsdl:part name="getAllScheduledUserjobsReturn" type="impl:ArrayOf_tns1_ScheduledJobTransferable" />
-  </wsdl:message>
-  <wsdl:message name="calculateExecoLicensedEnhancedValidityMatrixRequest">
-    <wsdl:part name="userIpAddess" type="xsd:string" />
-    <wsdl:part name="vmInput" type="tns1:SbcrAndValidityInputTransferable" />
-  </wsdl:message>
-  <wsdl:message name="getPossiblyReachedStatesResponse">
-    <wsdl:part name="getPossiblyReachedStatesReturn" type="impl:ArrayOf_xsd_string" />
-  </wsdl:message>
-  <wsdl:message name="WebServiceRequestException">
-    <wsdl:part name="fault" type="tns2:WebServiceRequestException" />
-  </wsdl:message>
-  <wsdl:message name="generateMixabilityNowRequest">
-    <wsdl:part name="delayInMillis" type="xsd:long" />
-  </wsdl:message>
-  <wsdl:message name="checkServiceAvailabilityRequest" />
-  <wsdl:message name="getReachedStatesAndMissingModsForTenantRequest">
-    <wsdl:part name="modtree" type="xsd:string" />
-    <wsdl:part name="msn" type="xsd:string" />
-    <wsdl:part name="virtualTenantID" type="xsd:string" />
-  </wsdl:message>
-  <wsdl:message name="checkMultipleModsOnServerRequest">
-    <wsdl:part name="tenant" type="xsd:string" />
-    <wsdl:part name="maturityState" type="xsd:int" />
-  </wsdl:message>
-  <wsdl:message name="testWriteFTPConnectionRequest">
-    <wsdl:part name="connectionUrlString" type="xsd:string" />
-  </wsdl:message>
-  <wsdl:message name="calculateExecoLicensedEnhancedValidityMatrixResponse">
-    <wsdl:part name="calculateExecoLicensedEnhancedValidityMatrixReturn" type="tns1:ValidityMatrixResultTransferable" />
-  </wsdl:message>
-  <wsdl:message name="calculateEnhancedValidityMatrixRequest">
-    <wsdl:part name="vmInput" type="tns1:SbcrAndValidityInputTransferable" />
-  </wsdl:message>
-  <wsdl:message name="calculateSbReportRequest">
-    <wsdl:part name="sbsIn" type="impl:ArrayOf_xsd_string" />
-    <wsdl:part name="msnsIn" type="impl:ArrayOf_xsd_string" />
-  </wsdl:message>
-  <wsdl:message name="calculateConcurrentSbRequirementsRequest">
-    <wsdl:part name="sbcrInput" type="tns1:SbcrAndValidityInputTransferable" />
-    <wsdl:part name="sandboxUser" type="xsd:string" />
-  </wsdl:message>
-  <wsdl:message name="scheduleNewPossiblyReachedStatesJobResponse" />
-  <wsdl:message name="calculateExecoLicensedConcurrentSbRequirementsResponse">
-    <wsdl:part name="calculateExecoLicensedConcurrentSbRequirementsReturn" type="tns1:ConcurrentSbResultTransferable" />
-  </wsdl:message>
+  <wsdl:message name="checkServiceAvailabilityResponse" />
   <wsdl:portType name="AirbusConfigurationWebService">
-    <wsdl:operation name="calculateEnhancedValidityMatrix" parameterOrder="vmInput">
-      <wsdl:input name="calculateEnhancedValidityMatrixRequest" message="impl:calculateEnhancedValidityMatrixRequest" />
-      <wsdl:output name="calculateEnhancedValidityMatrixResponse" message="impl:calculateEnhancedValidityMatrixResponse" />
+    <wsdl:operation name="getReachedStatesAndMissingMods" parameterOrder="modtree msn">
+      <wsdl:input name="getReachedStatesAndMissingModsRequest" message="impl:getReachedStatesAndMissingModsRequest" />
+      <wsdl:output name="getReachedStatesAndMissingModsResponse" message="impl:getReachedStatesAndMissingModsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getPossiblyReachedStates" parameterOrder="states msn modtree missingModsToIgnore">
+      <wsdl:input name="getPossiblyReachedStatesRequest" message="impl:getPossiblyReachedStatesRequest" />
+      <wsdl:output name="getPossiblyReachedStatesResponse" message="impl:getPossiblyReachedStatesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getReachedStatesAndMissingModsForTenant" parameterOrder="modtree msn virtualTenantID">
+      <wsdl:input name="getReachedStatesAndMissingModsForTenantRequest" message="impl:getReachedStatesAndMissingModsForTenantRequest" />
+      <wsdl:output name="getReachedStatesAndMissingModsForTenantResponse" message="impl:getReachedStatesAndMissingModsForTenantResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="checkAircraftValidity" parameterOrder="msns modtree">
+      <wsdl:input name="checkAircraftValidityRequest" message="impl:checkAircraftValidityRequest" />
+      <wsdl:output name="checkAircraftValidityResponse" message="impl:checkAircraftValidityResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="calculateSbReport" parameterOrder="sbsIn msnsIn">
+      <wsdl:input name="calculateSbReportRequest" message="impl:calculateSbReportRequest" />
+      <wsdl:output name="calculateSbReportResponse" message="impl:calculateSbReportResponse" />
+      <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
+    </wsdl:operation>
+    <wsdl:operation name="scheduleNewReachedStatesJob" parameterOrder="jobname request">
+      <wsdl:input name="scheduleNewReachedStatesJobRequest" message="impl:scheduleNewReachedStatesJobRequest" />
+      <wsdl:output name="scheduleNewReachedStatesJobResponse" message="impl:scheduleNewReachedStatesJobResponse" />
       <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
     </wsdl:operation>
     <wsdl:operation name="scheduleNewPossiblyReachedStatesJob" parameterOrder="jobname request">
       <wsdl:input name="scheduleNewPossiblyReachedStatesJobRequest" message="impl:scheduleNewPossiblyReachedStatesJobRequest" />
       <wsdl:output name="scheduleNewPossiblyReachedStatesJobResponse" message="impl:scheduleNewPossiblyReachedStatesJobResponse" />
+      <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllScheduledUserjobs">
+      <wsdl:input name="getAllScheduledUserjobsRequest" message="impl:getAllScheduledUserjobsRequest" />
+      <wsdl:output name="getAllScheduledUserjobsResponse" message="impl:getAllScheduledUserjobsResponse" />
+      <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteScheduledUserjobs" parameterOrder="jobIDsToDelete">
+      <wsdl:input name="deleteScheduledUserjobsRequest" message="impl:deleteScheduledUserjobsRequest" />
+      <wsdl:output name="deleteScheduledUserjobsResponse" message="impl:deleteScheduledUserjobsResponse" />
+      <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
+    </wsdl:operation>
+    <wsdl:operation name="checkMultipleModsOnServer" parameterOrder="tenant maturityState">
+      <wsdl:input name="checkMultipleModsOnServerRequest" message="impl:checkMultipleModsOnServerRequest" />
+      <wsdl:output name="checkMultipleModsOnServerResponse" message="impl:checkMultipleModsOnServerResponse" />
+      <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
+    </wsdl:operation>
+    <wsdl:operation name="generateMixabilityNow" parameterOrder="delayInMillis">
+      <wsdl:input name="generateMixabilityNowRequest" message="impl:generateMixabilityNowRequest" />
+      <wsdl:output name="generateMixabilityNowResponse" message="impl:generateMixabilityNowResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="testWriteFTPConnection" parameterOrder="connectionUrlString">
+      <wsdl:input name="testWriteFTPConnectionRequest" message="impl:testWriteFTPConnectionRequest" />
+      <wsdl:output name="testWriteFTPConnectionResponse" message="impl:testWriteFTPConnectionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="testReadFTPConnection" parameterOrder="connectionUrl">
+      <wsdl:input name="testReadFTPConnectionRequest" message="impl:testReadFTPConnectionRequest" />
+      <wsdl:output name="testReadFTPConnectionResponse" message="impl:testReadFTPConnectionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="checkCombinationValidity" parameterOrder="modCombination modtreeName stateToBeReachedId">
+      <wsdl:input name="checkCombinationValidityRequest" message="impl:checkCombinationValidityRequest" />
+      <wsdl:output name="checkCombinationValidityResponse" message="impl:checkCombinationValidityResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="calculateEnhancedValidityMatrix" parameterOrder="vmInput">
+      <wsdl:input name="calculateEnhancedValidityMatrixRequest" message="impl:calculateEnhancedValidityMatrixRequest" />
+      <wsdl:output name="calculateEnhancedValidityMatrixResponse" message="impl:calculateEnhancedValidityMatrixResponse" />
       <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
     </wsdl:operation>
     <wsdl:operation name="calculateConcurrentSbRequirements" parameterOrder="sbcrInput sandboxUser">
@@ -342,63 +399,6 @@
       <wsdl:input name="calculateExecoLicensedEnhancedValidityMatrixRequest" message="impl:calculateExecoLicensedEnhancedValidityMatrixRequest" />
       <wsdl:output name="calculateExecoLicensedEnhancedValidityMatrixResponse" message="impl:calculateExecoLicensedEnhancedValidityMatrixResponse" />
       <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
-    </wsdl:operation>
-    <wsdl:operation name="getReachedStatesAndMissingModsForTenant" parameterOrder="modtree msn virtualTenantID">
-      <wsdl:input name="getReachedStatesAndMissingModsForTenantRequest" message="impl:getReachedStatesAndMissingModsForTenantRequest" />
-      <wsdl:output name="getReachedStatesAndMissingModsForTenantResponse" message="impl:getReachedStatesAndMissingModsForTenantResponse" />
-    </wsdl:operation>
-    <wsdl:operation name="getReachedStatesAndMissingMods" parameterOrder="modtree msn">
-      <wsdl:input name="getReachedStatesAndMissingModsRequest" message="impl:getReachedStatesAndMissingModsRequest" />
-      <wsdl:output name="getReachedStatesAndMissingModsResponse" message="impl:getReachedStatesAndMissingModsResponse" />
-    </wsdl:operation>
-    <wsdl:operation name="getPossiblyReachedStates" parameterOrder="states msn modtree missingModsToIgnore">
-      <wsdl:input name="getPossiblyReachedStatesRequest" message="impl:getPossiblyReachedStatesRequest" />
-      <wsdl:output name="getPossiblyReachedStatesResponse" message="impl:getPossiblyReachedStatesResponse" />
-    </wsdl:operation>
-    <wsdl:operation name="checkAircraftValidity" parameterOrder="msns modtree">
-      <wsdl:input name="checkAircraftValidityRequest" message="impl:checkAircraftValidityRequest" />
-      <wsdl:output name="checkAircraftValidityResponse" message="impl:checkAircraftValidityResponse" />
-    </wsdl:operation>
-    <wsdl:operation name="calculateSbReport" parameterOrder="sbsIn msnsIn">
-      <wsdl:input name="calculateSbReportRequest" message="impl:calculateSbReportRequest" />
-      <wsdl:output name="calculateSbReportResponse" message="impl:calculateSbReportResponse" />
-      <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
-    </wsdl:operation>
-    <wsdl:operation name="getAllScheduledUserjobs">
-      <wsdl:input name="getAllScheduledUserjobsRequest" message="impl:getAllScheduledUserjobsRequest" />
-      <wsdl:output name="getAllScheduledUserjobsResponse" message="impl:getAllScheduledUserjobsResponse" />
-      <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
-    </wsdl:operation>
-    <wsdl:operation name="generateMixabilityNow" parameterOrder="delayInMillis">
-      <wsdl:input name="generateMixabilityNowRequest" message="impl:generateMixabilityNowRequest" />
-      <wsdl:output name="generateMixabilityNowResponse" message="impl:generateMixabilityNowResponse" />
-    </wsdl:operation>
-    <wsdl:operation name="checkMultipleModsOnServer" parameterOrder="tenant maturityState">
-      <wsdl:input name="checkMultipleModsOnServerRequest" message="impl:checkMultipleModsOnServerRequest" />
-      <wsdl:output name="checkMultipleModsOnServerResponse" message="impl:checkMultipleModsOnServerResponse" />
-      <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
-    </wsdl:operation>
-    <wsdl:operation name="deleteScheduledUserjobs" parameterOrder="jobIDsToDelete">
-      <wsdl:input name="deleteScheduledUserjobsRequest" message="impl:deleteScheduledUserjobsRequest" />
-      <wsdl:output name="deleteScheduledUserjobsResponse" message="impl:deleteScheduledUserjobsResponse" />
-      <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
-    </wsdl:operation>
-    <wsdl:operation name="scheduleNewReachedStatesJob" parameterOrder="jobname request">
-      <wsdl:input name="scheduleNewReachedStatesJobRequest" message="impl:scheduleNewReachedStatesJobRequest" />
-      <wsdl:output name="scheduleNewReachedStatesJobResponse" message="impl:scheduleNewReachedStatesJobResponse" />
-      <wsdl:fault name="WebServiceRequestException" message="impl:WebServiceRequestException" />
-    </wsdl:operation>
-    <wsdl:operation name="testReadFTPConnection" parameterOrder="connectionUrl">
-      <wsdl:input name="testReadFTPConnectionRequest" message="impl:testReadFTPConnectionRequest" />
-      <wsdl:output name="testReadFTPConnectionResponse" message="impl:testReadFTPConnectionResponse" />
-    </wsdl:operation>
-    <wsdl:operation name="checkCombinationValidity" parameterOrder="modCombination modtreeName stateToBeReachedId">
-      <wsdl:input name="checkCombinationValidityRequest" message="impl:checkCombinationValidityRequest" />
-      <wsdl:output name="checkCombinationValidityResponse" message="impl:checkCombinationValidityResponse" />
-    </wsdl:operation>
-    <wsdl:operation name="testWriteFTPConnection" parameterOrder="connectionUrlString">
-      <wsdl:input name="testWriteFTPConnectionRequest" message="impl:testWriteFTPConnectionRequest" />
-      <wsdl:output name="testWriteFTPConnectionResponse" message="impl:testWriteFTPConnectionResponse" />
     </wsdl:operation>
     <wsdl:operation name="calculateExecoLicensedConcurrentSbRequirements" parameterOrder="userIpAddress sbcrInput sandboxUser">
       <wsdl:input name="calculateExecoLicensedConcurrentSbRequirementsRequest" message="impl:calculateExecoLicensedConcurrentSbRequirementsRequest" />
@@ -421,70 +421,13 @@
   </wsdl:portType>
   <wsdl:binding name="ConfigurationSoapBinding" type="impl:AirbusConfigurationWebService">
     <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
-    <wsdl:operation name="calculateEnhancedValidityMatrix">
-      <wsdlsoap:operation soapAction="" />
-      <wsdl:input name="calculateEnhancedValidityMatrixRequest">
-        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
-      </wsdl:input>
-      <wsdl:output name="calculateEnhancedValidityMatrixResponse">
-        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Configuration" />
-      </wsdl:output>
-      <wsdl:fault name="WebServiceRequestException">
-        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
-      </wsdl:fault>
-    </wsdl:operation>
-    <wsdl:operation name="scheduleNewPossiblyReachedStatesJob">
-      <wsdlsoap:operation soapAction="" />
-      <wsdl:input name="scheduleNewPossiblyReachedStatesJobRequest">
-        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
-      </wsdl:input>
-      <wsdl:output name="scheduleNewPossiblyReachedStatesJobResponse">
-        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Configuration" />
-      </wsdl:output>
-      <wsdl:fault name="WebServiceRequestException">
-        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
-      </wsdl:fault>
-    </wsdl:operation>
-    <wsdl:operation name="calculateConcurrentSbRequirements">
-      <wsdlsoap:operation soapAction="" />
-      <wsdl:input name="calculateConcurrentSbRequirementsRequest">
-        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
-      </wsdl:input>
-      <wsdl:output name="calculateConcurrentSbRequirementsResponse">
-        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Configuration" />
-      </wsdl:output>
-      <wsdl:fault name="WebServiceRequestException">
-        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
-      </wsdl:fault>
-    </wsdl:operation>
-    <wsdl:operation name="calculateExecoLicensedEnhancedValidityMatrix">
-      <wsdlsoap:operation soapAction="" />
-      <wsdl:input name="calculateExecoLicensedEnhancedValidityMatrixRequest">
-        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
-      </wsdl:input>
-      <wsdl:output name="calculateExecoLicensedEnhancedValidityMatrixResponse">
-        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Configuration" />
-      </wsdl:output>
-      <wsdl:fault name="WebServiceRequestException">
-        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
-      </wsdl:fault>
-    </wsdl:operation>
-    <wsdl:operation name="getReachedStatesAndMissingModsForTenant">
-      <wsdlsoap:operation soapAction="" />
-      <wsdl:input name="getReachedStatesAndMissingModsForTenantRequest">
-        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
-      </wsdl:input>
-      <wsdl:output name="getReachedStatesAndMissingModsForTenantResponse">
-        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Configuration" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="getReachedStatesAndMissingMods">
       <wsdlsoap:operation soapAction="" />
       <wsdl:input name="getReachedStatesAndMissingModsRequest">
         <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
       </wsdl:input>
       <wsdl:output name="getReachedStatesAndMissingModsResponse">
-        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Configuration" />
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970sandbox/services/Configuration" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getPossiblyReachedStates">
@@ -493,7 +436,16 @@
         <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
       </wsdl:input>
       <wsdl:output name="getPossiblyReachedStatesResponse">
-        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Configuration" />
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970sandbox/services/Configuration" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getReachedStatesAndMissingModsForTenant">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getReachedStatesAndMissingModsForTenantRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="getReachedStatesAndMissingModsForTenantResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970sandbox/services/Configuration" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="checkAircraftValidity">
@@ -502,7 +454,7 @@
         <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
       </wsdl:input>
       <wsdl:output name="checkAircraftValidityResponse">
-        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Configuration" />
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970sandbox/services/Configuration" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="calculateSbReport">
@@ -511,52 +463,7 @@
         <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
       </wsdl:input>
       <wsdl:output name="calculateSbReportResponse">
-        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Configuration" />
-      </wsdl:output>
-      <wsdl:fault name="WebServiceRequestException">
-        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
-      </wsdl:fault>
-    </wsdl:operation>
-    <wsdl:operation name="getAllScheduledUserjobs">
-      <wsdlsoap:operation soapAction="" />
-      <wsdl:input name="getAllScheduledUserjobsRequest">
-        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
-      </wsdl:input>
-      <wsdl:output name="getAllScheduledUserjobsResponse">
-        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Configuration" />
-      </wsdl:output>
-      <wsdl:fault name="WebServiceRequestException">
-        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
-      </wsdl:fault>
-    </wsdl:operation>
-    <wsdl:operation name="generateMixabilityNow">
-      <wsdlsoap:operation soapAction="" />
-      <wsdl:input name="generateMixabilityNowRequest">
-        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
-      </wsdl:input>
-      <wsdl:output name="generateMixabilityNowResponse">
-        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Configuration" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="checkMultipleModsOnServer">
-      <wsdlsoap:operation soapAction="" />
-      <wsdl:input name="checkMultipleModsOnServerRequest">
-        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
-      </wsdl:input>
-      <wsdl:output name="checkMultipleModsOnServerResponse">
-        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Configuration" />
-      </wsdl:output>
-      <wsdl:fault name="WebServiceRequestException">
-        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
-      </wsdl:fault>
-    </wsdl:operation>
-    <wsdl:operation name="deleteScheduledUserjobs">
-      <wsdlsoap:operation soapAction="" />
-      <wsdl:input name="deleteScheduledUserjobsRequest">
-        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
-      </wsdl:input>
-      <wsdl:output name="deleteScheduledUserjobsResponse">
-        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Configuration" />
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970sandbox/services/Configuration" />
       </wsdl:output>
       <wsdl:fault name="WebServiceRequestException">
         <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
@@ -568,28 +475,67 @@
         <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
       </wsdl:input>
       <wsdl:output name="scheduleNewReachedStatesJobResponse">
-        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Configuration" />
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970sandbox/services/Configuration" />
       </wsdl:output>
       <wsdl:fault name="WebServiceRequestException">
         <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
-    <wsdl:operation name="testReadFTPConnection">
+    <wsdl:operation name="scheduleNewPossiblyReachedStatesJob">
       <wsdlsoap:operation soapAction="" />
-      <wsdl:input name="testReadFTPConnectionRequest">
+      <wsdl:input name="scheduleNewPossiblyReachedStatesJobRequest">
         <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
       </wsdl:input>
-      <wsdl:output name="testReadFTPConnectionResponse">
-        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Configuration" />
+      <wsdl:output name="scheduleNewPossiblyReachedStatesJobResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970sandbox/services/Configuration" />
       </wsdl:output>
+      <wsdl:fault name="WebServiceRequestException">
+        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
-    <wsdl:operation name="checkCombinationValidity">
+    <wsdl:operation name="getAllScheduledUserjobs">
       <wsdlsoap:operation soapAction="" />
-      <wsdl:input name="checkCombinationValidityRequest">
+      <wsdl:input name="getAllScheduledUserjobsRequest">
         <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
       </wsdl:input>
-      <wsdl:output name="checkCombinationValidityResponse">
-        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Configuration" />
+      <wsdl:output name="getAllScheduledUserjobsResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970sandbox/services/Configuration" />
+      </wsdl:output>
+      <wsdl:fault name="WebServiceRequestException">
+        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deleteScheduledUserjobs">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="deleteScheduledUserjobsRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="deleteScheduledUserjobsResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970sandbox/services/Configuration" />
+      </wsdl:output>
+      <wsdl:fault name="WebServiceRequestException">
+        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="checkMultipleModsOnServer">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="checkMultipleModsOnServerRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="checkMultipleModsOnServerResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970sandbox/services/Configuration" />
+      </wsdl:output>
+      <wsdl:fault name="WebServiceRequestException">
+        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="generateMixabilityNow">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="generateMixabilityNowRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="generateMixabilityNowResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970sandbox/services/Configuration" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="testWriteFTPConnection">
@@ -598,8 +544,62 @@
         <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
       </wsdl:input>
       <wsdl:output name="testWriteFTPConnectionResponse">
-        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Configuration" />
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970sandbox/services/Configuration" />
       </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="testReadFTPConnection">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="testReadFTPConnectionRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="testReadFTPConnectionResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970sandbox/services/Configuration" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkCombinationValidity">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="checkCombinationValidityRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="checkCombinationValidityResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970sandbox/services/Configuration" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="calculateEnhancedValidityMatrix">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="calculateEnhancedValidityMatrixRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="calculateEnhancedValidityMatrixResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970sandbox/services/Configuration" />
+      </wsdl:output>
+      <wsdl:fault name="WebServiceRequestException">
+        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="calculateConcurrentSbRequirements">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="calculateConcurrentSbRequirementsRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="calculateConcurrentSbRequirementsResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970sandbox/services/Configuration" />
+      </wsdl:output>
+      <wsdl:fault name="WebServiceRequestException">
+        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="calculateExecoLicensedEnhancedValidityMatrix">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="calculateExecoLicensedEnhancedValidityMatrixRequest">
+        <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
+      </wsdl:input>
+      <wsdl:output name="calculateExecoLicensedEnhancedValidityMatrixResponse">
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970sandbox/services/Configuration" />
+      </wsdl:output>
+      <wsdl:fault name="WebServiceRequestException">
+        <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="calculateExecoLicensedConcurrentSbRequirements">
       <wsdlsoap:operation soapAction="" />
@@ -607,7 +607,7 @@
         <wsdlsoap:body use="literal" namespace="http://webservice.airbus.server.cas.de" />
       </wsdl:input>
       <wsdl:output name="calculateExecoLicensedConcurrentSbRequirementsResponse">
-        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Configuration" />
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970sandbox/services/Configuration" />
       </wsdl:output>
       <wsdl:fault name="WebServiceRequestException">
         <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
@@ -619,7 +619,7 @@
         <wsdlsoap:body use="literal" namespace="http://webservice.common.server.cas.de" />
       </wsdl:input>
       <wsdl:output name="pingResponse">
-        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Configuration" />
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970sandbox/services/Configuration" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="checkServiceAvailability">
@@ -628,7 +628,7 @@
         <wsdlsoap:body use="literal" namespace="http://webservice.common.server.cas.de" />
       </wsdl:input>
       <wsdl:output name="checkServiceAvailabilityResponse">
-        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Configuration" />
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970sandbox/services/Configuration" />
       </wsdl:output>
       <wsdl:fault name="WebServiceRequestException">
         <wsdlsoap:fault use="literal" name="WebServiceRequestException" namespace="" />
@@ -640,13 +640,13 @@
         <wsdlsoap:body use="literal" namespace="http://webservice.common.server.cas.de" />
       </wsdl:input>
       <wsdl:output name="checkForValidVersionResponse">
-        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970live/services/Configuration" />
+        <wsdlsoap:body use="literal" namespace="http://localhost:8080/H970sandbox/services/Configuration" />
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="AirbusConfigurationWebServiceService">
     <wsdl:port name="Configuration" binding="impl:ConfigurationSoapBinding">
-      <wsdlsoap:address location="http://localhost:8080/H970live/services/Configuration" />
+      <wsdlsoap:address location="http://localhost:8080/H970sandbox/services/Configuration" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

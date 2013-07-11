@@ -6,5 +6,5 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="getPossiblyReachedStatesResponse" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>AirbusCatalogue.Model.de.cas.web.consultation.webservices.configuration.getPossiblyReachedStatesResponse, Service References.de.cas.web.consultation.webservices.configuration.Reference.cs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+   <TypeInfo>AirbusCatalogue.Model.ConfigurationService.getPossiblyReachedStatesResponse, Service References.ConfigurationService.Reference.cs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>
