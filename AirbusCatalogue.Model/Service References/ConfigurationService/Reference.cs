@@ -1861,12 +1861,12 @@ namespace AirbusCatalogue.Model.ConfigurationService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="checkAircraftValidityResponse", WrapperNamespace="http://localhost:8080/H970sandbox/services/Configuration", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "checkAircraftValidityResponse", WrapperNamespace = "http://webservice.airbus.server.cas.de", IsWrapped = true)]
     public partial class checkAircraftValidityResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
-        [System.Xml.Serialization.XmlArrayAttribute()]
-        [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://webservice.airbus.server.cas.de", Order = 0)]
+        [System.Xml.Serialization.XmlArray("checkAircraftValidityReturn")]
+        [System.Xml.Serialization.XmlArrayItem("checkAircraftValidityReturn")]
         public string[] checkAircraftValidityReturn;
         
         public checkAircraftValidityResponse() {

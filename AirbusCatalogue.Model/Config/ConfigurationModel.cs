@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ServiceModel;
 using AirbusCatalogue.Common.DataObjects.Config;
+using AirbusCatalogue.Model.ConfigurationService;
 using GalaSoft.MvvmLight.Ioc;
 
 
