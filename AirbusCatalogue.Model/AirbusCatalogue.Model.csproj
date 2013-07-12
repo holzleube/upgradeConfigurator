@@ -118,7 +118,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service References\ConfigurationService\Reference.cs">
+    <Compile Include="Service References\AirbusConfigurationService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -153,74 +153,77 @@
   <ItemGroup>
     <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
     <None Include="Service References\Acmm\Acmm.wsdl" />
-    <None Include="Service References\ConfigurationService\AirbusCatalogue.Model.ConfigurationService.calculateConcurrentSbRequirementsResponse.datasource">
+    <None Include="Service References\AirbusConfigurationService\AirbusCatalogue.Model.AirbusConfigurationService.calculateConcurrentSbRequirementsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ConfigurationService\AirbusCatalogue.Model.ConfigurationService.calculateEnhancedValidityMatrixResponse.datasource">
+    <None Include="Service References\AirbusConfigurationService\AirbusCatalogue.Model.AirbusConfigurationService.calculateEnhancedValidityMatrixResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ConfigurationService\AirbusCatalogue.Model.ConfigurationService.calculateExecoLicensedConcurrentSbRequirementsResponse.datasource">
+    <None Include="Service References\AirbusConfigurationService\AirbusCatalogue.Model.AirbusConfigurationService.calculateExecoLicensedConcurrentSbRequirementsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ConfigurationService\AirbusCatalogue.Model.ConfigurationService.calculateExecoLicensedEnhancedValidityMatrixResponse.datasource">
+    <None Include="Service References\AirbusConfigurationService\AirbusCatalogue.Model.AirbusConfigurationService.calculateExecoLicensedEnhancedValidityMatrixResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ConfigurationService\AirbusCatalogue.Model.ConfigurationService.calculateSbReportResponse.datasource">
+    <None Include="Service References\AirbusConfigurationService\AirbusCatalogue.Model.AirbusConfigurationService.calculateSbReportResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ConfigurationService\AirbusCatalogue.Model.ConfigurationService.checkAircraftValidityResponse.datasource">
+    <None Include="Service References\AirbusConfigurationService\AirbusCatalogue.Model.AirbusConfigurationService.checkAircraftValidityResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ConfigurationService\AirbusCatalogue.Model.ConfigurationService.checkCombinationValidityResponse.datasource">
+    <None Include="Service References\AirbusConfigurationService\AirbusCatalogue.Model.AirbusConfigurationService.checkCombinationValidityResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ConfigurationService\AirbusCatalogue.Model.ConfigurationService.checkForValidVersionResponse.datasource">
+    <None Include="Service References\AirbusConfigurationService\AirbusCatalogue.Model.AirbusConfigurationService.checkForValidVersionResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ConfigurationService\AirbusCatalogue.Model.ConfigurationService.checkMultipleModsOnServerResponse.datasource">
+    <None Include="Service References\AirbusConfigurationService\AirbusCatalogue.Model.AirbusConfigurationService.checkMultipleModsOnServerResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ConfigurationService\AirbusCatalogue.Model.ConfigurationService.checkServiceAvailabilityResponse.datasource">
+    <None Include="Service References\AirbusConfigurationService\AirbusCatalogue.Model.AirbusConfigurationService.checkServiceAvailabilityResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ConfigurationService\AirbusCatalogue.Model.ConfigurationService.deleteScheduledUserjobsResponse.datasource">
+    <None Include="Service References\AirbusConfigurationService\AirbusCatalogue.Model.AirbusConfigurationService.deleteScheduledUserjobsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ConfigurationService\AirbusCatalogue.Model.ConfigurationService.generateMixabilityNowResponse.datasource">
+    <None Include="Service References\AirbusConfigurationService\AirbusCatalogue.Model.AirbusConfigurationService.generateMixabilityNowResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ConfigurationService\AirbusCatalogue.Model.ConfigurationService.getAllScheduledUserjobsResponse.datasource">
+    <None Include="Service References\AirbusConfigurationService\AirbusCatalogue.Model.AirbusConfigurationService.getAllScheduledUserjobsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ConfigurationService\AirbusCatalogue.Model.ConfigurationService.getPossiblyReachedStatesResponse.datasource">
+    <None Include="Service References\AirbusConfigurationService\AirbusCatalogue.Model.AirbusConfigurationService.getConfigurationResultResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ConfigurationService\AirbusCatalogue.Model.ConfigurationService.getReachedStatesAndMissingModsForTenantResponse.datasource">
+    <None Include="Service References\AirbusConfigurationService\AirbusCatalogue.Model.AirbusConfigurationService.getPossiblyReachedStatesResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ConfigurationService\AirbusCatalogue.Model.ConfigurationService.getReachedStatesAndMissingModsResponse.datasource">
+    <None Include="Service References\AirbusConfigurationService\AirbusCatalogue.Model.AirbusConfigurationService.getReachedStatesAndMissingModsForTenantResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ConfigurationService\AirbusCatalogue.Model.ConfigurationService.pingResponse.datasource">
+    <None Include="Service References\AirbusConfigurationService\AirbusCatalogue.Model.AirbusConfigurationService.getReachedStatesAndMissingModsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ConfigurationService\AirbusCatalogue.Model.ConfigurationService.scheduleNewPossiblyReachedStatesJobResponse.datasource">
+    <None Include="Service References\AirbusConfigurationService\AirbusCatalogue.Model.AirbusConfigurationService.pingResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ConfigurationService\AirbusCatalogue.Model.ConfigurationService.scheduleNewReachedStatesJobResponse.datasource">
+    <None Include="Service References\AirbusConfigurationService\AirbusCatalogue.Model.AirbusConfigurationService.scheduleNewPossiblyReachedStatesJobResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ConfigurationService\AirbusCatalogue.Model.ConfigurationService.testReadFTPConnectionResponse.datasource">
+    <None Include="Service References\AirbusConfigurationService\AirbusCatalogue.Model.AirbusConfigurationService.scheduleNewReachedStatesJobResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ConfigurationService\AirbusCatalogue.Model.ConfigurationService.testWriteFTPConnectionResponse.datasource">
+    <None Include="Service References\AirbusConfigurationService\AirbusCatalogue.Model.AirbusConfigurationService.testReadFTPConnectionResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ConfigurationService\Configuration.wsdl" />
+    <None Include="Service References\AirbusConfigurationService\AirbusCatalogue.Model.AirbusConfigurationService.testWriteFTPConnectionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AirbusConfigurationService\Configuration.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\Acmm\" />
-    <WCFMetadataStorage Include="Service References\ConfigurationService\" />
+    <WCFMetadataStorage Include="Service References\AirbusConfigurationService\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\Acmm\configuration91.svcinfo" />
@@ -235,16 +238,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ConfigurationService\configuration91.svcinfo" />
+    <None Include="Service References\AirbusConfigurationService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ConfigurationService\configuration.svcinfo" />
+    <None Include="Service References\AirbusConfigurationService\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ConfigurationService\Reference.svcmap">
+    <None Include="Service References\AirbusConfigurationService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">

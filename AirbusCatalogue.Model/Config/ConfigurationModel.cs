@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ServiceModel;
 using AirbusCatalogue.Common.DataObjects.Config;
-using AirbusCatalogue.Model.ConfigurationService;
+using AirbusCatalogue.Model.AirbusConfigurationService;
 using GalaSoft.MvvmLight.Ioc;
 
 
@@ -17,25 +17,14 @@ namespace AirbusCatalogue.Model.Config
 
         public async void CheckConfiguration()
         {
-            var basicHttpBinding = new BasicHttpBinding(BasicHttpSecurityMode.TransportWithMessageCredential);
-            //basicHttpBinding.Security.Transport.ClientCredentialType = HttpClientCredentialType.Certificate;
-            string URL = "https://localhost:9090/H970live/services/Configuration";
-            EndpointAddress endpoint = new EndpointAddress(URL);
-            var locator =
-                new ConfigurationService.AirbusConfigurationWebServiceClient();
+            var webserviceClient =
+                new AirbusConfigurationWebServiceClient();
 
-            //locator.ClientCredentials.UserName.UserName = "dane.leube@cas.de";
-            //locator.ClientCredentials.UserName.Password = "";
-           
-           
             try
             {
-                var result = await locator.checkAircraftValidityAsync(new string[] {"N-0001", "N-0002"},
-                                                                      "/SA/02/12/Net flight path");
-                if(result.checkAircraftValidityReturn != null)
-                {
-                    var i = 0;
-                }
+                var result = await webserviceClient.getConfigurationResultAsync(new string[] { "N-2213", "N-3065", "N-2228", "N-2456", "N-2716" },
+                                                                      "CN22.00.998-01");
+                var test = result.getConfigurationResultReturn;
             }
             catch (Exception e)
             {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e12f6fad-99b4-41b8-bdf4-17bfe5e03fee" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ee5ce826-2107-4110-90c2-2ea284f6b8da" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -9,7 +9,9 @@
     <GenerateInternalTypes>false</GenerateInternalTypes>
     <GenerateMessageContracts>false</GenerateMessageContracts>
     <NamespaceMappings />
-    <CollectionMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
     <GenerateSerializableTypes>false</GenerateSerializableTypes>
     <Serializer>Auto</Serializer>
     <UseSerializerForFaults>false</UseSerializerForFaults>
@@ -19,10 +21,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8080/H970sandbox/services/Configuration?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:8080/H970live/services/Configuration?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Configuration.wsdl" MetadataType="Wsdl" ID="d8b6f017-9e1a-43e6-a340-ba06c0430c4a" SourceId="1" SourceUrl="http://localhost:8080/H970sandbox/services/Configuration?wsdl" />
+    <MetadataFile FileName="Configuration.wsdl" MetadataType="Wsdl" ID="012eb4f5-7e12-4409-a344-eb5bd13b3a21" SourceId="1" SourceUrl="http://localhost:8080/H970live/services/Configuration?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
