@@ -20,7 +20,7 @@ namespace AirbusCatalogue.Model.Aircrafts
             var result = new List<AircraftProgramm>
                 {
                     new AircraftProgramm("N-Series", "A320-Family", BASE_PATH + "A320_transparent.png"),
-                    new AircraftProgramm("L-Series", "A340/A330", BASE_PATH + "A330_transparent.png"),
+                    new AircraftProgramm("L-Series", "A330/A340", BASE_PATH + "A330_transparent.png"),
                     new AircraftProgramm("P-Series", "A350", BASE_PATH + "A350_transparent.jpg"),
                     new AircraftProgramm("R-Series", "A380", BASE_PATH + "A380_transparent.gif")
                 };

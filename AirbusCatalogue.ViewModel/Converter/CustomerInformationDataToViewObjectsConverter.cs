@@ -2,6 +2,7 @@
 using AirbusCatalogue.Model.Customer;
 using AirbusCatalogue.ViewModel.ViewDataElements;
 using AirbusCatalogue.ViewModel.ViewDataElements.Configuration;
+using AirbusCatalogue.ViewModel.ViewDataElements.Summary;
 using AirbusCatalogue.ViewModel.ViewDataElements.Upgrades;
 
 namespace AirbusCatalogue.ViewModel.Converter

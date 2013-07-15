@@ -9,6 +9,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModel="using:AirbusCatalogue.ViewModel.ViewModel"
     xmlns:variableTemplate="using:AirbusCatalogue.VariableTemplate" xmlns:sample="using:AirbusCatalogue.Sample"
+    xmlns:command="using:AirbusCatalogue.ViewModel.Command"
     mc:Ignorable="d">
     <Page.DataContext>
         <viewModel:SummaryPageViewModel/>
@@ -27,9 +28,16 @@
             ItemsPath="TopItems"
             d:Source="{Binding AllGroups, Source={d:DesignInstance Type=sample:SampleDataSource, IsDesignTimeCreatable=True}}"/>
 
+        <variableTemplate:VariableHeader x:Key="headerSelector"
+                                         TopTemplate="{StaticResource NoGroupHeader}"
+                                         SmallTemplate="{StaticResource SummaryHeaderTemplate}"/>
         <variableTemplate:SummaryTemplateSelector x:Key="TemplateSelector" 
                                         AircraftTile="{StaticResource AircraftSelectionTemplate}"
-                                        ProgrammTile="{StaticResource AircraftProgrammTemplate}"
+                                        ProgrammTile="{StaticResource AircraftProgrammTemplateSummary}"
+                                        SelectionTile="{StaticResource AircraftUpgradeSummaryTile}"
+                                        EmptyConfigurationTile="{StaticResource EmptyConfigurationTemplate}"
+                                        ConfigurationGroupTile="{StaticResource ConfigurationGroupTemplate}"
+                                        ConfigureTile="{StaticResource ConfigureTemplate}"
                                         />
     </Page.Resources>
 
@@ -43,58 +51,19 @@
             <RowDefinition Height="140"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <Grid Grid.Row="1" Background="{StaticResource MainBackground}"/>
         
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid Grid.Row="1" Grid.ColumnSpan="2" Background="{StaticResource MainBackground}"/>
-
-        <Grid Grid.Row="1" >
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="100"/>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="100"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-
-                <StackPanel Grid.Row="1" Margin="10,0,0,0" VerticalAlignment="Center">
-                        <Button
-                            AutomationProperties.Name="Group Title"
-                            Command="{Binding SelectUpgradeCommand}"
-                            Style="{StaticResource TextPrimaryButtonStyle}" >
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="&#xE11C;" FontFamily="Segoe UI Symbol" FontSize="30" Margin="5,0,0,0"/>
-                                <TextBlock Text="upgrades" Style="{StaticResource GroupHeaderTextStyle}" />
-                                <TextBlock Text="{StaticResource ChevronGlyph}" FontFamily="Segoe UI Symbol" FontSize="50" Margin="5,-20,0,0"/>
-                            </StackPanel>
-                        </Button>
-                </StackPanel>
-                <StackPanel Margin="10,0,0,0" Grid.Row="3" VerticalAlignment="Center">
-                    <Button
-                            AutomationProperties.Name="Group Title"
-                            Command="{Binding SelectAircraftCommand}"
-                            Style="{StaticResource TextPrimaryButtonStyle}" >
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="&#xE0EB;" FontFamily="Segoe UI Symbol" FontSize="30" Margin="5,0,5,0"/>
-                            <TextBlock Text="aircrafts" Style="{StaticResource GroupHeaderTextStyle}" />
-                            <TextBlock Text="{StaticResource ChevronGlyph}" FontFamily="Segoe UI Symbol" FontSize="50" Margin="5,-20,0,0"/>
-                        </StackPanel>
-                    </Button>
-                </StackPanel>
-            </Grid>
-
         <!-- Horizontal scrolling grid used in most view states -->
         <variableTemplate:VariableTileControl
             x:Name="itemGridView"
             AutomationProperties.AutomationId="ItemGridView"
             AutomationProperties.Name="Grouped Items"
-            Grid.Column="1"
             Grid.Row="1"
             ItemsSource="{Binding Source={StaticResource groupedItemsViewSource}}"
             ItemTemplateSelector="{Binding Source={StaticResource TemplateSelector}}"
+            command:ItemClickCommand.Command="{Binding SummaryItemWasSelectedCommand}"
             SelectionMode="None"
+            IsItemClickEnabled="True"
             IsSwipeEnabled="false">
 
             <GridView.ItemsPanel>
@@ -103,14 +72,15 @@
                 </ItemsPanelTemplate>
             </GridView.ItemsPanel>
                 <GridView.GroupStyle>
-                    <GroupStyle HeaderTemplate="{StaticResource SummaryHeaderTemplate}">
+                    <GroupStyle HeaderTemplateSelector="{StaticResource headerSelector}" >
                         <GroupStyle.Panel>
                             <ItemsPanelTemplate>
-                                <VariableSizedWrapGrid ItemHeight="10" ItemWidth="10" Orientation="Vertical" Margin="0,0,0,0"/>
+                                <VariableSizedWrapGrid ItemHeight="10" ItemWidth="10" Orientation="Vertical" Margin="0,0,200,0"/>
                             </ItemsPanelTemplate>
                         </GroupStyle.Panel>
                     </GroupStyle>
                 </GridView.GroupStyle>
+   
             </variableTemplate:VariableTileControl>
 
         <!-- Vertical scrolling list only used when snapped -->
@@ -159,7 +129,7 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
-            <Grid Grid.Column="2" DataContext="{Binding Programm}">
+            <!--<Grid Grid.Column="2" DataContext="{Binding Programm}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="15"/>
                     <RowDefinition Height="50"/>
@@ -168,7 +138,7 @@
                 
                 <Image Grid.Row="2" Grid.RowSpan="3" Source="{Binding Image}" Stretch="Uniform" />
                 <TextBlock  Grid.Row="1" Text="{Binding Name}"  HorizontalAlignment="Left" FontSize="25"  Style="{StaticResource TitleTextStyle}" />
-            </Grid>
+            </Grid>-->
             <TextBlock x:Name="pageTitle" Text="{StaticResource SummaryHeadline}" Grid.Column="1" IsHitTestVisible="false" Style="{StaticResource PageHeaderTextStyle}"/>
             <Image Grid.Column="5"  Source="/Assets/airbus_logo.png" />
         </Grid>

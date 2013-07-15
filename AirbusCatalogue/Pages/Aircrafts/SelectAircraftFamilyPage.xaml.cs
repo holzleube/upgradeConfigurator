@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using AirbusCatalogue.ViewModel.ViewInterfaces.Aircraft;
 using Windows.UI.Xaml.Controls;
 
 // The Grouped Items Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234231
@@ -9,9 +10,9 @@ namespace AirbusCatalogue.Pages.Aircrafts
     /// <summary>
     /// A page that displays a grouped collection of items.
     /// </summary>
-    public sealed partial class SelectAircraftPage : AirbusCatalogue.Common.LayoutAwarePage
+    public sealed partial class SelectAircraftFamilyPage : AirbusCatalogue.Common.LayoutAwarePage, IAircraftFamilySelection
     {
-        public SelectAircraftPage()
+        public SelectAircraftFamilyPage()
         {
             this.InitializeComponent();
         }

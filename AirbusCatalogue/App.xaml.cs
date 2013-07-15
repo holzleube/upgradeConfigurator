@@ -2,6 +2,7 @@
 
 using System;
 using AirbusCatalogue.Pages;
+using AirbusCatalogue.Pages.Aircrafts;
 using AirbusCatalogue.Pages.Customer;
 using AirbusCatalogue.Pages.Upgrades;
 using AirbusCatalogue.ViewModel.Navigation;
@@ -14,7 +15,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using SelectAircraftPage = AirbusCatalogue.Pages.Aircrafts.SelectAircraftPage;
+using SelectAircraftPage = AirbusCatalogue.Pages.Aircrafts.SelectAircraftFamilyPage;
 using SelectAircraftTypePage = AirbusCatalogue.Pages.Aircrafts.SelectAircraftTypePage;
 using SelectAircraftVersionPage = AirbusCatalogue.Pages.Aircrafts.SelectAircraftVersionPage;
 using SelectUpgradeTypePage = AirbusCatalogue.Pages.Upgrades.SelectUpgradeTypePage;
@@ -40,7 +41,7 @@ namespace AirbusCatalogue
             SimpleIoc.Default.Register<IStartScreen, StartScreenPage>();
             SimpleIoc.Default.Register<ISummary, SummaryPage>();
             SimpleIoc.Default.Register<ICustomerSelection, SelectCustomerPage>();
-            SimpleIoc.Default.Register<IAircraftSelection, SelectAircraftPage>();
+            SimpleIoc.Default.Register<IAircraftFamilySelection, SelectAircraftFamilyPage>();
             SimpleIoc.Default.Register<IAircraftTypeSelection, SelectAircraftTypePage>();
             SimpleIoc.Default.Register<IAircraftVersionSelection, SelectAircraftVersionPage>();
             SimpleIoc.Default.Register<IUpgradeTypeSelection, SelectUpgradeTypePage>();

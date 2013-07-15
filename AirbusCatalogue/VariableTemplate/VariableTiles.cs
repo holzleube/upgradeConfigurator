@@ -1,6 +1,7 @@
 ﻿using AirbusCatalogue.ViewModel.ViewDataElements;
 using AirbusCatalogue.ViewModel.ViewDataElements.Configuration;
 using AirbusCatalogue.ViewModel.ViewDataElements.Customer;
+using AirbusCatalogue.ViewModel.ViewDataElements.Summary;
 using AirbusCatalogue.ViewModel.ViewDataElements.Upgrades;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;

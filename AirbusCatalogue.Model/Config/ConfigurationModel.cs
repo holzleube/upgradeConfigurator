@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AirbusCatalogue.Common.DataObjects.Aircrafts;
+using System.ServiceModel;
 using AirbusCatalogue.Common.DataObjects.Config;
-using AirbusCatalogue.Model.Aircrafts;
-using AirbusCatalogue.Model.ConfigurationData;
-using AirbusCatalogue.Model.Templates;
+using AirbusCatalogue.Model.AirbusConfigurationService;
 using GalaSoft.MvvmLight.Ioc;
+
 
 namespace AirbusCatalogue.Model.Config
 {
@@ -16,9 +11,34 @@ namespace AirbusCatalogue.Model.Config
     {
         public IConfiguration GetCurrentConfiguration()
         {
+            CheckConfiguration();
             return SimpleIoc.Default.GetInstance<IConfiguration>();
-            //var programm = new AircraftProgramm("a320", "A320", "Assets/aircrafts/a320_transparent.png");
-            //return new Configuration("config001", new List<IUpgradeItem>(),currentConfiguration.SelectedAircrafts, "today", "in Progress", currentConfiguration.Programm);
+        }
+
+        public async void CheckConfiguration()
+        {
+            var webserviceClient =
+                new AirbusConfigurationWebServiceClient();
+
+            try
+            {
+                //var newResult = await webserviceClient.checkServiceAvailabilityAsync();
+                var newResult = await webserviceClient.getAllScheduledUserjobsAsync();
+                var result = await webserviceClient.getConfigurationResultAsync(new string[] { "N-2213", "N-3065", "N-2228", "N-2456", "N-2716" },
+                                                                      "CN22.00.998-01");
+             
+                var test = result.getConfigurationResultReturn;
+            }
+            catch (Exception e)
+            {
+                
+            } 
+        }
+
+        public IConfiguration ConfigureCurrentConfiguration()
+        {
+            CheckConfiguration();
+            return null;
         }
     }
 }

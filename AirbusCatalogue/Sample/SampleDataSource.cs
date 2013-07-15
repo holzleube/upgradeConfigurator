@@ -6,6 +6,8 @@ using System.Linq;
 using AirbusCatalogue.Common.DataObjects.Upgrades;
 using AirbusCatalogue.ViewModel.Templates;
 using AirbusCatalogue.ViewModel.ViewDataElements;
+using AirbusCatalogue.ViewModel.ViewDataElements.Aircraft;
+using AirbusCatalogue.ViewModel.ViewDataElements.Summary;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 
@@ -415,8 +417,16 @@ namespace AirbusCatalogue.Sample
             //            "Item Description: Pellentesque porta, mauris quis interdum vehicula, urna sapien ultrices velit, nec venenatis dui odio in augue. Cras posuere, enim a cursus convallis, neque turpis malesuada erat, ut adipiscing neque tortor ac erat.",
             //            ITEM_CONTENT,
             //            group1) { Date = "Nov.25.2011", Sub = "CNN has multiple crews in Gaza, Israel and neighboring" });
-            this.AllGroups.Add(group1);
-
+            
+            
+            var group = new HubDataGroup("aircraft programm goup");
+            var aircraftProgramm = new AircraftProgrammDataItem(group, 60, 60);
+            var aircraftSelection = new SummarySelectionDataItem("aircraftSelection", "Select aircrafts", "E0EB", group, 0);
+            var upgradeSelection = new SummarySelectionDataItem("aircraftSelection", "Select aircrafts", "", group,1);
+            group.Items.Add(aircraftProgramm);
+            group.Items.Add(aircraftSelection);
+            group.Items.Add(upgradeSelection);
+            this.AllGroups.Add(group);
             //var group2 = new SampleDataGroup("Group-2",
             //        "Group Title: 2",
             //        "Group Subtitle: 2",
