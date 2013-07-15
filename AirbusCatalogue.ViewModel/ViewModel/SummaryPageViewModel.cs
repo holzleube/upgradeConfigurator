@@ -27,6 +27,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel
         private const string FamilySelectionId = "familySelection";
         private readonly ConfigurationModel _model;
         private ICommand _summaryItemWasSelectedCommand;
+        private bool _isProgressBarVisible =false;
 
         public IConfiguration Configuration { get; set; }
 
@@ -38,8 +39,22 @@ namespace AirbusCatalogue.ViewModel.ViewModel
             
         }
 
+        public bool IsProgressBarVisible
+        {
+            get { return _isProgressBarVisible; }
+            set 
+            { 
+                _isProgressBarVisible = value;
+                OnPropertyChanged();
+            }
+        }
+
         private void InitializeDataGrid()
         {
+            IsProgressBarVisible = true;
+            var configurationGroup = GetEmptyConfigurationGroup();
+            configurationGroup.Items.Add(new ConfigureDataItem(configurationGroup));
+            DataGroupElements.Add(configurationGroup);
             Configuration = _model.GetCurrentConfiguration();
             AddAircraftProgramm(Configuration.Programm);
             AddConfigurationGroup();
@@ -48,10 +63,41 @@ namespace AirbusCatalogue.ViewModel.ViewModel
 
         private void AddConfigurationGroup()
         {
-            var configurationGroup = new SummaryConfigurationGroup("Configuration", "\uE11C");
-            var configurationItem = new NoConfigurationDataItem(configurationGroup);
-            configurationGroup.Items.Add(configurationItem);
+            var emptyConfigurationGroup = GetEmptyConfigurationGroup();
+
+            var configurationGroup = GetRightConfigurationStateItem(emptyConfigurationGroup);
             DataGroupElements.Add(configurationGroup);
+        }
+
+        private static SummaryConfigurationGroup GetEmptyConfigurationGroup()
+        {
+            return new SummaryConfigurationGroup("Configuration", "\uE11C");
+        }
+
+        private DataGroup GetRightConfigurationStateItem(DataGroup group)
+        {
+            if (Configuration.SelectedAircrafts.Count > 0 && Configuration.Upgrades.Count > 0)
+            {
+                return CalculateConfigurationAndGetConfigurationGroup(group);
+            }
+            group.Items.Add(new IncompleteConfigurationDataItem(group));
+            return group;
+        }
+
+        private DataGroup CalculateConfigurationAndGetConfigurationGroup(DataGroup group)
+        {
+            IsProgressBarVisible = true;
+            
+            if (Configuration.HasConfigurationChanged)
+            {
+                Configuration = _model.ConfigureCurrentConfiguration();
+            }
+            foreach (var configuration in Configuration.ConfigurationGroups)
+            {
+                group.Items.Add(new ConfigurationGroupDataItem(configuration, group));
+            }
+            IsProgressBarVisible = false;
+            return group;
         }
 
         private void AddAircraftProgramm(IAircraftProgramm programm)

@@ -124,7 +124,8 @@
     <Compile Include="ViewDataElements\DataGroup.cs" />
     <Compile Include="ViewDataElements\HubPageDataItem.cs" />
     <Compile Include="ViewDataElements\SampleDataSource.cs" />
-    <Compile Include="ViewDataElements\Summary\NoConfigurationDataItem.cs" />
+    <Compile Include="ViewDataElements\Summary\ConfigurationGroupDataItem.cs" />
+    <Compile Include="ViewDataElements\Summary\IncompleteConfigurationDataItem.cs" />
     <Compile Include="ViewDataElements\Summary\SummaryConfigurationGroup.cs" />
     <Compile Include="ViewDataElements\Summary\SummarySelectionDataItem.cs" />
     <Compile Include="ViewDataElements\Upgrades\NewUpgradeBigDataItem.cs" />

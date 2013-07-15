@@ -329,6 +329,28 @@
         </Setter>
     </Style>
 
+    <Style x:Key="TopAppBarButtonStyle3" TargetType="ButtonBase">
+        <Setter Property="Foreground" Value="{StaticResource AppBarItemForegroundThemeBrush}"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="FontFamily" Value="Segoe UI Symbol"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="FontSize" Value="90"/>
+        <Setter Property="AutomationProperties.ItemType" Value="App Bar Button"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ButtonBase">
+                    <Grid x:Name="RootGrid">
+                        
+                            <Grid Width="150" Height="150" Margin="0,0,0,0" HorizontalAlignment="Center">
+                                <ContentPresenter x:Name="Content" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+                        
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     
 
 

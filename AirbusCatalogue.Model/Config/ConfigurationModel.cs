@@ -31,5 +31,11 @@ namespace AirbusCatalogue.Model.Config
                 
             } 
         }
+
+        public IConfiguration ConfigureCurrentConfiguration()
+        {
+            CheckConfiguration();
+            return null;
+        }
     }
 }

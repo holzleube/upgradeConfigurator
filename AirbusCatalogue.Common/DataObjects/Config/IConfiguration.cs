@@ -19,5 +19,9 @@ namespace AirbusCatalogue.Common.DataObjects.Config
         IAircraftProgramm Programm { get; set; }
 
         ICustomer ConfigurationCustomer { get; set; }
+
+        List<IConfigurationGroup> ConfigurationGroups { get; set; }
+
+        bool HasConfigurationChanged { get; set; }
     }
 }

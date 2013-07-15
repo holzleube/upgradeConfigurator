@@ -36,6 +36,9 @@ namespace AirbusCatalogue.Model.ConfigurationData
 
         public ICustomer ConfigurationCustomer { get; set; }
 
+        public List<IConfigurationGroup> ConfigurationGroups { get; set; }
+
+        public bool HasConfigurationChanged { get; set; }
         
     }
 }
