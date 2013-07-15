@@ -81,17 +81,16 @@ namespace AirbusCatalogue.ViewModel.ViewModel
 
         private DataGroup GetRightConfigurationStateItem(DataGroup group)
         {
-            if (Configuration.SelectedAircrafts.Count > 0 && Configuration.Upgrades.Count > 0)
-            {
-                return CalculateConfigurationAndGetConfigurationGroup(group);
-            }
-            group.Items.Add(new IncompleteConfigurationDataItem(group));
-            return group;
+            return CalculateConfigurationAndGetConfigurationGroup(@group);
+            //if (Configuration.SelectedAircrafts.Count > 0 && Configuration.Upgrades.Count > 0)
+            //{
+            //}
+            //group.Items.Add(new IncompleteConfigurationDataItem(group));
+            //return group;
         }
 
         private DataGroup CalculateConfigurationAndGetConfigurationGroup(DataGroup group)
         {
-            IsProgressBarVisible = true;
             
             if (Configuration.HasConfigurationChanged)
             {
@@ -101,7 +100,6 @@ namespace AirbusCatalogue.ViewModel.ViewModel
             {
                 group.Items.Add(new ConfigurationGroupDataItem(configuration, group));
             }
-            IsProgressBarVisible = false;
             return group;
         }
 

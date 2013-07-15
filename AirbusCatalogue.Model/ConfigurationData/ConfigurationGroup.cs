@@ -8,8 +8,17 @@ using AirbusCatalogue.Common.DataObjects.Config;
 
 namespace AirbusCatalogue.Model.ConfigurationData
 {
-    public class ConfigurationGroup:IConfigurationGroup
+    public class ConfigurationGroup : IConfigurationGroup
     {
+        public ConfigurationGroup(string name, IUpgradeAlternative selectedAlternative, List<IUpgradeAlternative> alternatives, List<IAircraft> aircrafts, string uniqueId)
+        {
+            Name = name;
+            SelectedAlternative = selectedAlternative;
+            Alternatives = alternatives;
+            Aircrafts = aircrafts;
+            UniqueId = uniqueId;
+        }
+
         public string UniqueId { get; set; }
         public List<IAircraft> Aircrafts { get; set; }
         public List<IUpgradeAlternative> Alternatives { get; set; }

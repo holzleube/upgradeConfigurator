@@ -113,6 +113,7 @@ namespace AirbusCatalogue.Model.Upgrades
         {
             var currentConfiguration = GetCurrentConfiguration();
             currentConfiguration.Upgrades.Add(upgradeItem);
+            currentConfiguration.HasConfigurationChanged = true;
         }
 
         public void SelectUpgradeItem(List<IUpgradeItem> selectedUpgradeItems)
@@ -122,6 +123,7 @@ namespace AirbusCatalogue.Model.Upgrades
             {
                 currentConfiguration.Upgrades.Add(selectedUpgradeItem);
             }
+            currentConfiguration.HasConfigurationChanged = true;
             
         }
 

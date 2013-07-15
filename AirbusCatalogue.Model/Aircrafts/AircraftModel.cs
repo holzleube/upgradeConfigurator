@@ -112,6 +112,7 @@ namespace AirbusCatalogue.Model.Aircrafts
         {
             var configuration = GetCurrentConfiguration();
             configuration.SelectedAircrafts = aircrafts;
+            configuration.HasConfigurationChanged = true;
         }
 
         public IAircraftBase GetCurrentAircraftProgramm()
