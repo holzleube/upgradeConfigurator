@@ -121,7 +121,7 @@ namespace AirbusCatalogue.Model.AirbusConfigurationService {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=0)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("alternatives", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
         public ConfigurationAlternativeTransferable[] alternatives {
             get {
                 return this.alternativesField;

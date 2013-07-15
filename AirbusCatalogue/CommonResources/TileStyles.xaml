@@ -15,6 +15,7 @@
     <!-- Non-brush values that vary across themes -->
 
     <Brush x:Key="TileBackground">WhiteSmoke</Brush>
+    <SolidColorBrush x:Key="airbusBlue" Color="#FF072F78"/>
 
     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="MainBackground">
             <GradientStop Color="White"/>
@@ -135,7 +136,7 @@
                     <RowDefinition Height="120"/>
                 </Grid.RowDefinitions>
                 <Image HorizontalAlignment="Left" Margin="5" VerticalAlignment="Center" Source="{Binding Image}" Stretch="Uniform"/>
-                <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Background="{StaticResource ListViewItemOverlayBackgroundThemeBrush}">
+                <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Background="{StaticResource airbusBlue}">
                     <TextBlock Text="{Binding Title}" HorizontalAlignment="Center" FontSize="50" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource GroupHeaderTextStyle}" Margin="20"/>
                 </StackPanel>
             </Grid>
@@ -146,7 +147,7 @@
         <Border BorderBrush="Black" BorderThickness="1" Background="{StaticResource TileBackground}">
         <Grid HorizontalAlignment="Left" Width="250" Height="150">
                 <Image Source="{Binding Image}" VerticalAlignment="Top" Stretch="Uniform" AutomationProperties.Name="{Binding Title}"/>
-            <StackPanel VerticalAlignment="Bottom" Background="{StaticResource ListViewItemOverlayBackgroundThemeBrush}">
+            <StackPanel VerticalAlignment="Bottom" Background="{StaticResource airbusBlue}">
                 <TextBlock Text="{Binding Title}" FontSize="25" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextStyle}" Height="40" Margin="15,0,15,0"/>
             </StackPanel>
         </Grid>
@@ -191,7 +192,7 @@
                 <TextBlock VerticalAlignment="Center" Margin="5" Text="{Binding Description}" Grid.Column="1" FontSize="20"  Style="{StaticResource TitleTextStyle}"  />
                 <Button Grid.Row="1" Content="STD" FontSize="40" Visibility="{Binding IsDefault, Converter={StaticResource booleanToVisibilityConverter}}" VerticalAlignment="Bottom" Grid.Column="1" Background="DeepSkyBlue" HorizontalAlignment="Right"/>
             </Grid>
-            <StackPanel Grid.Row="2" VerticalAlignment="Bottom" Background="{StaticResource ListViewItemOverlayBackgroundThemeBrush}">
+            <StackPanel Grid.Row="2" VerticalAlignment="Bottom" Background="{StaticResource airbusBlue}">
                 <TextBlock Text="{Binding Name}" FontSize="25" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextStyle}" Height="60" Margin="15,0,15,0"/>
             </StackPanel>
         </Grid>
@@ -245,7 +246,7 @@
         <Border BorderBrush="Black" BorderThickness="2">
         <Grid HorizontalAlignment="Center" Width="150" Height="130" Background="{StaticResource TileBackground}">
             <Image Source="{Binding Image}" Stretch="Uniform" AutomationProperties.Name="{Binding Title}"/>
-            <StackPanel VerticalAlignment="Bottom" Background="{StaticResource ListViewItemOverlayBackgroundThemeBrush}">
+            <StackPanel VerticalAlignment="Bottom" Background="{StaticResource airbusBlue}">
                 <TextBlock Text="{Binding Title}"  Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" FontSize="18" Style="{StaticResource TitleTextStyle}" Height="30" Margin="15,0,15,0"/>
             </StackPanel>
         </Grid>
@@ -579,6 +580,7 @@
     		</Setter.Value>
     	</Setter>
     </Style>
+ 
 
 
 

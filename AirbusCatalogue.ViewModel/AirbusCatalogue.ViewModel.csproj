@@ -125,6 +125,7 @@
     <Compile Include="ViewDataElements\HubPageDataItem.cs" />
     <Compile Include="ViewDataElements\SampleDataSource.cs" />
     <Compile Include="ViewDataElements\Summary\ConfigurationGroupDataItem.cs" />
+    <Compile Include="ViewDataElements\Summary\ConfigureDataItem.cs" />
     <Compile Include="ViewDataElements\Summary\IncompleteConfigurationDataItem.cs" />
     <Compile Include="ViewDataElements\Summary\SummaryConfigurationGroup.cs" />
     <Compile Include="ViewDataElements\Summary\SummarySelectionDataItem.cs" />

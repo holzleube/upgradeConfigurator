@@ -19,6 +19,7 @@ namespace AirbusCatalogue.VariableTemplate
         public DataTemplate ConfigurationTile { get; set; }
         public DataTemplate EmptyConfigurationTile { get; set; }
         public DataTemplate ConfigurationGroupTile { get; set; }
+        public DataTemplate ConfigureTile { get; set; }
 
         protected override DataTemplate SelectTemplateCore(object item, DependencyObject container)
         {
@@ -46,6 +47,10 @@ namespace AirbusCatalogue.VariableTemplate
             if (item.GetType() == typeof(ConfigurationGroupDataItem))
             {
                 return ConfigurationGroupTile;
+            }
+            if (item.GetType() == typeof(ConfigureDataItem))
+            {
+                return ConfigureTile;
             }
             return base.SelectTemplateCore(item, container);
 

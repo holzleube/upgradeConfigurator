@@ -22,8 +22,11 @@ namespace AirbusCatalogue.Model.Config
 
             try
             {
+                //var newResult = await webserviceClient.checkServiceAvailabilityAsync();
+                var newResult = await webserviceClient.getAllScheduledUserjobsAsync();
                 var result = await webserviceClient.getConfigurationResultAsync(new string[] { "N-2213", "N-3065", "N-2228", "N-2456", "N-2716" },
                                                                       "CN22.00.998-01");
+             
                 var test = result.getConfigurationResultReturn;
             }
             catch (Exception e)

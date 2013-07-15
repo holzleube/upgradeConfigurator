@@ -37,6 +37,7 @@
                                         SelectionTile="{StaticResource AircraftUpgradeSummaryTile}"
                                         EmptyConfigurationTile="{StaticResource EmptyConfigurationTemplate}"
                                         ConfigurationGroupTile="{StaticResource ConfigurationGroupTemplate}"
+                                        ConfigureTile="{StaticResource ConfigureTemplate}"
                                         />
     </Page.Resources>
 
@@ -116,7 +117,7 @@
             </ListView.GroupStyle>
         </ListView>
 
-        <ProgressRing HorizontalAlignment="Center" Grid.Row="1" Width="150" Height="150" IsActive="{Binding IsProgressBarVisible, Mode=TwoWay}" Style="{StaticResource AircraftProgressStyle}"/>
+        
         <!-- Back button and page title -->
         <Grid Grid.Row="0" ColumnSpan="2" DataContext="{Binding Configuration}">
             <Grid.ColumnDefinitions>

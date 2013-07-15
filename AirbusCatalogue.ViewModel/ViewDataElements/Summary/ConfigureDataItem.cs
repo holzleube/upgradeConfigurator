@@ -12,7 +12,7 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements.Summary
     /// </summary>
     public class ConfigureDataItem: BasicDataItem
     {
-        public ConfigureDataItem(DataGroup @group) : base("configureDataItem", "configure", "", @group, 55, 40)
+        public ConfigureDataItem(DataGroup @group) : base("configureDataItem", "configure...", "", @group, 55, 40)
         {
         }
     }

@@ -206,7 +206,7 @@
                         <StackPanel x:Name="itemDetailTitlePanel" Grid.Row="1" Grid.Column="1">
                             <TextBlock x:Name="itemSubtitle" Margin="0,0,0,20" Text="{Binding Subtitle}" Style="{StaticResource SubtitleTextStyle}"/>
                         </StackPanel>
-                        <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Margin="0,20,0,0" Text="{Binding Content}" Style="{StaticResource BodyTextStyle}"/>
+                        <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Margin="0,20,0,0" Text="{Binding Content}" Style="{StaticResource BodyTextStyle}" Foreground="{StaticResource airbusBlue}"/>
             </Grid>
             </StackPanel>
 

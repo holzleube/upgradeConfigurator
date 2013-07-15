@@ -51,14 +51,19 @@ namespace AirbusCatalogue.ViewModel.ViewModel
 
         private void InitializeDataGrid()
         {
+            Configuration = _model.GetCurrentConfiguration();
+            AddAircraftProgramm(Configuration.Programm);
+            AddConfigurationInProgressTile();
+            AddConfigurationGroup();
+            AddAircraftGroup(Configuration.SelectedAircrafts);
+        }
+
+        private void AddConfigurationInProgressTile()
+        {
             IsProgressBarVisible = true;
             var configurationGroup = GetEmptyConfigurationGroup();
             configurationGroup.Items.Add(new ConfigureDataItem(configurationGroup));
             DataGroupElements.Add(configurationGroup);
-            Configuration = _model.GetCurrentConfiguration();
-            AddAircraftProgramm(Configuration.Programm);
-            AddConfigurationGroup();
-            AddAircraftGroup(Configuration.SelectedAircrafts);
         }
 
         private void AddConfigurationGroup()
