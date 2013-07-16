@@ -3,6 +3,8 @@ using AirbusCatalogue.Common.DataObjects.Aircrafts;
 using AirbusCatalogue.Common.DataObjects.Customers;
 using AirbusCatalogue.Common.DataObjects.General;
 using AirbusCatalogue.Common.DataObjects.Upgrades;
+using Windows.UI;
+using Windows.UI.Xaml.Media;
 
 namespace AirbusCatalogue.Common.DataObjects.Config
 {
@@ -10,7 +12,7 @@ namespace AirbusCatalogue.Common.DataObjects.Config
     {
         string ConfigurationDate { get; set; }
 
-        string State { get; set; }
+        ConfigurationState State { get; set; }
 
         List<IAircraft> SelectedAircrafts { get; set; }
 
@@ -24,4 +26,6 @@ namespace AirbusCatalogue.Common.DataObjects.Config
 
         bool HasConfigurationChanged { get; set; }
     }
+
+    
 }

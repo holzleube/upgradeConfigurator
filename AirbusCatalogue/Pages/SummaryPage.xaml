@@ -60,11 +60,12 @@
             AutomationProperties.Name="Grouped Items"
             Grid.Row="1"
             ItemsSource="{Binding Source={StaticResource groupedItemsViewSource}}"
-            ItemTemplateSelector="{Binding Source={StaticResource TemplateSelector}}"
             command:ItemClickCommand.Command="{Binding SummaryItemWasSelectedCommand}"
             SelectionMode="None"
             IsItemClickEnabled="True"
-            IsSwipeEnabled="false">
+            IsSwipeEnabled="false" 
+            ItemTemplateSelector="{StaticResource TemplateSelector}"
+            >
 
             <GridView.ItemsPanel>
                 <ItemsPanelTemplate>                        

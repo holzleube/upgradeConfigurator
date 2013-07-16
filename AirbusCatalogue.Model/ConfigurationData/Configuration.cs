@@ -14,7 +14,7 @@ namespace AirbusCatalogue.Model.ConfigurationData
     public class Configuration : Identable,IConfiguration
     {
         
-        public Configuration(string uniqueId, List<IUpgradeItem> upgrades, List<IAircraft> aircrafts, string configurationDate, string state, IAircraftProgramm programm): base(uniqueId)
+        public Configuration(string uniqueId, List<IUpgradeItem> upgrades, List<IAircraft> aircrafts, string configurationDate, ConfigurationState state, IAircraftProgramm programm): base(uniqueId)
         {
             SelectedAircrafts = aircrafts;
             Upgrades = upgrades;
@@ -26,7 +26,7 @@ namespace AirbusCatalogue.Model.ConfigurationData
 
         public string ConfigurationDate { get; set; }
 
-        public string State { get; set; }
+        public ConfigurationState State { get; set; }
 
         public List<IAircraft> SelectedAircrafts { get; set; }
 

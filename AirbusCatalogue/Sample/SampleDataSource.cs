@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Linq;
+using AirbusCatalogue.Common.DataObjects.Aircrafts;
+using AirbusCatalogue.Common.DataObjects.Config;
 using AirbusCatalogue.Common.DataObjects.Upgrades;
 using AirbusCatalogue.ViewModel.Templates;
 using AirbusCatalogue.ViewModel.ViewDataElements;
 using AirbusCatalogue.ViewModel.ViewDataElements.Aircraft;
+using AirbusCatalogue.ViewModel.ViewDataElements.Configuration;
 using AirbusCatalogue.ViewModel.ViewDataElements.Summary;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
@@ -426,6 +429,8 @@ namespace AirbusCatalogue.Sample
             group.Items.Add(aircraftProgramm);
             group.Items.Add(aircraftSelection);
             group.Items.Add(upgradeSelection);
+            var newGroup = new ConfigurationGroup("confGroup1", "Group 1", "");
+            
             this.AllGroups.Add(group);
             //var group2 = new SampleDataGroup("Group-2",
             //        "Group Title: 2",

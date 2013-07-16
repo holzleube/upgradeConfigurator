@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Threading.Tasks;
 using AirbusCatalogue.Common.DataObjects.Aircrafts;
 using AirbusCatalogue.Common.DataObjects.Config;
 using AirbusCatalogue.Model.AirbusConfigurationService;
@@ -36,11 +38,26 @@ namespace AirbusCatalogue.Model.Config
             } 
         }
 
-        public IConfiguration ConfigureCurrentConfiguration()
+        public async Task<IConfiguration> ConfigureCurrentConfiguration()
         {
+            await Task.Delay(TimeSpan.FromSeconds(3));
             var config = SimpleIoc.Default.GetInstance<IConfiguration>();
-            config.ConfigurationGroups.Add(new ConfigurationGroup("Group 1",null, new List<IUpgradeAlternative>(),new List<IAircraft>(), "confGroup1" ));
-            config.ConfigurationGroups.Add(new ConfigurationGroup("Group 2",null, new List<IUpgradeAlternative>(),new List<IAircraft>(), "confGroup1" ));
+            config.ConfigurationGroups.Clear();
+            config.HasConfigurationChanged = false;
+            var upgrades = new List<IUpgradeAlternative>() {new UpgradeAlternative(config.Upgrades)};
+            ConfigurationGroup currentGroup = null;
+            var counter = 0;
+            foreach (var aircraft in config.SelectedAircrafts)
+            {
+                if (counter%3 == 0)
+                {
+                    int groupNumber = counter/3 + 1;
+                    currentGroup = new ConfigurationGroup("Group "+groupNumber, null, upgrades, new List<IAircraft>(), "confGroup"+groupNumber);
+                    config.ConfigurationGroups.Add(currentGroup);
+                }
+                currentGroup.Aircrafts.Add(aircraft);
+                counter++;
+            }
             return config;
         }
     }

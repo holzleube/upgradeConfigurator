@@ -4,12 +4,11 @@ using AirbusCatalogue.Common.DataObjects.General;
 
 namespace AirbusCatalogue.Common.DataObjects.Config
 {
-    public interface IConfigurationGroup:IIdentable, INameable
+    public interface IConfigurationGroup : IIdentable, INameable
     {
         List<IAircraft> Aircrafts { get; set; }
-
         List<IUpgradeAlternative> Alternatives { get; set; }
-
         IUpgradeAlternative SelectedAlternative { get; set; }
+        ConfigurationState GroupConfigurationState { get; set; }
     }
 }

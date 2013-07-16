@@ -27,7 +27,7 @@ namespace AirbusCatalogue.Model.Customer
             if (! SimpleIoc.Default.IsRegistered<IConfiguration>())
             {
                 var configuration = new Configuration("id", new List<IUpgradeItem>(), new List<IAircraft>(),
-                                                      System.DateTime.Now.ToString(), "In Progress", null);
+                                                      System.DateTime.Now.ToString(), ConfigurationState.IN_PROGRESS, null);
                 SimpleIoc.Default.Register<IConfiguration>(() => configuration);
             }
         }
@@ -82,12 +82,12 @@ namespace AirbusCatalogue.Model.Customer
                 };
             var lastConfigurations = new List<ConfigurationData.Configuration>
                 {
-                    new Configuration("configuration1",upgrades, aircrafts, "16.03.2013", "In Progress", programms[2]),
-                    new Configuration("configuration2",upgrades, aircrafts, "16.01.2013","In Progress", programms[0]),
-                    new Configuration("configuration3",upgrades, aircrafts,  "13.03.2012", "Delivered", programms[0]),
-                    new Configuration("configuration4",upgrades, aircrafts,  "11.09.2010","Delivered",  programms[0]),
-                    new Configuration("configuration5",upgrades, aircrafts,  "08.03.2010","Delivered",  programms[3]),
-                    new Configuration("configuration6",upgrades, aircrafts,  "01.08.2009","Delivered",  programms[3])
+                    new Configuration("configuration1",upgrades, aircrafts, "16.03.2013", ConfigurationState.IN_PROGRESS, programms[2]),
+                    new Configuration("configuration2",upgrades, aircrafts, "16.01.2013",ConfigurationState.IN_PROGRESS, programms[0]),
+                    new Configuration("configuration3",upgrades, aircrafts,  "13.03.2012", ConfigurationState.DELIVERED, programms[0]),
+                    new Configuration("configuration4",upgrades, aircrafts,  "11.09.2010",ConfigurationState.DELIVERED,  programms[0]),
+                    new Configuration("configuration5",upgrades, aircrafts,  "08.03.2010",ConfigurationState.DELIVERED,  programms[3]),
+                    new Configuration("configuration6",upgrades, aircrafts,  "01.08.2009",ConfigurationState.DELIVERED,  programms[3])
                 };
             return lastConfigurations;
         }

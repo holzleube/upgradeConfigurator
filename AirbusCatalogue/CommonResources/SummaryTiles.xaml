@@ -66,35 +66,50 @@
         <Border BorderBrush="Black" BorderThickness="1" Padding="1" >
             <Grid Width="400" Height="550" Background="{StaticResource TileBackground}">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+					<RowDefinition Height="auto"/>
+                    <RowDefinition/>
+                    <RowDefinition/>
                     <RowDefinition Height="150"/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="{Binding Title}" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="30" Foreground="Black" Style="{StaticResource GroupHeaderTextStyle}" />
-                <StackPanel Orientation="Horizontal" Grid.Row="1">
-                    <Button x:Name="AircraftButton" Content="{StaticResource AircraftIcon}" 
-                            Width="100"
-                            Height="100"
-                            Style="{StaticResource SummaryPageButtonStyle}"
-                            Margin="5"
-                            FontSize="40"
+                <TextBlock Text="{Binding Path=ConfigurationState.ConfiguationStateIconValue}" Grid.RowSpan="2" Foreground="Black" FontFamily="Segoe UI Symbol" FontSize="30" Width="60" HorizontalAlignment="Right" Margin="5" />
+                <TextBlock TextWrapping="Wrap" Grid.Row="1" HorizontalAlignment="Center" FontSize="40" Foreground="Black" Style="{StaticResource GroupHeaderTextStyle}" 
+                           Text="{Binding Title}"  Width="150" />
+            	<StackPanel Orientation="Horizontal" Grid.Row="2">
+            		<Button x:Name="AircraftButton" Content="{StaticResource AircraftIcon}" 
+            			Width="100"
+            			Height="100"
+            			Style="{StaticResource TopAppBarButtonStyle}"
+            			Margin="5"
+            			FontSize="60" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}"
                              />
-                    <TextBlock Text="Count: 6" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="30" Foreground="Black" Style="{StaticResource GroupHeaderTextStyle}" />
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Grid.Row="2">
-                    <Button  x:Name="UpgradeButton" Content="{StaticResource UpgradeIcon}" 
-                            Width="100"
-                            Height="100"
-                            Style="{StaticResource SummaryPageButtonStyle}"
-                            Margin="5"
-                             FontSize="40"
-                              />
-                    <TextBlock Text="Count: 6" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="30" Foreground="Black" Style="{StaticResource GroupHeaderTextStyle}" />
-                </StackPanel>
-                <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Height="10" VerticalAlignment="Bottom" Background="{StaticResource airbusBlue}">
-                    <TextBlock Text="{Binding Title}" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="25" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource GroupHeaderTextStyle}" Margin="20"/>
-                </StackPanel>
+            		<TextBlock Text="{Binding AircraftCount}" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="30" Foreground="Black" Style="{StaticResource GroupHeaderTextStyle}" Margin="0" VerticalAlignment="Center" Padding="40,0,0,0" />
+            	</StackPanel>
+            	<StackPanel Orientation="Horizontal" Grid.Row="3">
+            		<Button  x:Name="UpgradeButton" Content="{StaticResource UpgradeIcon}" 
+            			Width="100"
+            			Height="100"
+            			Style="{StaticResource TopAppBarButtonStyle}"
+            			Margin="5"
+            			FontSize="60" IsHitTestVisible="False" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}"
+                 />
+            		<TextBlock Text="{Binding UpgradeCount}" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="30" Foreground="Black" Style="{StaticResource GroupHeaderTextStyle}" Margin="0" VerticalAlignment="Center" Padding="40,0,0,0" />
+            	</StackPanel>
+                <StackPanel Grid.Row="4" Height="150" VerticalAlignment="Bottom" Background="{Binding Path=ConfigurationState.ConfiguationStateColor}">
+                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Left" FontSize="20" Style="{StaticResource GroupHeaderTextStyle}" Margin="5" Text="{Binding Path=ConfigurationState.ConfiguationStateText}" RenderTransformOrigin="-0.388,0.567" Height="90" />
+            		<StackPanel Height="50" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                        <TextBlock TextWrapping="Wrap" 
+                                   VerticalAlignment="Center" HorizontalAlignment="Center" 
+                                   FontSize="30" Foreground="Black" Style="{StaticResource GroupHeaderTextStyle}" 
+                                   Height="50"
+                                   Text="{Binding Path=ConfigurationState.ConfiguationStateEditText}"/>
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" 
+                                   Text="{StaticResource ChevronGlyph}" 
+                                   Foreground="Black" FontFamily="Segoe UI Symbol" FontSize="30" 
+                                   Width="21" Margin="5"
+                                   Height="50"/>
+            		</StackPanel>
+            	</StackPanel>
             </Grid>
         </Border>
     </DataTemplate>

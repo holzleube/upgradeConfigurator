@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using AirbusCatalogue.Common.DataObjects.Aircrafts;
 using AirbusCatalogue.Common.DataObjects.Config;
@@ -24,83 +26,75 @@ namespace AirbusCatalogue.ViewModel.ViewModel
     {
         private const string UpgradeSelectionId = "upgradeSelection";
         private const string AircraftSelectionId = "aircraftSelection";
-        private const string FamilySelectionId = "familySelection";
         private readonly ConfigurationModel _model;
         private ICommand _summaryItemWasSelectedCommand;
-        private bool _isProgressBarVisible =false;
 
         public IConfiguration Configuration { get; set; }
 
-
         public SummaryPageViewModel()
         {
-            _model = new ConfigurationModel();
-            InitializeDataGrid();
-            
-        }
-
-        public bool IsProgressBarVisible
-        {
-            get { return _isProgressBarVisible; }
-            set 
-            { 
-                _isProgressBarVisible = value;
-                OnPropertyChanged();
-            }
+            _model = new ConfigurationModel();  
         }
 
         private void InitializeDataGrid()
         {
             Configuration = _model.GetCurrentConfiguration();
             AddAircraftProgramm(Configuration.Programm);
-            AddConfigurationInProgressTile();
             AddConfigurationGroup();
-            AddAircraftGroup(Configuration.SelectedAircrafts);
         }
 
         private void AddConfigurationInProgressTile()
         {
-            IsProgressBarVisible = true;
-            var configurationGroup = GetEmptyConfigurationGroup();
+            var configurationGroup = GetConfigurationGroup();
+            configurationGroup.Items.Clear();
             configurationGroup.Items.Add(new ConfigureDataItem(configurationGroup));
-            DataGroupElements.Add(configurationGroup);
         }
 
         private void AddConfigurationGroup()
         {
-            var emptyConfigurationGroup = GetEmptyConfigurationGroup();
+            SetRightConfigurationStateItem();
+        }
 
-            var configurationGroup = GetRightConfigurationStateItem(emptyConfigurationGroup);
+        private DataGroup GetConfigurationGroup()
+        {
+            foreach (var summaryPageGroup in DataGroupElements)
+            {
+                var group = summaryPageGroup as SummaryConfigurationGroup;
+                if (group != null)
+                {
+                    return group;
+                }
+            }
+            var configurationGroup = new SummaryConfigurationGroup("Configuration", "\uE15E");
             DataGroupElements.Add(configurationGroup);
+            return configurationGroup;
         }
 
-        private static SummaryConfigurationGroup GetEmptyConfigurationGroup()
+        private void SetRightConfigurationStateItem()
         {
-            return new SummaryConfigurationGroup("Configuration", "\uE11C");
+            var group = GetConfigurationGroup();
+            if (Configuration.SelectedAircrafts.Count > 0 && Configuration.Upgrades.Count > 0)
+            {
+                AddConfigurationInProgressTile();
+                CalculateConfigurationAndGetConfigurationGroup();
+                return;
+            }
+            group.Items.Add(new IncompleteConfigurationDataItem(group));
         }
 
-        private DataGroup GetRightConfigurationStateItem(DataGroup group)
+        private async void CalculateConfigurationAndGetConfigurationGroup()
         {
-            return CalculateConfigurationAndGetConfigurationGroup(@group);
-            //if (Configuration.SelectedAircrafts.Count > 0 && Configuration.Upgrades.Count > 0)
-            //{
-            //}
-            //group.Items.Add(new IncompleteConfigurationDataItem(group));
-            //return group;
-        }
-
-        private DataGroup CalculateConfigurationAndGetConfigurationGroup(DataGroup group)
-        {
-            
+            var group = GetConfigurationGroup();
             if (Configuration.HasConfigurationChanged)
             {
-                Configuration = _model.ConfigureCurrentConfiguration();
+                Task<IConfiguration> configurationTask= _model.ConfigureCurrentConfiguration();
+                Configuration = await configurationTask;
             }
+            group.Items.Clear();
             foreach (var configuration in Configuration.ConfigurationGroups)
             {
                 group.Items.Add(new ConfigurationGroupDataItem(configuration, group));
             }
-            return group;
         }
 
         private void AddAircraftProgramm(IAircraftProgramm programm)
@@ -115,17 +109,17 @@ namespace AirbusCatalogue.ViewModel.ViewModel
             DataGroupElements.Add(group);
         }
 
-        private void AddAircraftGroup(List<IAircraft> aircrafts)
-        {
-            if (aircrafts.Count == 0)
-            {
-                return;
-            }
-            var aircraftGroup = new ConfigurationGroup("selectedAircraftGroup", "selected aircrafts", "&#xE0EB;");
-            var aircraftItems = GetSelectedAircraftItemsOrderedByVersions(aircrafts, aircraftGroup);
-            aircraftGroup.Items = aircraftItems;
-            DataGroupElements.Add(aircraftGroup);
-        }
+        //private void AddAircraftGroup(List<IAircraft> aircrafts)
+        //{
+        //    if (aircrafts.Count == 0)
+        //    {
+        //        return;
+        //    }
+        //    var aircraftGroup = new ConfigurationGroup("selectedAircraftGroup", "selected aircrafts", "&#xE0EB;");
+        //    var aircraftItems = GetSelectedAircraftItemsOrderedByVersions(aircrafts, aircraftGroup);
+        //    aircraftGroup.Items = aircraftItems;
+        //    DataGroupElements.Add(aircraftGroup);
+        //}
 
         private ObservableCollection<BasicDataItem> GetSelectedAircraftItemsOrderedByVersions(IEnumerable<IAircraft> aircrafts, DataGroup aircraftGroup)
         {
@@ -188,7 +182,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel
 
         public override void Initialize(object parameter)
         {
-
+            InitializeDataGrid();
         }
     }
 }

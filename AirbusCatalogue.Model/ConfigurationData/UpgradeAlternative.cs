@@ -10,6 +10,16 @@ namespace AirbusCatalogue.Model.ConfigurationData
 {
     public class UpgradeAlternative: IUpgradeAlternative
     {
+        public UpgradeAlternative(IUpgradeItem alternative)
+            : this(new List<IUpgradeItem>() { alternative })
+        {
+            
+        }
+
+        public UpgradeAlternative(List<IUpgradeItem> upgradeAlternatives)
+        {
+            UpgradeItems = upgradeAlternatives;
+        }
         public string UniqueId { get; set; }
         public List<IUpgradeItem> UpgradeItems { get; set; }
     }

@@ -45,10 +45,13 @@
     </DataTemplate>
     <DataTemplate x:Key="SummaryHeaderTemplate">
         <Grid Margin="1,0,0,6">
+            
             <Button
                 AutomationProperties.Name="Group Title"
-                Style="{StaticResource TextPrimaryButtonStyle}" >
+                Style="{StaticResource TextPrimaryButtonStyle}"
+                >
                 <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding ImageContent}" Margin="5" FontFamily="Segoe UI Symbol"  Style="{StaticResource GroupHeaderTextStyle}"/>
                     <TextBlock Text="{Binding Title}" Style="{StaticResource GroupHeaderTextStyle}" />
                     <TextBlock Text="{StaticResource ChevronGlyph}" Margin="10,0,0,10" FontFamily="Segoe UI Symbol"  Style="{StaticResource GroupHeaderTextStyle}"/>
                 </StackPanel>
