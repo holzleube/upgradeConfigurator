@@ -120,25 +120,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel
             DataGroupElements.Add(group);
         }
 
-        //private void AddAircraftGroup(List<IAircraft> aircrafts)
-        //{
-        //    if (aircrafts.Count == 0)
-        //    {
-        //        return;
-        //    }
-        //    var aircraftGroup = new ConfigurationGroup("selectedAircraftGroup", "selected aircrafts", "&#xE0EB;");
-        //    var aircraftItems = GetSelectedAircraftItemsOrderedByVersions(aircrafts, aircraftGroup);
-        //    aircraftGroup.Items = aircraftItems;
-        //    DataGroupElements.Add(aircraftGroup);
-        //}
-
-        private ObservableCollection<BasicDataItem> GetSelectedAircraftItemsOrderedByVersions(IEnumerable<IAircraft> aircrafts, DataGroup aircraftGroup)
-        {
-            var aircraftsByCategory = aircrafts.GroupBy(x => x.Version)
-                .Select(x => new AircraftVersionSelectionGroup(aircraftGroup, x.ToList()));
-            return new ObservableCollection<BasicDataItem>(aircraftsByCategory);
-        }
-
+       
         public ICommand SummaryItemWasSelectedCommand
         {
             get { return _summaryItemWasSelectedCommand ?? (_summaryItemWasSelectedCommand = new RelayCommand<DataCommon>(SummaryItemWasSelected)); }

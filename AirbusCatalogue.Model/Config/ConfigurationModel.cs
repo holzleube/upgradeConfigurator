@@ -16,6 +16,11 @@ namespace AirbusCatalogue.Model.Config
         public IConfiguration GetCurrentConfiguration()
         {
             CheckConfiguration();
+            return GetConfiguration();
+        }
+
+        private static IConfiguration GetConfiguration()
+        {
             return SimpleIoc.Default.GetInstance<IConfiguration>();
         }
 
@@ -36,6 +41,24 @@ namespace AirbusCatalogue.Model.Config
             {
                 
             } 
+        }
+
+        public void SelectAlternativeInGroup(IConfigurationGroup configurationGroupToUpdate)
+        {
+            var configurationGroup = FindConfigurationGroupInConfiguration(configurationGroupToUpdate.UniqueId);
+            configurationGroup.SelectedAlternative = configurationGroupToUpdate.SelectedAlternative;
+            configurationGroup.GroupConfigurationState = ConfigurationState.VALID;
+        }
+
+        private IConfigurationGroup FindConfigurationGroupInConfiguration(string uniqueId)
+        {
+            foreach (var confGroup in GetConfiguration().ConfigurationGroups)
+            {
+                if (confGroup.UniqueId.Equals(uniqueId))
+                {
+                    return confGroup;
+                }
+            }
         }
 
         public async Task<IConfiguration> ConfigureCurrentConfiguration()

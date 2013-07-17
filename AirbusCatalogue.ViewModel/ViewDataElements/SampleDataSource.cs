@@ -46,13 +46,6 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements
             set { this.SetProperty(ref this._title, value); }
         }
 
-        private string _description = string.Empty;
-        public string Description
-        {
-            get { return this._description; }
-            set { this.SetProperty(ref this._description, value); }
-        }
-
         private ImageSource _image = null;
         private String _imagePath = null;
         public ImageSource Image

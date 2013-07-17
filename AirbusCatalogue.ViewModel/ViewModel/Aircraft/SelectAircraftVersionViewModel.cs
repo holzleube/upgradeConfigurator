@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using AirbusCatalogue.Common.DataObjects.Aircrafts;
+using AirbusCatalogue.Common.DataObjects.General;
 using AirbusCatalogue.Model.Aircrafts;
 using AirbusCatalogue.ViewModel.Command;
 using AirbusCatalogue.ViewModel.Navigation;
@@ -31,11 +32,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Aircraft
 
         public override void Initialize(object parameter)
         {
-            var aircraftProgramm = parameter as IAircraftBase;
-            if (aircraftProgramm == null)
-            {
-                aircraftProgramm = _model.GetCurrentAircraftProgramm();
-            }
+            var aircraftProgramm = parameter as IAircraftBase ?? _model.GetCurrentAircraftProgramm();
             _allAircrafts = _model.GetAircraftVersionsByProgramm(aircraftProgramm);
             AddAircraftTypesToFilter(aircraftProgramm);
             BuildAndSetAircraftsOnView(_allAircrafts);
@@ -77,8 +74,6 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Aircraft
             }
             DataGroupElements = result;
         }
-
-       
 
         private ObservableCollection<AircraftDataItem> _selectedItems = new ObservableCollection<AircraftDataItem>();
         public ObservableCollection<AircraftDataItem> SelectedItems

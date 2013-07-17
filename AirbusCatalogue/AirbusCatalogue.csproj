@@ -130,6 +130,9 @@
     <Compile Include="Pages\Aircrafts\SelectAircraftVersionPage.xaml.cs">
       <DependentUpon>SelectAircraftVersionPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Configuration\ConfigurationDetailPage.xaml.cs">
+      <DependentUpon>ConfigurationDetailPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Customer\SelectCustomerPage.xaml.cs">
       <DependentUpon>SelectCustomerPage.xaml</DependentUpon>
     </Compile>
@@ -161,7 +164,6 @@
     <Compile Include="VariableTemplate\VariableHeader.cs" />
     <Compile Include="VariableTemplate\VariableTileControl.cs" />
     <Compile Include="VariableTemplate\VariableTiles.cs" />
-    <Compile Include="ViewModel\BaseViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -256,6 +258,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="CommonResources\AircraftTiles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
     <Page Include="CommonResources\Converter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -289,6 +296,10 @@
     <Page Include="Pages\Aircrafts\SelectAircraftVersionPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Configuration\ConfigurationDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Customer\SelectCustomerPage.xaml">
       <Generator>MSBuild:Compile</Generator>

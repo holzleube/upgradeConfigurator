@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AirbusCatalogue.Common.DataObjects.Upgrades;
 using AirbusCatalogue.ViewModel.ViewDataElements.Aircraft;
+using AirbusCatalogue.ViewModel.ViewDataElements.Configuration;
 using AirbusCatalogue.ViewModel.ViewDataElements.Customer;
 using AirbusCatalogue.ViewModel.ViewDataElements.Summary;
 using Windows.UI.Xaml;
@@ -51,6 +53,10 @@ namespace AirbusCatalogue.VariableTemplate
             if (item.GetType() == typeof(ConfigureDataItem))
             {
                 return ConfigureTile;
+            }
+            if (item is UpgradeItemForConfigurationDetailDataItem)
+            {
+                return SelectionTile;
             }
             return base.SelectTemplateCore(item, container);
 

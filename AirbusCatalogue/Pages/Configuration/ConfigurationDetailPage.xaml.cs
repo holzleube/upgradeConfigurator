@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using AirbusCatalogue.Common;
+using AirbusCatalogue.ViewModel.ViewInterfaces.Configuration;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -19,7 +21,7 @@ namespace AirbusCatalogue.Pages.Configuration
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class ConfigurationDetailPage : AirbusCatalogue.Common.LayoutAwarePage
+    public sealed partial class ConfigurationDetailPage : IConfigurationAlternativeSelection
     {
         public ConfigurationDetailPage()
         {

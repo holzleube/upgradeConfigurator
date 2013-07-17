@@ -30,7 +30,6 @@ namespace AirbusCatalogue.ViewModel.ViewModel
             {
                 customerInformation = _customerModel.GetLastCustomerInformation();
             }
-           
             _imagePath = customerInformation.CustomerLogoImagePath;
             DataGroupElements =
                 new CustomerInformationDataToViewObjectsConverter().GetConvertedElements(customerInformation);

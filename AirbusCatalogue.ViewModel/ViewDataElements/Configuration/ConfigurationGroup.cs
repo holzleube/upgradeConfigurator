@@ -10,9 +10,9 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements.Configuration
     {
         public ConfigurationGroup(string uniqueId, string title, string iconValue) : base(uniqueId, title, "")
         {
-            IconValue = iconValue;
+            ImageContent = iconValue;
         }
 
-        public string IconValue { get; set; }
+        public string ImageContent { get; set; }
     }
 }

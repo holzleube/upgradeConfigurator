@@ -119,6 +119,7 @@
     <Compile Include="ViewDataElements\Aircraft\AircraftVersionSelectionGroup.cs" />
     <Compile Include="ViewDataElements\Configuration\ConfigurationDataItem.cs" />
     <Compile Include="ViewDataElements\Configuration\ConfigurationGroup.cs" />
+    <Compile Include="ViewDataElements\Configuration\UpgradeItemForConfigurationDetailDataItem.cs" />
     <Compile Include="ViewDataElements\Customer\CustomerDataItem.cs" />
     <Compile Include="ViewDataElements\HubDataGroup.cs" />
     <Compile Include="ViewDataElements\DataGroup.cs" />
@@ -144,6 +145,7 @@
     <Compile Include="ViewModel\Aircraft\SelectAircraftFamilyViewModel.cs" />
     <Compile Include="ViewModel\Aircraft\SelectAircraftTypeViewModel.cs" />
     <Compile Include="ViewModel\Aircraft\SelectAircraftVersionViewModel.cs" />
+    <Compile Include="ViewModel\Configuration\ConfigurationDetailViewModel.cs" />
     <Compile Include="ViewModel\Customer\SelectCustomerViewModel.cs" />
     <Compile Include="ViewModel\GlobalPageViewModel.cs" />
     <Compile Include="ViewModel\StartScreenPageViewModel.cs" />

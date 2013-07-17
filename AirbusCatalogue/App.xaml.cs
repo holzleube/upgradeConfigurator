@@ -3,11 +3,13 @@
 using System;
 using AirbusCatalogue.Pages;
 using AirbusCatalogue.Pages.Aircrafts;
+using AirbusCatalogue.Pages.Configuration;
 using AirbusCatalogue.Pages.Customer;
 using AirbusCatalogue.Pages.Upgrades;
 using AirbusCatalogue.ViewModel.Navigation;
 using AirbusCatalogue.ViewModel.ViewInterfaces;
 using AirbusCatalogue.ViewModel.ViewInterfaces.Aircraft;
+using AirbusCatalogue.ViewModel.ViewInterfaces.Configuration;
 using AirbusCatalogue.ViewModel.ViewInterfaces.Customer;
 using AirbusCatalogue.ViewModel.ViewInterfaces.Upgrades;
 using GalaSoft.MvvmLight.Ioc;
@@ -48,6 +50,7 @@ namespace AirbusCatalogue
             SimpleIoc.Default.Register<ISystemUpgrade, SystemUpgradePage>();
             SimpleIoc.Default.Register<IUpgradeSelection, SelectUpgradePage>();
             SimpleIoc.Default.Register<INavigationService, NavigationService>();
+            SimpleIoc.Default.Register<IConfigurationAlternativeSelection, ConfigurationDetailPage>();
         }
 
         /// <summary>
