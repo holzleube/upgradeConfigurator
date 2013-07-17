@@ -5,11 +5,17 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements.Summary
     public class ConfigurationGroupDataItem: BasicDataItem
     {
         private IConfigurationGroup _configurationGroup;
+
         public ConfigurationGroupDataItem(IConfigurationGroup configurationGroup, DataGroup @group)
             : base(configurationGroup.UniqueId, configurationGroup.Name, "", @group, 55, 40)
         {
             ConfigurationState = configurationGroup.GroupConfigurationState;
             _configurationGroup = configurationGroup;
+        }
+
+        public IConfigurationGroup ConfigurationGroup
+        {
+            get { return _configurationGroup; }
         }
 
         public ConfigurationState ConfigurationState { get; set; }

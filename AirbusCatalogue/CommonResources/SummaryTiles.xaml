@@ -67,15 +67,13 @@
             <Grid Width="400" Height="550" Background="{StaticResource TileBackground}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="20"/>
-					<RowDefinition Height="auto"/>
                     <RowDefinition/>
                     <RowDefinition/>
-                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="300"/>
                 </Grid.RowDefinitions>
                 <TextBlock Text="{Binding Path=ConfigurationState.ConfiguationStateIconValue}" Grid.RowSpan="2" Foreground="Black" FontFamily="Segoe UI Symbol" FontSize="30" Width="60" HorizontalAlignment="Right" Margin="5" />
-                <TextBlock TextWrapping="Wrap" Grid.Row="1" HorizontalAlignment="Center" FontSize="40" Foreground="Black" Style="{StaticResource GroupHeaderTextStyle}" 
-                           Text="{Binding Title}"  Width="150" />
-            	<StackPanel Orientation="Horizontal" Grid.Row="2">
+               
+            	<StackPanel Orientation="Horizontal" Grid.Row="1">
             		<Button x:Name="AircraftButton" Content="{StaticResource AircraftIcon}" 
             			Width="100"
             			Height="100"
@@ -85,7 +83,7 @@
                              />
             		<TextBlock Text="{Binding AircraftCount}" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="30" Foreground="Black" Style="{StaticResource GroupHeaderTextStyle}" Margin="0" VerticalAlignment="Center" Padding="40,0,0,0" />
             	</StackPanel>
-            	<StackPanel Orientation="Horizontal" Grid.Row="3">
+            	<StackPanel Orientation="Horizontal" Grid.Row="2">
             		<Button  x:Name="UpgradeButton" Content="{StaticResource UpgradeIcon}" 
             			Width="100"
             			Height="100"
@@ -95,15 +93,21 @@
                  />
             		<TextBlock Text="{Binding UpgradeCount}" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="30" Foreground="Black" Style="{StaticResource GroupHeaderTextStyle}" Margin="0" VerticalAlignment="Center" Padding="40,0,0,0" />
             	</StackPanel>
-                <StackPanel Grid.Row="4" Height="150" VerticalAlignment="Bottom" Background="{Binding Path=ConfigurationState.ConfiguationStateColor}">
+                <StackPanel Grid.Row="3" Height="300" VerticalAlignment="Bottom" Background="{Binding Path=ConfigurationState.ConfiguationStateColor}">
+                    <TextBlock TextWrapping="Wrap" Margin="20"  
+                               HorizontalAlignment="Center" VerticalAlignment="Center"
+                               FontSize="40" Foreground="Black" Style="{StaticResource GroupHeaderTextStyle}" 
+                                Text="{Binding Title}"  
+                               Width="150" Height="80" />
                     <TextBlock TextWrapping="Wrap" HorizontalAlignment="Left" FontSize="20" Style="{StaticResource GroupHeaderTextStyle}" Margin="5" Text="{Binding Path=ConfigurationState.ConfiguationStateText}" RenderTransformOrigin="-0.388,0.567" Height="90" />
             		<StackPanel Height="50" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                        
                         <TextBlock TextWrapping="Wrap" 
-                                   VerticalAlignment="Center" HorizontalAlignment="Center" 
+                                   VerticalAlignment="Bottom" 
                                    FontSize="30" Foreground="Black" Style="{StaticResource GroupHeaderTextStyle}" 
                                    Height="50"
                                    Text="{Binding Path=ConfigurationState.ConfiguationStateEditText}"/>
-                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" 
+                        <TextBlock VerticalAlignment="Bottom" HorizontalAlignment="Right" 
                                    Text="{StaticResource ChevronGlyph}" 
                                    Foreground="Black" FontFamily="Segoe UI Symbol" FontSize="30" 
                                    Width="21" Margin="5"

@@ -134,6 +134,7 @@
     <Compile Include="ViewInterfaces\Aircraft\IAircraftFamilySelection.cs" />
     <Compile Include="ViewInterfaces\Aircraft\IAircraftTypeSelection.cs" />
     <Compile Include="ViewInterfaces\Aircraft\IAircraftVersionSelection.cs" />
+    <Compile Include="ViewInterfaces\Configuration\IConfigurationAlternativeSelection.cs" />
     <Compile Include="ViewInterfaces\Customer\ICustomerSelection.cs" />
     <Compile Include="ViewInterfaces\IStartScreen.cs" />
     <Compile Include="ViewInterfaces\ISummary.cs" />

@@ -1,21 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using AirbusCatalogue.Common.DataObjects.Aircrafts;
 using AirbusCatalogue.Common.DataObjects.Config;
-using AirbusCatalogue.Common.DataObjects.General;
 using AirbusCatalogue.Model.Config;
 using AirbusCatalogue.ViewModel.Command;
 using AirbusCatalogue.ViewModel.Navigation;
 using AirbusCatalogue.ViewModel.Templates;
 using AirbusCatalogue.ViewModel.ViewDataElements;
 using AirbusCatalogue.ViewModel.ViewDataElements.Aircraft;
-using AirbusCatalogue.ViewModel.ViewDataElements.Configuration;
 using AirbusCatalogue.ViewModel.ViewDataElements.Summary;
 using AirbusCatalogue.ViewModel.ViewInterfaces.Aircraft;
+using AirbusCatalogue.ViewModel.ViewInterfaces.Configuration;
 using AirbusCatalogue.ViewModel.ViewInterfaces.Upgrades;
 using GalaSoft.MvvmLight.Ioc;
 
@@ -26,14 +24,27 @@ namespace AirbusCatalogue.ViewModel.ViewModel
     {
         private const string UpgradeSelectionId = "upgradeSelection";
         private const string AircraftSelectionId = "aircraftSelection";
+        private const string AircraftFamilySelectionId = "familySelection";
         private readonly ConfigurationModel _model;
         private ICommand _summaryItemWasSelectedCommand;
+        private Dictionary<string, object> _idToPageMappingMap;
 
         public IConfiguration Configuration { get; set; }
 
         public SummaryPageViewModel()
         {
-            _model = new ConfigurationModel();  
+            _model = new ConfigurationModel();
+            InitializeIdToPageMappingMap();
+        }
+
+        private void InitializeIdToPageMappingMap()
+        {
+            _idToPageMappingMap = new Dictionary<string, object>
+                {
+                    {UpgradeSelectionId, SimpleIoc.Default.GetInstance<IUpgradeTypeSelection>()},
+                    {AircraftSelectionId, SimpleIoc.Default.GetInstance<IAircraftVersionSelection>()},
+                    {AircraftFamilySelectionId, SimpleIoc.Default.GetInstance<IAircraftFamilySelection>()}
+                };
         }
 
         private void InitializeDataGrid()
@@ -100,7 +111,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel
         private void AddAircraftProgramm(IAircraftProgramm programm)
         {
             var group = new HubDataGroup("aircraft programm goup");
-            var aircraftProgramm = new AircraftProgrammDataItem(programm, group, 60, 60);
+            var aircraftProgramm = new AircraftProgrammDataItem(AircraftFamilySelectionId, programm, group, 60, 60);
             var aircraftSelection = new SummarySelectionDataItem(UpgradeSelectionId, "upgrades", "\uE11C", group, Configuration.Upgrades.Count);
             var upgradeSelection = new SummarySelectionDataItem(AircraftSelectionId, "aircrafts", "\uE0EB", group, Configuration.SelectedAircrafts.Count);
             group.Items.Add(aircraftProgramm);
@@ -140,44 +151,55 @@ namespace AirbusCatalogue.ViewModel.ViewModel
 
         private void SummaryItemWasSelected(DataCommon dataItem)
         {
-            if (dataItem.UniqueId.Equals(AircraftSelectionId))
+            var item = dataItem as BasicDataItem;
+            if (item == null)
             {
-                NavigateToSelectAircraft();
+                return;
             }
-            if (dataItem.UniqueId.Equals(UpgradeSelectionId))
+            object classToNavigate  = null;
+            object parameter = null;
+            if (item.Group is HubDataGroup)
             {
-                NavigateToSelectUpgrade();
+                classToNavigate = _idToPageMappingMap[item.UniqueId];
             }
-            if (dataItem.UniqueId.Equals(Configuration.Programm.UniqueId))
-            {
-                NavigateToSelectAircraftFamily();
-            }
-            
-        }
-
-        private void NavigateToSelectAircraftFamily()
-        {
-            var classToNavigate = SimpleIoc.Default.GetInstance<IAircraftFamilySelection>();
-            NavigateToClass(classToNavigate, null);
-        }
-
-        private void NavigateToSelectUpgrade()
-        {
-            var classToNavigate = SimpleIoc.Default.GetInstance<IUpgradeTypeSelection>();
            
-            NavigateToClass(classToNavigate, null);
+            if (dataItem is ConfigurationGroupDataItem)
+            {
+                var configurationDataItem = (ConfigurationGroupDataItem) dataItem;
+                var configurationGroup = configurationDataItem.ConfigurationGroup;
+                if (
+                    configurationGroup.GroupConfigurationState.Equals(
+                        ConfigurationState.IMPOSSIBLE))
+                {
+                    AskUserAnddRemoveGroupFromConfiguration(configurationGroup);
+                    return;
+                }
+                classToNavigate = SimpleIoc.Default.GetInstance<IConfigurationAlternativeSelection>();
+                parameter = configurationGroup;
+            }
+            if (classToNavigate == null)
+            {
+                return;
+            }
+           
+            NavigateToClass(classToNavigate, parameter);
         }
 
-        private void NavigateToSelectAircraft()
+        private void AskUserAnddRemoveGroupFromConfiguration(IConfigurationGroup configurationGroup)
         {
-            var classToNavigate = SimpleIoc.Default.GetInstance<IAircraftVersionSelection>();
-            NavigateToClass(classToNavigate, Configuration.Programm);
+            throw new System.NotImplementedException();
         }
 
         private void NavigateToClass(object classToNavigate, object parameter)
         {
             var navigationService = SimpleIoc.Default.GetInstance<INavigationService>();
-            navigationService.Navigate(classToNavigate.GetType(),parameter);
+            if (parameter == null)
+            {
+                navigationService.Navigate(classToNavigate.GetType());
+                return;
+            }
+            navigationService.Navigate(classToNavigate.GetType(), parameter);
+
         }
 
         public override void Initialize(object parameter)
