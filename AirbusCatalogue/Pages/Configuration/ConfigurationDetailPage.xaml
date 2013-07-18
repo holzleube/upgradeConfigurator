@@ -28,6 +28,7 @@
                                         EmptyConfigurationTile="{StaticResource EmptyConfigurationTemplate}"
                                         ConfigurationGroupTile="{StaticResource ConfigurationGroupTemplate}"
                                         ConfigureTile="{StaticResource ConfigureTemplate}"
+                                        AlternativeTile="{StaticResource AlternativeUpgradeConfigurationTemplate}"
                                         />
     </Page.Resources>
 

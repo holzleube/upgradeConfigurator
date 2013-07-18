@@ -71,8 +71,8 @@ namespace AirbusCatalogue.Model.Config
             config.ConfigurationGroups.Clear();
             var newUpgrades = GetConfigurationItemByAtaAndTdu();
             config.HasConfigurationChanged = false;
-            var upgrades = new List<IUpgradeAlternative>() {new UpgradeAlternative(config.Upgrades)};
-            var upgrades2 = new List<IUpgradeAlternative>() {new UpgradeAlternative(config.Upgrades), new UpgradeAlternative(newUpgrades)};
+            var upgrades = new List<IUpgradeAlternative>() {new UpgradeAlternative("Alternative 1",config.Upgrades)};
+            var upgrades2 = new List<IUpgradeAlternative>() {new UpgradeAlternative("Alternative 1", config.Upgrades), new UpgradeAlternative("Alternative 2",newUpgrades)};
             ConfigurationGroup currentGroup = null;
             var counter = 0;
             foreach (var aircraft in config.SelectedAircrafts)

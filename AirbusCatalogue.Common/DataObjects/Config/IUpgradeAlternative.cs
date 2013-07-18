@@ -8,7 +8,7 @@ using AirbusCatalogue.Common.DataObjects.Upgrades;
 
 namespace AirbusCatalogue.Common.DataObjects.Config
 {
-    public interface IUpgradeAlternative: IIdentable
+    public interface IUpgradeAlternative: IIdentable, INameable
     {
         List<IUpgradeItem> UpgradeItems { get; set; } 
     }

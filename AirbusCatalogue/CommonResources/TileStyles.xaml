@@ -73,32 +73,9 @@
         </Grid>
     </DataTemplate>
 
-    <DataTemplate x:Key="UpgradeItemTemplateBig">
-        <Border BorderBrush="Black" BorderThickness="1" Padding="1" Background="{StaticResource TileBackground}">
-        <Grid x:Name="TopMain" Width="500" Height="350">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="60"/>
-            </Grid.RowDefinitions>
-            <Image Source="{Binding Image}" Margin="5" Stretch="Uniform" />
-            <TextBlock TextWrapping="Wrap" Grid.Row="1" Text="{Binding Title}"  Style="{StaticResource GroupHeaderTextStyle}"  FontSize="24" HorizontalAlignment="Center"/>
-        </Grid>
-            </Border>
-    </DataTemplate>
+   
 
-    <DataTemplate x:Key="UpgradeItemTemplateSmall">
-        <Border BorderBrush="Black" BorderThickness="1" Background="{StaticResource TileBackground}">
-            <Grid x:Name="TopMain" Width="250" Height="200">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="60"/>
-                </Grid.RowDefinitions>
-                <Image Source="{Binding Image}" Margin="5" Stretch="Uniform" />
-                <TextBlock TextWrapping="Wrap" Grid.Row="1" Text="{Binding Title}"  Style="{StaticResource GroupHeaderTextStyle}"  FontSize="24" Margin="10,0" HorizontalAlignment="Center"/>
-            </Grid>
-        </Border>
-    </DataTemplate>
-
+   
     <DataTemplate x:Key="ConfigurationTemplate">
         <Border BorderBrush="Black" BorderThickness="1" Background="{StaticResource TileBackground}" >
         <Grid Width="250" Height="280" >
@@ -133,7 +110,7 @@
 
     <DataTemplate x:Key="BottomAppBarSelectedUpgradeItem">
         <Border BorderBrush="Black" BorderThickness="1" Padding="1" Background="{StaticResource TileBackground}">
-            <Grid x:Name="TopMain" Width="150" Height="100">
+            <Grid x:Name="TopMain" Width="200" Height="100">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="50"/>
@@ -144,37 +121,7 @@
         </Border>
     </DataTemplate>
 
-    <DataTemplate x:Key="TduSelectionTemplate">
-        <Border BorderBrush="Black" BorderThickness="1">
-        <Grid  Width="400" Height="550" Background="{StaticResource TileBackground}" Margin="0,0,0,0">
-            <Grid.Resources>
-                    <Common:BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter"/>
-                </Grid.Resources>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="80"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="100"/>
-            </Grid.RowDefinitions>
-            <Image VerticalAlignment="Top" Source="{Binding SellerImagePath}" HorizontalAlignment="Center" Stretch="Uniform" />
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="100"/>
-                </Grid.RowDefinitions>
-                <Image Source="{Binding ProductImagePath}" Stretch="Uniform" />
-                <TextBlock VerticalAlignment="Center" Margin="5" Text="{Binding Description}" Grid.Column="1" FontSize="20"  Style="{StaticResource TitleTextStyle}"  />
-                <Button Grid.Row="1" Content="STD" FontSize="40" Visibility="{Binding IsDefault, Converter={StaticResource booleanToVisibilityConverter}}" VerticalAlignment="Bottom" Grid.Column="1" Background="DeepSkyBlue" HorizontalAlignment="Right"/>
-            </Grid>
-            <StackPanel Grid.Row="2" VerticalAlignment="Bottom" Height="100" Background="{StaticResource airbusBlue}">
-                <TextBlock Text="{Binding Name}" FontSize="25" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextStyle}" Height="60" Margin="15"/>
-            </StackPanel>
-        </Grid>
-        </Border>
-    </DataTemplate>
+    
 
     
 

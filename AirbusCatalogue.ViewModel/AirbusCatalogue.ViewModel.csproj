@@ -117,6 +117,7 @@
     <Compile Include="ViewDataElements\Aircraft\AircraftProgrammGroup.cs" />
     <Compile Include="ViewDataElements\Aircraft\AircraftSelectionDataItem.cs" />
     <Compile Include="ViewDataElements\Aircraft\AircraftVersionSelectionGroup.cs" />
+    <Compile Include="ViewDataElements\Configuration\AlternativeDataItem.cs" />
     <Compile Include="ViewDataElements\Configuration\ConfigurationDataItem.cs" />
     <Compile Include="ViewDataElements\Configuration\ConfigurationGroup.cs" />
     <Compile Include="ViewDataElements\Configuration\UpgradeItemForConfigurationDetailDataItem.cs" />

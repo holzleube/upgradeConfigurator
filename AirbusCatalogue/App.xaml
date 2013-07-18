@@ -20,6 +20,7 @@
                 <ResourceDictionary Source="CommonResources/Converter.xaml"/>
                 <ResourceDictionary Source="CommonResources/SummaryTiles.xaml"/>
                 <ResourceDictionary Source="CommonResources/AircraftTiles.xaml"/>
+                <ResourceDictionary Source="CommonResources/UpgradeTiles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <!-- Application-specific resources -->
