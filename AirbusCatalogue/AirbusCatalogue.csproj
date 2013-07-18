@@ -246,6 +246,7 @@
     <Content Include="Assets\upgrades\holmberg_logo.jpg" />
     <Content Include="Assets\upgrades\isis.jpg" />
     <Content Include="Assets\Logo_mid.png" />
+    <Content Include="Assets\upgrades\jackPanel.jpg" />
     <Content Include="Assets\upgrades\sennheiser_headphone.png" />
     <Content Include="Assets\upgrades\sennheiser_logo.png" />
     <Content Include="Assets\upgrades\telex.jpg" />

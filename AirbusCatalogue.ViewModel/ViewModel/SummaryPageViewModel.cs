@@ -98,7 +98,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel
             var group = GetConfigurationGroup();
             if (Configuration.HasConfigurationChanged)
             {
-                Task<IConfiguration> configurationTask= _model.ConfigureCurrentConfiguration();
+                var configurationTask= _model.ConfigureCurrentConfiguration();
                 Configuration = await configurationTask;
             }
             group.Items.Clear();
@@ -120,7 +120,6 @@ namespace AirbusCatalogue.ViewModel.ViewModel
             DataGroupElements.Add(group);
         }
 
-       
         public ICommand SummaryItemWasSelectedCommand
         {
             get { return _summaryItemWasSelectedCommand ?? (_summaryItemWasSelectedCommand = new RelayCommand<DataCommon>(SummaryItemWasSelected)); }
@@ -163,7 +162,6 @@ namespace AirbusCatalogue.ViewModel.ViewModel
             {
                 return;
             }
-           
             NavigateToClass(classToNavigate, parameter);
         }
 

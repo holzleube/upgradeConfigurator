@@ -27,7 +27,6 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Configuration
 
         public IConfigurationGroup ConfigurationGroup { get; set; }
 
-
         public override void Initialize(object parameter)
         {
             ConfigurationGroup = (IConfigurationGroup) parameter;
@@ -36,8 +35,23 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Configuration
 
         private void InitDataGrid()
         {
+            AddConfigurationAlternative()
             AddUpgradeGroup();
             AddAircraftGroup(ConfigurationGroup.Aircrafts);
+        }
+
+        private void AddConfigurationAlternative()
+        {
+            var alternativeGroup = new ConfigurationGroup("possibleAlternatives", "alternatives","\uE11C")
+            if (ConfigurationGroup.Alternatives.Count > 1)
+            {
+
+                foreach (var alternative in ConfigurationGroup.Alternatives)
+                {
+                    var alternativeDataItem = new AlternativeDataItem(alternative, alternativeGroup);
+                }
+                DataGroupElements.Add(alternativeGroup);
+            }
         }
 
         private void AddUpgradeGroup()

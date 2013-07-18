@@ -4,8 +4,10 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using AirbusCatalogue.Common.DataObjects.Aircrafts;
 using AirbusCatalogue.Common.DataObjects.Config;
+using AirbusCatalogue.Common.DataObjects.Upgrades;
 using AirbusCatalogue.Model.AirbusConfigurationService;
 using AirbusCatalogue.Model.ConfigurationData;
+using AirbusCatalogue.Model.Upgrades;
 using GalaSoft.MvvmLight.Ioc;
 
 
@@ -59,6 +61,7 @@ namespace AirbusCatalogue.Model.Config
                     return confGroup;
                 }
             }
+            return null;
         }
 
         public async Task<IConfiguration> ConfigureCurrentConfiguration()
@@ -66,22 +69,43 @@ namespace AirbusCatalogue.Model.Config
             await Task.Delay(TimeSpan.FromSeconds(3));
             var config = SimpleIoc.Default.GetInstance<IConfiguration>();
             config.ConfigurationGroups.Clear();
+            var newUpgrades = GetConfigurationItemByAtaAndTdu();
             config.HasConfigurationChanged = false;
             var upgrades = new List<IUpgradeAlternative>() {new UpgradeAlternative(config.Upgrades)};
+            var upgrades2 = new List<IUpgradeAlternative>() {new UpgradeAlternative(config.Upgrades), new UpgradeAlternative(newUpgrades)};
             ConfigurationGroup currentGroup = null;
             var counter = 0;
             foreach (var aircraft in config.SelectedAircrafts)
             {
                 if (counter%3 == 0)
                 {
-                    int groupNumber = counter/3 + 1;
-                    currentGroup = new ConfigurationGroup("Group "+groupNumber, null, upgrades, new List<IAircraft>(), "confGroup"+groupNumber);
+                    var groupNumber = counter/3 + 1;
+                    if (counter == 3)
+                    {
+                        currentGroup = new ConfigurationGroup("Group "+groupNumber, null, upgrades2, new List<IAircraft>(), "confGroup"+groupNumber);
+                    }
+                    else if (counter == 6)
+                    {
+                        currentGroup = new ConfigurationGroup("Group "+groupNumber, null, new List<IUpgradeAlternative>(), new List<IAircraft>(), "confGroup"+groupNumber);
+                    }
+                    else
+                    {
+                        currentGroup = new ConfigurationGroup("Group " + groupNumber, null, upgrades, new List<IAircraft>(), "confGroup" + groupNumber);
+                    }
                     config.ConfigurationGroups.Add(currentGroup);
                 }
                 currentGroup.Aircrafts.Add(aircraft);
                 counter++;
             }
             return config;
+        }
+
+        private List<IUpgradeItem> GetConfigurationItemByAtaAndTdu()
+        {
+            var result = new List<IUpgradeItem>();
+            result.Add(new UpgradeItem("jackPanelNew", "Alternative Jack Panel", "Installation of ACP and jack panel in avionics compartment", "/Assets/upgrades/jackPanel.jpg","",22,0,false));
+            result.Add(new UpgradeItem("jackPanelComplete", "Alternative Jack Panel", "Installation of ACP for fourth occupant and ACP and jack panel in avionics compartment", "/Assets/upgrades/jackPanel.jpg","",22,0,false));
+            return result;
         }
     }
 }
