@@ -14,7 +14,7 @@
     </Page.DataContext>
 	<Page.BottomAppBar>
     <AppBar x:Name="bottomAppBar" Padding="0">
-            <Grid >
+            <Grid>
                 <Grid.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FF72A4D6"/>
@@ -23,7 +23,11 @@
                     </LinearGradientBrush>
                 </Grid.Background>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <Button Style="{StaticResource EditAppBarButtonStyle}" Click="Button_Click"/>
+                <Button 
+                    Content="&#xE104;"
+                    Style="{StaticResource BottomAppBarButtonStyleCorner}"
+                    Click="Button_Click"
+                    AutomationProperties.Name="{StaticResource EditCustomerButtonText}"/>
             </StackPanel>
         </Grid>
     </AppBar>

@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
+using System.Runtime.Serialization.Json;
+using System.Text;
 using System.Threading.Tasks;
 using AirbusCatalogue.Common.DataObjects.Aircrafts;
 using AirbusCatalogue.Common.DataObjects.Config;
 using AirbusCatalogue.Common.DataObjects.Upgrades;
-using AirbusCatalogue.Model.AirbusConfigurationService;
 using AirbusCatalogue.Model.ConfigurationData;
+using AirbusCatalogue.Model.ConfigurationService;
+using AirbusCatalogue.Model.Transferable;
 using AirbusCatalogue.Model.Upgrades;
 using GalaSoft.MvvmLight.Ioc;
 
@@ -17,7 +21,7 @@ namespace AirbusCatalogue.Model.Config
     {
         public IConfiguration GetCurrentConfiguration()
         {
-            CheckConfiguration();
+
             return GetConfiguration();
         }
 
@@ -34,15 +38,27 @@ namespace AirbusCatalogue.Model.Config
             try
             {
                 var newResult = await webserviceClient.getAllScheduledUserjobsAsync();
-                var result = await webserviceClient.getConfigurationResultAsync(new string[] { "N-2213", "N-3065", "N-2228", "N-2456", "N-2716" },
-                                                                      "CN22.00.998-01");
-             
+                //var result = await webserviceClient.getConfigurationResultAsync(new string[] { "N-2213", "N-3065", "N-2228", "N-2456", "N-2716" },
+                //                                                      "CN22.00.998-01");
+             var result = await webserviceClient.getConfigurationResultAsync(new string[] { "R-0007", "R-0009", "R-0011", "R-0013", "R-0016" },
+                                                                      "CR34.53.100-01");
+                var transferable = GetConfigurationResultTransferable(result.getConfigurationResultReturn);
                 var test = result.getConfigurationResultReturn;
             }
             catch (Exception e)
             {
                 
             } 
+        }
+
+        private ConfigurationResultTransferable[] GetConfigurationResultTransferable(string json)
+        {
+            var _Bytes = Encoding.Unicode.GetBytes(json);
+            using (MemoryStream _Stream = new MemoryStream(_Bytes))
+            {
+                var _Serializer = new DataContractJsonSerializer(typeof(ConfigurationResultTransferable[]));
+                return (ConfigurationResultTransferable[])_Serializer.ReadObject(_Stream);
+            }
         }
 
         public void SelectAlternativeInGroup(IConfigurationGroup configurationGroupToUpdate)
@@ -66,6 +82,7 @@ namespace AirbusCatalogue.Model.Config
 
         public async Task<IConfiguration> ConfigureCurrentConfiguration()
         {
+            CheckConfiguration();
             await Task.Delay(TimeSpan.FromSeconds(3));
             var config = SimpleIoc.Default.GetInstance<IConfiguration>();
             config.ConfigurationGroups.Clear();

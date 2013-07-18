@@ -33,4 +33,7 @@
     <x:String x:Key="CheckIcon">&#xE081;</x:String>
     <x:String x:Key="NotPossibleIcon">&#xE0C7;</x:String>
     <x:String x:Key="UnknownIcon">&#xE11B;</x:String>
+    <x:String x:Key="CountOfNewTdus">Count of new TDUs: </x:String>
+    <x:String x:Key="SelectAlternativeText">select</x:String>
+    <x:String x:Key="EditCustomerButtonText">edit customer</x:String>
 </ResourceDictionary>

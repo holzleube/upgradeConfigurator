@@ -46,11 +46,6 @@
                           ItemsSource="{Binding Source={StaticResource selectedItemsSource}}"
                           
                           ItemTemplate="{StaticResource BottomAppBarSelectedUpgradeItem}">
-                    <!--<GridView.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <VirtualizingStackPanel Orientation="Horizontal"/>
-                        </ItemsPanelTemplate>
-                    </GridView.ItemsPanel>-->
                     
                 </GridView>
                 <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">

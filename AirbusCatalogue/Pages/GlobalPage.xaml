@@ -49,7 +49,7 @@
                             HorizontalAlignment="Center" Background="#7FFFFFFF" Width="150" Margin="5" BorderThickness="0" />
                 <Button x:Name="AircraftButton" Content="&#xE0EB;" 
                             Grid.Column="4"
-                            Style="{StaticResource TopAppBarButtonStyle2}"
+                            Style="{StaticResource AppBarButtonStyleNoneCircle}"
                             AutomationProperties.Name="aircrafts"  
                             Command="{Binding NavigateToAircraftSelectionPage}"
                             Margin="5"
@@ -58,6 +58,7 @@
                 <Button x:Name="SummaryButton" Content="&#xE14D;" 
                             Grid.Column="6"
                             Width="150"
+                            Margin="5"
                             Command="{Binding NavigateToSummaryPage}"
                             Style="{StaticResource TopAppBarButtonStyleCorner}"
                             AutomationProperties.Name="summary"  

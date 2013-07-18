@@ -77,7 +77,7 @@
             		<Button x:Name="AircraftButton" Content="{StaticResource AircraftIcon}" 
             			Width="100"
             			Height="100"
-            			Style="{StaticResource TopAppBarButtonStyle}"
+            			Style="{StaticResource ButtonStyleForSummaryPage}"
             			Margin="5"
             			FontSize="60" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}"
                              />
@@ -87,7 +87,7 @@
             		<Button  x:Name="UpgradeButton" Content="{StaticResource UpgradeIcon}" 
             			Width="100"
             			Height="100"
-            			Style="{StaticResource TopAppBarButtonStyle}"
+            			Style="{StaticResource ButtonStyleForSummaryPage}"
             			Margin="5"
             			FontSize="60" IsHitTestVisible="False" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}"
                  />
@@ -359,7 +359,7 @@
                                 </Grid.RowDefinitions>
                                 
                                 <Button x:Name="AircraftButton" Content="&#xE0EB;" 
-                                    Style="{StaticResource TopAppBarButtonStyle3}"
+                                    Style="{StaticResource ButtonStyleForProgressRing}"
                                     VerticalAlignment="Center" HorizontalAlignment="Center" Background="#7FFBFBFB" Width="150"/>
                                 <TextBlock Grid.Row="1" Text="Configure" HorizontalAlignment="Center" Margin="0" Padding="0" Style="{StaticResource GroupHeaderTextStyle}"/>
                             </Grid>

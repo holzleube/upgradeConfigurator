@@ -42,7 +42,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Configuration
 
         private void AddConfigurationAlternative()
         {
-            var alternativeGroup = new ConfigurationGroup("possibleAlternatives", "alternatives", "\uE11C");
+            var alternativeGroup = new ConfigurationGroup("possibleAlternatives", "alternatives", "\uE15E");
             if (ConfigurationGroup.Alternatives.Count > 1)
             {
                 foreach (var alternative in ConfigurationGroup.Alternatives)
