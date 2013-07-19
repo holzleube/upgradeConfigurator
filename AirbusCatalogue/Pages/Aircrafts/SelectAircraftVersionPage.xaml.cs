@@ -14,14 +14,13 @@ namespace AirbusCatalogue.Pages.Aircrafts
     /// </summary>
     public sealed partial class SelectAircraftVersionPage : IAircraftVersionSelection
     {
-        private SelectAircraftVersionViewModel _viewModel;
+        private readonly SelectAircraftVersionViewModel _viewModel;
 
         public SelectAircraftVersionPage()
         {
             this.InitializeComponent();
             _viewModel = new SelectAircraftVersionViewModel();
             DataContext = _viewModel;
-
         }
 
         /// <summary>

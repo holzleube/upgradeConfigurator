@@ -14,7 +14,10 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements.Configuration
         public AlternativeDataItem(IUpgradeAlternative configurationAlternative, DataGroup @group) : base(configurationAlternative.UniqueId, configurationAlternative.Name, "", @group, 55, 40)
         {
             UpgradeItems = configurationAlternative.UpgradeItems;
+            UpgradeAlternative = configurationAlternative;
         }
+
+        public IUpgradeAlternative UpgradeAlternative { get; set; }
         
         public List<IUpgradeItem> UpgradeItems { get; set; } 
     }

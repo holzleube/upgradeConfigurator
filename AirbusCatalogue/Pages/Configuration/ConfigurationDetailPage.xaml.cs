@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using AirbusCatalogue.Common;
+using AirbusCatalogue.ViewModel.ViewDataElements.Configuration;
 using AirbusCatalogue.ViewModel.ViewInterfaces.Configuration;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -13,8 +14,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
+using AirbusCatalogue.ViewModel.ViewModel.Configuration;
 
 namespace AirbusCatalogue.Pages.Configuration
 {
@@ -23,9 +24,11 @@ namespace AirbusCatalogue.Pages.Configuration
     /// </summary>
     public sealed partial class ConfigurationDetailPage : IConfigurationAlternativeSelection
     {
+
         public ConfigurationDetailPage()
         {
             this.InitializeComponent();
+            
         }
 
         /// <summary>
@@ -49,6 +52,11 @@ namespace AirbusCatalogue.Pages.Configuration
         /// <param name="pageState">An empty dictionary to be populated with serializable state.</param>
         protected override void SaveState(Dictionary<String, Object> pageState)
         {
+        }
+
+        private void ItemGridView_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            bottomAppBar.IsOpen = itemGridView.SelectedItem != null;
         }
     }
 }

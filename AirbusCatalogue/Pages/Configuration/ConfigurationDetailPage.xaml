@@ -9,11 +9,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:configuration="using:AirbusCatalogue.ViewModel.ViewModel.Configuration"
     xmlns:variableTemplate="using:AirbusCatalogue.VariableTemplate"
+    xmlns:command="using:AirbusCatalogue.ViewModel.Command"
     mc:Ignorable="d">
     <Page.DataContext>
         <configuration:ConfigurationDetailViewModel/>
     </Page.DataContext>
-
+    
     <Page.Resources>
         <CollectionViewSource
             x:Name="groupedItemsViewSource"
@@ -32,6 +33,24 @@
                                         />
     </Page.Resources>
 
+    <Page.BottomAppBar>
+        <AppBar x:Name="bottomAppBar" Padding="0" IsSticky="True">
+            <Grid >
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF72A4D6"/>
+                        <GradientStop Color="#FF5970B6" Offset="1"/>
+                        <GradientStop Color="#FF5970B6" Offset="0.992"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Style="{StaticResource BottomAppBarButtonStyleCorner}"
+                            Content="&#xE10B;"
+                            AutomationProperties.Name="{StaticResource CheckAircraftButtonText}"   Command="{Binding AlternativeWasChosenCommand}"/>
+                </StackPanel>
+            </Grid>
+        </AppBar>
+    </Page.BottomAppBar>
     <!--
         This grid acts as a root panel for the page that defines two rows:
         * Row 0 contains the back button and page title
@@ -63,7 +82,10 @@
             ItemsSource="{Binding Source={StaticResource groupedItemsViewSource}}"
             ItemTemplateSelector="{StaticResource TemplateSelector}"
             IsItemClickEnabled="True"
-            SelectionMode="None"
+            command:ItemClickCommand.Command="{Binding GridViewItemWasSelectedCommand}"
+            SelectionChanged="ItemGridView_OnSelectionChanged"
+            SelectionMode="Single"
+            SelectedItem="{Binding SelectedAlternativeItem, Mode=TwoWay}"
             IsSwipeEnabled="false">
 
             <GridView.ItemsPanel>
@@ -81,8 +103,6 @@
                 </GroupStyle>
             </GridView.GroupStyle>
         </variableTemplate:VariableTileControl>
-        <ListView HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
-
         <VisualStateManager.VisualStateGroups>
 
             <!-- Visual states reflect the application's view state -->

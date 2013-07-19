@@ -4,11 +4,13 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using AirbusCatalogue.Common.DataObjects.Aircrafts;
 using AirbusCatalogue.Common.DataObjects.Config;
 using AirbusCatalogue.Common.DataObjects.General;
 using AirbusCatalogue.Common.DataObjects.Upgrades;
 using AirbusCatalogue.Model.Config;
+using AirbusCatalogue.ViewModel.Command;
 using AirbusCatalogue.ViewModel.Templates;
 using AirbusCatalogue.ViewModel.ViewDataElements;
 using AirbusCatalogue.ViewModel.ViewDataElements.Aircraft;
@@ -19,6 +21,9 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Configuration
     public class ConfigurationDetailViewModel:GridHolderViewModel
     {
         private readonly ConfigurationModel _model;
+        private ICommand _gridViewItemWasSelectedCommand;
+        private ICommand _alternativeWasChosenCommand;
+        private AlternativeDataItem _selectedAlternativeItem;
 
         public ConfigurationDetailViewModel()
         {
@@ -26,6 +31,65 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Configuration
         }
 
         public IConfigurationGroup ConfigurationGroup { get; set; }
+
+        public ICommand GridViewItemWasSelectedCommand
+        {
+            get { return _gridViewItemWasSelectedCommand ?? (_gridViewItemWasSelectedCommand = new RelayCommand<DataCommon>(GridViewItemWasSelected)); }
+            set
+            {
+                _gridViewItemWasSelectedCommand = value;
+                OnPropertyChanged();
+            }
+        } 
+        public ICommand AlternativeWasChosenCommand
+        {
+            get { return _alternativeWasChosenCommand ?? (_alternativeWasChosenCommand = new RelayCommand(AlternativeWasChosen)); }
+            set
+            {
+                _alternativeWasChosenCommand = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private void AlternativeWasChosen()
+        {
+            if (SelectedAlternativeItem != null)
+            {
+                SelectedAlternativeItem.
+            }
+        }
+
+        private void GridViewItemWasSelected(DataCommon obj)
+        {
+            if (obj.GetType() == typeof (AlternativeDataItem))
+            {
+                var alternativeObject = (AlternativeDataItem)obj;
+                if (SelectedAlternativeItem == null)
+                {
+                    SelectedAlternativeItem = alternativeObject;
+                    return;
+                }
+                if (SelectedAlternativeItem.Equals(alternativeObject))
+                {
+                    SelectedAlternativeItem = null;
+                    return;
+                }
+                SelectedAlternativeItem = alternativeObject;
+            }
+        }
+
+        public AlternativeDataItem SelectedAlternativeItem
+        {
+            get
+            {
+                return _selectedAlternativeItem;
+            }
+            set
+            {
+                _selectedAlternativeItem = value;
+                OnPropertyChanged();
+            }
+        }
 
         public override void Initialize(object parameter)
         {
@@ -49,6 +113,10 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Configuration
                 {
                     var alternativeDataItem = new AlternativeDataItem(alternative, alternativeGroup);
                     alternativeGroup.Items.Add(alternativeDataItem);
+                    if (ConfigurationGroup.SelectedAlternative.Equals(alternative))
+                    {
+                        SelectedAlternativeItem = alternativeDataItem;
+                    }
                 }
                 DataGroupElements.Add(alternativeGroup);
             }
@@ -76,5 +144,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Configuration
             aircraftGroup.Items.Add(new AircraftVersionSelectionGroup(aircraftGroup, aircrafts));
             DataGroupElements.Add(aircraftGroup);
         }
+
+       
     }
 }
