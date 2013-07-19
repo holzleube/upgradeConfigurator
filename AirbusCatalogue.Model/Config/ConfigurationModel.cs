@@ -120,8 +120,9 @@ namespace AirbusCatalogue.Model.Config
         private List<IUpgradeItem> GetConfigurationItemByAtaAndTdu()
         {
             var result = new List<IUpgradeItem>();
-            result.Add(new UpgradeItem("jackPanelNew", "Alternative Jack Panel", "Installation of ACP and jack panel in avionics compartment", "/Assets/upgrades/jackPanel.jpg","",22,0,false));
-            result.Add(new UpgradeItem("jackPanelComplete", "Alternative Jack Panel", "Installation of ACP for fourth occupant and ACP and jack panel in avionics compartment", "/Assets/upgrades/jackPanel.jpg","",22,0,false));
+            result.Add(new UpgradeItem("23.50.110.22", "Alternative Jack Panel", "Installation of ACP and jack panel in avionics compartment", "/Assets/upgrades/jackPanel.jpg","",22,0,false));
+            result.Add(new UpgradeItem("23.50.110.23", "Alternative Jack Panel", "Installation of ACP for fourth occupant and ACP and jack panel in avionics compartment", "/Assets/upgrades/jackPanel.jpg", "", 22, 0, false));
+            result.Add(new UpgradeItem("23.50.110.23", "Alternative Jack Panel", "Installation of ACP for fourth occupant and ACP and jack panel in avionics compartment", "/Assets/upgrades/jackPanel.jpg", "", 22, 0, false));
             return result;
         }
     }

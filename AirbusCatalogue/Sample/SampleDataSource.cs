@@ -426,9 +426,10 @@ namespace AirbusCatalogue.Sample
             var aircraftProgramm = new AircraftProgrammDataItem(group, 60, 60);
             var aircraftSelection = new SummarySelectionDataItem("aircraftSelection", "Select aircrafts", "E0EB", group, 0);
             var upgradeSelection = new SummarySelectionDataItem("aircraftSelection", "Select aircrafts", "", group,1);
-            group.Items.Add(aircraftProgramm);
-            group.Items.Add(aircraftSelection);
-            group.Items.Add(upgradeSelection);
+            //group.Items.Add(aircraftProgramm);
+            //group.Items.Add(aircraftSelection);
+            group.Items.Add(new CompleteSampleDataItem(group));
+            
             var newGroup = new ConfigurationGroup("confGroup1", "Group 1", "");
             
             this.AllGroups.Add(group);

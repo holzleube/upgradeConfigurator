@@ -125,7 +125,6 @@
 
     <Style x:Key="GroupHeaderTextStyle" TargetType="TextBlock">
         <Setter Property="FontFamily" Value="{StaticResource ContentControlThemeFontFamily}"/>
-        <Setter Property="Foreground" Value="Blue"/>
         <Setter Property="TextTrimming" Value="WordEllipsis"/>
         <Setter Property="TextWrapping" Value="NoWrap"/>
         <Setter Property="Typography.StylisticSet20" Value="True"/>
@@ -1655,24 +1654,6 @@
         </Grid>
     </DataTemplate>
 
-    <!-- start page layout image file-->
-    <DataTemplate x:Key="TopTemplate">
-        <Grid x:Name="TopMain" Width="600" Height="500">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="349"/>
-                <RowDefinition Height="7*"/>
-            </Grid.RowDefinitions>
-            <Image Source="{Binding Image}" Stretch="Fill" Grid.RowSpan="2"/>
-            <StackPanel Grid.Row="1" Background="#90000000">
-                <TextBlock TextWrapping="Wrap" Text="{Binding Title}" Foreground="#FF77D2FF" FontFamily="Segoe UI" FontSize="24" Margin="10,0"/>
-                <TextBlock TextWrapping="Wrap" Text="{Binding Subtitle}" Foreground="#fff" FontFamily="Segoe UI" FontSize="14" Margin="10,0"/>
-                <TextBlock TextWrapping="Wrap" Text="{Binding Date}" Foreground="#fff" FontFamily="Segoe UI" FontSize="13" FontWeight="Light" Margin="10,0"/>
-                <TextBlock TextWrapping="Wrap" Text="{Binding Sub}" Foreground="#fff" FontFamily="Segoe UI" FontSize="13" FontWeight="Light" Margin="10,9,10,0"/>
-            </StackPanel>
-        </Grid>
-    </DataTemplate>
-
-    
     <!-- Grid-appropriate 500 by 130 pixel item template as seen in the GroupDetailPage -->
     <DataTemplate x:Key="Standard500x130ItemTemplate">
         <Grid Height="110" Width="480" Margin="10">

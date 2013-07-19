@@ -36,4 +36,5 @@
     <x:String x:Key="CountOfNewTdus">Count of new TDUs: </x:String>
     <x:String x:Key="SelectAlternativeText">select</x:String>
     <x:String x:Key="EditCustomerButtonText">edit customer</x:String>
+    <x:String x:Key="ShowDetailText">details</x:String>
 </ResourceDictionary>

@@ -37,42 +37,12 @@
                 <ColumnDefinition Width="70"/>
             </Grid.ColumnDefinitions>
             <Image Margin="10" HorizontalAlignment="Left" Grid.ColumnSpan="2" VerticalAlignment="Center" Source="{Binding Image}" Stretch="Uniform"/>
-            <StackPanel  Grid.Row="0">
+            <StackPanel  Grid.Column="1">
                 <TextBlock TextWrapping="Wrap" HorizontalAlignment="Right" Text="{Binding Title}"  FontSize="30" Style="{StaticResource GroupHeaderTextStyle}"/>
             </StackPanel>
         </Grid>
     </DataTemplate>
 
-    <DataTemplate x:Key="AircraftSelectionTemplate">
-        <Border BorderBrush="Black" BorderThickness="2">
-            <Grid Height="550" MinWidth="400" Background="{StaticResource TileBackground}">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="100"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <StackPanel Margin="0,10,0,0">
-                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center"   Text="{Binding Version}"  FontSize="40" Style="{StaticResource GroupHeaderTextStyle}"/>
-                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center"  Text="{Binding Title}"  FontSize="25" Style="{StaticResource GroupHeaderTextStyle}"/>
-                </StackPanel>
-                <ListView
-            x:Name="itemGridView"
-            Grid.Row="1"
-            ItemsSource="{Binding AircraftList}"
-            ItemTemplate="{StaticResource SingleAircraftSelectionTemplate}"
-            IsItemClickEnabled="False"
-            IsTapEnabled="False"
-            SelectionMode="None"
-                HorizontalAlignment="Center"
-            IsSwipeEnabled="False">
-                    <ListView.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapGrid Orientation="Horizontal" />
-                        </ItemsPanelTemplate>
-                    </ListView.ItemsPanel>
-                </ListView>
-            </Grid>
-        </Border>
-    </DataTemplate>
     <DataTemplate x:Key="SingleAircraftSelectionTemplate">
         <Border BorderBrush="Black" BorderThickness="2">
             <Grid HorizontalAlignment="Center" Width="150" Height="130" Background="{StaticResource TileBackground}">
@@ -83,5 +53,32 @@
             </Grid>
         </Border>
     </DataTemplate>
+    <DataTemplate x:Key="AircraftSelectionTemplate">
+        <Border BorderBrush="Black" BorderThickness="2">
+            <Grid Height="550" MinWidth="400" Background="{StaticResource TileBackground}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="100"/>
+                </Grid.RowDefinitions>
+                <ListView
+                x:Name="itemGridView"
+                ItemsSource="{Binding AircraftList}"
+                ItemTemplate="{StaticResource SingleAircraftSelectionTemplate}"
+                Style="{StaticResource NonSelectableListViewTemplate}"
+                HorizontalAlignment="Center">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapGrid Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                </ListView>
+                <StackPanel  Grid.Row="1" Background="{StaticResource airbusBlue}">
+                    <TextBlock Margin="0,5,0,0" TextWrapping="Wrap" HorizontalAlignment="Center" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}"  Text="{Binding Version}"  FontSize="40" Style="{StaticResource GroupHeaderTextStyle}"/>
+                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Text="{Binding Title}"  FontSize="25" Style="{StaticResource GroupHeaderTextStyle}"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </DataTemplate>
+    
 
 </ResourceDictionary>

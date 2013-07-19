@@ -81,6 +81,7 @@
                 </GroupStyle>
             </GridView.GroupStyle>
         </variableTemplate:VariableTileControl>
+        <ListView HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
 
         <VisualStateManager.VisualStateGroups>
 

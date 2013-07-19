@@ -22,6 +22,7 @@
                 <ResourceDictionary Source="CommonResources/AircraftTiles.xaml"/>
                 <ResourceDictionary Source="CommonResources/UpgradeTiles.xaml"/>
                 <ResourceDictionary Source="CommonResources/AppBarStyles.xaml"/>
+                <ResourceDictionary Source="Common/StandardStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <!-- Application-specific resources -->
