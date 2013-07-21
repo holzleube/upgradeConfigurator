@@ -4,13 +4,15 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements.Summary
 {
     public class ConfigurationGroupDataItem: BasicDataItem
     {
-        private IConfigurationGroup _configurationGroup;
+        private readonly IConfigurationGroup _configurationGroup;
+        private int _configurationItemsCount;
 
-        public ConfigurationGroupDataItem(IConfigurationGroup configurationGroup, DataGroup @group)
+        public ConfigurationGroupDataItem(IConfigurationGroup configurationGroup, DataGroup @group, int configurationItemsCount)
             : base(configurationGroup.UniqueId, configurationGroup.Name, "", @group, 55, 40)
         {
             ConfigurationState = configurationGroup.GroupConfigurationState;
             _configurationGroup = configurationGroup;
+            _configurationItemsCount = configurationItemsCount;
         }
 
         public IConfigurationGroup ConfigurationGroup
@@ -24,11 +26,11 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements.Summary
 
         private int GetUpgradeItemsCount()
         {
-            if (_configurationGroup.Alternatives.Count == 0)
+            if (_configurationGroup.SelectedAlternative == null)
             {
-                return 0;
+                return _configurationItemsCount;
             }
-            return _configurationGroup.Alternatives[0].UpgradeItems.Count;
+            return _configurationItemsCount + _configurationGroup.SelectedAlternative.UpgradeItems.Count;
         }
 
         public string AircraftCount{get { return "count: " + _configurationGroup.Aircrafts.Count; }}

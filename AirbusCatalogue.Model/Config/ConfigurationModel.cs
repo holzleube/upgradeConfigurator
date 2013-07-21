@@ -53,11 +53,11 @@ namespace AirbusCatalogue.Model.Config
 
         private ConfigurationResultTransferable[] GetConfigurationResultTransferable(string json)
         {
-            var _Bytes = Encoding.Unicode.GetBytes(json);
-            using (MemoryStream _Stream = new MemoryStream(_Bytes))
+            var bytes = Encoding.Unicode.GetBytes(json);
+            using (var stream = new MemoryStream(bytes))
             {
-                var _Serializer = new DataContractJsonSerializer(typeof(ConfigurationResultTransferable[]));
-                return (ConfigurationResultTransferable[])_Serializer.ReadObject(_Stream);
+                var serializer = new DataContractJsonSerializer(typeof(ConfigurationResultTransferable[]));
+                return (ConfigurationResultTransferable[])serializer.ReadObject(stream);
             }
         }
 

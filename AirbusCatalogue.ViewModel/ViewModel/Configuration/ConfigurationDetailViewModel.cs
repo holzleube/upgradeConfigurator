@@ -1,20 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows.Input;
 using AirbusCatalogue.Common.DataObjects.Aircrafts;
 using AirbusCatalogue.Common.DataObjects.Config;
-using AirbusCatalogue.Common.DataObjects.General;
-using AirbusCatalogue.Common.DataObjects.Upgrades;
 using AirbusCatalogue.Model.Config;
 using AirbusCatalogue.ViewModel.Command;
+using AirbusCatalogue.ViewModel.Navigation;
 using AirbusCatalogue.ViewModel.Templates;
 using AirbusCatalogue.ViewModel.ViewDataElements;
 using AirbusCatalogue.ViewModel.ViewDataElements.Aircraft;
 using AirbusCatalogue.ViewModel.ViewDataElements.Configuration;
+using AirbusCatalogue.ViewModel.ViewInterfaces;
+using GalaSoft.MvvmLight.Ioc;
 
 namespace AirbusCatalogue.ViewModel.ViewModel.Configuration
 {
@@ -55,8 +51,17 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Configuration
         {
             if (SelectedAlternativeItem != null)
             {
-                SelectedAlternativeItem.
+                ConfigurationGroup.SelectedAlternative = SelectedAlternativeItem.UpgradeAlternative;
+                _model.SelectAlternativeInGroup(ConfigurationGroup);
+                NavigateToSummary();
             }
+        }
+
+        private void NavigateToSummary()
+        {
+            var navigationService = SimpleIoc.Default.GetInstance<INavigationService>();
+            var navigationClass = SimpleIoc.Default.GetInstance<ISummary>();
+            navigationService.Navigate(navigationClass.GetType());
         }
 
         private void GridViewItemWasSelected(DataCommon obj)
@@ -107,18 +112,28 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Configuration
         private void AddConfigurationAlternative()
         {
             var alternativeGroup = new ConfigurationGroup("possibleAlternatives", "alternatives", "\uE15E");
-            if (ConfigurationGroup.Alternatives.Count > 1)
+            if (ConfigurationGroup.Alternatives.Count < 1)
             {
-                foreach (var alternative in ConfigurationGroup.Alternatives)
-                {
-                    var alternativeDataItem = new AlternativeDataItem(alternative, alternativeGroup);
-                    alternativeGroup.Items.Add(alternativeDataItem);
-                    if (ConfigurationGroup.SelectedAlternative.Equals(alternative))
-                    {
-                        SelectedAlternativeItem = alternativeDataItem;
-                    }
-                }
-                DataGroupElements.Add(alternativeGroup);
+                return;
+            }
+            foreach (var alternative in ConfigurationGroup.Alternatives)
+            {
+                 var alternativeDataItem = new AlternativeDataItem(alternative, alternativeGroup);
+                 alternativeGroup.Items.Add(alternativeDataItem);
+                 if (ConfigurationGroup.SelectedAlternative != null)
+                 {
+                     CheckIfAlternativeIsSelectedAndSetSelected(alternative, alternativeDataItem);
+                 }
+            }
+            DataGroupElements.Add(alternativeGroup);
+        }
+
+        private void CheckIfAlternativeIsSelectedAndSetSelected(IUpgradeAlternative alternative,
+                                                                AlternativeDataItem alternativeDataItem)
+        {
+            if (ConfigurationGroup.SelectedAlternative.Equals(alternative))
+            {
+                SelectedAlternativeItem = alternativeDataItem;
             }
         }
 

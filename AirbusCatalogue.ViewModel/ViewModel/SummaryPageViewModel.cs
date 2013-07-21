@@ -51,7 +51,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel
         {
             Configuration = _model.GetCurrentConfiguration();
             AddAircraftProgramm(Configuration.Programm);
-            AddConfigurationGroup();
+            SetRightConfigurationStateItem();
         }
 
         private void AddConfigurationInProgressTile()
@@ -59,11 +59,6 @@ namespace AirbusCatalogue.ViewModel.ViewModel
             var configurationGroup = GetConfigurationGroup();
             configurationGroup.Items.Clear();
             configurationGroup.Items.Add(new ConfigureDataItem(configurationGroup));
-        }
-
-        private void AddConfigurationGroup()
-        {
-            SetRightConfigurationStateItem();
         }
 
         private DataGroup GetConfigurationGroup()
@@ -104,7 +99,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel
             group.Items.Clear();
             foreach (var configuration in Configuration.ConfigurationGroups)
             {
-                group.Items.Add(new ConfigurationGroupDataItem(configuration, group));
+                group.Items.Add(new ConfigurationGroupDataItem(configuration, group, Configuration.Upgrades.Count));
             }
         }
 
@@ -152,7 +147,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel
                     configurationGroup.GroupConfigurationState.Equals(
                         ConfigurationState.IMPOSSIBLE))
                 {
-                    AskUserAnddRemoveGroupFromConfiguration(configurationGroup);
+                    AskUserAndRemoveGroupFromConfiguration(configurationGroup);
                     return;
                 }
                 classToNavigate = SimpleIoc.Default.GetInstance<IConfigurationAlternativeSelection>();
@@ -165,9 +160,9 @@ namespace AirbusCatalogue.ViewModel.ViewModel
             NavigateToClass(classToNavigate, parameter);
         }
 
-        private void AskUserAnddRemoveGroupFromConfiguration(IConfigurationGroup configurationGroup)
+        private void AskUserAndRemoveGroupFromConfiguration(IConfigurationGroup configurationGroup)
         {
-            throw new System.NotImplementedException();
+            
         }
 
         private void NavigateToClass(object classToNavigate, object parameter)
