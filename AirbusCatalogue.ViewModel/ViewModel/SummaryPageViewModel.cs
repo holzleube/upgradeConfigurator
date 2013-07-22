@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.UI.Popups;
 using AirbusCatalogue.Common.DataObjects.Aircrafts;
 using AirbusCatalogue.Common.DataObjects.Config;
 using AirbusCatalogue.Model.Config;
@@ -161,6 +162,18 @@ namespace AirbusCatalogue.ViewModel.ViewModel
         }
 
         private void AskUserAndRemoveGroupFromConfiguration(IConfigurationGroup configurationGroup)
+        {
+            var messageDialog = new MessageDialog("Do you want to delete this group?",
+                "Delete Group " + configurationGroup.Name);
+            var command = new UICommandInvokedHandler((IUICommand paramter) =>
+            {
+                _model.RemoveGroupFromConfiguration(configurationGroup);
+                InitializeDataGrid();
+            });
+            messageDialog.Commands.Add(new UICommand("Yes", command));
+        }
+
+        private void DeleteGroupFromConfiguration(IUICommand command)
         {
             
         }

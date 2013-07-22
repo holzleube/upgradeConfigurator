@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,7 +22,6 @@ namespace AirbusCatalogue.Model.Config
     {
         public IConfiguration GetCurrentConfiguration()
         {
-
             return GetConfiguration();
         }
 
@@ -37,11 +37,8 @@ namespace AirbusCatalogue.Model.Config
 
             try
             {
-                var newResult = await webserviceClient.getAllScheduledUserjobsAsync();
-                //var result = await webserviceClient.getConfigurationResultAsync(new string[] { "N-2213", "N-3065", "N-2228", "N-2456", "N-2716" },
-                //                                                      "CN22.00.998-01");
-             var result = await webserviceClient.getConfigurationResultAsync(new string[] { "R-0007", "R-0009", "R-0011", "R-0013", "R-0016" },
-                                                                      "CR34.53.100-01");
+                var result = await webserviceClient.getConfigurationResultAsync(new string[] { "N-2213", "N-3065", "N-2228", "N-2456", "N-2716" },
+                                                                      "CN23.51.136-30");
                 var transferable = GetConfigurationResultTransferable(result.getConfigurationResultReturn);
                 var test = result.getConfigurationResultReturn;
             }
@@ -70,14 +67,7 @@ namespace AirbusCatalogue.Model.Config
 
         private IConfigurationGroup FindConfigurationGroupInConfiguration(string uniqueId)
         {
-            foreach (var confGroup in GetConfiguration().ConfigurationGroups)
-            {
-                if (confGroup.UniqueId.Equals(uniqueId))
-                {
-                    return confGroup;
-                }
-            }
-            return null;
+            return GetConfiguration().ConfigurationGroups.FirstOrDefault(confGroup => confGroup.UniqueId.Equals(uniqueId));
         }
 
         public async Task<IConfiguration> ConfigureCurrentConfiguration()
@@ -124,6 +114,16 @@ namespace AirbusCatalogue.Model.Config
             result.Add(new UpgradeItem("23.50.110.23", "Alternative Jack Panel", "Installation of ACP for fourth occupant and ACP and jack panel in avionics compartment", "/Assets/upgrades/jackPanel.jpg", "", 22, 0, false));
             result.Add(new UpgradeItem("23.50.110.23", "Alternative Jack Panel", "Installation of ACP for fourth occupant and ACP and jack panel in avionics compartment", "/Assets/upgrades/jackPanel.jpg", "", 22, 0, false));
             return result;
+        }
+
+        public void RemoveGroupFromConfiguration(IConfigurationGroup configurationGroup)
+        {
+            var currentConfiguration = GetConfiguration();
+            currentConfiguration.ConfigurationGroups.Remove(configurationGroup);
+            foreach (var aircraft in configurationGroup.Aircrafts)
+            {
+                currentConfiguration.SelectedAircrafts.Remove(aircraft);
+            }
         }
     }
 }
