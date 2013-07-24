@@ -61,7 +61,6 @@ namespace AirbusCatalogue.Model.Aircrafts
                     new Aircraft("N-006","MSN-005", image, "001", "AFR02", "A320"),
                     new Aircraft("N-007","MSN-006", image, "001", "AFR02", "A320") };
            
-           
             var list3 = new List<Aircraft>
                 {
                     new Aircraft("N-008","MSN-007", image, "001", "AFR05", "A320"),

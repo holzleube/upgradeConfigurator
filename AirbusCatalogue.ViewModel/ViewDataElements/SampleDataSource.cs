@@ -84,7 +84,7 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements
     /// </summary>
     public class BasicDataItem : DataCommon
     {
-        public BasicDataItem(String uniqueId, String title,  String imagePath, DataGroup group, int rowSpan, int colSpan)
+        public BasicDataItem(String uniqueId, String title,  String imagePath, DataGroup group, double rowSpan, double colSpan)
             : base(uniqueId, title,  imagePath)
         {
             this._group = group;
@@ -101,9 +101,9 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements
 
         private DataGroup _group;
 
-        public int RowSpan { get; set; }
+        public double RowSpan { get; set; }
 
-        public int ColSpan { get; set; }
+        public double ColSpan { get; set; }
 
         public DataGroup Group
         {

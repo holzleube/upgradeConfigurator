@@ -130,7 +130,9 @@
     <Compile Include="ViewDataElements\Summary\ConfigureDataItem.cs" />
     <Compile Include="ViewDataElements\Summary\IncompleteConfigurationDataItem.cs" />
     <Compile Include="ViewDataElements\Summary\SummaryConfigurationGroup.cs" />
+    <Compile Include="ViewDataElements\Summary\SummaryFinishConfigurationDataItem.cs" />
     <Compile Include="ViewDataElements\Summary\SummarySelectionDataItem.cs" />
+    <Compile Include="ViewDataElements\Summary\UnknownConfigurationDataItem.cs" />
     <Compile Include="ViewDataElements\Upgrades\NewUpgradeBigDataItem.cs" />
     <Compile Include="ViewDataElements\Upgrades\NewUpgradeSmallDataItem.cs" />
     <Compile Include="ViewInterfaces\Aircraft\IAircraftFamilySelection.cs" />

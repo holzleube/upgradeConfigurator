@@ -139,6 +139,25 @@
             </Grid>
         </Border>
     </DataTemplate>
+    <DataTemplate x:Key="UnknownConfigurationStateTemplate">
+        <Border BorderBrush="Black" BorderThickness="1" Padding="1" >
+            <Grid Width="400" Height="550" Background="{StaticResource TileBackground}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="200"/>
+                </Grid.RowDefinitions>
+                <Button x:Name="AircraftButton" Content="{Binding ImageContent}" 
+                            Width="200"
+                            Height="300"
+                            Style="{StaticResource SummarySimpleButtonStyle}"
+                            Margin="5"
+                             HorizontalAlignment="Center" />
+                <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Background="{StaticResource airbusBlue}" Height="200">
+                    <TextBlock Text="{Binding Title}" TextWrapping="Wrap" Padding="0,0,0,10" HorizontalAlignment="Center" FontSize="25" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource GroupHeaderTextStyle}" Margin="15"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </DataTemplate>
 
 
     <Style x:Key="SummaryPageButtonStyle" TargetType="ButtonBase">
@@ -170,6 +189,24 @@
                                 TextTrimming="WordEllipsis"
                                 Style="{StaticResource BasicTextStyle}"/>
                         </StackPanel>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="SummarySimpleButtonStyle" TargetType="ButtonBase">
+        <Setter Property="Foreground" Value="{StaticResource AppBarItemForegroundThemeBrush}"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="FontFamily" Value="Segoe UI Symbol"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="FontSize" Value="90"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ButtonBase">
+                    <Grid x:Name="RootGrid">
+                            <Grid Width="120" Height="120" Margin="0,0,0,5" HorizontalAlignment="Center">
+                                <ContentPresenter x:Name="Content" HorizontalAlignment="Center" Margin="-1,-1,0,0" VerticalAlignment="Center"/>
+                            </Grid>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>

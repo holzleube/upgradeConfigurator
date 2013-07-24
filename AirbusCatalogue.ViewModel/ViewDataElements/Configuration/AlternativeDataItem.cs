@@ -15,6 +15,18 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements.Configuration
         {
             UpgradeItems = configurationAlternative.UpgradeItems;
             UpgradeAlternative = configurationAlternative;
+            SetRightColumnSpan(UpgradeItems.Count);
+        }
+
+        private void SetRightColumnSpan(int count)
+        {
+            var countWithoutFirstPage = count - 3;
+            if (countWithoutFirstPage > 0)
+            {
+                var factor = countWithoutFirstPage / 2;
+                ColSpan = factor * 20;
+            }
+            ColSpan += 40;
         }
 
         public IUpgradeAlternative UpgradeAlternative { get; set; }

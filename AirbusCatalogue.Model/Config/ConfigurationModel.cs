@@ -11,6 +11,8 @@ using AirbusCatalogue.Common.DataObjects.Config;
 using AirbusCatalogue.Common.DataObjects.Upgrades;
 using AirbusCatalogue.Model.ConfigurationData;
 using AirbusCatalogue.Model.ConfigurationService;
+using AirbusCatalogue.Model.Exceptions;
+using AirbusCatalogue.Model.Repository;
 using AirbusCatalogue.Model.Transferable;
 using AirbusCatalogue.Model.Upgrades;
 using GalaSoft.MvvmLight.Ioc;
@@ -20,6 +22,13 @@ namespace AirbusCatalogue.Model.Config
 {
     public class ConfigurationModel
     {
+        private UpgradeRepository _upgradeRepository;
+        
+
+        public ConfigurationModel()
+        {
+            _upgradeRepository = new UpgradeRepository();
+        }
         public IConfiguration GetCurrentConfiguration()
         {
             return GetConfiguration();
@@ -30,21 +39,23 @@ namespace AirbusCatalogue.Model.Config
             return SimpleIoc.Default.GetInstance<IConfiguration>();
         }
 
-        public async void CheckConfiguration()
+        public async Task ConfigureCurrentConfiguration()
         {
             var webserviceClient =
                 new AirbusConfigurationWebServiceClient();
-
             try
             {
                 var result = await webserviceClient.getConfigurationResultAsync(new string[] { "N-2213", "N-3065", "N-2228", "N-2456", "N-2716" },
-                                                                      "CN23.51.136-30");
+                                                                      "CN23.51.136-27");
                 var transferable = GetConfigurationResultTransferable(result.getConfigurationResultReturn);
-                var test = result.getConfigurationResultReturn;
+               
+                GetConfiguration().ConfigurationGroups = new TransferableConverter().GetBuildAlternativesFromTransferable(transferable);
+                await Task.Delay(TimeSpan.FromSeconds(3));
+                GetConfiguration().HasConfigurationChanged = false;
             }
             catch (Exception e)
             {
-                
+                throw new WebserviceNotAvailableException("The webservice is not available, please try again later");
             } 
         }
 
@@ -63,57 +74,25 @@ namespace AirbusCatalogue.Model.Config
             var configurationGroup = FindConfigurationGroupInConfiguration(configurationGroupToUpdate.UniqueId);
             configurationGroup.SelectedAlternative = configurationGroupToUpdate.SelectedAlternative;
             configurationGroup.GroupConfigurationState = ConfigurationState.VALID;
+            CalculateNewConfigurationState();
+        }
+
+        private void CalculateNewConfigurationState()
+        {
+            ConfigurationState state = ConfigurationState.VALID;
+            foreach (var configurationGroup in GetConfiguration().ConfigurationGroups)
+            {
+                if (!configurationGroup.GroupConfigurationState.Equals(ConfigurationState.VALID))
+                {
+                    state = ConfigurationState.ALTERNATIVE;
+                }
+            }
+            GetConfiguration().State = state;
         }
 
         private IConfigurationGroup FindConfigurationGroupInConfiguration(string uniqueId)
         {
             return GetConfiguration().ConfigurationGroups.FirstOrDefault(confGroup => confGroup.UniqueId.Equals(uniqueId));
-        }
-
-        public async Task<IConfiguration> ConfigureCurrentConfiguration()
-        {
-            CheckConfiguration();
-            await Task.Delay(TimeSpan.FromSeconds(3));
-            var config = SimpleIoc.Default.GetInstance<IConfiguration>();
-            config.ConfigurationGroups.Clear();
-            var newUpgrades = GetConfigurationItemByAtaAndTdu();
-            config.HasConfigurationChanged = false;
-            var upgrades = new List<IUpgradeAlternative>() {new UpgradeAlternative("Alternative 1",config.Upgrades)};
-            var upgrades2 = new List<IUpgradeAlternative>() {new UpgradeAlternative("Alternative 1", config.Upgrades), new UpgradeAlternative("Alternative 2",newUpgrades)};
-            ConfigurationGroup currentGroup = null;
-            var counter = 0;
-            foreach (var aircraft in config.SelectedAircrafts)
-            {
-                if (counter%3 == 0)
-                {
-                    var groupNumber = counter/3 + 1;
-                    if (counter == 3)
-                    {
-                        currentGroup = new ConfigurationGroup("Group "+groupNumber, null, upgrades2, new List<IAircraft>(), "confGroup"+groupNumber);
-                    }
-                    else if (counter == 6)
-                    {
-                        currentGroup = new ConfigurationGroup("Group "+groupNumber, null, new List<IUpgradeAlternative>(), new List<IAircraft>(), "confGroup"+groupNumber);
-                    }
-                    else
-                    {
-                        currentGroup = new ConfigurationGroup("Group " + groupNumber, null, upgrades, new List<IAircraft>(), "confGroup" + groupNumber);
-                    }
-                    config.ConfigurationGroups.Add(currentGroup);
-                }
-                currentGroup.Aircrafts.Add(aircraft);
-                counter++;
-            }
-            return config;
-        }
-
-        private List<IUpgradeItem> GetConfigurationItemByAtaAndTdu()
-        {
-            var result = new List<IUpgradeItem>();
-            result.Add(new UpgradeItem("23.50.110.22", "Alternative Jack Panel", "Installation of ACP and jack panel in avionics compartment", "/Assets/upgrades/jackPanel.jpg","",22,0,false));
-            result.Add(new UpgradeItem("23.50.110.23", "Alternative Jack Panel", "Installation of ACP for fourth occupant and ACP and jack panel in avionics compartment", "/Assets/upgrades/jackPanel.jpg", "", 22, 0, false));
-            result.Add(new UpgradeItem("23.50.110.23", "Alternative Jack Panel", "Installation of ACP for fourth occupant and ACP and jack panel in avionics compartment", "/Assets/upgrades/jackPanel.jpg", "", 22, 0, false));
-            return result;
         }
 
         public void RemoveGroupFromConfiguration(IConfigurationGroup configurationGroup)

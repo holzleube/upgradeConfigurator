@@ -37,4 +37,7 @@
     <x:String x:Key="SelectAlternativeText">select</x:String>
     <x:String x:Key="EditCustomerButtonText">edit customer</x:String>
     <x:String x:Key="ShowDetailText">details</x:String>
+    <x:String x:Key="ReconfigureButtonText">reconfigure</x:String>
+    <x:String x:Key="SaveConfigurationButtonText">save</x:String>
+    <x:String x:Key="OrderConfigurationButtonText">order</x:String>
 </ResourceDictionary>

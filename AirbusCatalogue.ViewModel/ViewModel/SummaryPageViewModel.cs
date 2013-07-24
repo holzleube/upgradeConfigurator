@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,12 +8,14 @@ using Windows.UI.Popups;
 using AirbusCatalogue.Common.DataObjects.Aircrafts;
 using AirbusCatalogue.Common.DataObjects.Config;
 using AirbusCatalogue.Model.Config;
+using AirbusCatalogue.Model.Exceptions;
 using AirbusCatalogue.ViewModel.Command;
 using AirbusCatalogue.ViewModel.Navigation;
 using AirbusCatalogue.ViewModel.Templates;
 using AirbusCatalogue.ViewModel.ViewDataElements;
 using AirbusCatalogue.ViewModel.ViewDataElements.Aircraft;
 using AirbusCatalogue.ViewModel.ViewDataElements.Summary;
+using AirbusCatalogue.ViewModel.ViewInterfaces;
 using AirbusCatalogue.ViewModel.ViewInterfaces.Aircraft;
 using AirbusCatalogue.ViewModel.ViewInterfaces.Configuration;
 using AirbusCatalogue.ViewModel.ViewInterfaces.Upgrades;
@@ -26,16 +29,37 @@ namespace AirbusCatalogue.ViewModel.ViewModel
         private const string UpgradeSelectionId = "upgradeSelection";
         private const string AircraftSelectionId = "aircraftSelection";
         private const string AircraftFamilySelectionId = "familySelection";
+        private const string SaveConfigurationId = "saveConfiguration";
+        private const string RefreshConfigurationId = "refreshConfiguration";
+        private const string OrderConfigurationId = "orderConfiguration";
         private readonly ConfigurationModel _model;
         private ICommand _summaryItemWasSelectedCommand;
         private Dictionary<string, object> _idToPageMappingMap;
+        private bool _isBottomAppBarOpen;
+        private ICommand _reconfigureCommand;
+        private ICommand _navigateToStartCommand;
 
         public IConfiguration Configuration { get; set; }
 
+        public bool IsBottomAppBarOpen
+        {
+            get { return _isBottomAppBarOpen; }
+            set
+            {
+                _isBottomAppBarOpen = value;
+                OnPropertyChanged();
+            }
+        }
         public SummaryPageViewModel()
         {
             _model = new ConfigurationModel();
             InitializeIdToPageMappingMap();
+        }
+
+        private void SaveConfigurationAndReturnToStartPage()
+        {
+            var startPage = SimpleIoc.Default.GetInstance<IStartScreen>();
+            NavigateToClass(startPage, null);
         }
 
         private void InitializeIdToPageMappingMap()
@@ -52,7 +76,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel
         {
             Configuration = _model.GetCurrentConfiguration();
             AddAircraftProgramm(Configuration.Programm);
-            SetRightConfigurationStateItem();
+            ConfigureSelectionIfPossible();
         }
 
         private void AddConfigurationInProgressTile()
@@ -72,12 +96,12 @@ namespace AirbusCatalogue.ViewModel.ViewModel
                     return group;
                 }
             }
-            var configurationGroup = new SummaryConfigurationGroup("Configuration", "\uE15E");
+            var configurationGroup = new SummaryConfigurationGroup("Configuration", Configuration.State.ConfiguationStateIconValue);
             DataGroupElements.Add(configurationGroup);
             return configurationGroup;
         }
 
-        private void SetRightConfigurationStateItem()
+        private void ConfigureSelectionIfPossible()
         {
             var group = GetConfigurationGroup();
             if (Configuration.SelectedAircrafts.Count > 0 && Configuration.Upgrades.Count > 0)
@@ -92,17 +116,40 @@ namespace AirbusCatalogue.ViewModel.ViewModel
         private async void CalculateConfigurationAndGetConfigurationGroup()
         {
             var group = GetConfigurationGroup();
+            
             if (Configuration.HasConfigurationChanged)
             {
-                var configurationTask= _model.ConfigureCurrentConfiguration();
-                Configuration = await configurationTask;
+                if (await TryToConfigureConfiguration()) return;
             }
+            Configuration = _model.GetCurrentConfiguration();
             group.Items.Clear();
+            IsBottomAppBarOpen = true;
+
             foreach (var configuration in Configuration.ConfigurationGroups)
             {
                 group.Items.Add(new ConfigurationGroupDataItem(configuration, group, Configuration.Upgrades.Count));
             }
         }
+
+        private async Task<bool> TryToConfigureConfiguration()
+        {
+            try
+            {
+                var configurationTask = _model.ConfigureCurrentConfiguration();
+                await configurationTask;
+            }
+            catch (WebserviceNotAvailableException e)
+            {
+                Configuration.State = ConfigurationState.UNKNOWN;
+                var group = GetConfigurationGroup();
+                group.Items.Clear();
+                group.Items.Add(new UnknownConfigurationDataItem(group));
+                return true;
+            }
+            return false;
+        }
+
+       
 
         private void AddAircraftProgramm(IAircraftProgramm programm)
         {
@@ -119,11 +166,15 @@ namespace AirbusCatalogue.ViewModel.ViewModel
         public ICommand SummaryItemWasSelectedCommand
         {
             get { return _summaryItemWasSelectedCommand ?? (_summaryItemWasSelectedCommand = new RelayCommand<DataCommon>(SummaryItemWasSelected)); }
-            set
-            {
-                _summaryItemWasSelectedCommand = value;
-                OnPropertyChanged();
-            }
+        }
+
+        public ICommand ReconfigureCommand
+        {
+            get { return _reconfigureCommand ?? (_reconfigureCommand = new RelayCommand(ConfigureSelectionIfPossible)); }
+        }
+        public ICommand NavigateToStartCommand
+        {
+            get { return _navigateToStartCommand ?? (_navigateToStartCommand = new RelayCommand(SaveConfigurationAndReturnToStartPage)); }
         }
 
         private void SummaryItemWasSelected(DataCommon dataItem)
@@ -139,8 +190,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel
             {
                 classToNavigate = _idToPageMappingMap[item.UniqueId];
             }
-           
-            if (dataItem is ConfigurationGroupDataItem)
+            else if (dataItem is ConfigurationGroupDataItem)
             {
                 var configurationDataItem = (ConfigurationGroupDataItem) dataItem;
                 var configurationGroup = configurationDataItem.ConfigurationGroup;
@@ -154,6 +204,8 @@ namespace AirbusCatalogue.ViewModel.ViewModel
                 classToNavigate = SimpleIoc.Default.GetInstance<IConfigurationAlternativeSelection>();
                 parameter = configurationGroup;
             }
+            
+
             if (classToNavigate == null)
             {
                 return;
@@ -171,11 +223,6 @@ namespace AirbusCatalogue.ViewModel.ViewModel
                 InitializeDataGrid();
             });
             messageDialog.Commands.Add(new UICommand("Yes", command));
-        }
-
-        private void DeleteGroupFromConfiguration(IUICommand command)
-        {
-            
         }
 
         private void NavigateToClass(object classToNavigate, object parameter)

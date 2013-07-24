@@ -13,10 +13,9 @@ namespace AirbusCatalogue.ViewModel.Navigation
     public class NavigationService : INavigationService
     {
 
-        public void Navigate(Type sourcePageType)
-        {
-            Frame.Navigate(sourcePageType);
-            //((Frame)Window.Current.Content).Navigate(sourcePageType);
+            public void Navigate(Type sourcePageType)
+            {
+                Frame.Navigate(sourcePageType);
             }
             public void Navigate(Type sourcePageType, object parameter)
             {

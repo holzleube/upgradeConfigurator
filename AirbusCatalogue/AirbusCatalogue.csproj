@@ -121,6 +121,7 @@
     <Compile Include="Common\BindableBase.cs" />
     <Compile Include="Common\BooleanNegationConverter.cs" />
     <Compile Include="Common\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Common\ConfigurationStateToBooleanConverter.cs" />
     <Compile Include="Common\FlipViewIndicatorProperty.cs" />
     <Compile Include="Pages\Aircrafts\SelectAircraftFamilyPage.xaml.cs">
       <DependentUpon>SelectAircraftFamilyPage.xaml</DependentUpon>
