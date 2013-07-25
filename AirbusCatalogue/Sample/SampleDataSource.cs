@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Linq;
+using AirbusCatalogue.Common.BasicData;
 using AirbusCatalogue.Common.DataObjects.Aircrafts;
 using AirbusCatalogue.Common.DataObjects.Config;
 using AirbusCatalogue.Common.DataObjects.Upgrades;

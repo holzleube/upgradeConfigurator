@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using AirbusCatalogue.Common.BasicData;
 using AirbusCatalogue.Common.DataObjects.General;
 using AirbusCatalogue.ViewModel.Templates;
 using Windows.UI.Xaml.Media;

@@ -17,7 +17,7 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements.Configuration
 
         public string AircraftCount { get { return "SelectedAircrafts:   " + _configuration.Upgrades.Count; } }
 
-        public string State { get { return _configuration.State.ToString(); } }
+        public string State { get { return _configuration.State.ReadableName; } }
 
         public Brush StateColor
         {

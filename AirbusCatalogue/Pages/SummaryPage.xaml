@@ -62,10 +62,11 @@
                     <Button Style="{StaticResource BottomAppBarButtonStyleCorner}"
                             Content="&#xE105;"
                             IsEnabled="{Binding Path=Configuration.State, Converter={StaticResource converter}, ConverterParameter=save}"
-                            AutomationProperties.Name="{StaticResource SaveConfigurationButtonText}"   Command="{Binding NavigateToStartCommand}"/>
+                            CommandParameter="{StaticResource SaveConfigurationButtonText}" AutomationProperties.Name="{StaticResource SaveConfigurationButtonText}"   Command="{Binding NavigateToStartCommand}"/>
                     <Button Style="{StaticResource BottomAppBarButtonStyleCorner}"
                             Content="&#xE14D;"
                             IsEnabled="{Binding Path=Configuration.State, Converter={StaticResource converter}, ConverterParameter=order}"
+                            CommandParameter="{StaticResource OrderConfigurationButtonText}"
                             AutomationProperties.Name="{StaticResource OrderConfigurationButtonText}"   Command="{Binding NavigateToStartCommand}"/>
                 </StackPanel>
             </Grid>

@@ -46,7 +46,7 @@
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <Button Style="{StaticResource BottomAppBarButtonStyleCorner}"
                             Content="&#xE10B;"
-                            AutomationProperties.Name="{StaticResource CheckAircraftButtonText}"   Command="{Binding AlternativeWasChosenCommand}"/>
+                            AutomationProperties.Name="{StaticResource CheckAlternativeButtonText}"   Command="{Binding AlternativeWasChosenCommand}"/>
                 </StackPanel>
             </Grid>
         </AppBar>

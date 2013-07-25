@@ -1,4 +1,5 @@
 using System.Windows.Input;
+using AirbusCatalogue.Common.BasicData;
 using AirbusCatalogue.Model.Upgrades;
 using AirbusCatalogue.ViewModel.Command;
 using AirbusCatalogue.ViewModel.Navigation;

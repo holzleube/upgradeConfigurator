@@ -29,9 +29,6 @@ namespace AirbusCatalogue.ViewModel.ViewModel
         private const string UpgradeSelectionId = "upgradeSelection";
         private const string AircraftSelectionId = "aircraftSelection";
         private const string AircraftFamilySelectionId = "familySelection";
-        private const string SaveConfigurationId = "saveConfiguration";
-        private const string RefreshConfigurationId = "refreshConfiguration";
-        private const string OrderConfigurationId = "orderConfiguration";
         private readonly ConfigurationModel _model;
         private ICommand _summaryItemWasSelectedCommand;
         private Dictionary<string, object> _idToPageMappingMap;
@@ -56,8 +53,27 @@ namespace AirbusCatalogue.ViewModel.ViewModel
             InitializeIdToPageMappingMap();
         }
 
-        private void SaveConfigurationAndReturnToStartPage()
+        private void SaveConfigurationAndReturnToStartPage(string name)
         {
+            if (name == null)
+            {
+                return;
+            }
+            var message = "Your configuration was ";
+            var headline = "";
+            if (name.Equals("order"))
+            {
+                headline = "Order";
+                message += "ordered.";
+            }
+            else
+            {
+                headline = "Save";
+                message += "saved.";
+            }
+             var messageDialog = new MessageDialog(message,
+                headline);
+            messageDialog.ShowAsync();
             var startPage = SimpleIoc.Default.GetInstance<IStartScreen>();
             NavigateToClass(startPage, null);
         }
@@ -93,6 +109,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel
                 var group = summaryPageGroup as SummaryConfigurationGroup;
                 if (group != null)
                 {
+                    group.ImageContent = Configuration.State.ConfiguationStateIconValue;
                     return group;
                 }
             }
@@ -174,7 +191,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel
         }
         public ICommand NavigateToStartCommand
         {
-            get { return _navigateToStartCommand ?? (_navigateToStartCommand = new RelayCommand(SaveConfigurationAndReturnToStartPage)); }
+            get { return _navigateToStartCommand ?? (_navigateToStartCommand = new RelayCommand<string>(SaveConfigurationAndReturnToStartPage)); }
         }
 
         private void SummaryItemWasSelected(DataCommon dataItem)

@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AirbusCatalogue.Common.BasicData;
 using AirbusCatalogue.Common.DataObjects.General;
 
 namespace AirbusCatalogue.Model.Templates
 {
-    public class Identable:IIdentable
+    public class Identable: BindableBase,IIdentable
     {
         public Identable(string uniqueId)
         {

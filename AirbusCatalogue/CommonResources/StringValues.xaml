@@ -40,4 +40,5 @@
     <x:String x:Key="ReconfigureButtonText">reconfigure</x:String>
     <x:String x:Key="SaveConfigurationButtonText">save</x:String>
     <x:String x:Key="OrderConfigurationButtonText">order</x:String>
+    <x:String x:Key="CheckAlternativeButtonText">select</x:String>
 </ResourceDictionary>

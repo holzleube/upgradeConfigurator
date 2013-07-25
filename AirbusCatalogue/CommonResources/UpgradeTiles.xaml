@@ -10,8 +10,10 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="60"/>
                 </Grid.RowDefinitions>
-                <Image Source="{Binding Image}" Margin="5" Stretch="Uniform" />
-                <TextBlock TextWrapping="Wrap" Grid.Row="1" Text="{Binding Title}"  Style="{StaticResource GroupHeaderTextStyle}"  FontSize="24" HorizontalAlignment="Center"/>
+                <Image Source="{Binding Image}" Stretch="UniformToFill" />
+                <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Height="60" Background="{StaticResource airbusBlue}">
+                    <TextBlock Text="{Binding Title}" HorizontalAlignment="Center" FontSize="24" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource GroupHeaderTextStyle}" />
+                </StackPanel>
             </Grid>
         </Border>
     </DataTemplate>
@@ -23,8 +25,10 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="60"/>
                 </Grid.RowDefinitions>
-                <Image Source="{Binding Image}" Margin="5" Stretch="Uniform" />
-                <TextBlock TextWrapping="Wrap" Grid.Row="1" Text="{Binding Title}"  Style="{StaticResource GroupHeaderTextStyle}"  FontSize="24" Margin="10,0" HorizontalAlignment="Center"/>
+                <Image Source="{Binding Image}" Stretch="UniformToFill" />
+                <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Height="60" Background="{StaticResource airbusBlue}">
+                    <TextBlock Text="{Binding Title}" HorizontalAlignment="Center" FontSize="24" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource GroupHeaderTextStyle}" />
+                </StackPanel>
             </Grid>
         </Border>
     </DataTemplate>

@@ -102,6 +102,7 @@
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BasicData\BindableBase.cs" />
     <Compile Include="DataObjects\Aircrafts\IAircraft.cs" />
     <Compile Include="DataObjects\Aircrafts\IAircraftBase.cs" />
     <Compile Include="DataObjects\Aircrafts\IAircraftProgramm.cs" />

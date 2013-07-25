@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,7 +35,7 @@ namespace AirbusCatalogue.Model.Config
             return GetConfiguration();
         }
 
-        private static IConfiguration GetConfiguration()
+        private IConfiguration GetConfiguration()
         {
             return SimpleIoc.Default.GetInstance<IConfiguration>();
         }
@@ -51,12 +52,31 @@ namespace AirbusCatalogue.Model.Config
                
                 GetConfiguration().ConfigurationGroups = new TransferableConverter().GetBuildAlternativesFromTransferable(transferable);
                 await Task.Delay(TimeSpan.FromSeconds(3));
+                SetRightConfigurationState();
                 GetConfiguration().HasConfigurationChanged = false;
             }
             catch (Exception e)
             {
                 throw new WebserviceNotAvailableException("The webservice is not available, please try again later");
             } 
+        }
+
+        private void SetRightConfigurationState()
+        {
+            if (GetConfiguration().ConfigurationGroups.Count == 0)
+            {
+                GetConfiguration().State = ConfigurationState.ALTERNATIVE;
+            }
+            foreach (var configurationGroup in GetConfiguration().ConfigurationGroups)
+            {
+                if (configurationGroup.GroupConfigurationState.Equals(ConfigurationState.ALTERNATIVE) || 
+                    configurationGroup.GroupConfigurationState.Equals(ConfigurationState.IMPOSSIBLE) )
+                {
+                    GetConfiguration().State = ConfigurationState.ALTERNATIVE;
+                    return;
+                }
+            }
+            GetConfiguration().State = ConfigurationState.VALID;
         }
 
         private ConfigurationResultTransferable[] GetConfigurationResultTransferable(string json)
