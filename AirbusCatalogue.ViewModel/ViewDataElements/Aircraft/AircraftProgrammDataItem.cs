@@ -16,10 +16,5 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements.Aircraft
             
         }
 
-        public AircraftProgrammDataItem(DataGroup @group, int colspan , int rowSpan)
-            : base("", "A320", "Assets/aircrafts/a320_transparent.png", @group,60,80)
-        {
-            
-        }
     }
 }

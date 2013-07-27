@@ -17,7 +17,7 @@
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="AirbusCatalogue.App">
       <VisualElements DisplayName="AirbusCatalogue" Logo="Assets\Logo_mid.png" SmallLogo="Assets\SmallLogo.png" Description="AirbusCatalogue" ForegroundText="light" BackgroundColor="#464646">
         <DefaultTile ShowName="allLogos" />
-        <SplashScreen Image="Assets\SplashScreen.png" />
+        <SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="white" />
         <InitialRotationPreference>
           <Rotation Preference="landscape" />
         </InitialRotationPreference>

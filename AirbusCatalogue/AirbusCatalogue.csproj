@@ -237,7 +237,13 @@
     <Content Include="Assets\customers\thomasCook.png" />
     <Content Include="Assets\customers\turkish.png" />
     <Content Include="Assets\Logo.png" />
+    <Content Include="Assets\slider\slider_a320.png" />
+    <Content Include="Assets\slider\slider_a330.png" />
+    <Content Include="Assets\slider\slider_a340.png" />
+    <Content Include="Assets\slider\slider_a350.png" />
+    <Content Include="Assets\slider\slider_a380.png" />
     <Content Include="Assets\SmallLogo.png" />
+    <Content Include="Assets\splashscreen.jpg" />
     <Content Include="Assets\SplashScreen.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\LightGray.png" />

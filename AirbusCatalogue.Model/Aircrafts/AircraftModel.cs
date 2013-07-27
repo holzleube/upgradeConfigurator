@@ -14,15 +14,15 @@ namespace AirbusCatalogue.Model.Aircrafts
     public class AircraftModel
     {
         private List<Aircraft> list4;
-        private const string BASE_PATH = "Assets/aircrafts/";
+        private const string BASE_PATH = "Assets/slider/";
         public List<AircraftProgramm> GetAllAircraftProgramms()
         {
             var result = new List<AircraftProgramm>
                 {
-                    new AircraftProgramm("N-Series", "A320-Family", BASE_PATH + "A320_transparent.png"),
-                    new AircraftProgramm("L-Series", "A330/A340", BASE_PATH + "A330_transparent.png"),
-                    new AircraftProgramm("P-Series", "A350", BASE_PATH + "A350_transparent.jpg"),
-                    new AircraftProgramm("R-Series", "A380", BASE_PATH + "A380_transparent.gif")
+                    new AircraftProgramm("N-Series", "A320-Family", BASE_PATH + "slider_a320.png"),
+                    new AircraftProgramm("L-Series", "A330/A340", BASE_PATH + "slider_a330.png"),
+                    new AircraftProgramm("P-Series", "A350", BASE_PATH + "slider_a350.png"),
+                    new AircraftProgramm("R-Series", "A380", BASE_PATH + "slider_a380.png")
                 };
             return result;
         }

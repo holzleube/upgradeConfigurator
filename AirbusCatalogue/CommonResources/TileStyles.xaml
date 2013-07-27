@@ -23,7 +23,7 @@
     </LinearGradientBrush>
 
     <DataTemplate x:Key="BigTemplate">
-        <Grid x:Name="TopMain">
+        <Grid x:Name="TopMain" Width="1110" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="80"/>

@@ -9,7 +9,7 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements.Aircraft
         {
             foreach (var aircraftProgramm in allAircrafts)
             {
-                Items.Add(new BasicDataItem(aircraftProgramm.UniqueId, aircraftProgramm.Name, aircraftProgramm.ImagePath, this, 60, 80));
+                Items.Add(new BasicDataItem(aircraftProgramm.UniqueId, aircraftProgramm.Name, aircraftProgramm.ImagePath, this, 60, 63));
             }
         }
     }
