@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <DataTemplate x:Key="AircraftProgrammTemplateSummary">
-        <Border BorderBrush="Black" BorderThickness="1" Padding="1" >
+       
             <Grid Width="600" Height="600" Background="{StaticResource TileBackground}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -14,10 +14,9 @@
                     <TextBlock Text="{Binding Title}" HorizontalAlignment="Center" FontSize="50" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource GroupHeaderTextStyle}" Margin="20"/>
                 </StackPanel>
             </Grid>
-        </Border>
     </DataTemplate>
     <DataTemplate x:Key="EmptyConfigurationTemplate">
-        <Border BorderBrush="Black" BorderThickness="1" Padding="1" >
+       
             <Grid Width="400" Height="550" Background="{StaticResource TileBackground}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -45,10 +44,9 @@
                     <TextBlock Text="{Binding Title}" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="25" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource GroupHeaderTextStyle}" Margin="20"/>
                 </StackPanel>
             </Grid>
-        </Border>
     </DataTemplate>
     <DataTemplate x:Key="ConfigureTemplate">
-        <Border BorderBrush="Black" BorderThickness="1" Padding="1" >
+        
             <Grid Width="400" Height="550" Background="{StaticResource TileBackground}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -59,11 +57,9 @@
                     <TextBlock Text="{Binding Title}" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource GroupHeaderTextStyle}" Margin="20"/>
                 </StackPanel>
             </Grid>
-        </Border>
     </DataTemplate>
 
     <DataTemplate x:Key="ConfigurationGroupTemplate">
-        <Border BorderBrush="Black" BorderThickness="1" Padding="1" >
             <Grid Width="400" Height="550" Background="{StaticResource TileBackground}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="20"/>
@@ -115,10 +111,9 @@
             		</StackPanel>
             	</StackPanel>
             </Grid>
-        </Border>
     </DataTemplate>
     <DataTemplate x:Key="AircraftUpgradeSummaryTile">
-        <Border BorderBrush="Black" BorderThickness="1" Padding="1" >
+        
             <Grid Width="300" Height="300" Background="{StaticResource TileBackground}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -137,10 +132,9 @@
                     <TextBlock Text="{Binding Title}" Padding="0,0,0,10" HorizontalAlignment="Center" FontSize="35" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource GroupHeaderTextStyle}" Margin="15"/>
                 </StackPanel>
             </Grid>
-        </Border>
     </DataTemplate>
     <DataTemplate x:Key="UnknownConfigurationStateTemplate">
-        <Border BorderBrush="Black" BorderThickness="1" Padding="1" >
+       
             <Grid Width="400" Height="550" Background="{StaticResource TileBackground}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -156,7 +150,6 @@
                     <TextBlock Text="{Binding Title}" TextWrapping="Wrap" Padding="0,0,0,10" HorizontalAlignment="Center" FontSize="25" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource GroupHeaderTextStyle}" Margin="15"/>
                 </StackPanel>
             </Grid>
-        </Border>
     </DataTemplate>
 
 

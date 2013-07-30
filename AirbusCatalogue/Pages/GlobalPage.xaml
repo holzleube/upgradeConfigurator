@@ -13,6 +13,7 @@
             <Setter Property="AutomationProperties.AutomationId" Value="SuperstarButton"/>
             <Setter Property="AutomationProperties.Name" Value="Superstar"/>
         </Style>
+       
     </Page.Resources>
 
     <Page.TopAppBar>
@@ -67,7 +68,7 @@
         </AppBar>
     </Page.TopAppBar>
 
-    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
-        <Frame x:Name="frame1" Navigated="OnFrameNavigated"/>
+    <Grid >
+        <Frame x:Name="frame1" Navigated="OnFrameNavigated" Background="{StaticResource NewMainBackground}"/>
     </Grid>
 </Page>

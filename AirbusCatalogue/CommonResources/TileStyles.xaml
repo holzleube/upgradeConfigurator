@@ -17,6 +17,11 @@
     <Brush x:Key="TileBackground">WhiteSmoke</Brush>
     <SolidColorBrush x:Key="airbusBlue" Color="#FF072F78"/>
 
+    <LinearGradientBrush x:Key="NewMainBackground" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FFFDFDFD"/>
+        <GradientStop Color="#FF0950E6" Offset="1"/>
+        <GradientStop Color="#FF8AB2EC" Offset="0.36"/>
+    </LinearGradientBrush>
     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="MainBackground">
             <GradientStop Color="White"/>
             <GradientStop Color="#FF98B0FB" Offset="1"/>
@@ -77,8 +82,7 @@
 
    
     <DataTemplate x:Key="ConfigurationTemplate">
-        <Border BorderBrush="Black" BorderThickness="1" Background="{StaticResource TileBackground}" >
-        <Grid Width="250" Height="280" >
+        <Grid Width="250" Height="280" Background="{StaticResource TileBackground}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="150"/>
@@ -93,37 +97,31 @@
                 </StackPanel>
             </StackPanel>
         </Grid>
-          </Border>
     </DataTemplate>
     <DataTemplate x:Key="CustomerTemplateWithName">
-        <Border BorderBrush="Black" BorderThickness="1" Padding="1" >
+        
         <Grid Width="300" Height="150" Background="{StaticResource TileBackground}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
             <Image HorizontalAlignment="Center" Margin="5" Source="{Binding Image}" Stretch="Uniform"/>
-            <TextBlock TextWrapping="Wrap" Grid.Row="1" HorizontalAlignment="Center" Text="{Binding Title}"  FontSize="20" Margin="10,0" Style="{StaticResource GroupHeaderTextStyle}"/>
-        </Grid>
-        </Border>
+          <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Height="50" Background="{StaticResource airbusBlue}">
+                    <TextBlock TextWrapping="Wrap" Grid.Row="1" HorizontalAlignment="Center" Text="{Binding Title}"  Margin="10,0" FontSize="24" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource GroupHeaderTextStyle}"/>
+        </StackPanel>
+                </Grid>
     </DataTemplate>
 
     <DataTemplate x:Key="BottomAppBarSelectedUpgradeItem">
-        <Border BorderBrush="Black" BorderThickness="1" Padding="1" Background="{StaticResource TileBackground}">
-            <Grid x:Name="TopMain" Width="200" Height="100">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="50"/>
-                </Grid.RowDefinitions>
-                <Image Source="{Binding ProductImagePath}" Stretch="Uniform" />
-                <TextBlock TextWrapping="Wrap" Grid.Row="1" Text="{Binding Name}"  Style="{StaticResource GroupHeaderTextStyle}"  FontSize="13" HorizontalAlignment="Center"/>
-            </Grid>
-        </Border>
+        <Grid x:Name="TopMain" Width="200" Height="100" Background="{StaticResource TileBackground}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Image Source="{Binding ProductImagePath}" Stretch="Uniform" />
+            <TextBlock TextWrapping="Wrap" Grid.Row="1" Text="{Binding Name}"  Style="{StaticResource GroupHeaderTextStyle}"  FontSize="13" HorizontalAlignment="Center"/>
+        </Grid>
     </DataTemplate>
-
-    
-
-    
 
     <DataTemplate x:Key="AtaChapterSelectionTemplate">
         <Border BorderBrush="Black" Width="400" BorderThickness="1" Background="{StaticResource TileBackground}">
@@ -139,7 +137,6 @@
     </DataTemplate>
 
     <DataTemplate x:Key="SubAtaChapterSelectionTemplate">
-        <Border BorderBrush="Black" BorderThickness="1" Width="360" Background="{StaticResource TileBackground}">
         <Grid Height="60" Margin="6" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -148,17 +145,9 @@
             <TextBlock Text="{Binding SubAtaChapterNumber}" FontSize="30" VerticalAlignment="Center" Style="{StaticResource BodyTextStyle}" />
             <TextBlock Grid.Column="1" Margin="20,0,0,0" Text="{Binding Name}" VerticalAlignment="Center" FontSize="15" Style="{StaticResource BodyTextStyle}" TextWrapping="Wrap"/>
         </Grid>
-        </Border>
     </DataTemplate>
 
-    <DataTemplate x:Key="CustomerTemplateWithoutName">
-        <Border BorderBrush="Black" BorderThickness="1" Padding="1">
-        <Grid Width="300" Height="100" Background="#FFFFFFFF">
-            <Image HorizontalAlignment="Center" VerticalAlignment="Center" Source="{Binding Image}" Stretch="Uniform"/>
-        </Grid>
-        </Border>
-    </DataTemplate>
-
+  
     <Style x:Key="TopAppBarButtonStyle" TargetType="ButtonBase">
         <Setter Property="VerticalAlignment" Value="Stretch"/>
         <Setter Property="HorizontalAlignment" Value="Stretch"/>
@@ -225,7 +214,6 @@
     </Style>
 
     <Style x:Key="NonSeletableListViewItem" TargetType="ListViewItem">
-        <!-- a lot of setters goes here -->
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListViewItem">

@@ -4,7 +4,6 @@
     xmlns:common="using:AirbusCatalogue.Common">
 
     <DataTemplate x:Key="UpgradeItemTemplateBig">
-        <Border BorderBrush="Black" BorderThickness="1" Padding="1" Background="{StaticResource TileBackground}">
             <Grid x:Name="TopMain" Width="500" Height="350">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -15,11 +14,9 @@
                     <TextBlock Text="{Binding Title}" HorizontalAlignment="Center" FontSize="24" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource GroupHeaderTextStyle}" />
                 </StackPanel>
             </Grid>
-        </Border>
     </DataTemplate>
 
     <DataTemplate x:Key="UpgradeItemTemplateSmall">
-        <Border BorderBrush="Black" BorderThickness="1" Background="{StaticResource TileBackground}">
             <Grid x:Name="TopMain" Width="250" Height="200">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -30,7 +27,6 @@
                     <TextBlock Text="{Binding Title}" HorizontalAlignment="Center" FontSize="24" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource GroupHeaderTextStyle}" />
                 </StackPanel>
             </Grid>
-        </Border>
     </DataTemplate>
 
     <DataTemplate x:Key="TduSelectionTemplate">
