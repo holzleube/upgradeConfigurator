@@ -31,7 +31,7 @@
         * Row 0 contains the back button and page title
         * Row 1 contains the rest of the page layout
     -->
-    <Grid Style="{StaticResource LayoutRootStyle}">
+    <Grid Style="{StaticResource LayoutRootStyle}" Background="{StaticResource NewMainBackground}">
         <Grid.RowDefinitions>
             <RowDefinition Height="140"/>
             <RowDefinition Height="*"/>
@@ -47,7 +47,7 @@
         	<Image Grid.Column="2"  Source="/Assets/airbus_logo.png" />
         </Grid>
         
-        <Grid Grid.Row="1" Background="{StaticResource MainBackground}">
+        <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="50"/>
@@ -121,8 +121,8 @@
                         	<Button Content="46 Information systems"  Command="{Binding AtaChapterSelectedCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" Margin="534,97,0,0" VerticalAlignment="Top" Background="{StaticResource TileBackground}" BorderBrush="Black" BorderThickness="1" Width="201" Height="42" FontSize="16"/>
                         	<Button Content="22 Auto flight"  Command="{Binding AtaChapterSelectedCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" Margin="108,69,0,0" VerticalAlignment="Top" Background="{StaticResource TileBackground}" BorderBrush="Black" BorderThickness="1" Width="138" Height="39" FontSize="16" RenderTransformOrigin="0.5,0.044"/>
                         </Grid>
-                            <Border BorderThickness="1" BorderBrush="Black" Grid.Column="4">
-                            <Grid  Margin="0,0,0,0" >
+                            <Border BorderThickness="0" BorderBrush="Black" Grid.Column="4" >
+                            <Grid  Margin="0,0,0,0" Grid.Column="4" >
                                 <Grid.Background>
                                     <ImageBrush Stretch="Uniform" ImageSource="/Assets/background/a320_top.png" AlignmentX="Center" AlignmentY="Center"/>
                                 </Grid.Background>

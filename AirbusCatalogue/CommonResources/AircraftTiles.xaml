@@ -17,14 +17,12 @@
     </DataTemplate>
     
     <DataTemplate x:Key="AircraftVersionTemplate">
-        <Border BorderBrush="Black" BorderThickness="1" Background="{StaticResource TileBackground}">
-            <Grid HorizontalAlignment="Left" Width="250" Height="150">
+            <Grid HorizontalAlignment="Left" Width="250" Height="150" Background="{StaticResource TileBackground}">
                 <Image Source="{Binding Image}" VerticalAlignment="Top" Stretch="Uniform" AutomationProperties.Name="{Binding Title}"/>
-                <StackPanel VerticalAlignment="Bottom" Background="{StaticResource airbusBlue}">
-                    <TextBlock Text="{Binding Title}" FontSize="25" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextStyle}" Height="40" Margin="15,0,15,0"/>
+                <StackPanel VerticalAlignment="Bottom"  Background="{StaticResource airbusBlue}">
+                    <TextBlock Text="{Binding UniqueId}" HorizontalAlignment="Center"  LineHeight="25" FontSize="25" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextStyle}" Height="40" Margin="15,0,15,0"/>
                 </StackPanel>
             </Grid>
-        </Border>
     </DataTemplate>
 
     <DataTemplate x:Key="AircraftTypeTemplate">
@@ -51,7 +49,6 @@
         </Border>
     </DataTemplate>
     <DataTemplate x:Key="AircraftSelectionTemplate">
-        <Border BorderBrush="Black" BorderThickness="2">
             <Grid Height="550" MinWidth="400" Background="{StaticResource TileBackground}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -74,7 +71,6 @@
                     <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Text="{Binding Title}"  FontSize="25" Style="{StaticResource GroupHeaderTextStyle}"/>
                 </StackPanel>
             </Grid>
-        </Border>
     </DataTemplate>
     
 

@@ -23,6 +23,8 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Upgrades
         private ObservableCollection<ISubAtaChapter> _subAtaChapter;
         private ObservableCollection<IUpgradeItem> _selectedUpgradeItems = new ObservableCollection<IUpgradeItem>();
         private ISubAtaChapter _currentSelectedItem ;
+        private IUpgradeItem _selectedTdu;
+        private ICommand _gridViewItemWasSelectedCommand;
 
         public SelectUpgradeViewModel()
         {
@@ -123,6 +125,30 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Upgrades
             }
         }
 
+        public IUpgradeItem SelectedTdu
+        {
+            get { return _selectedTdu; }
+            set 
+            {
+                _selectedTdu = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ICommand GridViewItemWasSelectedCommand
+        {
+            get { return _gridViewItemWasSelectedCommand ?? (_gridViewItemWasSelectedCommand = new RelayCommand<IUpgradeItem>(GridViewItemWasSelected)); }
+            set
+            {
+                _gridViewItemWasSelectedCommand = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private void GridViewItemWasSelected(IUpgradeItem obj)
+        {
+           
+        }
         
     }
 }

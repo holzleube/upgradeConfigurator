@@ -124,8 +124,7 @@
     </DataTemplate>
 
     <DataTemplate x:Key="AtaChapterSelectionTemplate">
-        <Border BorderBrush="Black" Width="400" BorderThickness="1" Background="{StaticResource TileBackground}">
-        <Grid Height="60" Margin="6">
+            <Grid Height="60" Margin="6" Width="400" Background="{StaticResource TileBackground}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
@@ -133,7 +132,6 @@
             <TextBlock Text="{Binding AtaChapterNumber}" FontSize="40" VerticalAlignment="Center" Style="{StaticResource BodyTextStyle}" />
             <TextBlock Grid.Column="1" Margin="20,0,0,0" Text="{Binding Name}" VerticalAlignment="Center" FontSize="30" Style="{StaticResource BodyTextStyle}" TextWrapping="Wrap"/>
         </Grid>
-        </Border>
     </DataTemplate>
 
     <DataTemplate x:Key="SubAtaChapterSelectionTemplate">

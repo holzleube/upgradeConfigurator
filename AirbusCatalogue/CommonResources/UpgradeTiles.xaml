@@ -30,7 +30,6 @@
     </DataTemplate>
 
     <DataTemplate x:Key="TduSelectionTemplate">
-        <Border BorderBrush="Black" BorderThickness="1">
             <Grid  Width="400" Height="550" Background="{StaticResource TileBackground}" Margin="0,0,0,0">
                 <Grid.Resources>
                     <common:BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter"/>
@@ -58,13 +57,11 @@
                     <TextBlock TextWrapping="Wrap" Text="{Binding Name}" LineHeight="25" FontSize="25" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource GroupHeaderTextStyle}"  Margin="10"/>
                 </StackPanel>
             </Grid>
-        </Border>
     </DataTemplate>
 
     
 
     <DataTemplate x:Key="AlternativeUpgradeConfigurationTemplate">
-        <Border BorderBrush="Black" BorderThickness="1">
             <Grid  Height="550" MinWidth="400" Background="{StaticResource TileBackground}" Margin="0,0,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -120,11 +117,9 @@
                     </StackPanel>
                 </StackPanel>
             </Grid>
-        </Border>
     </DataTemplate>
 
     <DataTemplate x:Key="AlternativeUpgradeItem">
-        <Border BorderBrush="Black" BorderThickness="2">
             <Grid HorizontalAlignment="Center" Width="150" Height="160" Background="{StaticResource TileBackground}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -150,12 +145,10 @@
                     
                 </StackPanel>
             </Grid>
-        </Border>
     </DataTemplate>
 
     <DataTemplate x:Key="AtaChapterSelectionTemplate">
-        <Border BorderBrush="Black" Width="400" BorderThickness="1" Background="{StaticResource TileBackground}">
-            <Grid Height="60" Margin="6">
+        <Grid Height="60" Margin="6" Background="{StaticResource TileBackground}" Width="360">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
@@ -163,12 +156,10 @@
                 <TextBlock Text="{Binding AtaChapterNumber}" FontSize="40" VerticalAlignment="Center" Style="{StaticResource BodyTextStyle}" />
                 <TextBlock Grid.Column="1" Margin="20,0,0,0" Text="{Binding Name}" VerticalAlignment="Center" FontSize="30" Style="{StaticResource BodyTextStyle}" TextWrapping="Wrap"/>
             </Grid>
-        </Border>
     </DataTemplate>
 
     <DataTemplate x:Key="SubAtaChapterSelectionTemplate">
-        <Border BorderBrush="Black" BorderThickness="1" Width="360" Background="{StaticResource TileBackground}">
-            <Grid Height="60" Margin="6" >
+            <Grid Height="60" Margin="6" Background="{StaticResource TileBackground}" Width="360">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
@@ -176,7 +167,6 @@
                 <TextBlock Text="{Binding SubAtaChapterNumber}" FontSize="30" VerticalAlignment="Center" Style="{StaticResource BodyTextStyle}" />
                 <TextBlock Grid.Column="1" Margin="20,0,0,0" Text="{Binding Name}" VerticalAlignment="Center" FontSize="15" Style="{StaticResource BodyTextStyle}" TextWrapping="Wrap"/>
             </Grid>
-        </Border>
     </DataTemplate>
 
 

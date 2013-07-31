@@ -15,6 +15,9 @@ namespace AirbusCatalogue.Model.Aircrafts
     {
         private List<Aircraft> list4;
         private const string BASE_PATH = "Assets/slider/";
+        private const string A320Image = "Assets/allTypes/head_a320.png";
+        private const string A321Image = "Assets/allTypes/head_a321.png";
+        private const string A319Image = "Assets/allTypes/head_a319.png";
         public List<AircraftProgramm> GetAllAircraftProgramms()
         {
             var result = new List<AircraftProgramm>
@@ -41,50 +44,73 @@ namespace AirbusCatalogue.Model.Aircrafts
 
         public List<AircraftVersion> GetAircraftVersionsByProgramm(IAircraftBase aircraftType)
         {
-            string image = "Assets/aircrafts/a320_transparent.png";
-            if (aircraftType != null)
-            {
-                 image = aircraftType.ImagePath;
-            }
+            
+            return GetAirfranceAircrafts();
+        }
 
+        private List<AircraftVersion> GetAirfranceAircrafts()
+        {
             var list = new List<Aircraft>
                 {
-                    new Aircraft("N-001", "MSN-001",  image, "001", "AFR01", "A320"),
-                    new Aircraft("N-002", "MSN-002",  image, "001", "AFR01", "A320"),
-                    new Aircraft("N-003", "MSN-003",  image, "001", "AFR01", "A320"),
-                    new Aircraft("N-004", "MSN-004",  image, "001", "AFR01", "A320")
+                    new Aircraft("N-0002", "N-0002",  A320Image, "001", "AFR01", "A320"),
+                    new Aircraft("N-0005", "N-0005",  A320Image, "001", "AFR01", "A320"),
+                    new Aircraft("N-0007", "N-0007",  A320Image, "001", "AFR01", "A320"),
+                    new Aircraft("N-0009", "N-0009",  A320Image, "001", "AFR01", "A320"),
+                    new Aircraft("N-0014", "N-0014",  A320Image, "001", "AFR01", "A320"),
+                    new Aircraft("N-0019", "N-0019",  A320Image, "001", "AFR01", "A320"),
+                    new Aircraft("N-0020", "N-0020",  A320Image, "001", "AFR01", "A320"),
+                    new Aircraft("N-0021", "N-0021",  A320Image, "001", "AFR01", "A320"),
+                    new Aircraft("N-0061", "N-0061",  A320Image, "001", "AFR01", "A320"),
+                    new Aircraft("N-0062", "N-0062",  A320Image, "001", "AFR01", "A320"),
+                    new Aircraft("N-0063", "N-0063",  A320Image, "001", "AFR01", "A320")
                 };
-            
-            var list2 =  new List<Aircraft>
+
+            var list2 = new List<Aircraft>
                 {
-                    new Aircraft("N-005","MSN-004", image, "001", "AFR02", "A320"),
-                    new Aircraft("N-006","MSN-005", image, "001", "AFR02", "A320"),
-                    new Aircraft("N-007","MSN-006", image, "001", "AFR02", "A320") };
-           
+                    new Aircraft("N-0077","MSN-004", A321Image, "001", "AFR02", "A321"),
+                    new Aircraft("N-0796","MSN-005", A321Image, "001", "AFR02", "A321"),
+                    new Aircraft("N-1133","MSN-005", A321Image, "001", "AFR02", "A321"),
+                    new Aircraft("N-1299","MSN-005", A321Image, "001", "AFR02", "A321"),
+                    new Aircraft("N-1476","MSN-006", A321Image, "001", "AFR02", "A321") };
+
             var list3 = new List<Aircraft>
                 {
-                    new Aircraft("N-008","MSN-007", image, "001", "AFR05", "A320"),
-                    new Aircraft("N-009","MSN-008", image, "001", "AFR05", "A320"),
-                    new Aircraft("N-0011","MSN-009", image, "001", "AFR05", "A320"),
-                    new Aircraft("N-0012","MSN-010", image, "001", "AFR05", "A320"),
-                    new Aircraft("N-0013","MSN-011", image, "001", "AFR05", "A320"),
-                    new Aircraft("N-0014","MSN-012", image, "001", "AFR05", "A320") };
-            list4 = new List<Aircraft>
+                    new Aircraft("N-0938","MSN-007", A319Image, "001", "AFR03", "A319"),
+                    new Aircraft("N-0985","MSN-008", A319Image, "001", "AFR03", "A319"),
+                    new Aircraft("N-0998","MSN-009", A319Image, "001", "AFR03", "A319"),
+                    new Aircraft("N-1000","MSN-010", A319Image, "001", "AFR03", "A319"),
+                    new Aircraft("N-1020","MSN-011", A319Image, "001", "AFR03", "A319"),
+                    new Aircraft("N-1025","MSN-012", A319Image, "001", "AFR03", "A319") };
+            var list6 = new List<Aircraft>
                 {
-                    new Aircraft("N-0015","MSN-013", image, "001", "AFR07", "A319"),
-                    new Aircraft("N-0016","MSN-014", image, "001", "AFR07", "A319") };
-            var list5 = new List<Aircraft>
+                    new Aircraft("N-1873","MSN-013", A320Image, "001", "AFR06", "A320"),
+                    new Aircraft("N-1873","MSN-013", A320Image, "001", "AFR06", "A320"),
+                    new Aircraft("N-1894","MSN-013", A320Image, "001", "AFR06", "A320"),
+                    new Aircraft("N-2140","MSN-014", A320Image, "001", "AFR06", "A320") };
+
+
+            var list10 = new List<Aircraft>
                 {
-                    new Aircraft("N-0017","MSN-015", image, "001", "AFR09", "A319"),
-                    new Aircraft("N-0018","MSN-016", image, "001", "AFR09", "A319"),
+                    new Aircraft("N-1924","MSN-015", A320Image, "001", "AFR10", "A320"),
+                    new Aircraft("N-1949","MSN-016", A320Image, "001", "AFR10", "A320"),
                 };
+            var list11 = new List<Aircraft>
+                {
+                    new Aircraft("N-2213","MSN-013", A319Image, "001", "AFR11", "A319"),
+                    new Aircraft("N-2228","MSN-013", A319Image, "001", "AFR11", "A319"),
+                    new Aircraft("N-2279","MSN-013", A319Image, "001", "AFR11", "A319"),
+                    new Aircraft("N-2456","MSN-013", A319Image, "001", "AFR11", "A319"),
+                    new Aircraft("N-2716","MSN-013", A319Image, "001", "AFR11", "A319"),
+                    new Aircraft("N-3065","MSN-014", A319Image, "001", "AFR11", "A319") };
+
             var aircraftVersion1 = new AircraftVersion("AFR-01", "AFR01") { Aircrafts = list };
             var aircraftVersion2 = new AircraftVersion("AFR-02", "AFR02") { Aircrafts = list2 };
-            var aircraftVersion3 = new AircraftVersion("AFR-05", "AFR05") { Aircrafts = list3 };
-            var aircraftVersion5 = new AircraftVersion("AFR-07", "AFR07") { Aircrafts = list4 };
-            var aircraftVersion6 = new AircraftVersion("AFR-09", "AFR09") { Aircrafts = list5 };
-            return  new List<AircraftVersion> {aircraftVersion1, aircraftVersion2, aircraftVersion3, 
-                 aircraftVersion5, aircraftVersion6};
+            var aircraftVersion3 = new AircraftVersion("AFR-03", "AFR03") { Aircrafts = list3 };
+            var aircraftVersion6 = new AircraftVersion("AFR-06", "AFR06") { Aircrafts = list6 };
+            var aircraftVersion10 = new AircraftVersion("AFR-10", "AFR10") { Aircrafts = list10 };
+            var aircraftVersion11 = new AircraftVersion("AFR-11", "AFR11") { Aircrafts = list11 };
+            return new List<AircraftVersion> {aircraftVersion1, aircraftVersion2, aircraftVersion3, 
+                 aircraftVersion6, aircraftVersion10, aircraftVersion11};
         }
        
 

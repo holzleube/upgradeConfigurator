@@ -47,51 +47,99 @@ namespace AirbusCatalogue.Model.Upgrades
 
         public IAtaChapter GetAtaChapterById(string uniqueId)
         {
-            var upgradeItems = GetUpgradeItems();
+
             var subAtaChapters = new List<ISubAtaChapter>
                 {
                     new SubAtaChapter("11.116", "Installation of singe HF system (SFE)", 11, 116,
                                       "To install one HF system for voide communication in areas outside VHF coverage",
                                       "space provisions is made for single HF communication transceivers",
-                                      "The modification consists of: ", "Individual", upgradeItems),
+                                      "The modification consists of: ", "Individual", GetHFUpgradeItems()),
                     new SubAtaChapter("11.131", "Installation of single HF system and full provision for second one (SFE)",
                                       11, 131, "To install single HF system, with full provision for a secone one",
                                       "space provisions is made for dual HF communication transceivers",
-                                      "The modification consists of: ", "Individual", upgradeItems),
+                                      "The modification consists of: ", "Individual", GetHFFullProvisionUpgradeItems()),
                     new SubAtaChapter("13.100", "Installation of alternate Radio Management Panel (RMP)", 13, 100,
                                       "To provide alternate Radio Managment Panels",
                                       "The basic aircraft is equipped with two RMPs installed on the center pedestal",
-                                      "The basic RMPs are replaced by alternate euqipment", "Individual", upgradeItems),
+                                      "The basic RMPs are replaced by alternate euqipment", "Individual", GetRMPUpgradeItems()),
                     new SubAtaChapter("50.110", "Installation of additional Audio Control Panel (ACP) and jack panel", 50,110,
                                       "To provide provision for two-way communication for a fourth occupant and/or additional communication capability in the avoinics compartment for maintenance purposes",
                                       "Three audio control panels for the Captain, the First Officer, and the thid occupant",
                                       "For the installation of an ACP for the fourth occupant the modification consists of:",
-                                      "Individual", upgradeItems),
+                                      "Individual", GetJackPanelUpgrades()),
                     new SubAtaChapter("51.136", "Boomsets alternate equipment", 51, 136,
                                       "To provide alternate equipment for boomsets",
                                       "two jack panels, one for the Captaion and one for the First Officer, each with two connectors, one at each pilots station",
                                       "The basic boomsets are replaced by alternate equipment complying with ARINC 535A and 538B specifications",
-                                      "Individual", upgradeItems),
+                                      "Individual", GetUpgradeItems()),
                     new SubAtaChapter("51.136", "Boomsets alternate equipment with two jack plugs", 51, 139,
                                       "To provide alternate equipment for boomsets",
                                       "two jack panels, one for the Captaion and one for the First Officer, each with two connectors, one at each pilots station",
                                       "The basic boomsets are replaced by alternate equipment complying with ARINC 535A and 538B specifications",
-                                      "Individual", upgradeItems)
+                                      "Individual", GetJackUpgradeItems())
                 };
             IAtaChapter chapter = new AtaChapter("communicationAta", "Communications", 23, subAtaChapters, "Cockpit");
             return chapter;
         }
 
-        public ISubAtaChapter GetSubAtaChapterById(string uniqueId)
+        private List<IUpgradeItem> GetHFUpgradeItems()
         {
-            var upgradeItems = GetUpgradeItems();
-            ISubAtaChapter subChapter = new SubAtaChapter("51.136", "Boomsets alternate equipment", 51, 136,
-                                      "To provide alternate equipment for boomsets",
-                                      "two jack panels, one for the Captaion and one for the First Officer, each with two connectors, one at each pilots station",
-                                      "The basic boomsets are replaced by alternate equipment complying with ARINC 535A and 538B specifications",
-                                      "Individual", upgradeItems);
-            return subChapter;
+            return new List<IUpgradeItem>
+                {
+                    new UpgradeItem("1046GT2102", "Single HF system - Rockwell Collins 900",
+                                    "HF - Antenna, HFDR antenna coupler, HFDR transceiver",
+                                    "/Assets/upgrades/rockwell.png", "", 116,02, false),
+                    new UpgradeItem("1046GT2103", "Single HF system - Honeywell",
+                                    "HF - Antenna (Airbus), HFDR antenna coupler, HFDR transceiver", "/Assets/upgrades/rockwell.png",
+                                    "", 116,05, false)
+                };
         }
+        private List<IUpgradeItem> GetHFFullProvisionUpgradeItems()
+        {
+            return new List<IUpgradeItem>
+                {
+                    new UpgradeItem("1046GT2102", "Single HF system & full Provision - Rockwell Collins 900",
+                                    "HF - Antenna, HFDR antenna coupler, HFDR transceiver",
+                                    "/Assets/upgrades/rockwell.png", "", 116,02, false),
+                    new UpgradeItem("1046GT2103", "Single HF system & full Provision - Honeywell",
+                                    "HF - Antenna, HFDR antenna coupler, HFDR transceiver", "/Assets/upgrades/rockwell.png",
+                                    "", 116,05, false)
+                };
+        }
+
+        private List<IUpgradeItem> GetRMPUpgradeItems()
+        {
+            return new List<IUpgradeItem>
+                {
+                    new UpgradeItem("1046GT2102", "Basic equip. with turbo tuning & HF data activation capab.",
+                                    "Radio Management Panel - Thales Avionics SA",
+                                    "/Assets/upgrades/rmp.jpg", "", 100,00, true),
+                   new UpgradeItem("1046GT2102", "Alternate equip. with turbo tuning & HF data activation capab.",
+                                    "Radio Management Panel - Thales Avionics SA",
+                                    "/Assets/upgrades/rmp.jpg", "", 100,03, false),
+                   new UpgradeItem("1046GT2102", "Alternate equip. - with CPDLC function capability",
+                                    "Radio Management Panel - Thales Avionics SA",
+                                    "/Assets/upgrades/rmp.jpg", "", 100,04, false)
+                };
+        }
+
+        private List<IUpgradeItem> GetJackPanelUpgrades()
+        {
+            return new List<IUpgradeItem>
+                {
+                    new UpgradeItem("1046GT2102", "Installation of ACP for fourth occupant - T.E.A.M.",
+                                    "Audio Control Panel (ACP) - Audio Management Unit (AMU)",
+                                    "/Assets/upgrades/jackPanel.jpg", "", 110,21, false),
+                    new UpgradeItem("1046GT2102", "Installation of ACP and jack panel in avionics compartment - T.E.A.M.",
+                                    "Audio Control Panel (ACP) - Audio Management Unit (AMU)",
+                                    "/Assets/upgrades/jackPanel.jpg", "", 110,21, false),
+                    new UpgradeItem("1046GT2102", "Installation of ACP for fourth occupant and ACP and jack panel in avionics compartment - T.E.A.M.",
+                                    "Audio Control Panel (ACP) - Audio Management Unit (AMU)",
+                                    "/Assets/upgrades/jackPanel.jpg", "", 110,21, false),
+                };
+        }
+
+       
 
         private static List<IUpgradeItem> GetUpgradeItems()
         {
@@ -104,6 +152,19 @@ namespace AirbusCatalogue.Model.Upgrades
                                     "DC resistance, soft ear cushions, 70-inch straight cord", "/Assets/upgrades/telex_headphone.png",
                                     "/Assets/upgrades/telex_logo.png", 27,0, false),
                     new UpgradeItem("1046GT2104", "Boomset alternate equipment - Sennheiser",
+                                    "DC resistance, soft ear cushions, 70-inch straight cord", "/Assets/upgrades/sennheiser_headphone.png",
+                                    "/Assets/upgrades/sennheiser_logo.png", 30,0, false)
+                };
+        }
+
+        private static List<IUpgradeItem> GetJackUpgradeItems()
+        {
+            return new List<IUpgradeItem>
+                {
+                    new UpgradeItem("1046GT2103", "Boomset alternate equipment with two jack plugs - Telex",
+                                    "DC resistance, soft ear cushions, 70-inch straight cord", "/Assets/upgrades/telex_headphone.png",
+                                    "/Assets/upgrades/telex_logo.png", 27,0, false),
+                    new UpgradeItem("1046GT2104", "Boomset alternate equipment with two jack plugs - Sennheiser",
                                     "DC resistance, soft ear cushions, 70-inch straight cord", "/Assets/upgrades/sennheiser_headphone.png",
                                     "/Assets/upgrades/sennheiser_logo.png", 30,0, false)
                 };

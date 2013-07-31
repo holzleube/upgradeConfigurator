@@ -17,7 +17,7 @@
         * Row 0 contains the back button and page title
         * Row 1 contains the rest of the page layout
     -->
-    <Grid Style="{StaticResource LayoutRootStyle}">
+    <Grid Style="{StaticResource LayoutRootStyle}" Background="{StaticResource NewMainBackground}">
         <Grid.RowDefinitions>
             <RowDefinition Height="140"/>
             <RowDefinition Height="*"/>
@@ -35,17 +35,17 @@
             <Image Grid.Column="2"  Source="/Assets/airbus_logo.png" />
         </Grid>
         
-        <Grid Grid.Row="1" Background="{StaticResource MainBackground}" Margin="0"> 
+        <Grid Grid.Row="1" Margin="0"> 
             
             <Grid Margin="0,10,19,-10" Grid.Column="1">
                 <Grid.Background>
                     <ImageBrush Stretch="Uniform" ImageSource="/Assets/background/a320_top.png" AlignmentX="Center" AlignmentY="Center"/>
                 </Grid.Background>
             </Grid>
-            <Button Content="{StaticResource SystemUpgradeText}" Command="{Binding UpgradeTypeSelectedCommand}" CommandParameter="{StaticResource EngineUpgradeText}" HorizontalAlignment="Left" Margin="23,140,0,0" VerticalAlignment="Top" Height="76" Width="243" BorderBrush="Black" BorderThickness="1" Background="{x:Null}" FontSize="40"/>
-            <Button Content="{StaticResource EngineUpgradeText}" Command="{Binding UpgradeTypeSelectedCommand}" CommandParameter="{StaticResource EngineUpgradeText}" HorizontalAlignment="Left" Margin="169,503,0,0" VerticalAlignment="Top" Height="76" Width="243" BorderBrush="Black" BorderThickness="1" Background="{x:Null}" FontSize="40" Grid.Column="1"/>
-            <Button Content="{StaticResource CabinUpgradeText}" Command="{Binding UpgradeTypeSelectedCommand}" CommandParameter="{StaticResource EngineUpgradeText}" HorizontalAlignment="Left" Margin="260,61,0,0" VerticalAlignment="Top" Height="76" Width="243" BorderBrush="Black" BorderThickness="1" Background="{x:Null}" FontSize="40" Grid.Column="1" RenderTransformOrigin="0.28,2.645"/>
-            <Button Content="{StaticResource FuselageUpgradeText}" Command="{Binding UpgradeTypeSelectedCommand}" CommandParameter="{StaticResource EngineUpgradeText}" HorizontalAlignment="Left" Margin="717,61,0,0" VerticalAlignment="Top" Height="76" Width="243" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1" Background="{x:Null}" FontSize="40" Grid.Column="1"/>
+            <Button Background="{StaticResource TileBackground}" Content="{StaticResource SystemUpgradeText}" Command="{Binding UpgradeTypeSelectedCommand}" CommandParameter="{StaticResource EngineUpgradeText}" HorizontalAlignment="Left" Margin="23,140,0,0" VerticalAlignment="Top" Height="76" Width="243"   FontSize="40"/>
+            <Button Background="{StaticResource TileBackground}" Content="{StaticResource EngineUpgradeText}" Command="{Binding UpgradeTypeSelectedCommand}" CommandParameter="{StaticResource EngineUpgradeText}" HorizontalAlignment="Left" Margin="169,503,0,0" VerticalAlignment="Top" Height="76" Width="243"  FontSize="40" Grid.Column="1"/>
+            <Button Background="{StaticResource TileBackground}" Content="{StaticResource CabinUpgradeText}" Command="{Binding UpgradeTypeSelectedCommand}" CommandParameter="{StaticResource EngineUpgradeText}" HorizontalAlignment="Left" Margin="260,61,0,0" VerticalAlignment="Top" Height="76" Width="243"   FontSize="40" Grid.Column="1" RenderTransformOrigin="0.28,2.645"/>
+            <Button Background="{StaticResource TileBackground}" Content="{StaticResource FuselageUpgradeText}" Command="{Binding UpgradeTypeSelectedCommand}" CommandParameter="{StaticResource EngineUpgradeText}" HorizontalAlignment="Left" Margin="717,61,0,0" VerticalAlignment="Top" Height="76" Width="243" Grid.ColumnSpan="2"  FontSize="40" Grid.Column="1"/>
             <Line
             	X1="50" Y1="10"
             	X2="50" Y2="120"
