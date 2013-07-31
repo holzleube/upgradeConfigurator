@@ -21,7 +21,7 @@ namespace AirbusCatalogue.Model.Customer
     {
    
         private const string BASE_PATH = "Assets/aircrafts/";
-
+        private const string A321Image = "Assets/allTypes/head_a321.png"; 
         public CustomerInformationModel()
         {
             if (! SimpleIoc.Default.IsRegistered<IConfiguration>())
@@ -66,18 +66,18 @@ namespace AirbusCatalogue.Model.Customer
         {
             var aircrafts = new List<IAircraft>
                 {
-                    new Aircraft("N-001","MSN-001",BASE_PATH + "A318_transparent.png", "001", "AFR01", "A320"),
-                    new Aircraft("N-001","MSN-001",BASE_PATH + "A318_transparent.png", "001", "AFR01", "A320"),
-                    new Aircraft("N-001","MSN-001",BASE_PATH + "A318_transparent.png", "001", "AFR01", "A320"),
-                    new Aircraft("N-001","MSN-001",BASE_PATH + "A318_transparent.png", "001", "AFR01", "A320")
+                     new Aircraft("N-0077","MSN-004", A321Image, "001", "AFR02", "A321"),
+                    new Aircraft("N-0796","MSN-005", A321Image, "001", "AFR02", "A321"),
+                    new Aircraft("N-1133","MSN-005", A321Image, "001", "AFR02", "A321"),
+                    new Aircraft("N-1299","MSN-005", A321Image, "001", "AFR02", "A321"),
                 };
             var upgrades = GetUpgradeItems();
             var programms = new List<IAircraftProgramm>()
                 {
-                    new AircraftProgramm("a320", "A320", "Assets/aircrafts/a320_transparent.png"),
-                    new AircraftProgramm("a330", "A330", "Assets/aircrafts/a330_transparent.png"),
-                    new AircraftProgramm("a340", "A340", "Assets/aircrafts/a330_transparent.png"),
-                    new AircraftProgramm("a380", "A380", "Assets/aircrafts/a380_transparent.gif")
+                    new AircraftProgramm("a320", "A320", "Assets/slider/slider_a320.png"),
+                    new AircraftProgramm("a330", "A330", "Assets/slider/slider_a330.png"),
+                    new AircraftProgramm("a340", "A340", "Assets/slider/slider_a350.png"),
+                    new AircraftProgramm("a380", "A380", "Assets/slider/slider_a380.png")
                     
                 };
             var lastConfigurations = new List<ConfigurationData.Configuration>

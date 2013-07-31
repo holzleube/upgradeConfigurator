@@ -4,7 +4,7 @@
 
     <DataTemplate x:Key="AircraftProgrammTemplateSummary">
        
-            <Grid Width="600" Height="600" Background="{StaticResource TileBackground}">
+            <Grid Width="600" Height="600" Background="{StaticResource BlueTileBackground}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="120"/>
@@ -16,8 +16,7 @@
             </Grid>
     </DataTemplate>
     <DataTemplate x:Key="EmptyConfigurationTemplate">
-       
-            <Grid Width="400" Height="550" Background="{StaticResource TileBackground}">
+            <Grid Width="400" Height="550" Background="{StaticResource TileBackground}"  >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="300"/>
@@ -134,7 +133,6 @@
             </Grid>
     </DataTemplate>
     <DataTemplate x:Key="UnknownConfigurationStateTemplate">
-       
             <Grid Width="400" Height="550" Background="{StaticResource TileBackground}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>

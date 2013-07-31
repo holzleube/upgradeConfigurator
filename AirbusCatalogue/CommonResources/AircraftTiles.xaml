@@ -3,8 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 >
     <DataTemplate x:Key="AircraftProgrammTemplate">
-       
-            <Grid Width="600" Height="600" Background="{StaticResource TileBackground}">
+            <Grid Width="600" Height="600" Background="{StaticResource BlueTileBackground}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="120"/>
@@ -17,7 +16,7 @@
     </DataTemplate>
     
     <DataTemplate x:Key="AircraftVersionTemplate">
-            <Grid HorizontalAlignment="Left" Width="250" Height="150" Background="{StaticResource TileBackground}">
+            <Grid HorizontalAlignment="Left" Width="250" Height="150" Background="{StaticResource BlueTileBackground}">
                 <Image Source="{Binding Image}" VerticalAlignment="Top" Stretch="Uniform" AutomationProperties.Name="{Binding Title}"/>
                 <StackPanel VerticalAlignment="Bottom"  Background="{StaticResource airbusBlue}">
                     <TextBlock Text="{Binding UniqueId}" HorizontalAlignment="Center"  LineHeight="25" FontSize="25" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextStyle}" Height="40" Margin="15,0,15,0"/>

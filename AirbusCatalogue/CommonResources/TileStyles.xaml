@@ -14,8 +14,10 @@
 
     <!-- Non-brush values that vary across themes -->
 
-    <Brush x:Key="TileBackground">WhiteSmoke</Brush>
+    <!--<SolidColorBrush x:Key="TileBackground" Color="WhiteSmoke"/>-->
+    <SolidColorBrush x:Key="TileBackground" Color="WhiteSmoke"/>
     <SolidColorBrush x:Key="airbusBlue" Color="#FF072F78"/>
+    <SolidColorBrush x:Key="BlueTileBackground" Color="#FF6891B9"/>
 
     <LinearGradientBrush x:Key="NewMainBackground" EndPoint="0.5,1" StartPoint="0.5,0">
         <GradientStop Color="#FFFDFDFD"/>
