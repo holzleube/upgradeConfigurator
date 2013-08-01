@@ -182,10 +182,13 @@ namespace AirbusCatalogue.Model.Upgrades
             var currentConfiguration = GetCurrentConfiguration();
             foreach (var selectedUpgradeItem in selectedUpgradeItems)
             {
+                if (currentConfiguration.Upgrades.Contains(selectedUpgradeItem))
+                {
+                    continue;
+                }
                 currentConfiguration.Upgrades.Add(selectedUpgradeItem);
+                currentConfiguration.HasConfigurationChanged = true;
             }
-            currentConfiguration.HasConfigurationChanged = true;
-            
         }
 
         private static IConfiguration GetCurrentConfiguration()

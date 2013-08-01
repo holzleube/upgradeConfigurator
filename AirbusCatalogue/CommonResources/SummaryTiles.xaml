@@ -112,26 +112,20 @@
             </Grid>
     </DataTemplate>
     <DataTemplate x:Key="AircraftUpgradeSummaryTile">
-        
             <Grid Width="300" Height="300" Background="{StaticResource TileBackground}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="120"/>
+                    <RowDefinition Height="80"/>
                 </Grid.RowDefinitions>
-                <Button x:Name="AircraftButton" Content="{Binding ImageContent}" 
-                            Width="200"
-                            Height="200"
-                            Style="{StaticResource SummaryPageButtonStyle}"
-                            Command="{Binding NavigateToAircraftSelectionPage}"
-                            Margin="5"
-                             HorizontalAlignment="Center" />
-                <TextBlock Grid.Row="1" Text="{Binding CountText}" HorizontalAlignment="Center" Style="{StaticResource GroupHeaderTextStyle}" FontSize="30"/>
-                <StackPanel Grid.Row="2" VerticalAlignment="Bottom" Background="{StaticResource airbusBlue}">
-                    <TextBlock Text="{Binding Title}" Padding="0,0,0,10" HorizontalAlignment="Center" FontSize="35" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource GroupHeaderTextStyle}" Margin="15"/>
-                </StackPanel>
+                <TextBlock FontFamily="Segoe UI Symbol" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="100" Text="{Binding ImageContent}"/>
+                <StackPanel Grid.Row="1" Width="300" Orientation="Horizontal" VerticalAlignment="Bottom" Background="{StaticResource airbusBlue}">
+                    <TextBlock Text="{Binding Title}" Padding="65,0,0,10" HorizontalAlignment="Center" FontSize="35" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource GroupHeaderTextStyle}" Margin="15"/>
+                <TextBlock Text="{Binding CountText}" Padding="0,0,0,10" HorizontalAlignment="Right"  FontSize="35" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource GroupHeaderTextStyle}" Margin="15" />
+            </StackPanel>
             </Grid>
     </DataTemplate>
+    
+    
     <DataTemplate x:Key="UnknownConfigurationStateTemplate">
             <Grid Width="400" Height="550" Background="{StaticResource TileBackground}">
                 <Grid.RowDefinitions>

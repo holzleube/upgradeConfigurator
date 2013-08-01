@@ -13,11 +13,11 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements.Configuration
             _configuration = configuration;
         }
 
-        public string ItemsCount { get { return "Items:   " + _configuration.Upgrades.Count; } }
+        public string ItemsCount { get { return "" + _configuration.Upgrades.Count; } }
 
-        public string AircraftCount { get { return "SelectedAircrafts:   " + _configuration.Upgrades.Count; } }
+        public string AircraftCount { get { return "" + _configuration.Upgrades.Count; } }
 
-        public string State { get { return _configuration.State.ReadableName; } }
+        public string State { get { return _configuration.State.ConfiguationStateIconValue; } }
 
         public Brush StateColor
         {

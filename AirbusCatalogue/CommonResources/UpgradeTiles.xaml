@@ -11,7 +11,7 @@
                 </Grid.RowDefinitions>
                 <Image Source="{Binding Image}" Stretch="UniformToFill" />
                 <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Height="60" Background="{StaticResource airbusBlue}">
-                    <TextBlock Text="{Binding Title}" HorizontalAlignment="Center" FontSize="24" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource GroupHeaderTextStyle}" />
+                    <TextBlock Text="{Binding Title}" HorizontalAlignment="Center" FontSize="30" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource GroupHeaderTextStyle}" />
                 </StackPanel>
             </Grid>
     </DataTemplate>
@@ -22,44 +22,32 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="60"/>
                 </Grid.RowDefinitions>
-                <Image Source="{Binding Image}" Stretch="Uniform" />
-                <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Height="80" Background="{StaticResource airbusBlue}">
-                    <TextBlock Text="{Binding Title}" HorizontalAlignment="Center" FontSize="24" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource GroupHeaderTextStyle}" />
+                <Image Source="{Binding Image}" Stretch="UniformToFill" />
+                <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Height="60" Background="{StaticResource airbusBlue}">
+                    <TextBlock Text="{Binding Title}" HorizontalAlignment="Center" FontSize="30" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource GroupHeaderTextStyle}" />
                 </StackPanel>
             </Grid>
     </DataTemplate>
 
     <DataTemplate x:Key="TduSelectionTemplate">
-            <Grid  Width="400" Height="550" Background="{StaticResource TileBackground}" Margin="0,0,0,0">
-                <Grid.Resources>
-                    <common:BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter"/>
-                </Grid.Resources>
+            <Grid  Width="400" Height="400" Background="{StaticResource TileBackground}" Margin="0,0,0,0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="80"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="100"/>
                 </Grid.RowDefinitions>
-                <Image VerticalAlignment="Top" Source="{Binding SellerImagePath}" HorizontalAlignment="Center" Stretch="Uniform" />
-                <Grid Grid.Row="1">
+                <Grid Margin="10">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="100"/>
-                    </Grid.RowDefinitions>
                     <Image Source="{Binding ProductImagePath}" Stretch="Uniform" />
-                    <TextBlock Grid.Row="0" VerticalAlignment="Center" Margin="5" Text="{Binding Description}" Grid.Column="1" FontSize="20"  Style="{StaticResource TitleTextStyle}"  />
-                    <Button Grid.Row="1" Content="STD" FontSize="40" Visibility="{Binding IsDefault, Converter={StaticResource booleanToVisibilityConverter}}" VerticalAlignment="Bottom" Grid.Column="1" Background="DeepSkyBlue" HorizontalAlignment="Right"/>
+                    <TextBlock  VerticalAlignment="Center" TextWrapping="Wrap" Margin="5" Text="{Binding Description}" Grid.Column="1" FontSize="20"  Style="{StaticResource GroupHeaderTextStyle}"  />
                 </Grid>
-                <StackPanel Grid.Row="2" VerticalAlignment="Bottom" Height="100" Background="{StaticResource airbusBlue}">
+                <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Height="100" Background="{StaticResource airbusBlue}">
                     <TextBlock TextWrapping="Wrap" Text="{Binding Name}" LineHeight="25" FontSize="25" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource GroupHeaderTextStyle}"  Margin="10"/>
                 </StackPanel>
             </Grid>
     </DataTemplate>
-
-    
 
     <DataTemplate x:Key="AlternativeUpgradeConfigurationTemplate">
             <Grid  Height="550" MinWidth="400" Background="{StaticResource TileBackground}" Margin="0,0,0,0">

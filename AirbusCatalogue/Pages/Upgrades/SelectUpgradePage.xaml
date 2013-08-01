@@ -24,7 +24,7 @@
             d:Source="{Binding SampleDataItems, Source={d:DesignInstance Type=sample:SampleDataSource, IsDesignTimeCreatable=True}}"/>
     </Page.Resources>
     <Page.BottomAppBar>
-        <AppBar x:Name="bottomAppBar" Padding="0" IsSticky="False">
+        <AppBar x:Name="bottomAppBar" Padding="0" IsSticky="True" IsOpen="{Binding IsAppBarVisible}">
             <Grid Height="100">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="130"/>
@@ -123,6 +123,7 @@
                                   ItemsSource="{Binding UpgradeItems}"
                                   IsSwipeEnabled="False"
                                   IsItemClickEnabled="True"
+                                  Height="400"
                                   SelectionMode="Single"
                                   command:ItemClickCommand.Command="{Binding Path=DataContext.GridViewItemWasSelectedCommand, ElementName=itemListView}"
                                   SelectedItem="{Binding Path=DataContext.SelectedTdu,  ElementName=itemListView, Mode=TwoWay}"
@@ -152,7 +153,7 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
 
-                            <Image Source="{Binding DescriptionImage}" VerticalAlignment="Top" Height="550" Grid.Column="2" Stretch="UniformToFill"/>
+                            <Image Source="{Binding DescriptionImage}" VerticalAlignment="Top" Height="455" Grid.Column="2" Stretch="UniformToFill"/>
                             <Grid Grid.Column="1" Margin="40,0,0,0" >
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto"/>

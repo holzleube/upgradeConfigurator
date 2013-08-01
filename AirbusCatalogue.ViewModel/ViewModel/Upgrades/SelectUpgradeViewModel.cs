@@ -21,6 +21,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Upgrades
     {
         private string _ataChapterTitle;
         private readonly UpgradeModel _model;
+        private bool _isAppBarVisible;
         private ObservableCollection<ISubAtaChapter> _subAtaChapter;
         private ObservableCollection<IUpgradeItem> _selectedUpgradeItems = new ObservableCollection<IUpgradeItem>();
         private ISubAtaChapter _currentSelectedItem ;
@@ -32,7 +33,12 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Upgrades
         {
             _model = new UpgradeModel();
             SelectedUpgradeItems = new ObservableCollection<IUpgradeItem>( new ConfigurationModel().GetCurrentConfiguration().Upgrades);
-            
+            SetIsAppBarVisible();
+        }
+
+        private void SetIsAppBarVisible()
+        {
+            IsAppBarVisible = (SelectedUpgradeItems.Count > 0);
         }
 
         public ObservableCollection<ISubAtaChapter> SubAtaChapter
@@ -44,6 +50,16 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Upgrades
                 OnPropertyChanged();
             }
         } 
+
+        public bool IsAppBarVisible
+        {
+            get { return _isAppBarVisible; }
+            set 
+            {
+                _isAppBarVisible = value;
+                OnPropertyChanged();
+            }
+        }
 
         public string AtaChapterTitle
         {
@@ -188,17 +204,21 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Upgrades
             {
                 SelectedTdu = obj;
                 SelectedUpgradeItems.Add(obj);
+                SetIsAppBarVisible();
                 return;
             }
             if (SelectedTdu.Equals(obj))
             {
                 SelectedTdu = null;
                 SelectedUpgradeItems.Remove(obj);
+                SetIsAppBarVisible();
                 return;
             }
             SelectedUpgradeItems.Remove(SelectedTdu);
             SelectedUpgradeItems.Add(obj);
             SelectedTdu = obj;
+            SetIsAppBarVisible();
+            
         }
         
     }

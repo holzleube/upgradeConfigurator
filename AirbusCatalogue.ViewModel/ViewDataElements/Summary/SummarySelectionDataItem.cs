@@ -22,9 +22,9 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements.Summary
             {
                 if (_itemCount == 0)
                 {
-                    return "no items selected";
+                    return "";
                 }
-                return "count: " + _itemCount;
+                return  _itemCount.ToString();
             }
         }
 
