@@ -25,7 +25,7 @@
     </Page.Resources>
     <Page.BottomAppBar>
         <AppBar x:Name="bottomAppBar" Padding="0" IsSticky="False">
-            <Grid Height="130">
+            <Grid Height="100">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="130"/>
                     <ColumnDefinition Width="*"/>
@@ -38,17 +38,15 @@
                         <GradientStop Color="#FF5970B6" Offset="0.992"/>
                     </LinearGradientBrush>
                 </Grid.Background>
-                <TextBlock FontSize="25" Style="{StaticResource GroupHeaderTextStyle}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock FontSize="25" LineHeight="25" Style="{StaticResource GroupHeaderTextStyle}" HorizontalAlignment="Center" VerticalAlignment="Center">
                 	<Run Text="Current"/>
                 	<LineBreak/>
                 	<Run Text="Selection:"/>
                 </TextBlock>
                 <GridView HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1"
+                          SelectionMode="None"
                           ItemsSource="{Binding Source={StaticResource selectedItemsSource}}"
-                          
-                          ItemTemplate="{StaticResource BottomAppBarSelectedUpgradeItem}">
-                    
-                </GridView>
+                          ItemTemplate="{StaticResource BottomAppBarSelectedUpgradeItem}"/>
                 <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">
                     <Button Style="{StaticResource BottomAppBarButtonStyleCorner}"
                             Content="&#xE10B;"
@@ -95,8 +93,10 @@
             AutomationProperties.Name="Items"
             Margin="10,0,0,0"
             TabIndex="1"
+            command:ItemClickCommand.Command="{Binding SubAtaChapterWasClickedCommand}"
             ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
             IsSwipeEnabled="False"
+            IsItemClickEnabled="True"
             SelectedItem="{Binding CurrentSelectedItem, Mode=TwoWay}"
             SelectionChanged="ItemListView_SelectionChanged"
             ItemTemplate="{StaticResource SubAtaChapterSelectionTemplate}"/>
@@ -124,8 +124,8 @@
                                   IsSwipeEnabled="False"
                                   IsItemClickEnabled="True"
                                   SelectionMode="Single"
-                                  command:ItemClickCommand.Command="{Binding GridViewItemWasSelectedCommand}"
-                                  SelectedItem="{Binding SelectedTdu}"
+                                  command:ItemClickCommand.Command="{Binding Path=DataContext.GridViewItemWasSelectedCommand, ElementName=itemListView}"
+                                  SelectedItem="{Binding Path=DataContext.SelectedTdu,  ElementName=itemListView, Mode=TwoWay}"
                                   ItemTemplate="{StaticResource TduSelectionTemplate}"
                               >
                             <GridView.ItemsPanel>

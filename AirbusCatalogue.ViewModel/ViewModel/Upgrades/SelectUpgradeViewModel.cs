@@ -13,6 +13,7 @@ using AirbusCatalogue.ViewModel.Templates;
 using AirbusCatalogue.ViewModel.ViewInterfaces;
 using AirbusCatalogue.ViewModel.ViewInterfaces.Aircraft;
 using GalaSoft.MvvmLight.Ioc;
+using AirbusCatalogue.Model.Config;
 
 namespace AirbusCatalogue.ViewModel.ViewModel.Upgrades
 {
@@ -25,10 +26,13 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Upgrades
         private ISubAtaChapter _currentSelectedItem ;
         private IUpgradeItem _selectedTdu;
         private ICommand _gridViewItemWasSelectedCommand;
+        private ICommand _subAtaChapterWasClickedCommand;
 
         public SelectUpgradeViewModel()
         {
             _model = new UpgradeModel();
+            SelectedUpgradeItems = new ObservableCollection<IUpgradeItem>( new ConfigurationModel().GetCurrentConfiguration().Upgrades);
+            
         }
 
         public ObservableCollection<ISubAtaChapter> SubAtaChapter
@@ -122,7 +126,26 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Upgrades
             { 
                 _currentSelectedItem = value;
                 OnPropertyChanged();
+                SetCorrectSelectedTdu();
             }
+        }
+
+        private void SetCorrectSelectedTdu()
+        {
+            foreach (var upgradeItem in CurrentSelectedItem.UpgradeItems)
+            {
+                if (IsItemSelected(upgradeItem))
+                {
+                    SelectedTdu = upgradeItem;
+                    return;
+                }
+            }
+            SelectedTdu = null;
+        }
+
+        private bool IsItemSelected(IUpgradeItem upgradeItem)
+        {
+            return SelectedUpgradeItems.Contains(upgradeItem);
         }
 
         public IUpgradeItem SelectedTdu
@@ -137,17 +160,45 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Upgrades
 
         public ICommand GridViewItemWasSelectedCommand
         {
-            get { return _gridViewItemWasSelectedCommand ?? (_gridViewItemWasSelectedCommand = new RelayCommand<IUpgradeItem>(GridViewItemWasSelected)); }
-            set
-            {
-                _gridViewItemWasSelectedCommand = value;
-                OnPropertyChanged();
+            get 
+            { 
+                return _gridViewItemWasSelectedCommand ?? (_gridViewItemWasSelectedCommand = new RelayCommand<IUpgradeItem>(GridViewItemWasSelected)); 
             }
+            
+        }
+
+        public ICommand SubAtaChapterWasClickedCommand
+        {
+            get 
+            {
+                return _subAtaChapterWasClickedCommand ?? (_subAtaChapterWasClickedCommand = new RelayCommand<ISubAtaChapter>(SubAtaChapterWasClicked)); 
+            }
+            
+        }
+
+        private void SubAtaChapterWasClicked(ISubAtaChapter obj)
+        {
+            CurrentSelectedItem = obj;
+            SetCorrectSelectedTdu();
         }
 
         private void GridViewItemWasSelected(IUpgradeItem obj)
         {
-           
+            if(SelectedTdu == null) 
+            {
+                SelectedTdu = obj;
+                SelectedUpgradeItems.Add(obj);
+                return;
+            }
+            if (SelectedTdu.Equals(obj))
+            {
+                SelectedTdu = null;
+                SelectedUpgradeItems.Remove(obj);
+                return;
+            }
+            SelectedUpgradeItems.Remove(SelectedTdu);
+            SelectedUpgradeItems.Add(obj);
+            SelectedTdu = obj;
         }
         
     }

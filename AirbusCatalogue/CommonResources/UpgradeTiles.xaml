@@ -22,8 +22,8 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="60"/>
                 </Grid.RowDefinitions>
-                <Image Source="{Binding Image}" Stretch="UniformToFill" />
-                <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Height="60" Background="{StaticResource airbusBlue}">
+                <Image Source="{Binding Image}" Stretch="Uniform" />
+                <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Height="80" Background="{StaticResource airbusBlue}">
                     <TextBlock Text="{Binding Title}" HorizontalAlignment="Center" FontSize="24" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource GroupHeaderTextStyle}" />
                 </StackPanel>
             </Grid>

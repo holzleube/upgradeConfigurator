@@ -115,13 +115,16 @@
     </DataTemplate>
 
     <DataTemplate x:Key="BottomAppBarSelectedUpgradeItem">
-        <Grid x:Name="TopMain" Width="200" Height="100" Background="{StaticResource TileBackground}">
+        <Grid x:Name="TopMain" Width="200" Height="80" Background="{StaticResource TileBackground}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="20"/>
             </Grid.RowDefinitions>
-            <Image Source="{Binding ProductImagePath}" Stretch="Uniform" />
-            <TextBlock TextWrapping="Wrap" Grid.Row="1" Text="{Binding Name}"  Style="{StaticResource GroupHeaderTextStyle}"  FontSize="13" HorizontalAlignment="Center"/>
+            <Image Source="{Binding ProductImagePath}" Stretch="UniformToFill" Grid.RowSpan="2" />
+            <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Height="20" Background="{StaticResource airbusBlue}">
+                <TextBlock Text="{Binding UniqueId}" HorizontalAlignment="Center" TextWrapping="Wrap" FontSize="14" LineHeight="14" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource GroupHeaderTextStyle}" />
+            </StackPanel>
+           
         </Grid>
     </DataTemplate>
 
