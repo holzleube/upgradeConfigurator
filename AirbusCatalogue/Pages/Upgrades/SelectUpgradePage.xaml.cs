@@ -186,30 +186,6 @@ namespace AirbusCatalogue.Pages.Upgrades
 
         #endregion
 
-        private void Upgrade_Item_Selected(object sender, ItemClickEventArgs e)
-        {
-            var viewModel = DataContext as IUpgradeSelectionViewModel;
-            var item = e.ClickedItem as IUpgradeItem;
-            var isSelected = false;
-            if (item == null || item.IsDefault || viewModel == null)
-            {
-                return;
-            }
-            if (UpgradeItemGridView.SelectedItem == item)
-            {
-                UpgradeItemGridView.SelectedItem = null;
-            }
-            else
-            {
-                UpgradeItemGridView.SelectedItem = item;
-                isSelected = true;
-            }
-            viewModel.UpdateSelection(item, isSelected);
-            if (UpgradeItemGridView.SelectedItem != null && BottomAppBar != null)
-            {
-                BottomAppBar.IsOpen = true;
-            }
-            
-        }
+        
     }
 }

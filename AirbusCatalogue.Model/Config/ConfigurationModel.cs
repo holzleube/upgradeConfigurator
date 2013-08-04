@@ -39,6 +39,13 @@ namespace AirbusCatalogue.Model.Config
         {
             return SimpleIoc.Default.GetInstance<IConfiguration>();
         }
+        
+        public void SetConfiguration(IConfiguration configuration)
+        {
+            SimpleIoc.Default.Unregister<IConfiguration>();
+            SimpleIoc.Default.Register<IConfiguration>(() => configuration);
+            
+        }
 
         public async Task ConfigureCurrentConfiguration()
         {

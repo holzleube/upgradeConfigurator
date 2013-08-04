@@ -8,6 +8,7 @@ using AirbusCatalogue.Common.DataObjects.Config;
 using AirbusCatalogue.Common.DataObjects.Upgrades;
 using AirbusCatalogue.Model.Aircrafts;
 using AirbusCatalogue.Model.ConfigurationData;
+using AirbusCatalogue.Model.Repository;
 using AirbusCatalogue.Model.Templates;
 using AirbusCatalogue.Model.Upgrades;
 using GalaSoft.MvvmLight.Ioc;
@@ -21,7 +22,9 @@ namespace AirbusCatalogue.Model.Customer
     {
    
         private const string BASE_PATH = "Assets/aircrafts/";
+        private const string BASE_PATH_AIRCRAFT = "Assets/slider/";
         private const string A321Image = "Assets/allTypes/head_a321.png"; 
+        private UpgradeRepository _upgradeRepository = new UpgradeRepository();
         public CustomerInformationModel()
         {
             if (! SimpleIoc.Default.IsRegistered<IConfiguration>())
@@ -35,7 +38,7 @@ namespace AirbusCatalogue.Model.Customer
         public CustomerInformation GetCustomerInformationById(string uniqueId)
         {
             var lastConfiguration = new List<Configuration>();
-            var newUpgrades = new List<UpgradeItem>();
+            var newUpgrades = new List<IUpgradeItem>();
             var customerLogo = "Assets/customers/" + uniqueId + ".png";
             if (uniqueId.Equals("emirates"))
             {
@@ -49,35 +52,36 @@ namespace AirbusCatalogue.Model.Customer
                 lastConfiguration = GetConfigurationForAirFrance();
                 return new CustomerInformation(uniqueId, lastConfiguration, newUpgrades, "Assets/customers/airfrance_2.png", "Assets/customers/startScreenAirFrance.jpg");
             }
-            return new CustomerInformation(uniqueId, lastConfiguration, newUpgrades, customerLogo, "");
+            return new CustomerInformation(uniqueId, lastConfiguration, GetNewUpgrades(), customerLogo, "Assets/customers/a380Front.jpg");
         }
 
-        private List<UpgradeItem> GetNewUpgrades()
+        private List<IUpgradeItem> GetNewUpgrades()
         {
-            return new List<UpgradeItem>()
+            return new List<IUpgradeItem>()
                 {
-                    new UpgradeItem("al","Ambient Light","perfect Ambilight","Assets/upgrades/ambient.jpg","", 1,1, false),
-                    new UpgradeItem("bt","bridgestone tyres","new bridgestone tyres","Assets/upgrades/bridgestone.jpg","", 3,0, false),
-                    new UpgradeItem("isisId","isis display","the isis cockpit display","Assets/upgrades/isis.jpg","",3,0, false)
+                    _upgradeRepository.GetUpgradeItemById("al"),
+                    _upgradeRepository.GetUpgradeItemById("bt"),
+                    _upgradeRepository.GetUpgradeItemById("isisId")
                 };
         }
 
         private List<Configuration> GetConfigurationForAirFrance()
         {
+            var aircraftRepo = new AircraftRepository();
             var aircrafts = new List<IAircraft>
                 {
-                     new Aircraft("N-0077","MSN-004", A321Image, "001", "AFR02", "A321"),
-                    new Aircraft("N-0796","MSN-005", A321Image, "001", "AFR02", "A321"),
-                    new Aircraft("N-1133","MSN-005", A321Image, "001", "AFR02", "A321"),
-                    new Aircraft("N-1299","MSN-005", A321Image, "001", "AFR02", "A321"),
+                    aircraftRepo.GetAircraftByMSN("N-0001"), 
+                    aircraftRepo.GetAircraftByMSN("N-0002"), 
+                    aircraftRepo.GetAircraftByMSN("N-0003"), 
+                    aircraftRepo.GetAircraftByMSN("N-0004") 
                 };
             var upgrades = GetUpgradeItems();
             var programms = new List<IAircraftProgramm>()
                 {
-                    new AircraftProgramm("a320", "A320", "Assets/slider/slider_a320.png"),
-                    new AircraftProgramm("a330", "A330", "Assets/slider/slider_a330.png"),
-                    new AircraftProgramm("a340", "A340", "Assets/slider/slider_a350.png"),
-                    new AircraftProgramm("a380", "A380", "Assets/slider/slider_a380.png")
+                    new AircraftProgramm("N-Series", "A320-Family", BASE_PATH_AIRCRAFT + "slider_a320.png"),
+                    new AircraftProgramm("L-Series", "A330/A340", BASE_PATH_AIRCRAFT + "slider_a330.png"),
+                    new AircraftProgramm("P-Series", "A350", BASE_PATH_AIRCRAFT + "slider_a350.png"),
+                    new AircraftProgramm("R-Series", "A380", BASE_PATH_AIRCRAFT + "slider_a380.png")
                     
                 };
             var lastConfigurations = new List<ConfigurationData.Configuration>
@@ -94,11 +98,12 @@ namespace AirbusCatalogue.Model.Customer
 
         private static List<IUpgradeItem> GetUpgradeItems()
         {
+            var upgradeRepo = new UpgradeRepository();
             return new List<IUpgradeItem>()
                 {
-                    new UpgradeItem("al","Ambient Light","perfect Ambilight","Assets/upgrades/ambient.jpg","", 10,1, false),
-                    new UpgradeItem("bt","bridgestone tyres","new bridgestone tyres","Assets/upgrades/bridgestone.jpg","",24, 3, false),
-                    new UpgradeItem("isisId","isis display","the isis cockpit display","Assets/upgrades/isis.jpg","",24,3, false)
+                    upgradeRepo.GetUpgradeItemById("1046GT2106"),
+                    upgradeRepo.GetUpgradeItemById("1046GT2107"),
+                    upgradeRepo.GetUpgradeItemById("1046GT2109")
                 };
         }
 

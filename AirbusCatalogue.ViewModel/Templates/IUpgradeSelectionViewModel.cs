@@ -12,6 +12,5 @@ namespace AirbusCatalogue.ViewModel.Templates
     {
         ObservableCollection<IUpgradeItem> SelectedUpgradeItems { get; set; }
 
-        void UpdateSelection(IUpgradeItem itemToUpdate, bool isSelected);
     }
 }

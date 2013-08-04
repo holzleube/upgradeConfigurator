@@ -37,7 +37,25 @@ namespace AirbusCatalogue.ViewModel.Converter
                 
                 group2.Items.Add(item); 
             }
+
             
+            var group3 = GetLastConfigurationsGroup(customerInformation);
+            AddIfNotEmpty(convertedGroups, group1);
+            AddIfNotEmpty(convertedGroups, group3);
+            AddIfNotEmpty(convertedGroups, group2);
+            return convertedGroups;
+        }
+
+        private static void AddIfNotEmpty(ObservableCollection<DataCommon> convertedGroups, DataGroup group1)
+        {
+            if (group1.Items.Count > 0)
+            {
+                convertedGroups.Add(group1);
+            }
+        }
+
+        private static DataGroup GetLastConfigurationsGroup(CustomerInformation customerInformation)
+        {
             var group3 = new DataGroup("last configurations",
                                        "last configurations",
                                        "Assets/LightGray.png");
@@ -45,13 +63,7 @@ namespace AirbusCatalogue.ViewModel.Converter
             {
                 group3.Items.Add(new ConfigurationDataItem(configuration, group3));
             }
-            convertedGroups.Add(group1);
-            convertedGroups.Add(group3);
-            convertedGroups.Add(group2);
-
-            return convertedGroups;
+            return group3;
         }
-
-       
     }
 }

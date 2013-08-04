@@ -1,3 +1,4 @@
+using AirbusCatalogue.Common.DataObjects.Config;
 using Windows.UI;
 using Windows.UI.Xaml.Media;
 
@@ -5,12 +6,17 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements.Configuration
 {
     public class ConfigurationDataItem:BasicDataItem
     {
-        private readonly Model.ConfigurationData.Configuration _configuration;
+        private readonly IConfiguration _configuration;
 
         public ConfigurationDataItem(Model.ConfigurationData.Configuration configuration, DataGroup @group)
             : base(configuration.UniqueId, configuration.ConfigurationDate, configuration.Programm.ImagePath,  @group, 28, 25)
         {
             _configuration = configuration;
+        }
+
+        public IConfiguration Configuration
+        {
+            get { return _configuration; }
         }
 
         public string ItemsCount { get { return "" + _configuration.Upgrades.Count; } }

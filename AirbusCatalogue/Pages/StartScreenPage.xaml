@@ -7,7 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:variableTemplate="using:AirbusCatalogue.VariableTemplate"
-    xmlns:viewModel="using:AirbusCatalogue.ViewModel.ViewModel"
+    xmlns:viewModel="using:AirbusCatalogue.ViewModel.ViewModel" xmlns:command="using:AirbusCatalogue.ViewModel.Command"
     mc:Ignorable="d">
     <Page.DataContext>
         <viewModel:StartScreenPageViewModel/>
@@ -71,7 +71,7 @@
             ItemsSource="{Binding Source={StaticResource GroupedItemsViewSource}}"
             ItemTemplateSelector="{StaticResource tileTemplates}"
             SelectionMode="None"
-            ItemClick="ItemView_ItemClick"
+            command:ItemClickCommand.Command="{Binding ItemWasClickedCommand}"
             IsSwipeEnabled="false"
             IsItemClickEnabled="True" HorizontalContentAlignment="Left">
                 <GridView.GroupStyle>

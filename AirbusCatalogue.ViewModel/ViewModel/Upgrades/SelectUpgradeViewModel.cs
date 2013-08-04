@@ -116,25 +116,6 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Upgrades
             }
         }
 
-        public void UpdateSelection(IUpgradeItem itemToUpdate, bool isSelected)
-        {
-            if (SelectedUpgradeItems.Contains(itemToUpdate) && !isSelected)
-            {
-                SelectedUpgradeItems.Remove(itemToUpdate);
-                return;
-            }
-            if (!isSelected)
-            {
-                return;
-            }
-            foreach (var upgradeItem in CurrentSelectedItem.UpgradeItems.
-                Where(upgradeItem => SelectedUpgradeItems.Contains(upgradeItem)))
-            {
-                SelectedUpgradeItems.Remove(upgradeItem);
-            }
-            SelectedUpgradeItems.Add(itemToUpdate);
-        }
-
         public ISubAtaChapter CurrentSelectedItem
         {
             get { return _currentSelectedItem; }

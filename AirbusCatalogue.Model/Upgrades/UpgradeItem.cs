@@ -37,5 +37,15 @@ namespace AirbusCatalogue.Model.Upgrades
         public int TduNumber { get; set; }
 
         public bool IsDefault { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            var item = obj as UpgradeItem;
+            if (item == null)
+            {
+                return false;
+            }
+            return item.UniqueId.Equals(UniqueId);
+        }
     }
 }

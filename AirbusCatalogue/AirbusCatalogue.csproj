@@ -219,6 +219,7 @@
     <Content Include="Assets\allTypes\head_a380.png" />
     <Content Include="Assets\background\a320_top.png" />
     <Content Include="Assets\background\cockpit.jpg" />
+    <Content Include="Assets\customers\a380Front.jpg" />
     <Content Include="Assets\customers\airBerlin.jpg" />
     <Content Include="Assets\customers\airCanada.gif" />
     <Content Include="Assets\customers\airChina.png" />

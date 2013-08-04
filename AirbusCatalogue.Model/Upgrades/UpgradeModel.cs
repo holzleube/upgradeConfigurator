@@ -86,10 +86,10 @@ namespace AirbusCatalogue.Model.Upgrades
         {
             return new List<IUpgradeItem>
                 {
-                    new UpgradeItem("1046GT2102", "Single HF system - Rockwell Collins 900",
+                    new UpgradeItem("1046GT2103", "Single HF system - Rockwell Collins 900",
                                     "HF - Antenna, HFDR antenna coupler, HFDR transceiver",
                                     "/Assets/upgrades/rockwell.png", "", 116,02, false),
-                    new UpgradeItem("1046GT2103", "Single HF system - Honeywell",
+                    new UpgradeItem("1046GT2104", "Single HF system - Honeywell",
                                     "HF - Antenna (Airbus), HFDR antenna coupler, HFDR transceiver", "/Assets/upgrades/rockwell.png",
                                     "", 116,05, false)
                 };
@@ -98,10 +98,10 @@ namespace AirbusCatalogue.Model.Upgrades
         {
             return new List<IUpgradeItem>
                 {
-                    new UpgradeItem("1046GT2102", "Single HF system & full Provision - Rockwell Collins 900",
+                    new UpgradeItem("1046GT2105", "Single HF system & full Provision - Rockwell Collins 900",
                                     "HF - Antenna, HFDR antenna coupler, HFDR transceiver",
                                     "/Assets/upgrades/rockwell.png", "", 116,02, false),
-                    new UpgradeItem("1046GT2103", "Single HF system & full Provision - Honeywell",
+                    new UpgradeItem("1046GT2106", "Single HF system & full Provision - Honeywell",
                                     "HF - Antenna, HFDR antenna coupler, HFDR transceiver", "/Assets/upgrades/rockwell.png",
                                     "", 116,05, false)
                 };
@@ -111,13 +111,13 @@ namespace AirbusCatalogue.Model.Upgrades
         {
             return new List<IUpgradeItem>
                 {
-                    new UpgradeItem("1046GT2102", "Basic equip. with turbo tuning & HF data activation capab.",
+                    new UpgradeItem("1046GT2107", "Basic equip. with turbo tuning & HF data activation capab.",
                                     "Radio Management Panel - Thales Avionics SA",
                                     "/Assets/upgrades/rmp.jpg", "", 100,00, true),
-                   new UpgradeItem("1046GT2102", "Alternate equip. with turbo tuning & HF data activation capab.",
+                   new UpgradeItem("1046GT2108", "Alternate equip. with turbo tuning & HF data activation capab.",
                                     "Radio Management Panel - Thales Avionics SA",
                                     "/Assets/upgrades/rmp.jpg", "", 100,03, false),
-                   new UpgradeItem("1046GT2102", "Alternate equip. - with CPDLC function capability",
+                   new UpgradeItem("1046GT2109", "Alternate equip. - with CPDLC function capability",
                                     "Radio Management Panel - Thales Avionics SA",
                                     "/Assets/upgrades/rmp.jpg", "", 100,04, false)
                 };
@@ -127,13 +127,13 @@ namespace AirbusCatalogue.Model.Upgrades
         {
             return new List<IUpgradeItem>
                 {
-                    new UpgradeItem("1046GT2102", "Installation of ACP for fourth occupant - T.E.A.M.",
+                    new UpgradeItem("1046GT2110", "Installation of ACP for fourth occupant - T.E.A.M.",
                                     "Audio Control Panel (ACP) - Audio Management Unit (AMU)",
                                     "/Assets/upgrades/jackPanel.jpg", "", 110,21, false),
-                    new UpgradeItem("1046GT2102", "Installation of ACP and jack panel in avionics compartment - T.E.A.M.",
+                    new UpgradeItem("1046GT2111", "Installation of ACP and jack panel in avionics compartment - T.E.A.M.",
                                     "Audio Control Panel (ACP) - Audio Management Unit (AMU)",
                                     "/Assets/upgrades/jackPanel.jpg", "", 110,21, false),
-                    new UpgradeItem("1046GT2102", "Installation of ACP for fourth occupant and ACP and jack panel in avionics compartment - T.E.A.M.",
+                    new UpgradeItem("1046GT2112", "Installation of ACP for fourth occupant and ACP and jack panel in avionics compartment - T.E.A.M.",
                                     "Audio Control Panel (ACP) - Audio Management Unit (AMU)",
                                     "/Assets/upgrades/jackPanel.jpg", "", 110,21, false),
                 };
@@ -145,13 +145,13 @@ namespace AirbusCatalogue.Model.Upgrades
         {
             return new List<IUpgradeItem>
                 {
-                    new UpgradeItem("1046GT2102", "Boomset basic equipment - Holmberg",
+                    new UpgradeItem("1046GT2113", "Boomset basic equipment - Holmberg",
                                     "DC resistance, soft ear cushions, 70-inch straight cord",
                                     "/Assets/upgrades/holmberg_headphone.png", "/Assets/upgrades/holmberg_logo.jpg", 0,0, true),
-                    new UpgradeItem("1046GT2103", "Boomset alternate equipment - Telex",
+                    new UpgradeItem("1046GT2114", "Boomset alternate equipment - Telex",
                                     "DC resistance, soft ear cushions, 70-inch straight cord", "/Assets/upgrades/telex_headphone.png",
                                     "/Assets/upgrades/telex_logo.png", 27,0, false),
-                    new UpgradeItem("1046GT2104", "Boomset alternate equipment - Sennheiser",
+                    new UpgradeItem("1046GT2115", "Boomset alternate equipment - Sennheiser",
                                     "DC resistance, soft ear cushions, 70-inch straight cord", "/Assets/upgrades/sennheiser_headphone.png",
                                     "/Assets/upgrades/sennheiser_logo.png", 30,0, false)
                 };
@@ -161,10 +161,10 @@ namespace AirbusCatalogue.Model.Upgrades
         {
             return new List<IUpgradeItem>
                 {
-                    new UpgradeItem("1046GT2103", "Boomset alternate equipment with two jack plugs - Telex",
+                    new UpgradeItem("1046GT2116", "Boomset alternate equipment with two jack plugs - Telex",
                                     "DC resistance, soft ear cushions, 70-inch straight cord", "/Assets/upgrades/telex_headphone.png",
                                     "/Assets/upgrades/telex_logo.png", 27,0, false),
-                    new UpgradeItem("1046GT2104", "Boomset alternate equipment with two jack plugs - Sennheiser",
+                    new UpgradeItem("1046GT2117", "Boomset alternate equipment with two jack plugs - Sennheiser",
                                     "DC resistance, soft ear cushions, 70-inch straight cord", "/Assets/upgrades/sennheiser_headphone.png",
                                     "/Assets/upgrades/sennheiser_logo.png", 30,0, false)
                 };
