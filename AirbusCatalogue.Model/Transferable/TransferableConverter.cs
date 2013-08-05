@@ -67,6 +67,10 @@ namespace AirbusCatalogue.Model.Transferable
             foreach (var epacTdu in alternative.epacTdus)
             {
                 var upgradeItem = _upgradeRepository.GetUpgradeItemById(epacTdu);
+                if(upgrades.Contains(upgradeItem))
+                {
+                    continue;
+                }
                 upgrades.Add(upgradeItem);
             }
             return upgrades;
