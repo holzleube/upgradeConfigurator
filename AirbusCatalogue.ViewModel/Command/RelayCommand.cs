@@ -22,7 +22,7 @@ namespace AirbusCatalogue.ViewModel.Command
             this.canExecute = canExecute;
         }
 
-        bool ICommand.CanExecute(object parameter)
+        public bool ICommand.CanExecute(object parameter)
         {
             return CanExecute;
         }
