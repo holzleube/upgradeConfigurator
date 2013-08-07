@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="d9aa7473-efef-404a-9b48-2e9f965f0797"
+  name="UI"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="2c833e44-bd12-4ff2-9d80-75437bf8b324"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DWindows.UI"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="105f10c1-fd1a-4d83-817a-d26326f16ba3"
+        LastKnownName="Xaml"
+        LastKnownLocation="Package7_1923.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="d4c2b623-0813-490b-b792-230725ebd97c"
+        LastKnownName="ViewManagement"
+        LastKnownLocation="Package3_1928.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

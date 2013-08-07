@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="0ade24e3-ae11-4029-bc7e-693d2dd2bba7"
+  name="Config"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="a8ce399d-4ab9-478d-a35c-3a480829e925"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DAirbusCatalogue.Common.DataObjects.Config"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <Interface
+        Id="fbaaf7ff-8f96-4574-b0c1-695653add494"
+        name="IConfigurationGroup"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="d622644c-c225-4122-8eb2-b6f6e0bd034e"
+            handle="viewcode://./CodeSchema_Interface?Assembly%3Dfile:%2F%2F%2FC:%2FDevelopment%2FProjects%2Fairbus%2FAirbusCatalogue.Common%2Fbin%2FDebug%2FAirbusCatalogue.Common.dll Namespace%3DAirbusCatalogue.Common.DataObjects.Config Type%3DIConfigurationGroup"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="6a2828bf-eeb9-4bc5-9a76-8b97fe2d0899"
+            name="interface"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="dd124e8c-128c-4815-ab6b-688b690f8c43">
+                <propertyInstance
+                  Id="c8aa30c8-74dc-4f5f-903f-2551c057d424"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="414075e6-f908-47ca-afb3-80fd1139599b">
+                <propertyInstance
+                  Id="f8695bd4-6ffb-4a0a-8758-9cd87d5ebc60"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="da6e1d03-7208-4daa-960a-4e39687915af">
+                <propertyInstance
+                  Id="42ae4c75-9993-4254-9c2e-b7465c82802b"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e9f41588-850a-45d3-99db-9f19a72e7270">
+                <propertyInstance
+                  Id="ab416b8a-57e0-4923-8ef9-7687723fb112"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="c07b6694-8615-4573-8c6b-1195f16e06ed"
+        name="IConfiguration"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="87244282-40c8-4687-911f-e8929b6af3ed"
+            handle="viewcode://./CodeSchema_Interface?Assembly%3Dfile:%2F%2F%2FC:%2FDevelopment%2FProjects%2Fairbus%2FAirbusCatalogue.Common%2Fbin%2FDebug%2FAirbusCatalogue.Common.dll Namespace%3DAirbusCatalogue.Common.DataObjects.Config Type%3DIConfiguration"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="d109a7f3-86ff-4f39-a985-66d819ff5b12"
+            name="interface"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="bcd0f9ad-5e85-4d1a-9b37-26fa75c3db34">
+                <propertyInstance
+                  Id="c3bdf49e-62e6-407b-9940-96d5defabcae"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="d784ab3a-5ea0-4856-bc98-5faab79f010c">
+                <propertyInstance
+                  Id="9343e025-df8f-4e35-9873-2095e656f668"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="568f8277-7f38-4e00-bf5e-eeb9ae0e8986">
+                <propertyInstance
+                  Id="8c8a4152-c554-4845-b96b-c9c7bca73c3f"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e7c55077-a4e7-4135-957f-a48372ad7097">
+                <propertyInstance
+                  Id="e27a5d4c-8d53-4e78-ae4c-33cbd804b587"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="9d055111-0ea8-4de0-88e9-906370dd0ce2"
+        name="IUpgradeAlternative"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="26067d07-0a4b-4610-8455-6f9b755ebcb9"
+            handle="viewcode://./CodeSchema_Interface?Assembly%3Dfile:%2F%2F%2FC:%2FDevelopment%2FProjects%2Fairbus%2FAirbusCatalogue.Common%2Fbin%2FDebug%2FAirbusCatalogue.Common.dll Namespace%3DAirbusCatalogue.Common.DataObjects.Config Type%3DIUpgradeAlternative"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="3dbe2c50-d67c-4ec4-83b1-bd47b146df5d"
+            name="interface"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="6ba34fed-8fc8-4807-a7a6-4009f79962e3">
+                <propertyInstance
+                  Id="7980c114-4f8c-43cf-b89d-e1bcb189d777"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="2475119f-850a-4ac9-ac62-54cf81613175">
+                <propertyInstance
+                  Id="5b6ac801-b374-4523-84b4-312467abe2f2"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="de03ac0b-c4ef-4536-bf7e-6b05723277a8">
+                <propertyInstance
+                  Id="59077432-3a0a-4e4f-a484-840bc13ed7cf"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="4a6e7128-71e0-40ec-a787-31897b53a3ca">
+                <propertyInstance
+                  Id="ff5c4a01-90c2-41ba-aadb-3138b9f471f4"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="9961f0fc-a2f2-47ea-93b6-c788eb43181e"
+        name="ConfigurationState"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="d5914057-9f07-4abd-ac54-04112516b15b"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FDevelopment%2FProjects%2Fairbus%2FAirbusCatalogue.Common%2Fbin%2FDebug%2FAirbusCatalogue.Common.dll Namespace%3DAirbusCatalogue.Common.DataObjects.Config Type%3DConfigurationState"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="f10522cd-cc06-4656-820a-018892c0d26b"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="46e5d460-a43b-4c6e-83a8-e03c8a24d0b7">
+                <propertyInstance
+                  Id="c80d3eb1-2454-4419-b4ea-54e0188d688c"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f18108c6-7cfd-4970-a6cb-4a2c0965e72e">
+                <propertyInstance
+                  Id="33a80257-cbe8-43f2-90e4-fabfb3a3a259"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="3c8cf1cd-b243-4577-a3a2-200360c428bf">
+                <propertyInstance
+                  Id="e7fe9c7d-9cc7-4f45-9ec1-d612f53103db"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c0c5ec55-46df-47ec-93b3-ac40287aeeed">
+                <propertyInstance
+                  Id="741363c3-f543-4caa-80f3-7fabfa905280"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="2dc1ed4b-441a-4dfc-a1cf-5460f292839e">
+                <propertyInstance
+                  Id="7f202dab-baf4-43b3-ae26-e5ab6b133450"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

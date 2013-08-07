@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="f0fedc73-7227-4da6-96f8-cb8a6dcd2c51"
+  name="Configuration"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="fd9f1943-5b9a-4324-8507-1c8034f3fca9"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DAirbusCatalogue.ViewModel.ViewInterfaces.Configuration"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <Interface
+        Id="1c717015-145d-43eb-92f2-06a34f693c8a"
+        name="IConfigurationAlternativeSelection"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="3ba25f44-b561-47e4-bfc5-754fb2850adf"
+            handle="viewcode://./CodeSchema_Interface?Assembly%3Dfile:%2F%2F%2FC:%2FDevelopment%2FProjects%2Fairbus%2FAirbusCatalogue.ViewModel%2Fbin%2FDebug%2FAirbusCatalogue.ViewModel.dll Namespace%3DAirbusCatalogue.ViewModel.ViewInterfaces.Configuration Type%3DIConfigurationAlternativeSelection"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="b015c98d-b90d-444b-8a83-32589cc78de0"
+            name="interface"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="22256539-8ddf-443b-a5c0-672018ff1cc1">
+                <propertyInstance
+                  Id="a7291c46-91da-496f-a667-7e27d6a971d1"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a5830c1e-a27c-4b41-93a6-32cc1cd521db">
+                <propertyInstance
+                  Id="c3e50140-5945-4218-87ce-1a6521dd0caf"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="24f7212a-0c2e-473b-a9ad-553bed8d87ef">
+                <propertyInstance
+                  Id="ed0460b4-cd02-4321-bb15-1e54c33944af"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="3e89ff92-6e73-4dda-b0c8-20f376d0bc69">
+                <propertyInstance
+                  Id="c7b03a12-8179-457d-a949-100539ddf16d"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </Interface>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>
