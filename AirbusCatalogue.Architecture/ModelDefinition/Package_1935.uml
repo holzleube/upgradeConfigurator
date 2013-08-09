@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="5b8055d2-54b1-417b-acbf-9099c2f3ab8d"
+  name="ViewDataElements"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="78085121-a090-4ceb-93f9-558c1f7d7715"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DAirbusCatalogue.ViewModel.ViewDataElements"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="c6bd7612-3eb0-48e2-a85d-d1752703621e"
+        name="DataCommon"
+        isAbstract="true"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="4cad0c4b-4a96-4669-8f70-398f15c43528"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FDevelopment%2FProjects%2Fairbus%2FAirbusCatalogue.ViewModel%2Fbin%2FDebug%2FAirbusCatalogue.ViewModel.dll Namespace%3DAirbusCatalogue.ViewModel.ViewDataElements Type%3DDataCommon"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="987a78da-24d6-43cc-a9e9-4cbf6de1cd4d"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="60dd5592-f837-4cfb-889b-26737d30cd60">
+                <propertyInstance
+                  Id="1549602f-52d5-4590-89c8-310613743331"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e9418b56-a7b3-4880-99e9-5ed755d6e7b5">
+                <propertyInstance
+                  Id="a516157d-7108-4465-90b2-32df670dd6a0"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="34d7343f-ba3a-4eec-8a27-cf2c336b9106">
+                <propertyInstance
+                  Id="77f3d4bd-c790-4280-badb-3447783e284c"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="edb310bc-5ea0-4c20-9cc5-294db83f92c6">
+                <propertyInstance
+                  Id="965b60c5-5230-4e42-ac3e-2d7b8a6b23d6"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="2af1ddd2-7e27-45a7-a399-8f05aaca5b7d">
+                <propertyInstance
+                  Id="113a43fe-a5b2-4280-8dd3-fa58a502a587"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="20ce750e-f020-4289-b328-8e46f5a9b096"
+        name="DataGroup"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="c4acf577-e584-4da4-bc21-4fd828ade870"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FDevelopment%2FProjects%2Fairbus%2FAirbusCatalogue.ViewModel%2Fbin%2FDebug%2FAirbusCatalogue.ViewModel.dll Namespace%3DAirbusCatalogue.ViewModel.ViewDataElements Type%3DDataGroup"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="d24e0bbf-35ec-4f61-83f6-6d4eaeec484e"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c9d748f0-41d5-4ca4-b93f-9508719c7491">
+                <propertyInstance
+                  Id="b6c0d7cc-850b-4a0b-b725-39c8e25ee9e4"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b4d92abe-4cd3-4c50-a86f-17e2929aa88e">
+                <propertyInstance
+                  Id="9e500a1c-5ce2-4189-9179-5828b4a039c0"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="02c146a4-eb66-437f-a4b0-5f2e33d2e35f">
+                <propertyInstance
+                  Id="81d30635-89bb-463c-ae82-22435104395e"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="2d7289e0-0667-41ce-84fb-233d887c0bd5">
+                <propertyInstance
+                  Id="124ee1d9-3a50-4643-b854-a3450c486595"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="540c624d-5402-4d8e-87ec-f924ed5c3e63">
+                <propertyInstance
+                  Id="2b7309f6-a965-42da-bc27-429d1518234e"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="fcfac061-5676-4be0-9692-463a2b23d7a4"
+            isSubstitutable="false">
+            <classMoniker
+              Id="c6bd7612-3eb0-48e2-a85d-d1752703621e"
+              LastKnownName="DataCommon"
+              LastKnownLocation="Package_1935.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="b3b3986f-a2d2-48fc-8ff9-e30eaf70db27"
+        LastKnownName="Aircraft"
+        LastKnownLocation="Package16_1935.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="8d19aaff-c178-4729-bf8d-36d2060f5f88"
+        LastKnownName="Configuration"
+        LastKnownLocation="Package1_1936.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="2045ff7f-30f8-4b9d-b94a-0cebd25af3fa"
+  name="Customers"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="ae209664-16e3-4578-b4b1-8427e5445784"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DAirbusCatalogue.Common.DataObjects.Customers"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <Interface
+        Id="55f02285-0a9c-4000-93cc-a694eb61214f"
+        name="ICustomer"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="061ae183-f56a-4afd-8809-b3880b6b8067"
+            handle="viewcode://./CodeSchema_Interface?Assembly%3Dfile:%2F%2F%2FC:%2FDevelopment%2FProjects%2Fairbus%2FAirbusCatalogue.Common%2Fbin%2FDebug%2FAirbusCatalogue.Common.dll Namespace%3DAirbusCatalogue.Common.DataObjects.Customers Type%3DICustomer"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="709903b9-ca70-41f2-8fae-133c5bfbb24e"
+            name="interface"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f9278d19-d12e-44b6-be9c-8a864d382521">
+                <propertyInstance
+                  Id="6fc937f8-2966-4a3f-8b29-09f091393d06"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="bcbf8c4c-eed5-4888-a661-3ec4777068a7">
+                <propertyInstance
+                  Id="3d58fe4b-a304-4894-b11e-7705f9175c71"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="975b2166-b963-4a12-91e3-ba94e346ef29">
+                <propertyInstance
+                  Id="c038b754-cd91-4ff0-a6ef-61bea37f4c90"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b2ba7299-c548-4cc0-b9ed-cc5785baf989">
+                <propertyInstance
+                  Id="6dc5dad9-7b90-44eb-bae5-52016ef44186"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </Interface>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="ea72f591-77a5-4efb-83c4-b713727b6c7e"
+  name="Common"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="143910fa-f8d4-4855-8e4b-b15f0f6ec4c1"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DAirbusCatalogue.Common"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="db02e286-898a-4e63-ba34-45303ff1f671"
+        name="LayoutAwarePage"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="c5ab4437-19d0-4e61-8aae-61493bdd752d"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FDevelopment%2FProjects%2Fairbus%2FAirbusCatalogue%2Fbin%2FDebug%2FAirbusCatalogue.exe Namespace%3DAirbusCatalogue.Common Type%3DLayoutAwarePage"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="daac4d71-ac4f-420c-b967-701b337398ed"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b9936afc-0112-46ba-a7d8-d438090c4509">
+                <propertyInstance
+                  Id="0c2b7949-94bc-4cb1-9e75-5af5a9769aa7"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="256c0442-6582-45ba-a872-c9303eebf1bc">
+                <propertyInstance
+                  Id="e068a4d0-f3f8-4432-bcb7-66f763b49bca"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="84d5333d-6350-4d01-bdf9-1d578854bc80">
+                <propertyInstance
+                  Id="0cbd939e-5586-43bd-ab8d-abb300a025d8"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="347b7c20-4d7a-4d01-b9e3-460019de88b9">
+                <propertyInstance
+                  Id="dd6a217f-3a39-44d5-8378-d3c700f33577"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ac8ec9ca-1061-4cee-bc22-34f51ac785e3">
+                <propertyInstance
+                  Id="aa1b1b2d-0c12-4b43-9514-35ea4ca9dbb1"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="804e1daf-c9f3-4f69-9ed3-e660cfc213ff"
+        LastKnownName="DataObjects"
+        LastKnownLocation="Package10_1935.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="0c08cd1e-fa72-4204-9eba-64c1f72cf6e3"
+        LastKnownName="BasicData"
+        LastKnownLocation="Package7_1936.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

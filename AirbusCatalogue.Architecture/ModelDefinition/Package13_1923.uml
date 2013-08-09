@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="d4fac7b8-dcd5-4087-bb3b-16fa741710db"
+  name="ViewModel"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="7b82bed2-3a95-454b-a535-87303afe2723"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DAirbusCatalogue.ViewModel"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="e5147031-6dc7-4a60-9b28-4cb3f05493b2"
+        LastKnownName="ViewInterfaces"
+        LastKnownLocation="Package14_1923.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="be07b975-fb8e-4346-86a9-7ac82b505ad1"
+        LastKnownName="ViewModel"
+        LastKnownLocation="Package1_1926.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="5b8055d2-54b1-417b-acbf-9099c2f3ab8d"
+        LastKnownName="ViewDataElements"
+        LastKnownLocation="Package_1935.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="ccca018f-92a2-4a93-83a3-2d11a66d40b3"
+        LastKnownName="Templates"
+        LastKnownLocation="Package7_1935.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="285f334f-2e85-442f-ab17-027a97d58c15"
+        LastKnownName="Command"
+        LastKnownLocation="Package14_1935.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

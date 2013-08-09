@@ -1,0 +1,1441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="a9cd62f9-8c77-4b04-890a-708c16b57ea3"
+  name="Configuration"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="c00ce713-3153-40e6-98a8-a2fe19f00ddf"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DAirbusCatalogue.Pages.Configuration"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="68a12753-b0ca-4b45-8681-714cac395705"
+        name="ConfigurationDetailPage"
+        isAbstract="false"
+        isLeaf="true"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="8d817b6a-c8e6-4d4e-8514-150857ac7214"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FDevelopment%2FProjects%2Fairbus%2FAirbusCatalogue%2Fbin%2FDebug%2FAirbusCatalogue.exe Namespace%3DAirbusCatalogue.Pages.Configuration Type%3DConfigurationDetailPage"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="bf50fbe0-0923-4dc6-9ada-adbbd35cdda6"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="80efd7f1-06fa-46df-a169-050d0c21bbc2">
+                <propertyInstance
+                  Id="56e2b6d2-ef1f-4542-a8d8-a0f4da380f97"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f701b5fa-8617-4a2a-bd9b-eaf776affdaa">
+                <propertyInstance
+                  Id="82ce2228-1a7a-4d60-82f4-68ff9bec1468"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="395ff3b9-c3b3-45a4-9be0-81547948a19d">
+                <propertyInstance
+                  Id="dc5d62d0-a9ba-428d-adb7-efa1e91ce95c"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="d5061a6c-9710-474c-96d1-749a07cb43ef">
+                <propertyInstance
+                  Id="199649e9-7e5f-46f6-8937-f168d4f3ad8c"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="d7c01f11-37c0-459e-9ff1-7f0f81a9a346">
+                <propertyInstance
+                  Id="6ec820d5-a9f5-45e1-a7d7-67a00c535f4c"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <suppliersInternal>
+          <interfaceRealization
+            Id="76508045-14a7-4d3b-ae73-0ec83b4e50c0">
+            <interfaceMoniker
+              Id="8ec8ca6b-92c8-4f04-b017-2367f0da80cc"
+              LastKnownName="IComponentConnector"
+              LastKnownLocation="Package12_1923.uml" />
+          </interfaceRealization>
+          <interfaceRealization
+            Id="492d039d-cb77-49ee-9959-34dd26567b0f">
+            <interfaceMoniker
+              Id="1c717015-145d-43eb-92f2-06a34f693c8a"
+              LastKnownName="IConfigurationAlternativeSelection"
+              LastKnownLocation="Package4_1926.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <generalsInternal>
+          <generalization
+            Id="3db28ff1-b450-4ad8-a5b5-02e8e4b362a8"
+            isSubstitutable="false">
+            <classMoniker
+              Id="db02e286-898a-4e63-ba34-45303ff1f671"
+              LastKnownName="LayoutAwarePage"
+              LastKnownLocation="Package9_1923.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="776560dc-b33b-451c-a713-b3dbf5e3962f"
+            name="ApplicationViewStates"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="032ebf63-e1bf-4e3f-9cb9-bc9189ad3436"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FDevelopment%2FProjects%2Fairbus%2FAirbusCatalogue%2Fbin%2FDebug%2FAirbusCatalogue.exe Namespace%3DAirbusCatalogue.Pages.Configuration Type%3DConfigurationDetailPage Member%3DApplicationViewStates"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="74c84bb2-2646-4645-8895-0e5e5b5ab665"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7e89331d-8e5a-49ee-8358-ddf549605bca">
+                    <propertyInstance
+                      Id="d6729227-e081-4d75-9617-807a3b8c0973"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b6aa04eb-1809-4022-8cc0-a70ac011f686">
+                    <propertyInstance
+                      Id="774a4dd7-b7c0-4c09-a4d4-4fd69212d64d"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3884873d-16f6-40d8-8761-904a1f866742">
+                    <propertyInstance
+                      Id="d754d78b-d6e8-4eb1-85da-e68808cae252"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="56e6371f-db7b-499a-afc8-c3554cb0dcfa">
+                    <propertyInstance
+                      Id="f9b32d8d-32a6-4378-9b6d-471a26dd5741"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6ed5be11-fb94-4c4b-8270-38d2210e819e">
+                    <propertyInstance
+                      Id="f059e9b6-adf0-4fbd-bc91-088f7788760f"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="6c5a1ead-7987-416c-9cf7-9305d1aad76e"
+                LastKnownName="VisualStateGroup"
+                LastKnownLocation="Package7_1923.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="8c8b4813-cced-403d-b701-1441a9b5603f"
+            name="Filled"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="3446a70b-9de9-4fdb-be41-f69309de7bcc"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FDevelopment%2FProjects%2Fairbus%2FAirbusCatalogue%2Fbin%2FDebug%2FAirbusCatalogue.exe Namespace%3DAirbusCatalogue.Pages.Configuration Type%3DConfigurationDetailPage Member%3DFilled"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="c2e49a48-a9b3-4f10-b09e-40003627a26a"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6dc1fcc3-7fdd-4e07-9ca9-80c0c138da75">
+                    <propertyInstance
+                      Id="4977d59b-2b62-4b71-8a26-d3c3e603bd69"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7c10dc7a-a739-4f83-b98c-232a327c52ee">
+                    <propertyInstance
+                      Id="808976af-38de-4fac-966e-8f6b3c3dd983"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a74ece30-efbe-459c-866a-0b70ff12793a">
+                    <propertyInstance
+                      Id="d29aa45e-02e2-4e95-a29c-32641ec0f989"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cfe37959-c2e1-4356-94d1-47bfcd28809f">
+                    <propertyInstance
+                      Id="60f6c8fa-d916-4b17-93bb-554e005399ef"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dc3bdd0a-ad5d-4e2d-bafd-5134a070fb8d">
+                    <propertyInstance
+                      Id="f885fef1-ef42-4d2a-b1f1-2869438e5b26"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="8306d07f-4cc6-42ec-b22f-6db1db36564e"
+                LastKnownName="VisualState"
+                LastKnownLocation="Package7_1923.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="350ef13f-ae8d-4a47-a1a0-edd679e997c0"
+            name="FullScreenLandscape"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="e49b59af-5fd2-47b8-800a-1bcee321812b"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FDevelopment%2FProjects%2Fairbus%2FAirbusCatalogue%2Fbin%2FDebug%2FAirbusCatalogue.exe Namespace%3DAirbusCatalogue.Pages.Configuration Type%3DConfigurationDetailPage Member%3DFullScreenLandscape"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="396e17c3-5ff9-4b66-b6d9-2701890217ab"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ebc7c1ec-4c2a-4576-9f78-e332c0e476c6">
+                    <propertyInstance
+                      Id="e3069530-e3b5-4b4e-bc59-2904311a2944"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0c048c2a-1709-4513-8045-ef6f7bf2bdec">
+                    <propertyInstance
+                      Id="cb7cdf07-0893-4749-ab91-2b81631dd9b0"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e9c998e7-0a12-4e62-9f14-27ce903001c8">
+                    <propertyInstance
+                      Id="f7cfd814-ce76-4beb-a4ba-957927577353"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4e47e36b-b509-41a1-83c4-0db51446692e">
+                    <propertyInstance
+                      Id="2b79425b-a27a-45ba-9d0c-5c8471522317"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9767c2a6-dc60-4e3c-a21f-896f742e3fed">
+                    <propertyInstance
+                      Id="1583fba8-16be-4eb0-b993-7ed14c858e72"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="8306d07f-4cc6-42ec-b22f-6db1db36564e"
+                LastKnownName="VisualState"
+                LastKnownLocation="Package7_1923.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="79200bf8-5b4f-4f95-8803-f798404472b6"
+            name="FullScreenPortrait"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="ce6803c5-d8a5-42de-8333-75be3518502f"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FDevelopment%2FProjects%2Fairbus%2FAirbusCatalogue%2Fbin%2FDebug%2FAirbusCatalogue.exe Namespace%3DAirbusCatalogue.Pages.Configuration Type%3DConfigurationDetailPage Member%3DFullScreenPortrait"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="62a36d2d-d0f0-416f-9ba9-53b2889b834b"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="542d4bb3-ac2b-4dd8-a3f0-925a8db0beba">
+                    <propertyInstance
+                      Id="dedee429-be72-4c31-9cef-7f8c5722bdf5"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b84c2f47-c216-4730-b36c-dcb9a5e60f31">
+                    <propertyInstance
+                      Id="ee7abf2e-7b78-4b80-aec3-7a24e39446ad"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e441fab6-2136-45eb-b42f-c395dc67c800">
+                    <propertyInstance
+                      Id="92c2f52a-8bf6-427c-8776-d85784d69648"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="34404005-cfee-4f79-8d94-b59cd5d27263">
+                    <propertyInstance
+                      Id="38297834-5472-4309-97f9-8d0b9121164e"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6e5fa787-b864-46a2-9624-25e6961b7fc4">
+                    <propertyInstance
+                      Id="66bdf692-fd97-486f-9aaf-2e2fe7f7c904"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="8306d07f-4cc6-42ec-b22f-6db1db36564e"
+                LastKnownName="VisualState"
+                LastKnownLocation="Package7_1923.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="3de24f3f-12f8-4b20-b82c-039581c9f730"
+            name="Snapped"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="315b8816-aa15-4866-8562-65e030b7a2cd"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FDevelopment%2FProjects%2Fairbus%2FAirbusCatalogue%2Fbin%2FDebug%2FAirbusCatalogue.exe Namespace%3DAirbusCatalogue.Pages.Configuration Type%3DConfigurationDetailPage Member%3DSnapped"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="fb5743d4-dbef-4f0a-97e1-4a753413b31c"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3caed1c6-45ae-4ed4-9158-db3ee9bb656f">
+                    <propertyInstance
+                      Id="ef5f0e73-3da0-43a9-950d-0f1893a6e326"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3d17b99a-4b1a-4125-97d4-86f5b080149f">
+                    <propertyInstance
+                      Id="c2c2a829-5d67-44f8-97da-37620806594d"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b1ee468b-3093-4ba0-bd6e-a882bc4985b6">
+                    <propertyInstance
+                      Id="d376e4a5-fd01-4d26-a8b3-bb47f5d03762"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5f2caabb-ad7a-4418-98dc-1db9365c6c05">
+                    <propertyInstance
+                      Id="8ee4da78-6b5e-4050-885a-0d731af7bf35"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="69049774-116d-48ed-9c53-4910d80b6bef">
+                    <propertyInstance
+                      Id="d41d24f7-bbc2-4f2b-be2a-3a71008163f3"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="8306d07f-4cc6-42ec-b22f-6db1db36564e"
+                LastKnownName="VisualState"
+                LastKnownLocation="Package7_1923.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="78ab6e0f-4270-4f69-9de0-54bbef096533"
+            name="_contentLoaded"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="e223ff84-bdc4-4e50-83fd-22ba6b32bc80"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FDevelopment%2FProjects%2Fairbus%2FAirbusCatalogue%2Fbin%2FDebug%2FAirbusCatalogue.exe Namespace%3DAirbusCatalogue.Pages.Configuration Type%3DConfigurationDetailPage Member%3D_contentLoaded"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="5b24fec4-7dd7-4161-8d34-a13c36ff5895"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="73062224-5726-421b-9d99-aeef070da719">
+                    <propertyInstance
+                      Id="403d633f-e9a9-4f8d-825e-a76b3f070254"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="53127d41-c0ce-4519-b555-54b602d6123d">
+                    <propertyInstance
+                      Id="0df922dc-e8ff-447f-b875-628b62f440a6"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="313a1a64-8baf-40bf-bb23-3475165d69ae">
+                    <propertyInstance
+                      Id="0d339df7-ee09-48ff-93e7-63a7c6aadbcd"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="206b4d07-ba41-4ae3-907f-500d87fdb3d4">
+                    <propertyInstance
+                      Id="b7c9b568-8930-448b-94c5-f791baae78d3"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8b4f4046-2fa0-4d21-ba1f-0820fb52d465">
+                    <propertyInstance
+                      Id="7c8ba939-f1a5-48c3-a72d-5eb7a02fdcf8"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="539e5020-f8ed-4fdc-9225-68cfd56774ef"
+                LastKnownName="Boolean"
+                LastKnownLocation="Package2_1923.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="069cef0c-d99d-4a5e-a9a8-45c058ba24a9"
+            name="backButton"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="bb60b365-b75b-404f-8d12-7d7e435f292e"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FDevelopment%2FProjects%2Fairbus%2FAirbusCatalogue%2Fbin%2FDebug%2FAirbusCatalogue.exe Namespace%3DAirbusCatalogue.Pages.Configuration Type%3DConfigurationDetailPage Member%3DbackButton"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="4a16e6ce-1a51-4938-a726-c1e3bdeb2e92"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5d26514c-4fee-4f23-87f3-b2c0a3ac732d">
+                    <propertyInstance
+                      Id="d96c343c-1686-4608-928f-67a6d21ac522"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fc53710d-18ae-49d8-8586-f2557201a672">
+                    <propertyInstance
+                      Id="10ff21db-253a-4ab9-944e-139cb3676eee"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="88302c62-5dd4-48d0-bdb6-69de903cbfa5">
+                    <propertyInstance
+                      Id="a66a7d60-b7aa-42a1-a99b-d2cd0555d285"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5dd2ae7d-cea0-49be-8537-c605d59a67c4">
+                    <propertyInstance
+                      Id="f666e70e-db7d-410b-a6c3-9d44e85fc9d9"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b3be7cfc-6ead-4e3b-8505-869e20e672d9">
+                    <propertyInstance
+                      Id="a78300bf-b386-4210-aba3-315d70068e2a"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="ff4658ba-025f-4347-96d2-0b1bcdc6579c"
+                LastKnownName="Button"
+                LastKnownLocation="Package8_1923.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="b147b09f-b67a-4171-ae42-a2cb3be26a81"
+            name="bottomAppBar"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="284343f9-4798-40fa-9d7f-4903047f1bd5"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FDevelopment%2FProjects%2Fairbus%2FAirbusCatalogue%2Fbin%2FDebug%2FAirbusCatalogue.exe Namespace%3DAirbusCatalogue.Pages.Configuration Type%3DConfigurationDetailPage Member%3DbottomAppBar"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="68dd12f8-a56b-4053-8910-b4a02fd07513"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b0caa44a-41d3-4740-87f6-df1c73da35f5">
+                    <propertyInstance
+                      Id="33c7e98f-161b-4908-8045-202d1470e269"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3e14b5df-78db-4b84-8927-7e6840fdc5fa">
+                    <propertyInstance
+                      Id="32617b4a-66d2-48d7-a394-dbe5c48b01c6"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="adc8dde6-3e2f-464e-bc69-4d478ec6b005">
+                    <propertyInstance
+                      Id="5a63ae35-b9f7-426b-af5e-4c2778bff27c"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3875b235-88ae-4845-ad43-5824a02ba1b2">
+                    <propertyInstance
+                      Id="7bf6935c-7477-4294-ac87-45d4a3780fbc"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5606abc0-075d-420a-adb5-df34716d4a1d">
+                    <propertyInstance
+                      Id="43ef8087-cc05-4a4c-be86-f441ef161c65"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="ff820cb4-8670-4a63-96d1-9bd9a6ff391c"
+                LastKnownName="AppBar"
+                LastKnownLocation="Package8_1923.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="fea02110-3044-4f85-813b-535837213314"
+            name="groupedItemsViewSource"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="9f640800-9c39-47f2-9af7-0362a5d59248"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FDevelopment%2FProjects%2Fairbus%2FAirbusCatalogue%2Fbin%2FDebug%2FAirbusCatalogue.exe Namespace%3DAirbusCatalogue.Pages.Configuration Type%3DConfigurationDetailPage Member%3DgroupedItemsViewSource"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="6df7d480-14d5-4793-9095-5ad10183afd5"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d617cdaf-90bf-4e83-80b2-1dea4fa8fb0e">
+                    <propertyInstance
+                      Id="cf1e5364-f719-4557-9efc-6aee1d12c523"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fde29202-ac16-4bf1-b102-4dbc0a264523">
+                    <propertyInstance
+                      Id="cd877a40-226c-49f3-b973-40b6ff43c80c"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="aa75ef2b-b479-436b-8fd7-112b014dfec6">
+                    <propertyInstance
+                      Id="70eb13be-ab3f-4215-b1cb-85c184db3f90"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bb2e6a49-3bac-43b4-8849-2c6c1cd7b92a">
+                    <propertyInstance
+                      Id="eeeb399e-cc47-4305-837d-5944188f453b"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="163bfefb-b538-4fd2-a5c6-bfa13d80e26d">
+                    <propertyInstance
+                      Id="d9e11122-c617-4d1c-a682-d8034d552a67"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="e19fcfce-7ff8-4315-b16c-e96fe35bfec3"
+                LastKnownName="CollectionViewSource"
+                LastKnownLocation="Package10_1923.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="f2004372-9871-4a40-b70f-9b528747eb82"
+            name="itemGridView"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="ad67014e-f388-4477-b4cb-10ba4fd760e4"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FDevelopment%2FProjects%2Fairbus%2FAirbusCatalogue%2Fbin%2FDebug%2FAirbusCatalogue.exe Namespace%3DAirbusCatalogue.Pages.Configuration Type%3DConfigurationDetailPage Member%3DitemGridView"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="fd30d3f6-7bca-44db-935a-b4c3a4162e5e"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f1e44110-7ae8-49aa-9b0a-0e6744dc30b0">
+                    <propertyInstance
+                      Id="8662dffe-2b40-4ce3-9dd1-a8b8fcccdeaf"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4f9c4811-6c28-49a1-8893-546871832732">
+                    <propertyInstance
+                      Id="ad28dbf9-3af4-4974-b324-65bed4f1ce51"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8699649a-00d3-47de-ba46-21def463cb7f">
+                    <propertyInstance
+                      Id="7b3de7a8-755b-4086-8734-34dca5ff055f"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f1f5e01d-d465-4839-827a-9e6e58c3d9d4">
+                    <propertyInstance
+                      Id="06bb98de-e67c-4eec-b545-6da1b1900549"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="542b5164-625c-4aa1-9e8e-7cc00d6b88ed">
+                    <propertyInstance
+                      Id="9f8665ce-aba5-498c-ae57-eb5bdc4be13b"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="d1e852f1-b891-4ac6-b641-edb2ebc6aaac"
+                LastKnownName="VariableTileControl"
+                LastKnownLocation="Package11_1923.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="b7daf8d3-5b82-4226-9322-1fd7031a36c8"
+            name="pageRoot"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="f3c1d3ad-44f5-47c1-8851-352be4d588bb"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FDevelopment%2FProjects%2Fairbus%2FAirbusCatalogue%2Fbin%2FDebug%2FAirbusCatalogue.exe Namespace%3DAirbusCatalogue.Pages.Configuration Type%3DConfigurationDetailPage Member%3DpageRoot"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="7b4405af-3bca-4e03-a5b8-1dc497d253fa"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="19e271c6-831b-42e0-bcfc-2b0ab7f70266">
+                    <propertyInstance
+                      Id="0e880239-fab6-4cc5-95e6-8520623c3ee5"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4659f10b-ac2b-47a3-9f80-8245108bdc3d">
+                    <propertyInstance
+                      Id="9554ba07-edc3-412e-88de-aa410b3c4195"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4e179c52-0f57-465b-a6bf-e39c4545960f">
+                    <propertyInstance
+                      Id="a3d2a7f1-e012-478d-85c4-74ca991ff063"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8b84f34b-e809-4342-9092-35c713bbd5cc">
+                    <propertyInstance
+                      Id="2612f0e4-5e8f-470c-85df-79271ca1b46b"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="46c6bb11-0d70-404d-b867-69ad92e766ca">
+                    <propertyInstance
+                      Id="8d3fe125-f8b7-40c3-9803-c17e3db8fc75"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="db02e286-898a-4e63-ba34-45303ff1f671"
+                LastKnownName="LayoutAwarePage"
+                LastKnownLocation="Package9_1923.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="d9f84759-f4fe-4a07-976a-2c7f8ca09128"
+            name="pageTitle"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="ec631fc6-406f-4d76-9255-a5c0df706c51"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FDevelopment%2FProjects%2Fairbus%2FAirbusCatalogue%2Fbin%2FDebug%2FAirbusCatalogue.exe Namespace%3DAirbusCatalogue.Pages.Configuration Type%3DConfigurationDetailPage Member%3DpageTitle"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="805b64d9-ef0b-4a85-b512-f4589f054876"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d85a9276-141d-4caa-9a7d-49c514eb40f1">
+                    <propertyInstance
+                      Id="57d9c3a2-3849-48c8-af86-6093b19a955e"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f43c9309-03ca-4b84-8f50-c8d1930eeefc">
+                    <propertyInstance
+                      Id="b91d70c1-5aac-43e3-8a8a-b86770508d41"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2f8f8142-83b7-4931-a8fa-cb9bde2e34c9">
+                    <propertyInstance
+                      Id="2fa0cf89-58f7-42e7-8f16-c1eaa8916094"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5af2909e-22c3-4825-9e5b-7a0e641aad20">
+                    <propertyInstance
+                      Id="413d196b-63d6-4cb6-a19a-99877da354b7"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b89bc172-ce71-4f78-bb39-47553b40c485">
+                    <propertyInstance
+                      Id="f85cb31f-9bd2-414f-8d30-666e2cc52ac8"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="86d44e35-22c5-4962-94e0-d72aeeee4970"
+                LastKnownName="TextBlock"
+                LastKnownLocation="Package8_1923.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="9a6baf53-a529-4625-91b4-69b2abb4c17a"
+            name="Connect"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="b4930663-f7c3-4780-8e3b-7525b5546ee4"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FDevelopment%2FProjects%2Fairbus%2FAirbusCatalogue%2Fbin%2FDebug%2FAirbusCatalogue.exe Namespace%3DAirbusCatalogue.Pages.Configuration Type%3DConfigurationDetailPage Member%3D(Name%3DConnect OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETCore%2Fv4.5%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETCore%2Fv4.5%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DObject)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="64df3350-5383-4da6-8409-71951418e3ad"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d469dc50-3f31-48db-955a-8d1f39f77d7c">
+                    <propertyInstance
+                      Id="1663d7b6-f01e-42fc-aab9-c454e6ce8ac3"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="968700fa-db1f-4ae6-96cd-3e4aadb2300f">
+                    <propertyInstance
+                      Id="285fab50-3b19-4a24-9077-b36bc950c875"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e74d8a79-da71-4ceb-8e2b-f9bdaffea036">
+                    <propertyInstance
+                      Id="028fcea1-38d7-4621-acd7-6c5b4042ec15"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="21f4e166-9049-4eb1-9c41-7672a6e7eb39">
+                    <propertyInstance
+                      Id="9c6617f6-320a-4032-bd88-5ed40280fab2"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a7fc6498-789d-4a94-8fa4-3bf05096e8e0">
+                    <propertyInstance
+                      Id="6dc67476-ce2a-4872-a534-f0513d2c097f"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b0249f7c-0f78-4dce-9e88-ce8517b37aed">
+                    <propertyInstance
+                      Id="2f26efb3-da7d-4adc-8a26-be19d3f6e3a8"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c8e4155c-f4ee-483f-be83-61d1cd640571"
+                  name="connectionId"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="41929966-f4a2-439f-b6f0-6dd687316ca8"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FDevelopment%2FProjects%2Fairbus%2FAirbusCatalogue%2Fbin%2FDebug%2FAirbusCatalogue.exe Namespace%3DAirbusCatalogue.Pages.Configuration Type%3DConfigurationDetailPage Member%3D(Name%3DConnect OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETCore%2Fv4.5%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETCore%2Fv4.5%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DObject)]) ParameterIdentifier%3DconnectionId"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="beb8be7b-8ef7-4812-9925-460acacd4fae"
+                      LastKnownName="Int32"
+                      LastKnownLocation="Package2_1923.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5565f50a-8d89-41be-a70a-b2fc89918920"
+                  name="target"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="47b9029d-6d19-4a51-a37e-302d1a04fdd2"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FDevelopment%2FProjects%2Fairbus%2FAirbusCatalogue%2Fbin%2FDebug%2FAirbusCatalogue.exe Namespace%3DAirbusCatalogue.Pages.Configuration Type%3DConfigurationDetailPage Member%3D(Name%3DConnect OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETCore%2Fv4.5%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETCore%2Fv4.5%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DObject)]) ParameterIdentifier%3Dtarget"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="52ae81a8-03e3-42de-88bc-6c685855d1dd"
+                      LastKnownName="Object"
+                      LastKnownLocation="Package2_1923.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="11cf1934-9eeb-40f7-a283-ecc789693b58"
+            name="ItemGridView_OnSelectionChanged"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="fa603b81-b7d3-4bbb-b5b9-f16ddbc565f5"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FDevelopment%2FProjects%2Fairbus%2FAirbusCatalogue%2Fbin%2FDebug%2FAirbusCatalogue.exe Namespace%3DAirbusCatalogue.Pages.Configuration Type%3DConfigurationDetailPage Member%3D(Name%3DItemGridView_OnSelectionChanged OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETCore%2Fv4.5%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FWindows Kits%2F8.0%2FReferences%2FCommonConfiguration%2FNeutral%2FWindows.winmd&quot; Namespace%3DWindows.UI.Xaml.Controls Type%3DSelectionChangedEventArgs)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="10d8fa18-7d12-45aa-8b81-4ac1235a560b"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d22fd67d-95a9-4d53-818b-cada63bff834">
+                    <propertyInstance
+                      Id="1681513f-a4be-40a3-8b43-ad5418cf4898"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="655fe5db-7993-4579-8e12-67f172de1e30">
+                    <propertyInstance
+                      Id="b91dbb2b-ed7c-4540-bacf-d655886046b6"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6a84aca1-ab53-42ac-9643-78bff4548d72">
+                    <propertyInstance
+                      Id="11f12f9f-171e-431a-844d-a92de9a597a8"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="23d93467-2db3-4769-a0ce-52ef00fb1354">
+                    <propertyInstance
+                      Id="bb4f2822-d5bd-4602-8105-ff04faada270"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ee9390b0-9ef3-4a3a-aa0d-2a2bb6556370">
+                    <propertyInstance
+                      Id="dacd7908-56bb-446c-b13b-802ab7a347b4"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0ebf51ef-1259-482f-9d88-5981e7c64c44">
+                    <propertyInstance
+                      Id="4b1f7bab-3d5c-4760-a57a-ba4c3771940a"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9e6b1cd9-de5c-473c-86fb-b4051d457661"
+                  name="sender"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="ad5664e8-5ae3-4f8f-92af-2adf0af02dad"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FDevelopment%2FProjects%2Fairbus%2FAirbusCatalogue%2Fbin%2FDebug%2FAirbusCatalogue.exe Namespace%3DAirbusCatalogue.Pages.Configuration Type%3DConfigurationDetailPage Member%3D(Name%3DItemGridView_OnSelectionChanged OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETCore%2Fv4.5%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FWindows Kits%2F8.0%2FReferences%2FCommonConfiguration%2FNeutral%2FWindows.winmd&quot; Namespace%3DWindows.UI.Xaml.Controls Type%3DSelectionChangedEventArgs)]) ParameterIdentifier%3Dsender"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="52ae81a8-03e3-42de-88bc-6c685855d1dd"
+                      LastKnownName="Object"
+                      LastKnownLocation="Package2_1923.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a4a91ee7-9fc0-4550-b7e8-d093dfe330c8"
+                  name="e"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="98fc3a3d-20d2-46b2-8bfa-d768c0199004"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FDevelopment%2FProjects%2Fairbus%2FAirbusCatalogue%2Fbin%2FDebug%2FAirbusCatalogue.exe Namespace%3DAirbusCatalogue.Pages.Configuration Type%3DConfigurationDetailPage Member%3D(Name%3DItemGridView_OnSelectionChanged OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETCore%2Fv4.5%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FWindows Kits%2F8.0%2FReferences%2FCommonConfiguration%2FNeutral%2FWindows.winmd&quot; Namespace%3DWindows.UI.Xaml.Controls Type%3DSelectionChangedEventArgs)]) ParameterIdentifier%3De"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="4492e3e8-b327-46e3-9243-a127e48e6e56"
+                      LastKnownName="SelectionChangedEventArgs"
+                      LastKnownLocation="Package8_1923.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="1d68d158-e96a-4478-af4d-fe596bf258a1"
+            name="LoadState"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="4e330aff-3c25-47c9-8376-7165c40eb184"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FDevelopment%2FProjects%2Fairbus%2FAirbusCatalogue%2Fbin%2FDebug%2FAirbusCatalogue.exe Namespace%3DAirbusCatalogue.Pages.Configuration Type%3DConfigurationDetailPage Member%3D(Name%3DLoadState OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETCore%2Fv4.5%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETCore%2Fv4.5%2FSystem.Collections.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DDictionary GenericParameterCount%3D2 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETCore%2Fv4.5%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETCore%2Fv4.5%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DObject)]))])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="ccb0117d-ec09-408c-9504-9b2c9dd49e6d"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4dd4e74a-674c-48e7-b298-b6f5e04b9ca2">
+                    <propertyInstance
+                      Id="1fb6f9d5-546e-4e70-b32d-1578bab0b662"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ed8ba2c7-8b1d-4f4d-8171-d2845351ed54">
+                    <propertyInstance
+                      Id="27c01cd4-11c2-44d5-bee0-87705773d9f0"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1b510df0-2fa1-468d-a98d-6a0148005f9a">
+                    <propertyInstance
+                      Id="57867f72-a80e-4467-a712-b64ad3e0405a"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="91641951-7eea-4cb7-aa26-f70474be9417">
+                    <propertyInstance
+                      Id="790df5bc-3f88-4acd-9f1a-5324ea05e4ee"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="98005f42-9d64-40d5-8949-72cea6a22a05">
+                    <propertyInstance
+                      Id="76ac67da-5264-4da3-b21d-44728007aa71"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fc34b712-8df7-4915-8493-09e05c1fc46f">
+                    <propertyInstance
+                      Id="e6c4924e-520b-4d5e-abab-274f2fcabf14"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="473de734-fe7c-4e31-b954-ee5c6c1ec9e0"
+                  name="navigationParameter"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="6fc20a2d-d4d1-454d-8f68-dc3c5711b87e"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FDevelopment%2FProjects%2Fairbus%2FAirbusCatalogue%2Fbin%2FDebug%2FAirbusCatalogue.exe Namespace%3DAirbusCatalogue.Pages.Configuration Type%3DConfigurationDetailPage Member%3D(Name%3DLoadState OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETCore%2Fv4.5%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETCore%2Fv4.5%2FSystem.Collections.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DDictionary GenericParameterCount%3D2 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETCore%2Fv4.5%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETCore%2Fv4.5%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DObject)]))]) ParameterIdentifier%3DnavigationParameter"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="52ae81a8-03e3-42de-88bc-6c685855d1dd"
+                      LastKnownName="Object"
+                      LastKnownLocation="Package2_1923.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="36ca3040-9974-4971-bff0-bc48d29493ba"
+                  name="pageState"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="c3b7d7f3-b901-4018-9515-ed5f14f4ba02"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FDevelopment%2FProjects%2Fairbus%2FAirbusCatalogue%2Fbin%2FDebug%2FAirbusCatalogue.exe Namespace%3DAirbusCatalogue.Pages.Configuration Type%3DConfigurationDetailPage Member%3D(Name%3DLoadState OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETCore%2Fv4.5%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETCore%2Fv4.5%2FSystem.Collections.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DDictionary GenericParameterCount%3D2 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETCore%2Fv4.5%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETCore%2Fv4.5%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DObject)]))]) ParameterIdentifier%3DpageState"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="2e4ef8a8-f7ce-4c62-82a5-d8fc79c8e8ed"
+                      LastKnownName="Dictionary&lt;String‎, Object‎&gt;"
+                      LastKnownLocation="Package4_1923.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="3c192ca4-78a9-4cc8-a138-477947d00293"
+            name="SaveState"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="3fcf9e95-633a-49ea-adf0-637b1e89b94b"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FDevelopment%2FProjects%2Fairbus%2FAirbusCatalogue%2Fbin%2FDebug%2FAirbusCatalogue.exe Namespace%3DAirbusCatalogue.Pages.Configuration Type%3DConfigurationDetailPage Member%3D(Name%3DSaveState OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETCore%2Fv4.5%2FSystem.Collections.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DDictionary GenericParameterCount%3D2 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETCore%2Fv4.5%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETCore%2Fv4.5%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DObject)]))])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="7d082096-31b3-41e4-b336-6ac1727b6ec5"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="80b1b8bc-8fc5-4254-a58f-34d378ab8aaa">
+                    <propertyInstance
+                      Id="fd69ba79-da25-4457-bf35-9f3717701d63"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="263a0eb4-657e-4610-8fd2-bf79bfe5f29f">
+                    <propertyInstance
+                      Id="587a1a48-4459-40cc-8d2d-b2a394633e11"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1e849202-5bbe-45b8-9d07-2db26029fde5">
+                    <propertyInstance
+                      Id="3c85abb1-947e-49d3-b66b-f16a2ae69443"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c5a58f8f-68d4-45c1-bd58-b83b40b2ce94">
+                    <propertyInstance
+                      Id="3c9dc388-d734-4331-b9a7-853bae383314"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="af4ff420-4807-4bcf-ba45-b89f6bf2ab91">
+                    <propertyInstance
+                      Id="e4e0da09-da96-4efb-bb2e-645a4007d5f1"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9b96d00f-5a8c-4621-b034-bc60afcf6be3">
+                    <propertyInstance
+                      Id="87781807-18fe-4f4f-881c-645cb7a1a7f0"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b57719b1-9fff-4b94-80b6-e74f28c6d9ef"
+                  name="pageState"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="b85845b1-de7e-48f0-8086-4dacbe5d9ea7"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FDevelopment%2FProjects%2Fairbus%2FAirbusCatalogue%2Fbin%2FDebug%2FAirbusCatalogue.exe Namespace%3DAirbusCatalogue.Pages.Configuration Type%3DConfigurationDetailPage Member%3D(Name%3DSaveState OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETCore%2Fv4.5%2FSystem.Collections.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DDictionary GenericParameterCount%3D2 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETCore%2Fv4.5%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETCore%2Fv4.5%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DObject)]))]) ParameterIdentifier%3DpageState"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="2e4ef8a8-f7ce-4c62-82a5-d8fc79c8e8ed"
+                      LastKnownName="Dictionary&lt;String‎, Object‎&gt;"
+                      LastKnownLocation="Package4_1923.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="98232ee0-70d0-4b78-a91f-2787512599a2"
+            name="ConfigurationDetailPage"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="a8cd4fe9-b984-4508-a0a9-5d7be203b54d"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FDevelopment%2FProjects%2Fairbus%2FAirbusCatalogue%2Fbin%2FDebug%2FAirbusCatalogue.exe Namespace%3DAirbusCatalogue.Pages.Configuration Type%3DConfigurationDetailPage Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="07adf33d-d81b-47ad-98fb-0443a425335c"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c73325c3-0016-4a07-a7a4-81777b5626e4">
+                    <propertyInstance
+                      Id="622f98f7-525d-415c-9411-d7dc22505873"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="aa47f475-e3ea-4e87-88e8-afc301f45939">
+                    <propertyInstance
+                      Id="84b7463e-f451-49c6-b9ac-c468015e4422"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="78bfa187-da4f-47fc-aea7-d7937ff6d3f1">
+                    <propertyInstance
+                      Id="8f06f017-00ea-494e-b18f-67c1dd6762ed"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3fef11c5-7d24-4195-bf78-31224039d255">
+                    <propertyInstance
+                      Id="03f7970c-b51c-41b8-806c-bffbfd32bf98"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1edb7fa6-cd51-4720-a40a-9f1cbf09ad19">
+                    <propertyInstance
+                      Id="9208ab60-5be6-4e9e-9e58-4fbec21d4d0f"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e3b274b2-86e6-4112-99c1-6b276c282d57">
+                    <propertyInstance
+                      Id="5889669e-1071-4c84-974a-d9ff0a9b5ab5"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="9242d34d-5658-4b14-a8d0-b7e8131e145d"
+            name="InitializeComponent"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="5d6f19b3-9d72-4421-8c3c-823f20890565"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FDevelopment%2FProjects%2Fairbus%2FAirbusCatalogue%2Fbin%2FDebug%2FAirbusCatalogue.exe Namespace%3DAirbusCatalogue.Pages.Configuration Type%3DConfigurationDetailPage Member%3DInitializeComponent"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="623cb292-0744-48f0-b71d-d10f28ec6269"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fe4481c3-a6e9-40d8-85d2-eff609a2cbee">
+                    <propertyInstance
+                      Id="71b45d24-f6bc-4c24-804d-e08e997dbbfb"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="344d5e0f-c8c1-4fbb-822f-37db78343e49">
+                    <propertyInstance
+                      Id="d29fe4b2-31b8-48a2-a11c-899d015a184c"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e320a087-e8f9-47de-ab53-abd1d1bb0f36">
+                    <propertyInstance
+                      Id="895f0c05-ecda-43d8-a9f1-da074372c16b"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a3621fc6-0811-4db2-b361-1147caa7ddb0">
+                    <propertyInstance
+                      Id="9d122deb-537b-45dc-87ed-d7a20597ce32"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="628bb323-094f-4350-8a49-b885681f2101">
+                    <propertyInstance
+                      Id="5d231982-8b9a-475a-9baf-d3985de32468"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dc5a4af6-a79c-48d2-a7a9-639ae427db02">
+                    <propertyInstance
+                      Id="84babd55-60a2-4ec4-9483-7081221fef66"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>
