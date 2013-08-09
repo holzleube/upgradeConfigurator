@@ -12,6 +12,10 @@ using GalaSoft.MvvmLight.Ioc;
 
 namespace AirbusCatalogue.ViewModel.ViewModel.Aircraft
 {
+    /// <summary>
+    /// This View Model has the logic for aircraft family selection. Normally its the first view if
+    /// a new configuration is started.
+    /// </summary>
     public class SelectAircraftFamilyViewModel : GridHolderViewModel
     {
         private AircraftModel _model;
