@@ -20,16 +20,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Upgrades
     {
         private UpgradeModel _model;
 
-        private ObservableCollection<IAtaChapter> _ataChapters = new ObservableCollection<IAtaChapter>();
-        public ObservableCollection<IAtaChapter> AtaChapters
-        {
-            get { return _ataChapters; } 
-            set 
-            { 
-                _ataChapters = value;
-                OnPropertyChanged();
-            }
-        }
+       
 
         private ICommand _ataChapterSelectedCommand;
         public ICommand AtaChapterSelectedCommand
@@ -47,31 +38,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Upgrades
             navigationService.Navigate(ataChapterPage.GetType(), ataChapterId);
         }
 
-        private ICommand _listViewItemWasSelectedCommand;
-        public ICommand ListViewItemWasSelectedCommand
-        {
-            get { return _listViewItemWasSelectedCommand ?? (_listViewItemWasSelectedCommand = new RelayCommand<IAtaChapter>(ListViewItemWasSelected)); }
-            
-        }
-
-        private void ListViewItemWasSelected(IAtaChapter obj)
-        {
-            NavigateToSelectedCommand(obj.AtaChapterNumber + " "+ obj.Name);
-        }
-
         public IAtaChapter SelectedAtaChapter { get; set; }
-
-        private ObservableCollection<IAtaChapter> _cockpitAtaChapters = new ObservableCollection<IAtaChapter>();
-
-        public ObservableCollection<IAtaChapter> CockpitAtaChapters
-        {
-            get { return _cockpitAtaChapters; }
-            set
-            {
-                _cockpitAtaChapters = value;
-                OnPropertyChanged();
-            }
-        }
 
        
         public SystemUpgradeViewModel()
@@ -85,11 +52,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Upgrades
             {
                 return;
             }
-            var concreteType = _model.GetUpgradeTypeById(type.UniqueId);
-            var cockpitAtas = concreteType.AtaChapters.Select(x => x).Where(x => x.Category.Equals("Cockpit")).ToList();
-            var completeAtas = concreteType.AtaChapters.Select(x => x).Where(x => x.Category.Equals("Complete")).ToList();
-            CockpitAtaChapters = new ObservableCollection<IAtaChapter>(cockpitAtas);
-            AtaChapters = new ObservableCollection<IAtaChapter>(completeAtas);
+
         }
     }
 }

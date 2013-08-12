@@ -83,7 +83,8 @@
                         </GroupStyle.Panel>
                     </GroupStyle>
                 </GridView.GroupStyle>
-       </variableTemplate:VariableTileControl>
+           
+        </variableTemplate:VariableTileControl>
 
         <!-- Back button and page title -->
         <Grid x:Name="topGrid">
