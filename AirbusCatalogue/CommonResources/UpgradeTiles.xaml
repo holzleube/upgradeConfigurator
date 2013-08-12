@@ -136,14 +136,16 @@
     </DataTemplate>
 
     <DataTemplate x:Key="AtaChapterSelectionTemplate">
-        <Grid Height="60" Margin="6" Background="{StaticResource TileBackground}" Width="360">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Text="{Binding AtaChapterNumber}" FontSize="40" VerticalAlignment="Center" Style="{StaticResource BodyTextStyle}" />
-                <TextBlock Grid.Column="1" Margin="20,0,0,0" Text="{Binding Name}" VerticalAlignment="Center" FontSize="30" Style="{StaticResource BodyTextStyle}" TextWrapping="Wrap"/>
-            </Grid>
+        <Grid Height="150" Margin="6" Background="{StaticResource TileBackground}" Width="150">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="{Binding AtaChapterNumber}" FontSize="60" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource BodyTextStyle}" />
+            <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Height="60" Background="{StaticResource airbusBlue}">
+                <TextBlock TextWrapping="Wrap" Text="{Binding Name}" LineHeight="20" FontSize="20" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource GroupHeaderTextStyle}"  Margin="10"/>
+            </StackPanel>
+        </Grid>
     </DataTemplate>
 
     <DataTemplate x:Key="SubAtaChapterSelectionTemplate">

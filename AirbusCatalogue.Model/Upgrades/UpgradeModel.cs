@@ -22,6 +22,29 @@ namespace AirbusCatalogue.Model.Upgrades
 
         public IUpgradeType GetUpgradeTypeById(string uniqueId)
         {
+            if (uniqueId.Equals("cabin"))
+            {
+                var cabinChapters = new List<IAtaChapter>
+                {
+                    new AtaChapter("autoFlightAta", "Auto flight", 22, "Cockpit"),
+                    new AtaChapter("communicationAta", "Communications", 23, "Cockpit"),
+                    new AtaChapter("electricalPowerAta", "Electrical Power", 24, "Cockpit"),
+                    new AtaChapter("equipmentAta", "Equipment/furnishings", 25, "Cockpit"),
+                    new AtaChapter("fireProtectionAta", "Fire protection", 26, "Cockpit"),
+                    new AtaChapter("fuelSystemsAta", "Fuel", 28, "Complete"),
+                    new AtaChapter("navigationAta", "Navigation", 34, "Cockpit"),
+                    new AtaChapter("oxygenAta", "Oxygen", 35, "Cockpit"),
+                    new AtaChapter("windowsAta", "Windows", 56, "Cockpit"),
+                    new AtaChapter("landingGearAta", "Landing gear", 32, "Complete"),
+                    new AtaChapter("waterWasteAta", "Water/Waste", 38, "Complete"),
+                    new AtaChapter("structuresAta", "Structures", 51, "Complete"),
+                    new AtaChapter("doorsAta", "Doors", 52, "Complete"),
+                    new AtaChapter("stabilizersAta", "Stabilizers", 55, "Complete"),
+                    new AtaChapter("wingsAta", "Wings", 57, "Complete")
+                    
+                };
+                return new UpgradeType("cabinUpgrade", "Cabin", cabinChapters);
+            }
             var ataChapters = new List<IAtaChapter>
                 {
                     new AtaChapter("autoFlightAta", "Auto flight", 22, "Cockpit"),
@@ -41,8 +64,7 @@ namespace AirbusCatalogue.Model.Upgrades
                     new AtaChapter("wingsAta", "Wings", 57, "Complete")
                     
                 };
-            var upgradeType = new UpgradeType("systemUpgrade", "System", ataChapters);
-            return upgradeType;
+            return new UpgradeType("systemUpgrade", "System", ataChapters);
         }
 
         public IAtaChapter GetAtaChapterById(string uniqueId)

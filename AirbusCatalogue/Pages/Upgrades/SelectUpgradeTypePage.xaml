@@ -6,12 +6,23 @@
     xmlns:common="using:AirbusCatalogue.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:upgrades="using:AirbusCatalogue.ViewModel.ViewModel.Upgrades"
+    xmlns:upgrades="using:AirbusCatalogue.ViewModel.ViewModel.Upgrades" xmlns:sample="using:AirbusCatalogue.Sample"
+    xmlns:command="using:AirbusCatalogue.ViewModel.Command"
     mc:Ignorable="d">
     <Page.DataContext>
         <upgrades:SelectUpgradeTypeViewModel/>
+        
     </Page.DataContext>
-
+    <Page.Resources>
+        <CollectionViewSource
+            x:Name="SystemAtaChapters"
+            Source="{Binding SystemAtaChapters}"
+            d:Source="{Binding SampleDataItems, Source={d:DesignInstance Type=sample:SampleDataSource, IsDesignTimeCreatable=True}}"/>
+        <CollectionViewSource
+            x:Name="CabinAtaChapters"
+            Source="{Binding CabinAtaChapters}"
+            d:Source="{Binding SampleDataItems, Source={d:DesignInstance Type=sample:SampleDataSource, IsDesignTimeCreatable=True}}"/>
+    </Page.Resources>
     <!--
         This grid acts as a root panel for the page that defines two rows:
         * Row 0 contains the back button and page title
@@ -34,53 +45,84 @@
             <TextBlock x:Name="pageTitle" Text="{StaticResource SelectUpgradeType}" Grid.Column="1" IsHitTestVisible="false" Style="{StaticResource PageHeaderTextStyle}"/>
             <Image Grid.Column="2"  Source="/Assets/airbus_logo.png" />
         </Grid>
-        
-        <Grid Grid.Row="1" Margin="0"> 
-            
-            <Grid Margin="0,10,19,-10" Grid.Column="1">
-                <Grid.Background>
-                    <ImageBrush Stretch="Uniform" ImageSource="/Assets/background/a320_top.png" AlignmentX="Center" AlignmentY="Center"/>
-                </Grid.Background>
-            </Grid>
-            <Button Background="{StaticResource TileBackground}" Content="{StaticResource SystemUpgradeText}" Command="{Binding UpgradeTypeSelectedCommand}" CommandParameter="{StaticResource EngineUpgradeText}" HorizontalAlignment="Left" Margin="23,140,0,0" VerticalAlignment="Top" Height="76" Width="243"   FontSize="40"/>
-            <Button Background="{StaticResource TileBackground}" Content="{StaticResource EngineUpgradeText}" Command="{Binding UpgradeTypeSelectedCommand}" CommandParameter="{StaticResource EngineUpgradeText}" HorizontalAlignment="Left" Margin="169,503,0,0" VerticalAlignment="Top" Height="76" Width="243"  FontSize="40" Grid.Column="1"/>
-            <Button Background="{StaticResource TileBackground}" Content="{StaticResource CabinUpgradeText}" Command="{Binding UpgradeTypeSelectedCommand}" CommandParameter="{StaticResource EngineUpgradeText}" HorizontalAlignment="Left" Margin="260,61,0,0" VerticalAlignment="Top" Height="76" Width="243"   FontSize="40" Grid.Column="1" RenderTransformOrigin="0.28,2.645"/>
-            <Button Background="{StaticResource TileBackground}" Content="{StaticResource FuselageUpgradeText}" Command="{Binding UpgradeTypeSelectedCommand}" CommandParameter="{StaticResource EngineUpgradeText}" HorizontalAlignment="Left" Margin="717,61,0,0" VerticalAlignment="Top" Height="76" Width="243" Grid.ColumnSpan="2"  FontSize="40" Grid.Column="1"/>
-            <Line
+        <FlipView Grid.Row="1" SelectedIndex="1">
+            <FlipViewItem>
+                <GridView
+                x:Name="itemGridView"
+                AutomationProperties.AutomationId="ItemGridView"
+                AutomationProperties.Name="Grouped Items"
+                ItemsSource="{Binding Source={StaticResource SystemAtaChapters}}"
+                ItemTemplate="{StaticResource AtaChapterSelectionTemplate}"
+                IsItemClickEnabled="True"
+                Margin="36,0,0,0"
+                SelectionMode="None"
+                command:ItemClickCommand.Command="{Binding SubAtaChapterWasSelectedCommand}"
+                FontSize="25"
+                IsSwipeEnabled="False">
+                </GridView>
+            </FlipViewItem>
+            <FlipViewItem>
+                <Grid  Margin="0">
+                    <Grid Margin="0,10,19,-10" Grid.Column="1">
+                        <Grid.Background>
+                            <ImageBrush Stretch="Uniform" ImageSource="/Assets/background/a320_top.png" AlignmentX="Center" AlignmentY="Center"/>
+                        </Grid.Background>
+                    </Grid>
+                    <Button Background="{StaticResource TileBackground}" Content="{StaticResource SystemUpgradeText}" Command="{Binding UpgradeTypeSelectedCommand}" CommandParameter="{StaticResource EngineUpgradeText}" HorizontalAlignment="Left" Margin="23,140,0,0" VerticalAlignment="Top" Height="76" Width="243"   FontSize="40"/>
+                    <Button Background="{StaticResource TileBackground}" Content="{StaticResource EngineUpgradeText}" Command="{Binding UpgradeTypeSelectedCommand}" CommandParameter="{StaticResource EngineUpgradeText}" HorizontalAlignment="Left" Margin="169,503,0,0" VerticalAlignment="Top" Height="76" Width="243"  FontSize="40" Grid.Column="1"/>
+                    <Button Background="{StaticResource TileBackground}" Content="{StaticResource CabinUpgradeText}" Command="{Binding UpgradeTypeSelectedCommand}" CommandParameter="{StaticResource EngineUpgradeText}" HorizontalAlignment="Left" Margin="260,61,0,0" VerticalAlignment="Top" Height="76" Width="243"   FontSize="40" Grid.Column="1" RenderTransformOrigin="0.28,2.645"/>
+                    <Button Background="{StaticResource TileBackground}" Content="{StaticResource FuselageUpgradeText}" Command="{Binding UpgradeTypeSelectedCommand}" CommandParameter="{StaticResource EngineUpgradeText}" HorizontalAlignment="Left" Margin="717,61,0,0" VerticalAlignment="Top" Height="76" Width="243" Grid.ColumnSpan="2"  FontSize="40" Grid.Column="1"/>
+                    <Line
             	X1="50" Y1="10"
             	X2="50" Y2="120"
             	StrokeThickness="2"
             	RenderTransformOrigin="0.778,4.492" Margin="226,384,474,123" Grid.Column="1" Stroke="Black"/>
-            <Line
+                    <Line
             	X1="50" Y1="0"
             	X2="50" Y2="170"
             	StrokeThickness="2"
             	RenderTransformOrigin="0.778,4.492" Margin="331,137,369,325" Grid.Column="1" Stroke="Black"/>
-            <Line
+                    <Line
             	X1="50" Y1="10"
             	X2="50" Y2="300"
             	StrokeThickness="2"
             	RenderTransformOrigin="0.778,4.492" Margin="-156.579,-435.894,400.579,744.435" Stroke="Black" UseLayoutRounding="False" d:LayoutRounding="Auto">
-            	<Line.RenderTransform>
-            		<CompositeTransform Rotation="52.428"/>
-            	</Line.RenderTransform>
-            </Line>
-            <Line
+                        <Line.RenderTransform>
+                            <CompositeTransform Rotation="52.428"/>
+                        </Line.RenderTransform>
+                    </Line>
+                    <Line
             	X1="50" Y1="10"
             	X2="50" Y2="120"
             	StrokeThickness="2"
             	RenderTransformOrigin="0.778,4.492" Margin="257.507,75.492,442.493,431.508" Stroke="Black" Grid.Column="1" UseLayoutRounding="False" d:LayoutRounding="Auto">
-            	<Line.RenderTransform>
-            		<CompositeTransform Rotation="-40.356"/>
-            	</Line.RenderTransform>
-            </Line>
-			
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="300"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="300"/>
-            </Grid.ColumnDefinitions>
-        </Grid>
+                        <Line.RenderTransform>
+                            <CompositeTransform Rotation="-40.356"/>
+                        </Line.RenderTransform>
+                    </Line>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="300"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </FlipViewItem>
+            <FlipViewItem>
+                <GridView
+                AutomationProperties.AutomationId="ItemGridView"
+                AutomationProperties.Name="Grouped Items"
+                ItemsSource="{Binding Source={StaticResource CabinAtaChapters}}"
+                ItemTemplate="{StaticResource AtaChapterSelectionTemplate}"
+                IsItemClickEnabled="True"
+                Margin="36,0,0,0"
+                SelectionMode="None"
+                command:ItemClickCommand.Command="{Binding SubAtaChapterWasSelectedCommand}"
+                IsSwipeEnabled="False"/>
+            </FlipViewItem>
+            
+        </FlipView>
+        
         <VisualStateManager.VisualStateGroups>
 
             <!-- Visual states reflect the application's view state -->

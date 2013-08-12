@@ -70,14 +70,24 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Upgrades
                 OnPropertyChanged();
             }
         }
+        /// <summary>
+        /// This method expects a type of IAtaChapter for showing the result
+        /// </summary>
+        /// <param name="parameter"></param>
         public override void Initialize(object parameter)
         {
-            var ataChapterId = parameter as string;
-            if (ataChapterId == null)
+            var ataChapter = parameter as IAtaChapter;
+            var ataChapterId = "communication";
+            if (ataChapter == null)
             {
-                return;
+                AtaChapterTitle = parameter as string;
+
             }
-            AtaChapterTitle = ataChapterId;
+            else
+            {
+                AtaChapterTitle = ataChapter.AtaChapterNumber + " "+ ataChapter.Name;
+                ataChapterId = ataChapter.UniqueId;
+            }
             SubAtaChapter = new ObservableCollection<ISubAtaChapter>(_model.GetAtaChapterById(ataChapterId).SubAtaChapters);
             CurrentSelectedItem = SubAtaChapter[0];
         }

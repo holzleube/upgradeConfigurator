@@ -81,8 +81,6 @@
     </DataTemplate>
 
    
-
-   
     <DataTemplate x:Key="ConfigurationTemplate">
         <Grid Width="250" Height="280" Background="{StaticResource BlueTileBackground}">
             <Grid.RowDefinitions>

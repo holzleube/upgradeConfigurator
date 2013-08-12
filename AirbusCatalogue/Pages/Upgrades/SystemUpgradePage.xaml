@@ -46,62 +46,18 @@
         	<TextBlock x:Name="pageTitle" Text="{StaticResource SystemUpgradeHeadline}" Grid.Column="1" IsHitTestVisible="false" Style="{StaticResource PageHeaderTextStyle}"/>
         	<Image Grid.Column="2"  Source="/Assets/airbus_logo.png" />
         </Grid>
-        
-        <Grid Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="50"/>
-            </Grid.RowDefinitions>
-
-
-        <FlipView Grid.RowSpan="2" SelectedIndex="1" >
-            <FlipViewItem>
-                <Grid >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition x:Name="primaryColumn" Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <ListView
-                        x:Name="itemListView"
-                        AutomationProperties.AutomationId="ItemsListView"
-                        AutomationProperties.Name="Items"
-                        Grid.Row="1"
-                        ItemsSource="{Binding Source={StaticResource cockpitViewSource}}"
-                        IsSwipeEnabled="False"
-                        IsItemClickEnabled="True"
-                        command:ItemClickCommand.Command="{Binding ListViewItemWasSelectedCommand}"
-                        ItemTemplate="{StaticResource AtaChapterSelectionTemplate}" SelectionMode="None" />
-                    
-                    <ListView
-            			x:Name="itemListView2"
-            			AutomationProperties.AutomationId="ItemsListView"
-            			AutomationProperties.Name="Items"
-            			Grid.Row="1"
-						Grid.Column="1"
-                        IsItemClickEnabled="True"
-                        SelectedItem="{Binding SelectedAtaChapter}"
-                        command:ItemClickCommand.Command="{Binding ListViewItemWasSelectedCommand}"
-            			ItemsSource="{Binding Source={StaticResource completeViewSource}}"
-            			IsSwipeEnabled="False"
-            			ItemTemplate="{StaticResource AtaChapterSelectionTemplate}" SelectionMode="None" />
-                    </Grid>
-            </FlipViewItem>
-			<FlipViewItem>
-            <ScrollViewer
+        <ScrollViewer
+                Margin="36,0,0,0"
                 x:Name="itemDetail"
                 AutomationProperties.AutomationId="ItemDetailScrollViewer"
-                Grid.Column="1"
                 Grid.Row="1"
+            HorizontalSnapPointsType="MandatorySingle"
+            HorizontalSnapPointsAlignment="Near"
+            ZoomMode="Disabled"
                 Style="{StaticResource HorizontalScrollViewerStyle}">
-            <Grid Width="3000" Margin="0,0,0,20">
-            		<Grid.ColumnDefinitions>
-            			<ColumnDefinition Width="*"/>
-            			<ColumnDefinition Width="120"/>
-            			<ColumnDefinition Width="*"/>
-            			<ColumnDefinition Width="120"/>
-            			<ColumnDefinition Width="*"/>
-            		</Grid.ColumnDefinitions>
-                        <Grid x:Name="itemDetailGrid" >
+            <StackPanel Orientation="Horizontal">
+            		
+                        <Grid x:Name="itemDetailGrid" Width="900" Height="580" Margin="0,0,36,0">
                                 <Grid.Background>
                                     <ImageBrush Stretch="Uniform" ImageSource="/Assets/background/cockpit.jpg" AlignmentX="Left" AlignmentY="Top"/>
                                 </Grid.Background>
@@ -112,7 +68,7 @@
                                 <Button Content="56 Windows" HorizontalContentAlignment="Center"  Command="{Binding AtaChapterSelectedCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" Margin="673,127,0,0" VerticalAlignment="Top" Background="{StaticResource TileBackground}" BorderBrush="Black" BorderThickness="1" Width="139" Height="38" FontSize="16"/>
                                 <Button Content="49 Auxiliary &#xD;&#xA;Power Unit" HorizontalContentAlignment="Center"  Command="{Binding AtaChapterSelectedCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" Margin="495,26,0,0" VerticalAlignment="Top" Background="{StaticResource TileBackground}" BorderBrush="Black" BorderThickness="1" Width="122" Height="59" FontSize="16"/>
                         </Grid>
-                        <Grid Grid.Column="2">
+                        <Grid Margin="0,0,70,0" Width="900" Height="580">
                                 <Grid.Background>
                                     <ImageBrush Stretch="Uniform" ImageSource="/Assets/background/cockpit_2.jpg" AlignmentX="Center" AlignmentY="Top"/>
                                 </Grid.Background>
@@ -120,9 +76,9 @@
                         	<Button Content="34 Navigation"  Command="{Binding AtaChapterSelectedCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" Margin="419,286,0,0" VerticalAlignment="Top" Background="{StaticResource TileBackground}" BorderBrush="Black" BorderThickness="1" Width="138" Height="45" FontSize="16" RenderTransformOrigin="0.5,0.044"/>
                         	<Button Content="46 Information systems"  Command="{Binding AtaChapterSelectedCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" Margin="534,97,0,0" VerticalAlignment="Top" Background="{StaticResource TileBackground}" BorderBrush="Black" BorderThickness="1" Width="201" Height="42" FontSize="16"/>
                         	<Button Content="22 Auto flight"  Command="{Binding AtaChapterSelectedCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" Margin="108,69,0,0" VerticalAlignment="Top" Background="{StaticResource TileBackground}" BorderBrush="Black" BorderThickness="1" Width="138" Height="39" FontSize="16" RenderTransformOrigin="0.5,0.044"/>
-                        </Grid>
-                            <Border BorderThickness="0" BorderBrush="Black" Grid.Column="4" >
-                            <Grid  Margin="0,0,0,0" Grid.Column="4" >
+                         </Grid >
+
+                        <Grid  Margin="60,0,400,0" Width="900" Height="580" >
                                 <Grid.Background>
                                     <ImageBrush Stretch="Uniform" ImageSource="/Assets/background/a320_top.png" AlignmentX="Center" AlignmentY="Center"/>
                                 </Grid.Background>
@@ -136,12 +92,12 @@
                                 	<Button Content="35&#xD;&#xA;Oxygen"  Command="{Binding AtaChapterSelectedCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" Margin="526,29,0,0" VerticalAlignment="Top" Background="{StaticResource TileBackground}" BorderBrush="Black" BorderThickness="1" Width="108" Height="65" FontSize="16"/>
                                 	<Button Content="11 Placards&#xD;&#xA;and Markings"  Command="{Binding AtaChapterSelectedCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" Margin="58,29,0,0" VerticalAlignment="Top" Background="{StaticResource TileBackground}" BorderBrush="Black" BorderThickness="1" Width="138" Height="65" FontSize="16"/>
                             </Grid>
-                          </Border>
-                    </Grid>
+
+                
+                    </StackPanel>
             </ScrollViewer>
-            </FlipViewItem>
-		</FlipView>
-        </Grid>
+
+
         
         <VisualStateManager.VisualStateGroups>
 
