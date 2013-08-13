@@ -170,10 +170,10 @@ namespace AirbusCatalogue.Model.Upgrades
                     new UpgradeItem("1046GT2113", "Boomset basic equipment - Holmberg",
                                     "DC resistance, soft ear cushions, 70-inch straight cord",
                                     "/Assets/upgrades/holmberg_headphone.png", "/Assets/upgrades/holmberg_logo.jpg", 0,0, true),
-                    new UpgradeItem("1046GT2114", "Boomset alternate equipment - Telex",
+                    new UpgradeItem("CN23.51.136-27", "Boomset alternate equipment - Telex",
                                     "DC resistance, soft ear cushions, 70-inch straight cord", "/Assets/upgrades/telex_headphone.png",
                                     "/Assets/upgrades/telex_logo.png", 27,0, false),
-                    new UpgradeItem("1046GT2115", "Boomset alternate equipment - Sennheiser",
+                    new UpgradeItem("CN23.51.136-30", "Boomset alternate equipment - Sennheiser",
                                     "DC resistance, soft ear cushions, 70-inch straight cord", "/Assets/upgrades/sennheiser_headphone.png",
                                     "/Assets/upgrades/sennheiser_logo.png", 30,0, false)
                 };

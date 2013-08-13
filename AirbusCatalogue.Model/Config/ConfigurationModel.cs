@@ -49,23 +49,31 @@ namespace AirbusCatalogue.Model.Config
 
         public async Task ConfigureCurrentConfiguration()
         {
-            var webserviceClient =
-                new AirbusConfigurationWebServiceClient();
-            try
-            {
-                var result = await webserviceClient.getConfigurationResultAsync(new string[] { "N-2213", "N-3065", "N-2228", "N-2456", "N-2716" },
-                                                                      "CN23.51.136-27");
-                var transferable = GetConfigurationResultTransferable(result.getConfigurationResultReturn);
+            var config = GetCurrentConfiguration();
+            await Task.Delay(TimeSpan.FromSeconds(3));
+            config.ConfigurationGroups = new DummyDataGenerator().GetDummyData(config.SelectedAircrafts);
+            
+            SetRightConfigurationState();
+            config.HasConfigurationChanged = false;
+            //var webserviceClient =
+            //    new AirbusConfigurationWebServiceClient();
+            
+            //try
+            //{
+            //    var aircraftList = config.SelectedAircrafts.Select(x => x.UniqueId).ToArray();
+            //    var result = await webserviceClient.getConfigurationResultAsync(aircraftList,
+            //                                                          config.Upgrades[0].UniqueId);
+            //    var transferable = GetConfigurationResultTransferable(result.getConfigurationResultReturn);
                
-                GetConfiguration().ConfigurationGroups = new TransferableConverter().GetBuildAlternativesFromTransferable(transferable);
-                await Task.Delay(TimeSpan.FromSeconds(3));
-                SetRightConfigurationState();
-                GetConfiguration().HasConfigurationChanged = false;
-            }
-            catch (Exception e)
-            {
-                throw new WebserviceNotAvailableException("The webservice is not available, please try again later");
-            } 
+            //    GetConfiguration().ConfigurationGroups = new TransferableConverter().GetBuildAlternativesFromTransferable(transferable);
+            //    await Task.Delay(TimeSpan.FromSeconds(3));
+            //    SetRightConfigurationState();
+            //    GetConfiguration().HasConfigurationChanged = false;
+            //}
+            //catch (Exception e)
+            //{
+            //    throw new WebserviceNotAvailableException("The webservice is not available, please try again later");
+            //} 
         }
 
         private void SetRightConfigurationState()

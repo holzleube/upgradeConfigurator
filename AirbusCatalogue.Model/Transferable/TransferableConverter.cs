@@ -41,6 +41,7 @@ namespace AirbusCatalogue.Model.Transferable
             return result;
         }
 
+        
         private List<IAircraft> GetAircraftList(ConfigurationResultTransferable configurationResultTransferable)
         {
             return configurationResultTransferable.msnList.

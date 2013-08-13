@@ -109,6 +109,7 @@
     <Compile Include="ConfigurationData\ConfigurationGroup.cs" />
     <Compile Include="ConfigurationData\UpgradeAlternative.cs" />
     <Compile Include="Config\ConfigurationModel.cs" />
+    <Compile Include="Config\DummyDataGenerator.cs" />
     <Compile Include="Customer\Customer.cs" />
     <Compile Include="Customer\CustomerInformation.cs" />
     <Compile Include="Customer\CustomerModel.cs" />
