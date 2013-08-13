@@ -55,7 +55,7 @@
             </Grid>
         </AppBar>
     </Page.BottomAppBar>
-   
+
 
     <!--
         This grid acts as a root panel for the page that defines two rows:
@@ -67,7 +67,7 @@
             <RowDefinition Height="140"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-		
+
 
         <Grid Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
@@ -79,7 +79,7 @@
             <TextBlock x:Name="pageTitle" Text="{Binding AtaChapterTitle, Mode=TwoWay}" Grid.Column="1" IsHitTestVisible="false" Style="{StaticResource PageHeaderTextStyle}"/>
             <Image Grid.Column="2"  Source="/Assets/airbus_logo.png" />
         </Grid>
-        <Grid Grid.Row="1" >
+        <Grid Grid.Row="1" Margin="35,0,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="400"/>
                 <ColumnDefinition Width="*"/>
@@ -91,7 +91,6 @@
             x:Name="itemListView"
             AutomationProperties.AutomationId="ItemsListView"
             AutomationProperties.Name="Items"
-            Margin="10,0,0,0"
             TabIndex="1"
             command:ItemClickCommand.Command="{Binding SubAtaChapterWasClickedCommand}"
             ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
@@ -108,14 +107,14 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <TextBlock x:Name="itemTitle"  Text="{Binding Name}" Style="{StaticResource SubheaderTextStyle}"/>
-                
+
                 <ScrollViewer
                     x:Name="itemDetail"
                     Grid.Row="1"
                     AutomationProperties.AutomationId="ItemDetailScrollViewer"
                     
                     Style="{StaticResource HorizontalScrollViewerStyle}">
-                    
+
                     <StackPanel Orientation="Horizontal">
                         <GridView x:Name="UpgradeItemGridView"
                                   AutomationProperties.AutomationId="ItemGridView"
@@ -147,6 +146,10 @@
                         </GridView>
 
                         <Grid Margin="0,20,0,20">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="119*"/>
+                                <RowDefinition Height="18*"/>
+                            </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="600"/>
@@ -154,7 +157,7 @@
                             </Grid.ColumnDefinitions>
 
                             <Image Source="{Binding DescriptionImage}" VerticalAlignment="Top" Height="455" Grid.Column="2" Stretch="UniformToFill"/>
-                            <Grid Grid.Column="1" Margin="40,0,0,0" >
+                            <Grid Grid.Column="1" Margin="40,0,0,0" Grid.RowSpan="2" >
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="20"/>
@@ -198,20 +201,20 @@
                                 </Grid>
 
                             </Grid>
-                        
 
 
-                        <StackPanel x:Name="itemDetailTitlePanel" Grid.Row="1" Grid.Column="1">
-                            <TextBlock x:Name="itemSubtitle" Margin="0,0,0,20" Text="{Binding Subtitle}" Style="{StaticResource SubtitleTextStyle}"/>
-                        </StackPanel>
-                        <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Margin="0,20,0,0" Text="{Binding Content}" Style="{StaticResource BodyTextStyle}" Foreground="{StaticResource airbusBlue}"/>
+
+                            <StackPanel x:Name="itemDetailTitlePanel" Grid.Column="1" Grid.RowSpan="2">
+                                <TextBlock x:Name="itemSubtitle" Margin="0,0,0,20" Text="{Binding Subtitle}" Style="{StaticResource SubtitleTextStyle}"/>
+                            </StackPanel>
+                            <TextBlock Grid.ColumnSpan="2" Margin="0,20,0,0" Text="{Binding Content}" Style="{StaticResource BodyTextStyle}" Foreground="{StaticResource airbusBlue}" Grid.RowSpan="2"/>
+                        </Grid>
+                    </StackPanel>
+
+
+                </ScrollViewer>
             </Grid>
-            </StackPanel>
-
-
-            </ScrollViewer>
         </Grid>
-    </Grid>
         <VisualStateManager.VisualStateGroups>
 
             <!-- Visual states reflect the application's view state -->

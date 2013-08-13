@@ -17,7 +17,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Aircraft
     public class SelectAircraftVersionViewModel : GridHolderViewModel
     {
         private readonly AircraftModel _model;
-        private const string AllItems = "all types";
+        private const string AllItems = "version";
 
         private RelayCommand _checkAircraftSelectionCommand;
        

@@ -89,6 +89,7 @@
             AutomationProperties.AutomationId="ItemGridView"
             AutomationProperties.Name="Grouped Items"
             Grid.Row="1"
+            Margin="35,0,0,0"
             ItemsSource="{Binding Source={StaticResource groupedItemsViewSource}}"
             command:ItemClickCommand.Command="{Binding SummaryItemWasSelectedCommand}"
             SelectionMode="None"
@@ -160,16 +161,7 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
-            <!--<Grid Grid.Column="2" DataContext="{Binding Programm}">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="15"/>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                
-                <Image Grid.Row="2" Grid.RowSpan="3" Source="{Binding Image}" Stretch="Uniform" />
-                <TextBlock  Grid.Row="1" Text="{Binding Name}"  HorizontalAlignment="Left" FontSize="25"  Style="{StaticResource TitleTextStyle}" />
-            </Grid>-->
+           
             <TextBlock x:Name="pageTitle" Text="{StaticResource SummaryHeadline}" Grid.Column="1" IsHitTestVisible="false" Style="{StaticResource PageHeaderTextStyle}"/>
             <Image Grid.Column="5"  Source="/Assets/airbus_logo.png" />
         </Grid>

@@ -52,7 +52,7 @@ namespace AirbusCatalogue.Model.Customer
                 lastConfiguration = GetConfigurationForAirFrance();
                 return new CustomerInformation(uniqueId, lastConfiguration, newUpgrades, "Assets/customers/airfrance_2.png", "Assets/customers/startScreenAirFrance.jpg");
             }
-            return new CustomerInformation(uniqueId, lastConfiguration, GetNewUpgrades(), customerLogo, "Assets/customers/a380Front.jpg");
+            return new CustomerInformation(uniqueId, GetConfigurationForAirFrance(), GetNewUpgrades(), customerLogo, "Assets/customers/neutralAircraft.jpg");
         }
 
         private List<IUpgradeItem> GetNewUpgrades()
