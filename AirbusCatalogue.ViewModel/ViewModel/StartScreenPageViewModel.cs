@@ -25,6 +25,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel
         private ImageSource _image;
         private ICommand _itemWasClickedCommand;
         private ConfigurationModel _configurationModel;
+        private string _customerImage;
 
         public StartScreenPageViewModel()
         {
@@ -44,6 +45,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel
                 customerInformation = _customerModel.GetLastCustomerInformation();
             }
             _imagePath = customerInformation.CustomerLogoImagePath;
+            _customerImage = customerInformation.CustomerStartPageImagePath;
             DataGroupElements =
                 new CustomerInformationDataToViewObjectsConverter().GetConvertedElements(customerInformation);
         }
@@ -69,9 +71,6 @@ namespace AirbusCatalogue.ViewModel.ViewModel
 
         }
 
-
-        
-
         public ImageSource Image
         {
             get
@@ -82,11 +81,23 @@ namespace AirbusCatalogue.ViewModel.ViewModel
                 }
                 return this._image;
             }
-
             set
             {
                 this._imagePath = null;
                 this.SetProperty(ref this._image, value);
+            }
+        }
+
+        public string CustomerImage
+        {
+            get
+            {
+                return this._customerImage;
+            }
+            set
+            {
+                this._customerImage = value;
+                OnPropertyChanged();
             }
         }
 

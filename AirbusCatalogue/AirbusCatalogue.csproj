@@ -14,7 +14,7 @@
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>AirbusCatalogue_TemporaryKey.pfx</PackageCertificateKeyFile>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
-    <AppxPackageDir>C:\Users\Dane.Leube\SkyDrive\Dev\v0.9.7\</AppxPackageDir>
+    <AppxPackageDir>C:\Users\Dane.Leube\SkyDrive\Dev\v0.9.7.dummy\</AppxPackageDir>
     <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
     <ExpressionBlendVersion>5.0.40218.0</ExpressionBlendVersion>
   </PropertyGroup>
@@ -246,13 +246,16 @@
     <Content Include="Assets\customers\egyptAir2.jpg" />
     <Content Include="Assets\customers\emirates.png" />
     <Content Include="Assets\customers\emiratesA380.jpg" />
+    <Content Include="Assets\customers\emiratesA380Front.jpg" />
     <Content Include="Assets\customers\etihadAirways.png" />
     <Content Include="Assets\customers\iberia.png" />
     <Content Include="Assets\customers\indonesiaAirAsia.png" />
     <Content Include="Assets\customers\iranAir.png" />
     <Content Include="Assets\customers\neutralAircraft.jpg" />
+    <Content Include="Assets\customers\neutralAircraftFront.jpg" />
     <Content Include="Assets\customers\omanAir.png" />
     <Content Include="Assets\customers\startScreenAirFrance.jpg" />
+    <Content Include="Assets\customers\startScreenAirFranceFront.jpg" />
     <Content Include="Assets\customers\thomasCook.png" />
     <Content Include="Assets\customers\turkish.png" />
     <Content Include="Assets\Logo.png" />

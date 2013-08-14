@@ -61,11 +61,16 @@
             <RowDefinition Height="140"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
-       <variableTemplate:VariableTileControl
+        <ScrollViewer Grid.RowSpan="2" HorizontalScrollBarVisibility="Auto"  VerticalScrollBarVisibility="Disabled">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="140"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Image Source="{Binding CustomerImage}" Width="1100" HorizontalAlignment="Left" Grid.RowSpan="2" />
+                <variableTemplate:VariableTileControl
             Grid.Row="1"
             x:Name="itemGridView"
-            
             AutomationProperties.AutomationId="ItemGridView"
             AutomationProperties.Name="Grouped Items"
             ItemsSource="{Binding Source={StaticResource GroupedItemsViewSource}}"
@@ -74,18 +79,18 @@
             command:ItemClickCommand.Command="{Binding ItemWasClickedCommand}"
             IsSwipeEnabled="false"
             IsItemClickEnabled="True" HorizontalContentAlignment="Left">
-                <GridView.GroupStyle>
-                    <GroupStyle HeaderTemplateSelector="{StaticResource headerSelector}">
-                        <GroupStyle.Panel>
-                            <ItemsPanelTemplate>
-                                <VariableSizedWrapGrid ItemHeight="10" ItemWidth="10" Orientation="Vertical"/>
-                            </ItemsPanelTemplate>
-                        </GroupStyle.Panel>
-                    </GroupStyle>
-                </GridView.GroupStyle>
-           
-        </variableTemplate:VariableTileControl>
-
+                    <GridView.GroupStyle>
+                        <GroupStyle HeaderTemplateSelector="{StaticResource headerSelector}">
+                            <GroupStyle.Panel>
+                                <ItemsPanelTemplate>
+                                    <VariableSizedWrapGrid ItemHeight="10" ItemWidth="10" Margin="0,0,100,0" Orientation="Vertical"/>
+                                </ItemsPanelTemplate>
+                            </GroupStyle.Panel>
+                        </GroupStyle>
+                    </GridView.GroupStyle>
+                </variableTemplate:VariableTileControl>
+            </Grid>
+        </ScrollViewer>
         <!-- Back button and page title -->
         <Grid x:Name="topGrid">
             <Grid.ColumnDefinitions>

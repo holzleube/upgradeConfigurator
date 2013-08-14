@@ -44,15 +44,15 @@ namespace AirbusCatalogue.Model.Customer
             {
                 newUpgrades = GetNewUpgrades();
                 lastConfiguration = GetConfigurationForAirFrance();
-                return new CustomerInformation(uniqueId, lastConfiguration, newUpgrades, customerLogo, "Assets/customers/emiratesA380.jpg");
+                return new CustomerInformation(uniqueId, lastConfiguration, newUpgrades, customerLogo, "/Assets/customers/emiratesA380Front.jpg");
             }
             if (uniqueId.Equals("airFrance"))
             {
                 newUpgrades = GetNewUpgrades();
                 lastConfiguration = GetConfigurationForAirFrance();
-                return new CustomerInformation(uniqueId, lastConfiguration, newUpgrades, "Assets/customers/airfrance_2.png", "Assets/customers/startScreenAirFrance.jpg");
+                return new CustomerInformation(uniqueId, lastConfiguration, newUpgrades, "Assets/customers/airfrance_2.png", "/Assets/customers/startScreenAirFrance.jpg");
             }
-            return new CustomerInformation(uniqueId, GetConfigurationForAirFrance(), GetNewUpgrades(), customerLogo, "Assets/customers/neutralAircraft.jpg");
+            return new CustomerInformation(uniqueId, GetConfigurationForAirFrance(), GetNewUpgrades(), customerLogo, "/Assets/customers/neutralAircraftFront.jpg");
         }
 
         private List<IUpgradeItem> GetNewUpgrades()
