@@ -8,16 +8,17 @@ using AirbusCatalogue.Common.DataObjects.Config;
 using AirbusCatalogue.Common.DataObjects.Upgrades;
 using AirbusCatalogue.Model.ConfigurationData;
 using AirbusCatalogue.Model.Repository;
+using GalaSoft.MvvmLight.Ioc;
 
 namespace AirbusCatalogue.Model.Config
 {
     public class DummyDataGenerator
     {
-        private UpgradeRepository _upgradeRepository;
+        private IUpgradeRepository _upgradeRepository;
 
         public DummyDataGenerator()
         {
-            _upgradeRepository = new UpgradeRepository();
+            _upgradeRepository = SimpleIoc.Default.GetInstance<IUpgradeRepository>();
         }
 
         public List<IConfigurationGroup> GetDummyData(List<IAircraft> aircrafts)

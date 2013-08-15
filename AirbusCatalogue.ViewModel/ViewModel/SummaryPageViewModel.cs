@@ -59,6 +59,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel
             {
                 return;
             }
+            
             var message = "Your configuration was ";
             var headline = "";
             if (name.Equals("order"))

@@ -8,22 +8,31 @@ using AirbusCatalogue.Common.DataObjects.Config;
 using AirbusCatalogue.Common.DataObjects.Upgrades;
 using AirbusCatalogue.Model.ConfigurationData;
 using AirbusCatalogue.Model.Repository;
+using GalaSoft.MvvmLight.Ioc;
 
 namespace AirbusCatalogue.Model.Transferable
 {
+    /// <summary>
+    /// This class helps to convert the server result to the right data objects for the app.
+    /// </summary>
     public class TransferableConverter
     {
         private const string GROUP_NAME = "Group ";
         private const string ALTERNATIVE_NAME = "Alternative ";
-        private readonly UpgradeRepository _upgradeRepository;
-        private readonly AircraftRepository _aircraftRepository;
+        private readonly IUpgradeRepository _upgradeRepository;
+        private readonly IAircraftRepository _aircraftRepository;
 
         public TransferableConverter()
         {
-            _upgradeRepository = new UpgradeRepository();
-            _aircraftRepository = new AircraftRepository();
+            _upgradeRepository = SimpleIoc.Default.GetInstance<IUpgradeRepository>();
+            _aircraftRepository = SimpleIoc.Default.GetInstance<IAircraftRepository>();
         }
 
+        /// <summary>
+        /// Main method to get configuration groups from server result transferable
+        /// </summary>
+        /// <param name="transferable"></param>
+        /// <returns></returns>
         public List<IConfigurationGroup> GetBuildAlternativesFromTransferable(IEnumerable<ConfigurationResultTransferable> transferable)
         {
             var result = new List<IConfigurationGroup>();

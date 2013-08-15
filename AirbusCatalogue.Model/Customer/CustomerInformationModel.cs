@@ -24,7 +24,8 @@ namespace AirbusCatalogue.Model.Customer
         private const string BASE_PATH = "Assets/aircrafts/";
         private const string BASE_PATH_AIRCRAFT = "Assets/slider/";
         private const string A321Image = "Assets/allTypes/head_a321.png"; 
-        private UpgradeRepository _upgradeRepository = new UpgradeRepository();
+        private IAircraftRepository _aircraftRepo;
+        private IUpgradeRepository _upgradeRepo;
         public CustomerInformationModel()
         {
             if (! SimpleIoc.Default.IsRegistered<IConfiguration>())
@@ -33,6 +34,16 @@ namespace AirbusCatalogue.Model.Customer
                                                       System.DateTime.Now.ToString(), ConfigurationState.IN_PROGRESS, null);
                 SimpleIoc.Default.Register<IConfiguration>(() => configuration);
             }
+            if (!SimpleIoc.Default.IsRegistered<IAircraftRepository>())
+            {
+                SimpleIoc.Default.Register<IAircraftRepository>(() => new AircraftRepository());
+            }
+            if (!SimpleIoc.Default.IsRegistered<IUpgradeRepository>())
+            {
+                SimpleIoc.Default.Register<IUpgradeRepository>(() => new UpgradeRepository());
+            }
+            _aircraftRepo = SimpleIoc.Default.GetInstance<IAircraftRepository>();
+            _upgradeRepo = SimpleIoc.Default.GetInstance<IUpgradeRepository>();
         }
 
         public CustomerInformation GetCustomerInformationById(string uniqueId)
@@ -59,21 +70,21 @@ namespace AirbusCatalogue.Model.Customer
         {
             return new List<IUpgradeItem>()
                 {
-                    _upgradeRepository.GetUpgradeItemById("al"),
-                    _upgradeRepository.GetUpgradeItemById("bt"),
-                    _upgradeRepository.GetUpgradeItemById("isisId")
+                    _upgradeRepo.GetUpgradeItemById("al"),
+                    _upgradeRepo.GetUpgradeItemById("bt"),
+                    _upgradeRepo.GetUpgradeItemById("isisId")
                 };
         }
 
         private List<Configuration> GetConfigurationForAirFrance()
         {
-            var aircraftRepo = new AircraftRepository();
+            
             var aircrafts = new List<IAircraft>
                 {
-                    aircraftRepo.GetAircraftByMSN("N-0001"), 
-                    aircraftRepo.GetAircraftByMSN("N-0002"), 
-                    aircraftRepo.GetAircraftByMSN("N-0003"), 
-                    aircraftRepo.GetAircraftByMSN("N-0004") 
+                    _aircraftRepo.GetAircraftByMSN("N-0002"), 
+                    _aircraftRepo.GetAircraftByMSN("N-0005"), 
+                    _aircraftRepo.GetAircraftByMSN("N-0007"), 
+                    _aircraftRepo.GetAircraftByMSN("N-0009") 
                 };
             var upgrades = GetUpgradeItems();
             var programms = new List<IAircraftProgramm>()
@@ -96,14 +107,13 @@ namespace AirbusCatalogue.Model.Customer
             return lastConfigurations;
         }
 
-        private static List<IUpgradeItem> GetUpgradeItems()
+        private List<IUpgradeItem> GetUpgradeItems()
         {
-            var upgradeRepo = new UpgradeRepository();
             return new List<IUpgradeItem>()
                 {
-                    upgradeRepo.GetUpgradeItemById("1046GT2106"),
-                    upgradeRepo.GetUpgradeItemById("1046GT2107"),
-                    upgradeRepo.GetUpgradeItemById("1046GT2109")
+                    _upgradeRepo.GetUpgradeItemById("1046GT2106"),
+                    _upgradeRepo.GetUpgradeItemById("1046GT2107"),
+                    _upgradeRepo.GetUpgradeItemById("1046GT2109")
                 };
         }
 

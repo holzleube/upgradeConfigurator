@@ -61,7 +61,7 @@
             <RowDefinition Height="140"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <ScrollViewer Grid.RowSpan="2" HorizontalScrollBarVisibility="Auto"  VerticalScrollBarVisibility="Disabled">
+        <ScrollViewer Grid.RowSpan="2" HorizontalScrollBarVisibility="Auto" VerticalScrollMode="Disabled" ZoomMode="Disabled"  VerticalScrollBarVisibility="Disabled">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="140"/>

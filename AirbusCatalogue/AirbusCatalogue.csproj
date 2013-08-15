@@ -122,7 +122,6 @@
     <Compile Include="Common\BooleanNegationConverter.cs" />
     <Compile Include="Common\BooleanToVisibilityConverter.cs" />
     <Compile Include="Common\ConfigurationStateToBooleanConverter.cs" />
-    <Compile Include="Common\FlipViewIndicatorProperty.cs" />
     <Compile Include="Pages\Aircrafts\SelectAircraftFamilyPage.xaml.cs">
       <DependentUpon>SelectAircraftFamilyPage.xaml</DependentUpon>
     </Compile>
@@ -165,7 +164,6 @@
       <DependentUpon>GroupedItemsPage1.xaml</DependentUpon>
     </Compile>
     <Compile Include="Sample\SampleDataSource.cs" />
-    <Compile Include="VariableTemplate\CustomerTemplateSelector.cs" />
     <Compile Include="VariableTemplate\SummaryTemplateSelector.cs" />
     <Compile Include="VariableTemplate\VariableHeader.cs" />
     <Compile Include="VariableTemplate\VariableTileControl.cs" />

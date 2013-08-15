@@ -118,6 +118,8 @@
     <Compile Include="Exceptions\WebserviceNotAvailableException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AircraftRepository.cs" />
+    <Compile Include="Repository\IAircraftRepository.cs" />
+    <Compile Include="Repository\IUpgradeRepository.cs" />
     <Compile Include="Repository\UpgradeRepository.cs" />
     <Compile Include="Service References\Acmm\Reference.cs">
       <AutoGen>True</AutoGen>

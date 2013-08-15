@@ -23,12 +23,12 @@ namespace AirbusCatalogue.Model.Config
 {
     public class ConfigurationModel
     {
-        private UpgradeRepository _upgradeRepository;
+        private IUpgradeRepository _upgradeRepository;
         
 
         public ConfigurationModel()
         {
-            _upgradeRepository = new UpgradeRepository();
+            _upgradeRepository = SimpleIoc.Default.GetInstance<IUpgradeRepository>();
         }
         public IConfiguration GetCurrentConfiguration()
         {
@@ -50,30 +50,30 @@ namespace AirbusCatalogue.Model.Config
         public async Task ConfigureCurrentConfiguration()
         {
             var config = GetCurrentConfiguration();
-            await Task.Delay(TimeSpan.FromSeconds(3));
-            config.ConfigurationGroups = new DummyDataGenerator().GetDummyData(config.SelectedAircrafts);
+            //await Task.Delay(TimeSpan.FromSeconds(3));
+            //config.ConfigurationGroups = new DummyDataGenerator().GetDummyData(config.SelectedAircrafts);
             
-            SetRightConfigurationState();
-            config.HasConfigurationChanged = false;
-            //var webserviceClient =
-            //    new AirbusConfigurationWebServiceClient();
-            
-            //try
-            //{
-            //    var aircraftList = config.SelectedAircrafts.Select(x => x.UniqueId).ToArray();
-            //    var result = await webserviceClient.getConfigurationResultAsync(aircraftList,
-            //                                                          config.Upgrades[0].UniqueId);
-            //    var transferable = GetConfigurationResultTransferable(result.getConfigurationResultReturn);
-               
-            //    GetConfiguration().ConfigurationGroups = new TransferableConverter().GetBuildAlternativesFromTransferable(transferable);
-            //    await Task.Delay(TimeSpan.FromSeconds(3));
-            //    SetRightConfigurationState();
-            //    GetConfiguration().HasConfigurationChanged = false;
-            //}
-            //catch (Exception e)
-            //{
-            //    throw new WebserviceNotAvailableException("The webservice is not available, please try again later");
-            //} 
+            //SetRightConfigurationState();
+            //config.HasConfigurationChanged = false;
+            var webserviceClient =
+                new AirbusConfigurationWebServiceClient();
+
+            try
+            {
+                var aircraftList = config.SelectedAircrafts.Select(x => x.UniqueId).ToArray();
+                var result = await webserviceClient.getConfigurationResultAsync(aircraftList,
+                                                                      config.Upgrades[0].UniqueId);
+                var transferable = GetConfigurationResultTransferable(result.getConfigurationResultReturn);
+
+                GetConfiguration().ConfigurationGroups = new TransferableConverter().GetBuildAlternativesFromTransferable(transferable);
+                await Task.Delay(TimeSpan.FromSeconds(3));
+                SetRightConfigurationState();
+                GetConfiguration().HasConfigurationChanged = false;
+            }
+            catch (Exception e)
+            {
+                throw new WebserviceNotAvailableException("The webservice is not available, please try again later");
+            } 
         }
 
         private void SetRightConfigurationState()

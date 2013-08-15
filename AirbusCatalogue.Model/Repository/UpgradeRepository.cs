@@ -8,7 +8,7 @@ using AirbusCatalogue.Model.Upgrades;
 
 namespace AirbusCatalogue.Model.Repository
 {
-    public class UpgradeRepository
+    public class UpgradeRepository : IUpgradeRepository
     {
         private Dictionary<string, IUpgradeItem> _dataMap;
 

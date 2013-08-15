@@ -8,6 +8,7 @@ using AirbusCatalogue.Common.DataObjects.Config;
 using AirbusCatalogue.Common.DataObjects.Upgrades;
 using AirbusCatalogue.Model.Templates;
 using GalaSoft.MvvmLight.Ioc;
+using AirbusCatalogue.Model.Repository;
 
 namespace AirbusCatalogue.Model.Aircrafts
 {
@@ -44,12 +45,12 @@ namespace AirbusCatalogue.Model.Aircrafts
 
         public List<AircraftVersion> GetAircraftVersionsByProgramm(IAircraftBase aircraftType)
         {
-            
             return GetAirfranceAircrafts();
         }
 
         private List<AircraftVersion> GetAirfranceAircrafts()
         {
+            //return SimpleIoc.Default.GetInstance<IAircraftRepository>().GetAllAircrafts();
             var list = new List<Aircraft>
                 {
                     new Aircraft("N-0002", "N-0002",  A320Image, "001", "AFR01", "A320"),

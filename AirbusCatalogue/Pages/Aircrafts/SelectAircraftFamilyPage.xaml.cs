@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using AirbusCatalogue.ViewModel.ViewInterfaces.Aircraft;
 using Windows.UI.Xaml.Controls;
+using GalaSoft.MvvmLight.Ioc;
 
 // The Grouped Items Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234231
 
@@ -28,8 +29,7 @@ namespace AirbusCatalogue.Pages.Aircrafts
         /// session.  This will be null the first time a page is visited.</param>
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
-            
-            
+          
         }
 
         
