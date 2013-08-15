@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AirbusCatalogue.Common.DataObjects.General;
 using AirbusCatalogue.Model.Customer;
 using AirbusCatalogue.Model.CustomerModel;
 using AirbusCatalogue.ViewModel.ViewDataElements;
@@ -13,9 +14,9 @@ namespace AirbusCatalogue.ViewModel.Converter
 {
     public class ModelObjectsToViewObjectsConverter
     {
-        public ObservableCollection<DataCommon> GetConvertedElements(ICollection<Customer> allCustomers)
+        public ObservableCollection<IIdentable> GetConvertedElements(ICollection<Customer> allCustomers)
         {
-            var result = new ObservableCollection<DataCommon>();
+            var result = new ObservableCollection<IIdentable>();
            
             var groupToCharDictionary = new Dictionary<Char, DataGroup>();
            

@@ -48,9 +48,13 @@ namespace AirbusCatalogue.Model.Aircrafts
             return GetAirfranceAircrafts();
         }
 
+        public List<IAircraft> GetAllAircraftsForCurrentSelectedAircraftProgrammAndCustomer()
+        {
+            return SimpleIoc.Default.GetInstance<IAircraftRepository>().GetAllAircrafts();
+        } 
+
         private List<AircraftVersion> GetAirfranceAircrafts()
         {
-            //return SimpleIoc.Default.GetInstance<IAircraftRepository>().GetAllAircrafts();
             var list = new List<Aircraft>
                 {
                     new Aircraft("N-0002", "N-0002",  A320Image, "001", "AFR01", "A320"),

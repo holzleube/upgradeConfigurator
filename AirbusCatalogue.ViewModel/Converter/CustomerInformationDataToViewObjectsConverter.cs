@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using AirbusCatalogue.Common.DataObjects.General;
 using AirbusCatalogue.Model.Customer;
 using AirbusCatalogue.ViewModel.ViewDataElements;
 using AirbusCatalogue.ViewModel.ViewDataElements.Configuration;
@@ -10,9 +11,9 @@ namespace AirbusCatalogue.ViewModel.Converter
     public class CustomerInformationDataToViewObjectsConverter
     {
 
-        public ObservableCollection<DataCommon> GetConvertedElements(CustomerInformation customerInformation)
+        public ObservableCollection<IIdentable> GetConvertedElements(CustomerInformation customerInformation)
         {
-            var convertedGroups = new ObservableCollection<DataCommon>();
+            var convertedGroups = new ObservableCollection<IIdentable>();
             var group1 = new HubDataGroup("startPageHubData");
             var startScreenImage = new HubPageDataItem("startScreenImage",
                    customerInformation.CustomerStartPageImagePath
@@ -46,7 +47,7 @@ namespace AirbusCatalogue.ViewModel.Converter
             return convertedGroups;
         }
 
-        private static void AddIfNotEmpty(ObservableCollection<DataCommon> convertedGroups, DataGroup group1)
+        private static void AddIfNotEmpty(ObservableCollection<IIdentable> convertedGroups, DataGroup group1)
         {
             if (group1.Items.Count > 0)
             {

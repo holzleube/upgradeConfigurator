@@ -52,7 +52,7 @@ namespace AirbusCatalogue.Model.Config
             var config = GetCurrentConfiguration();
             //await Task.Delay(TimeSpan.FromSeconds(3));
             //config.ConfigurationGroups = new DummyDataGenerator().GetDummyData(config.SelectedAircrafts);
-            
+
             //SetRightConfigurationState();
             //config.HasConfigurationChanged = false;
             var webserviceClient =

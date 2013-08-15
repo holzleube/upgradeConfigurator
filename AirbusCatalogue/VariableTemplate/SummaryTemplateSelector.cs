@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AirbusCatalogue.Common.DataObjects.Upgrades;
+using AirbusCatalogue.ViewModel.ViewDataElements;
 using AirbusCatalogue.ViewModel.ViewDataElements.Aircraft;
 using AirbusCatalogue.ViewModel.ViewDataElements.Configuration;
 using AirbusCatalogue.ViewModel.ViewDataElements.Customer;
@@ -67,6 +69,17 @@ namespace AirbusCatalogue.VariableTemplate
             if (item.GetType() == typeof(UnknownConfigurationDataItem))
             {
                 return UnknownConfiguration;
+            }
+            if (item.GetType() == typeof(DependencyObject))
+            {
+                var group = item as DataGroup;
+
+                Debug.Assert(group != null, "group != null");
+                if (group.Title.Equals("aircraft type"))
+                {
+                    return AircraftTile;
+                }
+                return AlternativeTile;
             }
             return base.SelectTemplateCore(item, container);
 

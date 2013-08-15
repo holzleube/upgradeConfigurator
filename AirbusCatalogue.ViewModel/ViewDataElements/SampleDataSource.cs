@@ -49,6 +49,7 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements
 
         private ImageSource _image = null;
         private String _imagePath = null;
+        public string ImagePath { get { return _imagePath; } }
         public ImageSource Image
         {
             get

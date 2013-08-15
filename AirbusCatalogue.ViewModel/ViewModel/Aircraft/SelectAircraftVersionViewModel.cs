@@ -4,7 +4,11 @@ using System.Linq;
 using AirbusCatalogue.Common.DataObjects.Aircrafts;
 using AirbusCatalogue.Common.DataObjects.General;
 using AirbusCatalogue.Model.Aircrafts;
+using AirbusCatalogue.ViewModel.Category.Aircraft;
+using AirbusCatalogue.ViewModel.Category.Aircraft.Criterias;
+using AirbusCatalogue.ViewModel.Category.Aircraft.Interfaces;
 using AirbusCatalogue.ViewModel.Command;
+using AirbusCatalogue.ViewModel.Filter;
 using AirbusCatalogue.ViewModel.Navigation;
 using AirbusCatalogue.ViewModel.Templates;
 using AirbusCatalogue.ViewModel.ViewDataElements;
@@ -17,66 +21,52 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Aircraft
     public class SelectAircraftVersionViewModel : GridHolderViewModel
     {
         private readonly AircraftModel _model;
-        private const string AllItems = "version";
 
         private RelayCommand _checkAircraftSelectionCommand;
-       
 
-        private string _selectedFilterValue;
-        private List<AircraftVersion> _allAircrafts;
+
+        private IAircraftCategory _selectedFilterValue;
+        private List<IAircraft> _allAircrafts;
 
         public SelectAircraftVersionViewModel()
         {
             _model = new AircraftModel();
+            _filterList = new ObservableCollection<IAircraftCategory>(new AircraftCategoryFactory().CreateAircraftCategories());
+            _selectedFilterValue = _filterList[0];
         }
 
         public override void Initialize(object parameter)
         {
             var aircraftProgramm = parameter as IAircraftBase ?? _model.GetCurrentAircraftProgramm();
-            _allAircrafts = _model.GetAircraftVersionsByProgramm(aircraftProgramm);
-            AddAircraftTypesToFilter(aircraftProgramm);
-            BuildAndSetAircraftsOnView(_allAircrafts);
+            _allAircrafts = _model.GetAllAircraftsForCurrentSelectedAircraftProgrammAndCustomer();
+            BuildAndSetAircraftsOnView(_allAircrafts, new AircraftVersionCategoryCriteria());
         }
 
-        private void AddAircraftTypesToFilter(IAircraftBase aircraftProgramm)
-        {
-            if (aircraftProgramm == null)
-            {
-                return;
-            }
-            var aircraftTypes = _model.GetAircraftTypesByProgramm(aircraftProgramm.UniqueId);
-            FilterList.Add(AllItems);
-            foreach (var aircraftType in aircraftTypes)
-            {
-                FilterList.Add(aircraftType.Name);
-            }
-            SelectedFilterValue = AllItems;
-        }
+        
 
-        private void BuildAndSetAircraftsOnView(IEnumerable<AircraftVersion> aircrafts)
+        private void BuildAndSetAircraftsOnView(List<IAircraft> aircrafts, ICategoryCriteria<IAircraft> categoryCriteria)
         {
-            SelectedItems = new ObservableCollection<AircraftDataItem>();
-            var selectedAircrafts = _model.GetSelectedAircrafts();
-            var result = new ObservableCollection<DataCommon>();
-            foreach (var aircraftVersion in aircrafts)
+            SelectedItems = new ObservableCollection<IAircraft>(_model.GetSelectedAircrafts());
+
+            var groupedAircrafts =
+                from w in aircrafts
+                orderby categoryCriteria.GetFilterValue(w)
+                group w by categoryCriteria.GetFilterValue(w)
+                into g
+                select new {Category = g.Key, Products = g};
+            var result = new ObservableCollection<IIdentable>();
+            foreach (var g in groupedAircrafts)
             {
-                var group = new DataGroup(aircraftVersion.UniqueId, aircraftVersion.Name, aircraftVersion.ImagePath);
-                foreach (var aircraft in aircraftVersion.Aircrafts)
-                {
-                    var newItem = new AircraftDataItem(aircraft, group);
-                    group.Items.Add(newItem);
-                    if (selectedAircrafts.Contains(aircraft))
-                    {
-                        SelectedItems.Add(newItem);
-                    }
-                }
+                var group = new DataGroup(g.Category, g.Category, g.Products.ToList()[0].ImagePath);
+                group.Items = new ObservableCollection<IIdentable>(g.Products.ToList());
                 result.Add(group);
             }
+
             DataGroupElements = result;
         }
 
-        private ObservableCollection<AircraftDataItem> _selectedItems = new ObservableCollection<AircraftDataItem>();
-        public ObservableCollection<AircraftDataItem> SelectedItems
+        private ObservableCollection<IAircraft> _selectedItems = new ObservableCollection<IAircraft>();
+        public ObservableCollection<IAircraft> SelectedItems
         {
             get
             {
@@ -89,8 +79,8 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Aircraft
             }
         }
 
-        private ObservableCollection<string> _filterList = new ObservableCollection<string>();
-        public ObservableCollection<string> FilterList
+        private ObservableCollection<IAircraftCategory> _filterList = new ObservableCollection<IAircraftCategory>();
+        public ObservableCollection<IAircraftCategory> FilterList
         {
             get
             {
@@ -105,7 +95,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Aircraft
 
         public void UpdateSelection(object clickedItem)
         {
-            var aircraft = clickedItem as AircraftDataItem;
+            var aircraft = clickedItem as IAircraft;
             if (aircraft != null)
             {
                 if (SelectedItems.Contains(aircraft))
@@ -119,7 +109,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Aircraft
             }
         }
 
-        public string SelectedFilterValue
+        public IAircraftCategory SelectedFilterValue
         {
             get
             {
@@ -135,28 +125,29 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Aircraft
 
         private void FilterAircraftList()
         {
-            if (SelectedFilterValue.Equals(AllItems))
-            {
-                BuildAndSetAircraftsOnView(_allAircrafts);
-                return;
-            }
-            var resultList = new List<AircraftVersion>();
-            foreach (var aircraftVersion in _allAircrafts)
-            {
-                var filteredList = aircraftVersion.Aircrafts.Select(x => x).
-                    Where(x => x.AircraftType.Contains(SelectedFilterValue)).ToList();
-                if (filteredList.Count == 0)
-                {
-                    continue;
-                }
-                var newAircraftVersion = new AircraftVersion(aircraftVersion.UniqueId, aircraftVersion.Name)
-                {
-                    Aircrafts = filteredList
-                };
-                resultList.Add(newAircraftVersion);
+            BuildAndSetAircraftsOnView(_allAircrafts, SelectedFilterValue.CategoryCriteria);
+            //if (SelectedFilterValue.Equals(AllItems))
+            //{
+            //    BuildAndSetAircraftsOnView(_allAircrafts, new AircraftVersionCategoryCriteria());
+            //    return;
+            //}
+            //var resultList = new List<AircraftVersion>();
+            //foreach (var aircraftVersion in _allAircrafts)
+            //{
+            //    var filteredList = aircraftVersion.Aircrafts.Select(x => x).
+            //        Where(x => x.AircraftType.Contains(SelectedFilterValue)).ToList();
+            //    if (filteredList.Count == 0)
+            //    {
+            //        continue;
+            //    }
+            //    var newAircraftVersion = new AircraftVersion(aircraftVersion.UniqueId, aircraftVersion.Name)
+            //    {
+            //        Aircrafts = filteredList
+            //    };
+            //    resultList.Add(newAircraftVersion);
                 
-            }
-            BuildAndSetAircraftsOnView(resultList);
+            //}
+            //BuildAndSetAircraftsOnView(resultList, new AircraftVersionCategoryCriteria());
         }
 
        
@@ -171,8 +162,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Aircraft
 
         private void ValidateAircraftsAndSelectThem()
         {
-            var aircrafts = SelectedItems.Select(x => x.DataItem).ToList();
-            _model.SetAircraftsInConfiguration(aircrafts);
+            _model.SetAircraftsInConfiguration(SelectedItems.ToList());
             var classToNavigate = SimpleIoc.Default.GetInstance<ISummary>();
             var navigationService = SimpleIoc.Default.GetInstance<INavigationService>();
             navigationService.Navigate(classToNavigate.GetType());

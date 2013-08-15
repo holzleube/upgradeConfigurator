@@ -5,6 +5,7 @@ using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AirbusCatalogue.Common.DataObjects.General;
 
 namespace AirbusCatalogue.ViewModel.ViewDataElements
 {
@@ -17,8 +18,8 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements
                 Items.CollectionChanged += ItemsCollectionChanged;
             }
 
-            private ObservableCollection<BasicDataItem> _items = new ObservableCollection<BasicDataItem>();
-            public ObservableCollection<BasicDataItem> Items
+            private ObservableCollection<IIdentable> _items = new ObservableCollection<IIdentable>();
+            public ObservableCollection<IIdentable> Items
             {
                 get
                 {
@@ -94,12 +95,12 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements
                 }
             }
 
-            
 
-            private ObservableCollection<BasicDataItem> _topItem = new ObservableCollection<BasicDataItem>();
 
-            
-            public ObservableCollection<BasicDataItem> TopItems
+            private ObservableCollection<IIdentable> _topItem = new ObservableCollection<IIdentable>();
+
+
+            public ObservableCollection<IIdentable> TopItems
             {
                 get { return this._topItem; }
             }

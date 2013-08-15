@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AirbusCatalogue.Common.DataObjects.General;
 using AirbusCatalogue.Model.CustomerModel;
 using AirbusCatalogue.ViewModel.ViewDataElements;
 
@@ -27,8 +28,8 @@ namespace AirbusCatalogue.ViewModel.Templates
             }
         }
 
-        private ObservableCollection<DataCommon> _dataGroupElements = new ObservableCollection<DataCommon>();
-        public ObservableCollection<DataCommon> DataGroupElements
+        private ObservableCollection<IIdentable> _dataGroupElements = new ObservableCollection<IIdentable>();
+        public ObservableCollection<IIdentable> DataGroupElements
         {
             get
             {

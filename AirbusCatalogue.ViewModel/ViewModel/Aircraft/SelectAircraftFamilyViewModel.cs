@@ -1,6 +1,7 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
+using AirbusCatalogue.Common.DataObjects.General;
 using AirbusCatalogue.Model.Aircrafts;
 using AirbusCatalogue.ViewModel.Command;
 using AirbusCatalogue.ViewModel.Navigation;
@@ -31,7 +32,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Aircraft
         private void InitializeDataSource()
         {
 
-            DataGroupElements = new ObservableCollection<DataCommon>
+            DataGroupElements = new ObservableCollection<IIdentable>
                 {
                     new AircraftProgrammGroup(_model.GetAllAircraftProgramms())
                 }; 
