@@ -39,7 +39,7 @@
             <StackPanel Grid.Row="1" Background="#90000000" Orientation="Horizontal" Width="300" HorizontalAlignment="Left" >
                 <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal" Width="Auto">
                     <TextBlock  Text="{StaticResource NewConfig}" LineHeight="30" Foreground="#FFFFFFFF" Style="{StaticResource GroupHeaderTextStyle}" FontSize="30" Margin="20,5,5,0" VerticalAlignment="Top"/>
-                    <TextBlock Text="{StaticResource ChevronGlyph}" LineHeight="30" Foreground="#FFFFFFFF" FontFamily="Segoe UI Symbol" FontSize="35" VerticalAlignment="Top"/>
+                    <TextBlock Text="{StaticResource ChevronGlyph}" LineHeight="30" Foreground="#FFFFFFFF" FontFamily="Segoe UI Symbol" FontSize="35" VerticalAlignment="Top" Margin="0,0,5,0"/>
                 </StackPanel>
             </StackPanel>
         </Grid>
