@@ -13,6 +13,7 @@ using AirbusCatalogue.Common.DataObjects.Upgrades;
 using AirbusCatalogue.Model.ConfigurationData;
 using AirbusCatalogue.Model.ConfigurationService;
 using AirbusCatalogue.Model.Exceptions;
+using AirbusCatalogue.Model.File;
 using AirbusCatalogue.Model.Repository;
 using AirbusCatalogue.Model.Transferable;
 using AirbusCatalogue.Model.Upgrades;
@@ -138,6 +139,14 @@ namespace AirbusCatalogue.Model.Config
             {
                 currentConfiguration.SelectedAircrafts.Remove(aircraft);
             }
+        }
+
+        public void SaveCurrentConfigurationToFile()
+        {
+            var configuration = GetCurrentConfiguration();
+            SimpleIoc.Default.Unregister<IConfiguration>();
+            configuration.ConfigurationDate = DateTime.Now.ToString();
+            new ConfigurationFileManager().WriteConfigurationToFile(configuration);
         }
     }
 }

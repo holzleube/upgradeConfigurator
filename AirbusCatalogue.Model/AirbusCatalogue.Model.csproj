@@ -112,13 +112,15 @@
     <Compile Include="Config\DummyDataGenerator.cs" />
     <Compile Include="Customer\Customer.cs" />
     <Compile Include="Customer\CustomerInformation.cs" />
-    <Compile Include="Customer\CustomerModel.cs" />
     <Compile Include="Customer\CustomerInformationModel.cs" />
-    <Compile Include="Customer\ICustomerModel.cs" />
     <Compile Include="Exceptions\WebserviceNotAvailableException.cs" />
+    <Compile Include="File\ConfigurationFileManager.cs" />
+    <Compile Include="Json\JsonHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AircraftRepository.cs" />
+    <Compile Include="Repository\CustomerRepository.cs" />
     <Compile Include="Repository\IAircraftRepository.cs" />
+    <Compile Include="Repository\ICustomerRepository.cs" />
     <Compile Include="Repository\IUpgradeRepository.cs" />
     <Compile Include="Repository\UpgradeRepository.cs" />
     <Compile Include="Service References\Acmm\Reference.cs">

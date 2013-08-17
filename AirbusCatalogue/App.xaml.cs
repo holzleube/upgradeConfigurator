@@ -6,6 +6,7 @@ using AirbusCatalogue.Pages.Aircrafts;
 using AirbusCatalogue.Pages.Configuration;
 using AirbusCatalogue.Pages.Customer;
 using AirbusCatalogue.Pages.Upgrades;
+using AirbusCatalogue.ViewModel.Initializer;
 using AirbusCatalogue.ViewModel.Navigation;
 using AirbusCatalogue.ViewModel.ViewInterfaces;
 using AirbusCatalogue.ViewModel.ViewInterfaces.Aircraft;
@@ -51,6 +52,7 @@ namespace AirbusCatalogue
             SimpleIoc.Default.Register<IUpgradeSelection, SelectUpgradePage>();
             SimpleIoc.Default.Register<INavigationService, NavigationService>();
             SimpleIoc.Default.Register<IConfigurationAlternativeSelection, ConfigurationDetailPage>();
+            
         }
 
         /// <summary>
@@ -89,6 +91,7 @@ namespace AirbusCatalogue
 
                 // Place the frame in the current Window
                 Window.Current.Content = rootFrame;
+                RepositoryInitializer.RegisterRepositories();
             }
             if (rootFrame.Content == null)
             {

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AirbusCatalogue.Common.DataObjects.Aircrafts;
 using AirbusCatalogue.Common.DataObjects.Config;
+using AirbusCatalogue.Common.DataObjects.Customers;
 using AirbusCatalogue.Common.DataObjects.Upgrades;
 using AirbusCatalogue.Model.Aircrafts;
 using AirbusCatalogue.Model.ConfigurationData;
@@ -20,37 +21,30 @@ namespace AirbusCatalogue.Model.Customer
     /// </summary>
     public class CustomerInformationModel
     {
-   
-        private const string BASE_PATH = "Assets/aircrafts/";
         private const string BASE_PATH_AIRCRAFT = "Assets/slider/";
-        private const string A321Image = "Assets/allTypes/head_a321.png"; 
         private IAircraftRepository _aircraftRepo;
         private IUpgradeRepository _upgradeRepo;
+        private ICustomerRepository _customerRepo;
+
         public CustomerInformationModel()
         {
+            _aircraftRepo = SimpleIoc.Default.GetInstance<IAircraftRepository>();
+            _upgradeRepo = SimpleIoc.Default.GetInstance<IUpgradeRepository>();
+            _customerRepo = SimpleIoc.Default.GetInstance<ICustomerRepository>();
             if (! SimpleIoc.Default.IsRegistered<IConfiguration>())
             {
                 var configuration = new Configuration("id", new List<IUpgradeItem>(), new List<IAircraft>(),
-                                                      System.DateTime.Now.ToString(), ConfigurationState.IN_PROGRESS, null);
+                                                      System.DateTime.Now.ToString(), ConfigurationState.IN_PROGRESS, null, _customerRepo.GetCustomerById("emirates"));
                 SimpleIoc.Default.Register<IConfiguration>(() => configuration);
             }
-            if (!SimpleIoc.Default.IsRegistered<IAircraftRepository>())
-            {
-                SimpleIoc.Default.Register<IAircraftRepository>(() => new AircraftRepository());
-            }
-            if (!SimpleIoc.Default.IsRegistered<IUpgradeRepository>())
-            {
-                SimpleIoc.Default.Register<IUpgradeRepository>(() => new UpgradeRepository());
-            }
-            _aircraftRepo = SimpleIoc.Default.GetInstance<IAircraftRepository>();
-            _upgradeRepo = SimpleIoc.Default.GetInstance<IUpgradeRepository>();
         }
 
         public CustomerInformation GetCustomerInformationById(string uniqueId)
         {
-            var lastConfiguration = new List<Configuration>();
+            var customer = _customerRepo.GetCustomerById(uniqueId);
+            var lastConfiguration = new List<IConfiguration>();
             var newUpgrades = new List<IUpgradeItem>();
-            var customerLogo = "Assets/customers/" + uniqueId + ".png";
+            var customerLogo = customer.ImagePath;
             if (uniqueId.Equals("emirates"))
             {
                 newUpgrades = GetNewUpgrades();
@@ -76,9 +70,9 @@ namespace AirbusCatalogue.Model.Customer
                 };
         }
 
-        private List<Configuration> GetConfigurationForAirFrance()
+        private List<IConfiguration> GetConfigurationForAirFrance()
         {
-            
+            var customer = _customerRepo.GetCustomerById("emirates");
             var aircrafts = new List<IAircraft>
                 {
                     _aircraftRepo.GetAircraftByMSN("N-0002"), 
@@ -95,14 +89,14 @@ namespace AirbusCatalogue.Model.Customer
                     new AircraftProgramm("R-Series", "A380", BASE_PATH_AIRCRAFT + "slider_a380.png")
                     
                 };
-            var lastConfigurations = new List<ConfigurationData.Configuration>
+            var lastConfigurations = new List<IConfiguration>
                 {
-                    new Configuration("configuration1",upgrades, aircrafts, "16.03.2013", ConfigurationState.IN_PROGRESS, programms[2]),
-                    new Configuration("configuration2",upgrades, aircrafts, "16.01.2013",ConfigurationState.IN_PROGRESS, programms[0]),
-                    new Configuration("configuration3",upgrades, aircrafts,  "13.03.2012", ConfigurationState.DELIVERED, programms[0]),
-                    new Configuration("configuration4",upgrades, aircrafts,  "11.09.2010",ConfigurationState.DELIVERED,  programms[0]),
-                    new Configuration("configuration5",upgrades, aircrafts,  "08.03.2010",ConfigurationState.DELIVERED,  programms[3]),
-                    new Configuration("configuration6",upgrades, aircrafts,  "01.08.2009",ConfigurationState.DELIVERED,  programms[3])
+                    new Configuration("configuration1",upgrades, aircrafts, "16.03.2013", ConfigurationState.IN_PROGRESS, programms[2], customer),
+                    new Configuration("configuration2",upgrades, aircrafts, "16.01.2013",ConfigurationState.IN_PROGRESS, programms[0], customer),
+                    new Configuration("configuration3",upgrades, aircrafts,  "13.03.2012", ConfigurationState.DELIVERED, programms[0], customer),
+                    new Configuration("configuration4",upgrades, aircrafts,  "11.09.2010",ConfigurationState.DELIVERED,  programms[0], customer),
+                    new Configuration("configuration5",upgrades, aircrafts,  "08.03.2010",ConfigurationState.DELIVERED,  programms[3], customer),
+                    new Configuration("configuration6",upgrades, aircrafts,  "01.08.2009",ConfigurationState.DELIVERED,  programms[3], customer)
                 };
             return lastConfigurations;
         }
@@ -120,6 +114,17 @@ namespace AirbusCatalogue.Model.Customer
         public CustomerInformation GetLastCustomerInformation()
         {
             return GetCustomerInformationById("emirates");
+        }
+
+        public List<ICustomer> GetAllCustomers()
+        {
+            return _customerRepo.GetAllCustomers();
+        }
+
+        public void SetCustomer(ICustomer customer)
+        {
+            var configuration = SimpleIoc.Default.GetInstance<IConfiguration>();
+            configuration.ConfigurationCustomer = customer;
         }
     }
 }

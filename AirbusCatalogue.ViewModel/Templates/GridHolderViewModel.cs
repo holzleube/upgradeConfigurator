@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using AirbusCatalogue.Common.DataObjects.General;
-using AirbusCatalogue.Model.CustomerModel;
-using AirbusCatalogue.ViewModel.ViewDataElements;
 
 namespace AirbusCatalogue.ViewModel.Templates
 {

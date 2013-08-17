@@ -72,6 +72,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel
                 headline = "Save";
                 message += "saved.";
             }
+            _model.SaveCurrentConfigurationToFile();
              var messageDialog = new MessageDialog(message,
                 headline);
             messageDialog.ShowAsync();

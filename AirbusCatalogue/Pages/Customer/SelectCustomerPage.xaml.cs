@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using AirbusCatalogue.Common.DataObjects.Customers;
+using AirbusCatalogue.Common.DataObjects.General;
 using AirbusCatalogue.ViewModel.ViewDataElements;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -27,11 +29,7 @@ namespace AirbusCatalogue.Pages.Customer
         /// </param>
         /// <param name="pageState">A dictionary of state preserved by this page during an earlier
         /// session.  This will be null the first time a page is visited.</param>
-        protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
-        {
-            // TODO: Assign a collection of bindable groups to this.DefaultViewModel["Groups"]
-        }
-
+ 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             var collectionGroups = groupedItemsViewSource.View.CollectionGroups;
@@ -45,7 +43,7 @@ namespace AirbusCatalogue.Pages.Customer
             // by passing required information as a navigation parameter
             //var itemId = ((BasicDataItem)e.ClickedItem).UniqueId;
             //this.Frame.Navigate(typeof(ItemDetailPage), itemId);
-            var customerId = ((BasicDataItem) e.ClickedItem).UniqueId;
+            var customerId = ((IIdentable) e.ClickedItem).UniqueId;
             Frame.Navigate(typeof(StartScreenPage), customerId);
         }
     }

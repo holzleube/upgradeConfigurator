@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI;
@@ -8,6 +9,7 @@ using Windows.UI.Xaml.Media;
 
 namespace AirbusCatalogue.Common.DataObjects.Config
 {
+    [DataContract]
     public class ConfigurationState
     {
         public ConfigurationState(string readableName, string configuationStateText, string configuationStateIconValue, string configuationStateEditText, Brush configuationStateColor)
@@ -33,14 +35,19 @@ namespace AirbusCatalogue.Common.DataObjects.Config
 
         public static readonly ConfigurationState UNKNOWN = new ConfigurationState("Unknown", "No Internet connection or nothing selected ", "\uE11B", "save configuration", new SolidColorBrush(Color.FromArgb(153, 255, 255, 0)));
 
+        [DataMember]
         public string ReadableName { get; set; }
 
+        [DataMember]
         public string ConfiguationStateText { get; set; }
 
+        [DataMember]
         public string ConfiguationStateIconValue { get; set; }
 
+        [DataMember]
         public string ConfiguationStateEditText { get; set; }
 
+        [DataMember]
         public Brush ConfiguationStateColor { get; set; }
     }
 }

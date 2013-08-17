@@ -108,6 +108,7 @@
     <Compile Include="Converter\CustomerInformationDataToViewObjectsConverter.cs" />
     <Compile Include="Converter\ModelObjectsToViewObjectsConverter.cs" />
     <Compile Include="Category\ICategoryCriteria.cs" />
+    <Compile Include="Initializer\RepositoryInitializer.cs" />
     <Compile Include="Navigation\INavigationService.cs" />
     <Compile Include="Navigation\NavigationService.cs" />
     <Compile Include="Properties\Annotations.cs" />
