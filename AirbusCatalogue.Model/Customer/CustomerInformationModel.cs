@@ -124,7 +124,7 @@ namespace AirbusCatalogue.Model.Customer
         public void SetCustomer(ICustomer customer)
         {
             var configuration = SimpleIoc.Default.GetInstance<IConfiguration>();
-            configuration.ConfigurationCustomer = customer;
+            configuration.Customer = customer;
         }
     }
 }

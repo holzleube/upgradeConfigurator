@@ -27,6 +27,7 @@ namespace AirbusCatalogue.Model.ConfigurationData
             State = state;
             Programm = programm;
             ConfigurationGroups = new List<IConfigurationGroup>();
+            Customer = customer;
         }
 
         [DataMember]
@@ -53,9 +54,6 @@ namespace AirbusCatalogue.Model.ConfigurationData
 
         [DataMember]
         public IAircraftProgramm Programm { get; set; }
-
-        [DataMember]
-        public ICustomer ConfigurationCustomer { get; set; }
 
         [DataMember]
         public List<IConfigurationGroup> ConfigurationGroups { get; set; }
