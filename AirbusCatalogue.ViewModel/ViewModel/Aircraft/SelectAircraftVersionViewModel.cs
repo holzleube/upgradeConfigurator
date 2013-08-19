@@ -49,11 +49,11 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Aircraft
             SelectedItems = new ObservableCollection<IAircraft>(_model.GetSelectedAircrafts());
 
             var groupedAircrafts =
-                from w in aircrafts
-                orderby categoryCriteria.GetFilterValue(w)
-                group w by categoryCriteria.GetFilterValue(w)
-                into g
-                select new {Category = g.Key, Products = g};
+                from aircraft in aircrafts
+                orderby categoryCriteria.GetFilterValue(aircraft)
+                group aircraft by categoryCriteria.GetFilterValue(aircraft)
+                into aircraftGroup
+                select new {Category = aircraftGroup.Key, Products = aircraftGroup};
             var result = new ObservableCollection<IIdentable>();
             foreach (var g in groupedAircrafts)
             {

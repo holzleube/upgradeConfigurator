@@ -27,16 +27,5 @@ namespace AirbusCatalogue.Model.Aircrafts
         [DataMember]
         public string AircraftType { get; set; }
 
-        public override bool Equals(object obj)
-        {
-            var aircraft = obj as Aircraft;
-            if (aircraft != null)
-            {
-                return UniqueId.Equals(aircraft.UniqueId);
-            }
-            return base.Equals(obj);
-        }
-
-        
     }
 }

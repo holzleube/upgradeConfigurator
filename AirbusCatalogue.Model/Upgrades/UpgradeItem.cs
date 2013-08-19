@@ -24,22 +24,36 @@ namespace AirbusCatalogue.Model.Upgrades
             IsDefault = isDefault;
         }
 
+        [DataMember]
         public string UniqueId { get; set; }
 
+        [DataMember]
         public string Name { get; set; }
 
+        [DataMember]
         public string Description { get; set; }
 
+        [DataMember]
         public string ProductImagePath { get; set; }
 
+        [DataMember]
         public string SellerImagePath { get; set; }
 
+        [DataMember]
         public int Priority { get; set; }
 
+        [DataMember]
         public int TduNumber { get; set; }
 
+        [DataMember]
         public bool IsDefault { get; set; }
 
+
+        /// <summary>
+        /// This overridden method is necessary for comparing the items and reselect them in upgradeSelectionView.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public override bool Equals(object obj)
         {
             var item = obj as UpgradeItem;

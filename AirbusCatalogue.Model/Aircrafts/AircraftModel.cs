@@ -14,11 +14,8 @@ namespace AirbusCatalogue.Model.Aircrafts
 {
     public class AircraftModel
     {
-        private List<Aircraft> list4;
         private const string BASE_PATH = "Assets/slider/";
-        private const string A320Image = "Assets/allTypes/head_a320.png";
-        private const string A321Image = "Assets/allTypes/head_a321.png";
-        private const string A319Image = "Assets/allTypes/head_a319.png";
+
         public List<AircraftProgramm> GetAllAircraftProgramms()
         {
             var result = new List<AircraftProgramm>

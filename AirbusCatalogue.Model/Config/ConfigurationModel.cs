@@ -71,7 +71,7 @@ namespace AirbusCatalogue.Model.Config
                 SetRightConfigurationState();
                 GetConfiguration().HasConfigurationChanged = false;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw new WebserviceNotAvailableException("The webservice is not available, please try again later");
             } 

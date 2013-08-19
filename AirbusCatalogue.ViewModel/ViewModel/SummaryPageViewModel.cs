@@ -157,7 +157,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel
                 var configurationTask = _model.ConfigureCurrentConfiguration();
                 await configurationTask;
             }
-            catch (WebserviceNotAvailableException e)
+            catch (WebserviceNotAvailableException)
             {
                 Configuration.State = ConfigurationState.UNKNOWN;
                 var group = GetConfigurationGroup();

@@ -68,7 +68,6 @@ namespace AirbusCatalogue.Model.Repository
             return _dataMap[msn];
         }
 
-
         public List<IAircraft> GetAllAircrafts()
         {
             return _dataMap.Select(x => x.Value).ToList();
