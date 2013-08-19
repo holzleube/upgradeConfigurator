@@ -125,9 +125,6 @@
     <Compile Include="Pages\Aircrafts\SelectAircraftFamilyPage.xaml.cs">
       <DependentUpon>SelectAircraftFamilyPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Aircrafts\SelectAircraftTypePage.xaml.cs">
-      <DependentUpon>SelectAircraftTypePage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\Aircrafts\SelectAircraftVersionPage.xaml.cs">
       <DependentUpon>SelectAircraftVersionPage.xaml</DependentUpon>
     </Compile>
@@ -336,10 +333,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\Aircrafts\SelectAircraftFamilyPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Pages\Aircrafts\SelectAircraftTypePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -151,7 +151,6 @@
     <Compile Include="ViewInterfaces\Upgrades\IUpgradeSelection.cs" />
     <Compile Include="ViewInterfaces\Upgrades\IUpgradeTypeSelection.cs" />
     <Compile Include="ViewModel\Aircraft\SelectAircraftFamilyViewModel.cs" />
-    <Compile Include="ViewModel\Aircraft\SelectAircraftTypeViewModel.cs" />
     <Compile Include="ViewModel\Aircraft\SelectAircraftVersionViewModel.cs" />
     <Compile Include="ViewModel\Configuration\ConfigurationDetailViewModel.cs" />
     <Compile Include="ViewModel\Customer\SelectCustomerViewModel.cs" />
