@@ -11,13 +11,19 @@ using AirbusCatalogue.Model.Aircrafts;
 using AirbusCatalogue.Model.Templates;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
+using AirbusCatalogue.Model.Upgrades;
 
 namespace AirbusCatalogue.Model.ConfigurationData
 {
     [DataContract]
+    [KnownType(typeof(Customer.Customer))]
+    [KnownType(typeof(AircraftProgramm))]
+    [KnownType(typeof(Aircraft))]
+    [KnownType(typeof(ConfigurationState))]
+    [KnownType(typeof(UpgradeItem))]
+    [KnownType(typeof(ConfigurationGroup))]
     public class Configuration : Identable, IConfiguration
     {
-        private ConfigurationState _configurationState;
 
         public Configuration(string uniqueId, List<IUpgradeItem> upgrades, List<IAircraft> aircrafts, string configurationDate, ConfigurationState state, IAircraftProgramm programm, ICustomer customer): base(uniqueId)
         {
@@ -27,28 +33,15 @@ namespace AirbusCatalogue.Model.ConfigurationData
             State = state;
             Programm = programm;
             ConfigurationGroups = new List<IConfigurationGroup>();
-            Customer = customer;
+            ConfigurationCustomer = customer;
         }
 
         [DataMember]
         public string ConfigurationDate { get; set; }
 
         [DataMember]
-        public ConfigurationState State
-        {
-            get
-            {
-                return _configurationState;
-            }
-            set
-            {
-                _configurationState = value;
-               
-            }
-        }
-        [DataMember]
-        public List<IAircraft> SelectedAircrafts { get; set; }
-
+        public ConfigurationState State {get; set; }
+        
         [DataMember]
         public List<IUpgradeItem> Upgrades { get; set; }
 
@@ -62,7 +55,10 @@ namespace AirbusCatalogue.Model.ConfigurationData
         public bool HasConfigurationChanged { get; set; }
 
         [DataMember]
-        public ICustomer Customer { get; set; }
+        public ICustomer ConfigurationCustomer { get; set; }
+
+        [DataMember]
+        public List<IAircraft> SelectedAircrafts { get; set; }
         
     }
 }

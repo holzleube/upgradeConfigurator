@@ -16,6 +16,8 @@ namespace AirbusCatalogue.Model.Templates
         {
             UniqueId = uniqueId;
         }
+
+        [DataMember]
         public string UniqueId { get; set; }
     }
 }

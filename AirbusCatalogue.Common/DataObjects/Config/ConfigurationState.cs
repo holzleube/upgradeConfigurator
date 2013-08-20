@@ -47,7 +47,7 @@ namespace AirbusCatalogue.Common.DataObjects.Config
         [DataMember]
         public string ConfiguationStateEditText { get; set; }
 
-        [DataMember]
+        [IgnoreDataMember]
         public Brush ConfiguationStateColor { get; set; }
     }
 }

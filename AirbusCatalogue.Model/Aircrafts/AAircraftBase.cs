@@ -5,17 +5,19 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using AirbusCatalogue.Model.Templates;
+using AirbusCatalogue.Common.DataObjects.General;
 
 namespace AirbusCatalogue.Model.Aircrafts
 {
     [DataContract]
-    public abstract class AAircraftBase:Identable
+    public abstract class AAircraftBase:IIdentable
     {
         protected AAircraftBase(string uniqueId, string name, string imagePath)
-            : base(uniqueId)
+            
         {
             Name = name;
             ImagePath = imagePath;
+            UniqueId = uniqueId;
         }
 
         [DataMember]
@@ -23,5 +25,8 @@ namespace AirbusCatalogue.Model.Aircrafts
 
         [DataMember]
         public string ImagePath { get; set; }
+
+        [DataMember]
+        public string UniqueId { get; set; }
     }
 }

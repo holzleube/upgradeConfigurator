@@ -10,13 +10,11 @@ namespace AirbusCatalogue.Common.DataObjects.Customers
 {
     public interface ICustomer:IIdentable
     {
-        [DataMember]
+        
         string ImagePath { get; set; }
 
-        [DataMember]
         string CustomerName { get; set; }
 
-        [DataMember]
         char CustomerChar { get; set; }
     }
 }

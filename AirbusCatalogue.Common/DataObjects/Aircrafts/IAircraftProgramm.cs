@@ -10,7 +10,7 @@ namespace AirbusCatalogue.Common.DataObjects.Aircrafts
 {
     public interface IAircraftProgramm:IAircraftBase
     {
-        ImageSource Image { get; }
+       
     }
 
     

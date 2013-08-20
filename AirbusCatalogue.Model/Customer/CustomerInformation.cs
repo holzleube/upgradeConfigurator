@@ -12,7 +12,6 @@ using AirbusCatalogue.Model.Upgrades;
 
 namespace AirbusCatalogue.Model.Customer
 {
-    [KnownType(typeof(IConfiguration))]
     public class CustomerInformation : Identable
     {
         public CustomerInformation(string uniqueId, List<IConfiguration> lastConfiguration, List<IUpgradeItem> newUpgrades,

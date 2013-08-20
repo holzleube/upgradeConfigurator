@@ -115,6 +115,9 @@
     <Compile Include="Customer\CustomerInformationModel.cs" />
     <Compile Include="Exceptions\WebserviceNotAvailableException.cs" />
     <Compile Include="File\ConfigurationFileManager.cs" />
+    <Compile Include="File\Dummy.cs" />
+    <Compile Include="File\DummyObject.cs" />
+    <Compile Include="File\IDummy.cs" />
     <Compile Include="Json\JsonHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AircraftRepository.cs" />
@@ -158,6 +161,9 @@
     <Reference Include="Microsoft.Practices.ServiceLocation">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Laurent Bugnion (GalaSoft)\Mvvm Light Toolkit\Binaries\Win8\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\netcore45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AirbusCatalogue.Common\AirbusCatalogue.Common.csproj">
@@ -169,6 +175,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
     <None Include="Service References\Acmm\Acmm.wsdl" />
     <None Include="Service References\AirbusConfigurationService\AirbusCatalogue.Model.AirbusConfigurationService.calculateConcurrentSbRequirementsResponse.datasource">

@@ -13,6 +13,8 @@ using AirbusCatalogue.Model.Repository;
 using AirbusCatalogue.Model.Templates;
 using AirbusCatalogue.Model.Upgrades;
 using GalaSoft.MvvmLight.Ioc;
+using AirbusCatalogue.Model.File;
+using AirbusCatalogue.Model.Json;
 
 namespace AirbusCatalogue.Model.Customer
 {
@@ -25,12 +27,14 @@ namespace AirbusCatalogue.Model.Customer
         private IAircraftRepository _aircraftRepo;
         private IUpgradeRepository _upgradeRepo;
         private ICustomerRepository _customerRepo;
+        private ConfigurationFileManager _configurationFileManager;
 
         public CustomerInformationModel()
         {
             _aircraftRepo = SimpleIoc.Default.GetInstance<IAircraftRepository>();
             _upgradeRepo = SimpleIoc.Default.GetInstance<IUpgradeRepository>();
             _customerRepo = SimpleIoc.Default.GetInstance<ICustomerRepository>();
+            _configurationFileManager = new ConfigurationFileManager();
             if (! SimpleIoc.Default.IsRegistered<IConfiguration>())
             {
                 var configuration = new Configuration("id", new List<IUpgradeItem>(), new List<IAircraft>(),
@@ -89,6 +93,7 @@ namespace AirbusCatalogue.Model.Customer
                     new AircraftProgramm("R-Series", "A380", BASE_PATH_AIRCRAFT + "slider_a380.png")
                     
                 };
+            
             var lastConfigurations = new List<IConfiguration>
                 {
                     new Configuration("configuration1",upgrades, aircrafts, "16.03.2013", ConfigurationState.IN_PROGRESS, programms[2], customer),
@@ -100,6 +105,8 @@ namespace AirbusCatalogue.Model.Customer
                 };
             return lastConfigurations;
         }
+
+        
 
         private List<IUpgradeItem> GetUpgradeItems()
         {
@@ -118,13 +125,16 @@ namespace AirbusCatalogue.Model.Customer
 
         public List<ICustomer> GetAllCustomers()
         {
+            var config = _configurationFileManager.GetConfigurationByDate("20.08.2013-18.08");
+            var configuration = config.Result;
             return _customerRepo.GetAllCustomers();
+
         }
 
         public void SetCustomer(ICustomer customer)
         {
             var configuration = SimpleIoc.Default.GetInstance<IConfiguration>();
-            configuration.Customer = customer;
+            configuration.ConfigurationCustomer = customer;
         }
     }
 }

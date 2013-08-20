@@ -2,6 +2,12 @@
 using System.Runtime.Serialization.Json;
 using System.Text;
 using AirbusCatalogue.Common.DataObjects.Config;
+using AirbusCatalogue.Common.DataObjects.Customers;
+using AirbusCatalogue.Model.ConfigurationData;
+using Newtonsoft.Json;
+using AirbusCatalogue.Model.File;
+using Windows.Storage.Streams;
+
 
 namespace AirbusCatalogue.Model.Json
 {
@@ -11,7 +17,7 @@ namespace AirbusCatalogue.Model.Json
 
         public JsonHelper()
         {
-            _serializer = new DataContractJsonSerializer(typeof (IConfiguration));
+            _serializer = new DataContractJsonSerializer(typeof(Configuration));
         }
         public string GetJsonFromConfiguration(IConfiguration configuration)
         {
@@ -29,6 +35,17 @@ namespace AirbusCatalogue.Model.Json
             {
                 return (IConfiguration) _serializer.ReadObject(stream);
             }
+        }
+
+        public string GetJsonFromDummy(DummyObject configuration)
+        {
+            var serializer = new DataContractJsonSerializer(typeof(DummyObject));
+            var result = JsonConvert.SerializeObject(configuration, Formatting.Indented);
+            var stream = new MemoryStream();
+            serializer.WriteObject(stream, configuration);
+            stream.Position = 0;
+            var sr = new StreamReader(stream);
+            return sr.ReadToEnd();
         }
     }
 }

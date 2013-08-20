@@ -18,6 +18,7 @@ using AirbusCatalogue.Model.Repository;
 using AirbusCatalogue.Model.Transferable;
 using AirbusCatalogue.Model.Upgrades;
 using GalaSoft.MvvmLight.Ioc;
+using AirbusCatalogue.Model.Json;
 
 
 namespace AirbusCatalogue.Model.Config
@@ -145,8 +146,9 @@ namespace AirbusCatalogue.Model.Config
         {
             var configuration = GetCurrentConfiguration();
             SimpleIoc.Default.Unregister<IConfiguration>();
-            configuration.ConfigurationDate = DateTime.Now.ToString();
-            new ConfigurationFileManager().WriteConfigurationToFile(configuration);
+            configuration.ConfigurationDate = DateTime.Now.ToString("dd.MM.yyyy-HH.mm");
+            new ConfigurationFileManager().WriteConfigurationToFile((Configuration)configuration);
         }
+        
     }
 }
