@@ -9,7 +9,7 @@ namespace AirbusCatalogue.Common.DataObjects.Aircrafts
 {
     public interface IAircraft: IAircraftBase
     {
-        string MsnNumber { get; set; }
+        int MsnNumber { get; set; }
 
         string Version { get; set; }
 

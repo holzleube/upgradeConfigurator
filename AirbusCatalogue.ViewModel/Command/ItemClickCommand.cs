@@ -9,6 +9,10 @@ using Windows.UI.Xaml.Controls;
 
 namespace AirbusCatalogue.ViewModel.Command
 {
+    /// <summary>
+    /// This Command represents a dependenc property for clicking a tile in an gridview for instance.
+    /// This property is needed because there is no possibility to get a click on the item, so you need this property.
+    /// </summary>
     public static class ItemClickCommand
     {
         public static readonly DependencyProperty CommandProperty =

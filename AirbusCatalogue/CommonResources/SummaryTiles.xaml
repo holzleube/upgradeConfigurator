@@ -2,19 +2,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <DataTemplate x:Key="AircraftProgrammTemplateSummary">
-       
-            <Grid Width="600" Height="600" Background="{StaticResource BlueTileBackground}">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="120"/>
-                </Grid.RowDefinitions>
-                <Image HorizontalAlignment="Left" Margin="5" VerticalAlignment="Center" Source="{Binding Image}" Stretch="Uniform"/>
-                <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Background="{StaticResource airbusBlue}">
-                    <TextBlock Text="{Binding Title}" HorizontalAlignment="Center" FontSize="50" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource GroupHeaderTextStyle}" Margin="20"/>
-                </StackPanel>
-            </Grid>
-    </DataTemplate>
+    
     <DataTemplate x:Key="EmptyConfigurationTemplate">
             <Grid Width="400" Height="550" Background="{StaticResource TileBackground}"  >
                 <Grid.RowDefinitions>

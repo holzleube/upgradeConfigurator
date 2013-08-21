@@ -103,8 +103,6 @@
     <Compile Include="Aircrafts\Aircraft.cs" />
     <Compile Include="Aircrafts\AircraftProgramm.cs" />
     <Compile Include="Aircrafts\AircraftModel.cs" />
-    <Compile Include="Aircrafts\AircraftType.cs" />
-    <Compile Include="Aircrafts\AircraftVersion.cs" />
     <Compile Include="ConfigurationData\Configuration.cs" />
     <Compile Include="ConfigurationData\ConfigurationGroup.cs" />
     <Compile Include="ConfigurationData\UpgradeAlternative.cs" />

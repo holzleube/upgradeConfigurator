@@ -4,7 +4,10 @@ using System.Windows.Input;
 
 namespace AirbusCatalogue.ViewModel.Command
 {
-
+    /// <summary>
+    /// This relay command is a simple implementation of the ICommand interface and it is used
+    /// for every command binding in the view.
+    /// </summary>
     public class RelayCommand : ICommand
     {
         private readonly Action execute;

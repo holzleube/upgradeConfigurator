@@ -101,12 +101,12 @@
   <ItemGroup>
     <Compile Include="Category\Aircraft\AircraftCategory.cs" />
     <Compile Include="Category\Aircraft\AircraftCategoryFactory.cs" />
+    <Compile Include="Category\Aircraft\Criterias\AircraftMsnCriteria.cs" />
     <Compile Include="Category\Aircraft\Criterias\AircraftTypeCategoryCriteria.cs" />
     <Compile Include="Category\Aircraft\Criterias\AircraftVersionCategoryCriteria.cs" />
     <Compile Include="Category\Aircraft\Interfaces\IAircraftCategory.cs" />
     <Compile Include="Command\ItemClickCommand.cs" />
     <Compile Include="Converter\CustomerInformationDataToViewObjectsConverter.cs" />
-    <Compile Include="Converter\ModelObjectsToViewObjectsConverter.cs" />
     <Compile Include="Category\ICategoryCriteria.cs" />
     <Compile Include="Initializer\RepositoryInitializer.cs" />
     <Compile Include="Navigation\INavigationService.cs" />
@@ -117,7 +117,6 @@
     <Compile Include="Templates\GridHolderViewModel.cs" />
     <Compile Include="Templates\IUpgradeSelectionViewModel.cs" />
     <Compile Include="Templates\ViewModelBase.cs" />
-    <Compile Include="ViewDataElements\Aircraft\AircraftDataItem.cs" />
     <Compile Include="ViewDataElements\Aircraft\AircraftProgrammDataItem.cs" />
     <Compile Include="ViewDataElements\Aircraft\AircraftTypeDataItem.cs" />
     <Compile Include="ViewDataElements\Aircraft\AircraftProgrammGroup.cs" />

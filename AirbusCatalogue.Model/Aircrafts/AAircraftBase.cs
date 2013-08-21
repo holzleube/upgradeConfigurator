@@ -6,11 +6,16 @@ using System.Text;
 using System.Threading.Tasks;
 using AirbusCatalogue.Model.Templates;
 using AirbusCatalogue.Common.DataObjects.General;
+using AirbusCatalogue.Common.DataObjects.Aircrafts;
 
 namespace AirbusCatalogue.Model.Aircrafts
 {
+    /// <summary>
+    /// This Model class is a super class for all aircraft elements. Currently it is used from
+    /// aircrafts and aircraftProgramm.
+    /// </summary>
     [DataContract]
-    public abstract class AAircraftBase:IIdentable
+    public abstract class AAircraftBase:IIdentable, IAircraftBase
     {
         protected AAircraftBase(string uniqueId, string name, string imagePath)
             

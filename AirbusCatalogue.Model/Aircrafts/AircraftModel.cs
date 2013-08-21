@@ -12,9 +12,14 @@ using AirbusCatalogue.Model.Repository;
 
 namespace AirbusCatalogue.Model.Aircrafts
 {
+    /// <summary>
+    /// This model provides all data for aircrafts. It holds single aircrafts
+    /// and also the aircraft programms. You can also set the aircraft in the current
+    /// configuration.
+    /// </summary>
     public class AircraftModel
     {
-        private const string BASE_PATH = "Assets/slider/";
+        private const string BASE_PATH = "/Assets/slider/";
 
         public List<AircraftProgramm> GetAllAircraftProgramms()
         {

@@ -7,6 +7,10 @@ using Windows.UI.Xaml.Controls;
 
 namespace AirbusCatalogue.ViewModel.Navigation
 {
+    /// <summary>
+    /// This interface has methods for navigating through the application.
+    /// It is necessary for registering a frame in IOC Container.
+    /// </summary>
     public interface INavigationService
     {
         void Navigate(Type sourcePageType);

@@ -10,6 +10,9 @@ using Windows.UI.Xaml.Controls;
 
 namespace AirbusCatalogue.ViewModel.Navigation
 {
+    /// <summary>
+    /// This implementation of INavigationService uses a given Frame to navigate.
+    /// </summary>
     public class NavigationService : INavigationService
     {
 

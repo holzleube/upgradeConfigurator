@@ -8,6 +8,9 @@ using GalaSoft.MvvmLight.Ioc;
 
 namespace AirbusCatalogue.ViewModel.Initializer
 {
+    /// <summary>
+    /// This initializer is responsible for registering the necessary repositories for all data elements at the start of the application.
+    /// </summary>
     public class RepositoryInitializer
     {
         public static void RegisterRepositories()

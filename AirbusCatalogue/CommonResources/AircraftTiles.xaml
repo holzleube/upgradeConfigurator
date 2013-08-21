@@ -8,16 +8,16 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="120"/>
                 </Grid.RowDefinitions>
-                <Image HorizontalAlignment="Left" Margin="5" VerticalAlignment="Center" Source="{Binding Image}" Stretch="Uniform"/>
+                <Image HorizontalAlignment="Left" Margin="5" VerticalAlignment="Center" Source="{Binding ImagePath}" Stretch="Uniform"/>
                 <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Background="{StaticResource airbusBlue}">
-                    <TextBlock Text="{Binding Title}" HorizontalAlignment="Center" FontSize="50" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource GroupHeaderTextStyle}" Margin="20"/>
+                    <TextBlock Text="{Binding Name}" HorizontalAlignment="Center" FontSize="50" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource GroupHeaderTextStyle}" Margin="20"/>
                 </StackPanel>
             </Grid>
     </DataTemplate>
     
     <DataTemplate x:Key="AircraftVersionTemplate">
             <Grid HorizontalAlignment="Left" Width="250" Height="150" Background="{StaticResource BlueTileBackground}">
-                <Image Source="{Binding ImagePath}" VerticalAlignment="Top" Stretch="Uniform" AutomationProperties.Name="{Binding Title}"/>
+                <Image Source="{Binding ImagePath}" VerticalAlignment="Top" Stretch="Uniform"/>
                 <StackPanel VerticalAlignment="Bottom"  Background="{StaticResource airbusBlue}">
                 <TextBlock Text="{Binding UniqueId}" HorizontalAlignment="Center"  LineHeight="25" FontSize="25" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource GroupHeaderTextStyle}" Height="40" Margin="15,0,15,0"/>
                 </StackPanel>

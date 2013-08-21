@@ -8,9 +8,12 @@ using AirbusCatalogue.ViewModel.ViewDataElements.Upgrades;
 
 namespace AirbusCatalogue.ViewModel.Converter
 {
+    /// <summary>
+    /// This converter is resposible for converting a CustomerInformation Object from Model for the view. It 
+    /// filters the relevant information and shows the necessary information for the view.
+    /// </summary>
     public class CustomerInformationDataToViewObjectsConverter
     {
-
         public ObservableCollection<IIdentable> GetConvertedElements(CustomerInformation customerInformation)
         {
             var convertedGroups = new ObservableCollection<IIdentable>();

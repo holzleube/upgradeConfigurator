@@ -12,6 +12,7 @@ using AirbusCatalogue.ViewModel.ViewDataElements.Customer;
 using AirbusCatalogue.ViewModel.ViewDataElements.Summary;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using AirbusCatalogue.Common.DataObjects.Aircrafts;
 
 namespace AirbusCatalogue.VariableTemplate
 {
@@ -34,7 +35,7 @@ namespace AirbusCatalogue.VariableTemplate
             {
                 return base.SelectTemplateCore(item, container);
             }
-            if (item.GetType() == typeof(AircraftProgrammDataItem))
+            if (item is AircraftProgrammDataItem)
             {
                 return ProgrammTile;
             }
