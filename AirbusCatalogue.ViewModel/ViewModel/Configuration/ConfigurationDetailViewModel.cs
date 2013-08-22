@@ -14,6 +14,11 @@ using GalaSoft.MvvmLight.Ioc;
 
 namespace AirbusCatalogue.ViewModel.ViewModel.Configuration
 {
+    /// <summary>
+    /// This viewModel holds the data for ConfigurationDetailPage.
+    /// It is responsible for selecting alternatives and saves them to
+    /// the configurationModel. 
+    /// </summary>
     public class ConfigurationDetailViewModel:GridHolderViewModel
     {
         private readonly ConfigurationModel _model;

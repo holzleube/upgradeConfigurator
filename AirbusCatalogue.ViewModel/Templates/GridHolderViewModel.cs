@@ -9,22 +9,7 @@ namespace AirbusCatalogue.ViewModel.Templates
     /// </summary>
     public abstract class GridHolderViewModel : ViewModelBase
     {
-        private string _headline;
        
-
-        public string Headline
-        {
-            get
-            {
-                return _headline;
-            }
-            set
-            {
-                _headline = value;
-                OnPropertyChanged();
-            }
-        }
-
         private ObservableCollection<IIdentable> _dataGroupElements = new ObservableCollection<IIdentable>();
         public ObservableCollection<IIdentable> DataGroupElements
         {

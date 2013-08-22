@@ -13,7 +13,6 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Customer
         private readonly CustomerInformationModel _customerModel;
         public SelectCustomerViewModel()
         {
-            Headline = "select customer";
             _customerModel = new CustomerInformationModel();
             InitializeCustomers();
         }

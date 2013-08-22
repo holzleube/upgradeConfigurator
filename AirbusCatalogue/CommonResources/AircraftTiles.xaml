@@ -54,14 +54,12 @@
         </StackPanel>
     </DataTemplate>
     <DataTemplate x:Key="SingleAircraftSelectionTemplate">
-        <Border BorderBrush="Black" BorderThickness="2">
-            <Grid HorizontalAlignment="Center" Width="150" Height="130" Background="{StaticResource TileBackground}">
+            <Grid HorizontalAlignment="Center" Width="150" Height="130" Background="{StaticResource BlueTileBackground}">
                 <Image Source="{Binding Image}" Stretch="Uniform" AutomationProperties.Name="{Binding Title}"/>
                 <StackPanel VerticalAlignment="Bottom" Background="{StaticResource airbusBlue}">
                     <TextBlock Text="{Binding Title}"  Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" FontSize="18" Style="{StaticResource TitleTextStyle}" Height="30" Margin="15,0,15,0"/>
                 </StackPanel>
             </Grid>
-        </Border>
     </DataTemplate>
     <DataTemplate x:Key="AircraftSelectionTemplate">
             <Grid Height="550" MinWidth="400" Background="{StaticResource TileBackground}">

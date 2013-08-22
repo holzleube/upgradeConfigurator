@@ -34,10 +34,11 @@
             <RowDefinition Height="140"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
-        <variableTemplate:VariableTileControl
+
+        <GridView
             Grid.Row="1"
             x:Name="itemGridView"
+            Margin="35,0,0,0"
             AutomationProperties.AutomationId="ItemGridView"
             AutomationProperties.Name="Grouped Items"
             ItemsSource="{Binding Source={StaticResource GroupedItemsViewSource}}"
@@ -46,17 +47,13 @@
             command:ItemClickCommand.Command="{Binding SelectAircraftCommand}"
             IsSwipeEnabled="false"
             IsItemClickEnabled="True">
-                <GridView.GroupStyle>
-                    <GroupStyle>
-                        <GroupStyle.Panel>
-                            <ItemsPanelTemplate>
-                            <VariableSizedWrapGrid ItemHeight="10" ItemWidth="10" Orientation="Vertical" Margin="0,0,10,0"/>
-                            </ItemsPanelTemplate>
-                        </GroupStyle.Panel>
-                    </GroupStyle>
-                </GridView.GroupStyle>
-            </variableTemplate:VariableTileControl>
-       
+            <GridView.ItemContainerStyle>
+                <Style TargetType="FrameworkElement">
+                    <Setter Property="Margin" Value="0 0 40 0"/>
+                </Style>
+            </GridView.ItemContainerStyle>
+        </GridView>
+
         <!-- Back button and page title -->
         <Grid>
             <Grid.ColumnDefinitions>

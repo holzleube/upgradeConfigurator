@@ -26,7 +26,7 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements.Configuration
                 var factor = countWithoutFirstPage / 2;
                 ColSpan = factor * 20;
             }
-            ColSpan += 40;
+            ColSpan += 44;
         }
 
         public IUpgradeAlternative UpgradeAlternative { get; set; }

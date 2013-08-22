@@ -7,11 +7,7 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements.Aircraft
     {
         public AircraftProgrammGroup(IEnumerable<AircraftProgramm> allAircrafts) : base("aircraftProgrammes", "", "")
         {
-            foreach (var aircraftProgramm in allAircrafts)
-            {
-                Items.Add(aircraftProgramm);
-                //Items.Add(new BasicDataItem(aircraftProgramm.UniqueId, aircraftProgramm.Name, aircraftProgramm.ImagePath, this, 60, 63));
-            }
+            Items = new System.Collections.ObjectModel.ObservableCollection<Common.DataObjects.General.IIdentable>(allAircrafts);
         }
     }
 }

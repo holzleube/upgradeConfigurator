@@ -250,6 +250,7 @@
                                 Margin="0,0,2,0"
                                 FontSize="15"
                                 TextAlignment="Center"
+                                HorizontalAlignment="Center"
                                 Width="130"
                                 Style="{StaticResource BasicTextStyle}"/>
                         </StackPanel>
@@ -311,6 +312,7 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
     </Style>
 
 </ResourceDictionary>

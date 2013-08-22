@@ -42,9 +42,8 @@
                                         />
     </Page.Resources>
     <Page.BottomAppBar>
-        <AppBar x:Name="bottomAppBar" Padding="0" Visibility="{Binding Path=Configuration.State, Converter={StaticResource converter}, ConverterParameter=appbar}" IsOpen="{Binding IsBottomAppBarOpen, Mode=TwoWay}">
+        <AppBar x:Name="bottomAppBar" Padding="5,5,0,0" Width="170" IsSticky="True" HorizontalAlignment="Right" Visibility="{Binding Path=Configuration.State, Converter={StaticResource converter}, ConverterParameter=appbar}" IsOpen="{Binding IsBottomAppBarOpen, Mode=TwoWay}">
             <Grid >
-               
                 <Grid.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FF72A4D6"/>
@@ -52,22 +51,23 @@
                         <GradientStop Color="#FF5970B6" Offset="0.992"/>
                     </LinearGradientBrush>
                 </Grid.Background>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                    <Button Style="{StaticResource BottomAppBarButtonStyleCorner}"
+                	Content="&#xE105;"
+                    HorizontalAlignment="Center"
+                	IsEnabled="{Binding Configuration.State, ConverterParameter=save, Converter={StaticResource converter}}"
+                	CommandParameter="{StaticResource SaveConfigurationButtonText}" 
+                    AutomationProperties.Name="{StaticResource SaveConfigurationButtonText}"   
+                    Command="{Binding NavigateToStartCommand}" />
                 <Button Style="{StaticResource BottomAppBarButtonStyleCorner}"
-                            Content="&#xE149;"
-                            HorizontalAlignment="Left"
-                            Visibility="{Binding Path=Configuration.State, Converter={StaticResource converter}, ConverterParameter=refresh}"
-                            AutomationProperties.Name="{StaticResource ReconfigureButtonText}"   Command="{Binding ReconfigureCommand}"/>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button Style="{StaticResource BottomAppBarButtonStyleCorner}"
-                            Content="&#xE105;"
-                            IsEnabled="{Binding Path=Configuration.State, Converter={StaticResource converter}, ConverterParameter=save}"
-                            CommandParameter="{StaticResource SaveConfigurationButtonText}" AutomationProperties.Name="{StaticResource SaveConfigurationButtonText}"   Command="{Binding NavigateToStartCommand}"/>
-                    <Button Style="{StaticResource BottomAppBarButtonStyleCorner}"
-                            Content="&#xE14D;"
-                            IsEnabled="{Binding Path=Configuration.State, Converter={StaticResource converter}, ConverterParameter=order}"
-                            CommandParameter="{StaticResource OrderConfigurationButtonText}"
-                            AutomationProperties.Name="{StaticResource OrderConfigurationButtonText}"   Command="{Binding NavigateToStartCommand}"/>
-                </StackPanel>
+                	Content="&#xE14D;"
+                    Grid.Column="1"
+                	IsEnabled="{Binding Configuration.State, ConverterParameter=order, Converter={StaticResource converter}}"
+                	CommandParameter="{StaticResource OrderConfigurationButtonText}"
+                	AutomationProperties.Name="{StaticResource OrderConfigurationButtonText}"   Command="{Binding NavigateToStartCommand}" />
             </Grid>
         </AppBar>
     </Page.BottomAppBar>

@@ -18,6 +18,11 @@ using GalaSoft.MvvmLight.Ioc;
 
 namespace AirbusCatalogue.ViewModel.ViewModel.Aircraft
 {
+    /// <summary>
+    /// This viewModel gets the data from aircraft model and holds it for the view.
+    /// The logic for grouping the items for using the semantic zoom is done here. 
+    /// Also it holds the selected aircrafts and the categories for the listbox.
+    /// </summary>
     public class SelectAircraftVersionViewModel : GridHolderViewModel
     {
         private readonly AircraftModel _model;
@@ -126,28 +131,6 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Aircraft
         private void FilterAircraftList()
         {
             BuildAndSetAircraftsOnView(_allAircrafts, SelectedFilterValue.CategoryCriteria);
-            //if (SelectedFilterValue.Equals(AllItems))
-            //{
-            //    BuildAndSetAircraftsOnView(_allAircrafts, new AircraftVersionCategoryCriteria());
-            //    return;
-            //}
-            //var resultList = new List<AircraftVersion>();
-            //foreach (var aircraftVersion in _allAircrafts)
-            //{
-            //    var filteredList = aircraftVersion.Aircrafts.Select(x => x).
-            //        Where(x => x.AircraftType.Contains(SelectedFilterValue)).ToList();
-            //    if (filteredList.Count == 0)
-            //    {
-            //        continue;
-            //    }
-            //    var newAircraftVersion = new AircraftVersion(aircraftVersion.UniqueId, aircraftVersion.Name)
-            //    {
-            //        Aircrafts = filteredList
-            //    };
-            //    resultList.Add(newAircraftVersion);
-                
-            //}
-            //BuildAndSetAircraftsOnView(resultList, new AircraftVersionCategoryCriteria());
         }
 
        

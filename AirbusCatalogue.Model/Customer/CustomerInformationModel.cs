@@ -125,8 +125,8 @@ namespace AirbusCatalogue.Model.Customer
 
         public List<ICustomer> GetAllCustomers()
         {
-            var config = _configurationFileManager.GetConfigurationByDate("20.08.2013-18.08");
-            var configuration = config.Result;
+            //var config = _configurationFileManager.GetConfigurationByDate("20.08.2013-18.08");
+            //var configuration = config.Result;
             return _customerRepo.GetAllCustomers();
 
         }

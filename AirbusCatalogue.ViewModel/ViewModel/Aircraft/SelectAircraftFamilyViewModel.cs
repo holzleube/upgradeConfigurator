@@ -24,7 +24,6 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Aircraft
 
         public SelectAircraftFamilyViewModel()
         {
-            Headline = "select aircraft family";
             _model = new AircraftModel();
             InitializeDataSource();
         }
@@ -40,7 +39,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Aircraft
 
         public ICommand SelectAircraftCommand
         {
-            get { return _familySelectedCommand ?? (_familySelectedCommand = new RelayCommand<DataCommon>(SaveSelectionAndNavigateToSummaryPage)); }
+            get { return _familySelectedCommand ?? (_familySelectedCommand = new RelayCommand<IIdentable>(SaveSelectionAndNavigateToSummaryPage)); }
             set
             {
                 _familySelectedCommand = value;
@@ -48,7 +47,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Aircraft
             }
         }
 
-        private void SaveSelectionAndNavigateToSummaryPage(DataCommon data)
+        private void SaveSelectionAndNavigateToSummaryPage(IIdentable data)
         {
             var selectedProgramm = GetSelectedProgramm(data.UniqueId);
             _model.SelectAircraftProgramm(selectedProgramm);

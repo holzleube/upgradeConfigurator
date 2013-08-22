@@ -24,7 +24,7 @@
             />
         <variableTemplate:SummaryTemplateSelector x:Key="TemplateSelector" 
                                         AircraftTile="{StaticResource AircraftSelectionTemplate}"
-                                        ProgrammTile="{StaticResource AircraftProgrammTemplateSummary}"
+                                        ProgrammTile="{StaticResource AircraftProgrammTemplate}"
                                         SelectionTile="{StaticResource TduSelectionTemplate}"
                                         EmptyConfigurationTile="{StaticResource EmptyConfigurationTemplate}"
                                         ConfigurationGroupTile="{StaticResource ConfigurationGroupTemplate}"
@@ -78,6 +78,7 @@
             AutomationProperties.AutomationId="ItemGridView"
             AutomationProperties.Name="Grouped Items"
             Grid.Row="1"
+            Margin="35,0,0,0"
             ItemsSource="{Binding Source={StaticResource groupedItemsViewSource}}"
             ItemTemplateSelector="{StaticResource TemplateSelector}"
             IsItemClickEnabled="True"

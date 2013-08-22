@@ -16,7 +16,7 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements.Aircraft
         }
 
         public AircraftSelectionDataItem(IAircraft aircraft, DataGroup @group, int rowSpan, int colSpan)
-            : base(aircraft.UniqueId, aircraft.Name, aircraft.ImagePath, @group, rowSpan, colSpan)
+            : base(aircraft.UniqueId, aircraft.UniqueId, aircraft.ImagePath, @group, rowSpan, colSpan)
         {
             Version = aircraft.Version;
         }
