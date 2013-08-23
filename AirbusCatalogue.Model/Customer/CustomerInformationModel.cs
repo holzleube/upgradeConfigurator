@@ -23,10 +23,11 @@ namespace AirbusCatalogue.Model.Customer
     /// </summary>
     public class CustomerInformationModel
     {
-        private const string BASE_PATH_AIRCRAFT = "Assets/slider/";
+       
         private IAircraftRepository _aircraftRepo;
         private IUpgradeRepository _upgradeRepo;
         private ICustomerRepository _customerRepo;
+        private ICustomerConfigurationRespository _configurationRepo;
         private ConfigurationFileManager _configurationFileManager;
 
         public CustomerInformationModel()
@@ -34,8 +35,9 @@ namespace AirbusCatalogue.Model.Customer
             _aircraftRepo = SimpleIoc.Default.GetInstance<IAircraftRepository>();
             _upgradeRepo = SimpleIoc.Default.GetInstance<IUpgradeRepository>();
             _customerRepo = SimpleIoc.Default.GetInstance<ICustomerRepository>();
+            _configurationRepo= SimpleIoc.Default.GetInstance<ICustomerConfigurationRespository>();
             _configurationFileManager = new ConfigurationFileManager();
-            if (! SimpleIoc.Default.IsRegistered<IConfiguration>())
+            if (! SimpleIoc.Default.IsRegistered<IConfiguration>()) 
             {
                 var configuration = new Configuration("id", new List<IUpgradeItem>(), new List<IAircraft>(),
                                                       System.DateTime.Now.ToString(), ConfigurationState.IN_PROGRESS, null, _customerRepo.GetCustomerById("emirates"));
@@ -46,22 +48,20 @@ namespace AirbusCatalogue.Model.Customer
         public CustomerInformation GetCustomerInformationById(string uniqueId)
         {
             var customer = _customerRepo.GetCustomerById(uniqueId);
-            var lastConfiguration = new List<IConfiguration>();
+            var lastConfiguration = _configurationRepo.GetCurentConfigurationsByCustomerId(customer.UniqueId); 
             var newUpgrades = new List<IUpgradeItem>();
             var customerLogo = customer.ImagePath;
             if (uniqueId.Equals("emirates"))
             {
                 newUpgrades = GetNewUpgrades();
-                lastConfiguration = GetConfigurationForAirFrance();
                 return new CustomerInformation(uniqueId, lastConfiguration, newUpgrades, customerLogo, "/Assets/customers/emiratesA380Front.jpg");
             }
             if (uniqueId.Equals("airFrance"))
             {
                 newUpgrades = GetNewUpgrades();
-                lastConfiguration = GetConfigurationForAirFrance();
                 return new CustomerInformation(uniqueId, lastConfiguration, newUpgrades, "Assets/customers/airfrance_2.png", "/Assets/customers/startScreenAirFrance.jpg");
             }
-            return new CustomerInformation(uniqueId, GetConfigurationForAirFrance(), GetNewUpgrades(), customerLogo, "/Assets/customers/neutralAircraftFront.jpg");
+            return new CustomerInformation(uniqueId, lastConfiguration, GetNewUpgrades(), customerLogo, "/Assets/customers/neutralAircraftFront.jpg");
         }
 
         private List<IUpgradeItem> GetNewUpgrades()
@@ -73,40 +73,6 @@ namespace AirbusCatalogue.Model.Customer
                     _upgradeRepo.GetUpgradeItemById("isisId")
                 };
         }
-
-        private List<IConfiguration> GetConfigurationForAirFrance()
-        {
-            var customer = _customerRepo.GetCustomerById("emirates");
-            var aircrafts = new List<IAircraft>
-                {
-                    _aircraftRepo.GetAircraftByMSN("N-0002"), 
-                    _aircraftRepo.GetAircraftByMSN("N-0005"), 
-                    _aircraftRepo.GetAircraftByMSN("N-0007"), 
-                    _aircraftRepo.GetAircraftByMSN("N-0009") 
-                };
-            var upgrades = GetUpgradeItems();
-            var programms = new List<IAircraftProgramm>()
-                {
-                    new AircraftProgramm("N-Series", "A320-Family", BASE_PATH_AIRCRAFT + "slider_a320.png"),
-                    new AircraftProgramm("L-Series", "A330/A340", BASE_PATH_AIRCRAFT + "slider_a330.png"),
-                    new AircraftProgramm("P-Series", "A350", BASE_PATH_AIRCRAFT + "slider_a350.png"),
-                    new AircraftProgramm("R-Series", "A380", BASE_PATH_AIRCRAFT + "slider_a380.png")
-                    
-                };
-            
-            var lastConfigurations = new List<IConfiguration>
-                {
-                    new Configuration("configuration1",upgrades, aircrafts, "16.03.2013", ConfigurationState.IN_PROGRESS, programms[2], customer),
-                    new Configuration("configuration2",upgrades, aircrafts, "16.01.2013",ConfigurationState.IN_PROGRESS, programms[0], customer),
-                    new Configuration("configuration3",upgrades, aircrafts,  "13.03.2012", ConfigurationState.DELIVERED, programms[0], customer),
-                    new Configuration("configuration4",upgrades, aircrafts,  "11.09.2010",ConfigurationState.DELIVERED,  programms[0], customer),
-                    new Configuration("configuration5",upgrades, aircrafts,  "08.03.2010",ConfigurationState.DELIVERED,  programms[3], customer),
-                    new Configuration("configuration6",upgrades, aircrafts,  "01.08.2009",ConfigurationState.DELIVERED,  programms[3], customer)
-                };
-            return lastConfigurations;
-        }
-
-        
 
         private List<IUpgradeItem> GetUpgradeItems()
         {

@@ -61,8 +61,8 @@ namespace AirbusCatalogue.ViewModel.ViewModel
             if (obj.GetType() == typeof(ConfigurationDataItem))
             {
                 var configurationDataItem = obj as ConfigurationDataItem;
-                _configurationModel.SetConfiguration(configurationDataItem.Configuration);
-                navigation.Navigate(SimpleIoc.Default.GetInstance<ISummary>().GetType());
+                //_configurationModel.SetConfiguration(configurationDataItem.Configuration);
+                navigation.Navigate(SimpleIoc.Default.GetInstance<ISummary>().GetType(), configurationDataItem.Configuration);
             }
             else if (obj.UniqueId.Equals("startScreenImage"))
             {

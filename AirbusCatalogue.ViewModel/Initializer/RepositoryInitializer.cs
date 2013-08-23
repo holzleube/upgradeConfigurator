@@ -18,6 +18,7 @@ namespace AirbusCatalogue.ViewModel.Initializer
                 SimpleIoc.Default.Register<IAircraftRepository>(() => new AircraftRepository());
                 SimpleIoc.Default.Register<IUpgradeRepository>(() => new UpgradeRepository());
                 SimpleIoc.Default.Register<ICustomerRepository>(() => new CustomerRepository());
+                SimpleIoc.Default.Register<ICustomerConfigurationRespository>(() => new CustomerConfigurationRepository());
         }
     }
 }

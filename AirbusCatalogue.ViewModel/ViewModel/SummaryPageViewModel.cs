@@ -258,7 +258,27 @@ namespace AirbusCatalogue.ViewModel.ViewModel
 
         public override void Initialize(object parameter)
         {
+            var configurationFile = parameter as IConfigurationFile;
+            if (configurationFile != null)
+            {
+                GetDataFromConfigurationFile(configurationFile);
+            }
+            else
+            {
+                InitializeDataGrid();
+            }
+            
+        }
+
+        private async void GetDataFromConfigurationFile(IConfigurationFile configurationFile)
+        {
+            if (await TryToLoadConfiguration(configurationFile)) return;
+        }
+        private async Task<bool> TryToLoadConfiguration(IConfigurationFile configurationFile)
+        {
+            await _model.LoadConfigurationFromFileSystemAndSetItAsCurrentConfiguration(configurationFile.Filename);
             InitializeDataGrid();
+            return true;
         }
     }
 }

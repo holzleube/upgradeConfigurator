@@ -110,6 +110,7 @@
     <Compile Include="DataObjects\Aircrafts\IAircraftVersion.cs" />
     <Compile Include="DataObjects\Config\ConfigurationState.cs" />
     <Compile Include="DataObjects\Config\IConfiguration.cs" />
+    <Compile Include="DataObjects\Config\IConfigurationFile.cs" />
     <Compile Include="DataObjects\Config\IConfigurationGroup.cs" />
     <Compile Include="DataObjects\Config\IUpgradeAlternative.cs" />
     <Compile Include="DataObjects\Customers\ICustomer.cs" />

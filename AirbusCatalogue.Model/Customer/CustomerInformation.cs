@@ -14,7 +14,7 @@ namespace AirbusCatalogue.Model.Customer
 {
     public class CustomerInformation : Identable
     {
-        public CustomerInformation(string uniqueId, List<IConfiguration> lastConfiguration, List<IUpgradeItem> newUpgrades,
+        public CustomerInformation(string uniqueId, List<IConfigurationFile> lastConfiguration, List<IUpgradeItem> newUpgrades,
                                    string customerLogoImagePath, string startPageImagePath) : base(uniqueId)
         {
             LastConfigurations = lastConfiguration;
@@ -23,7 +23,7 @@ namespace AirbusCatalogue.Model.Customer
             CustomerStartPageImagePath = startPageImagePath;
         }
 
-        public List<IConfiguration> LastConfigurations { get; set; }
+        public List<IConfigurationFile> LastConfigurations { get; set; }
 
         public List<IUpgradeItem> UpgradeRecommendations { get; set; }
 

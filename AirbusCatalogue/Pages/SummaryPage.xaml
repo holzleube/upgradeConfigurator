@@ -150,7 +150,7 @@
 
         
         <!-- Back button and page title -->
-        <Grid Grid.Row="0" ColumnSpan="2" DataContext="{Binding Configuration}">
+        <Grid Grid.Row="0" ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
@@ -160,8 +160,8 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
-           
-            <TextBlock x:Name="pageTitle" Text="{StaticResource SummaryHeadline}" Grid.Column="1" IsHitTestVisible="false" Style="{StaticResource PageHeaderTextStyle}"/>
+
+            <TextBlock x:Name="pageTitle" x:Uid="SummaryHeadline" Text="" Grid.Column="1" IsHitTestVisible="false" Style="{StaticResource PageHeaderTextStyle}"/> 
             <Image Grid.Column="5"  Source="/Assets/airbus_logo.png" />
         </Grid>
     

@@ -25,6 +25,7 @@ namespace AirbusCatalogue.Model.File
         public async Task<IConfiguration> GetConfigurationByDate(string id)
         {
             var file = await _dataFolder.GetFileAsync(id + _fileExtension);
+           
             var buffer = await Windows.Storage.FileIO.ReadBufferAsync(file);
             DataReader dataReader = Windows.Storage.Streams.DataReader.FromBuffer(buffer);
             string jsonText = dataReader.ReadString(buffer.Length);

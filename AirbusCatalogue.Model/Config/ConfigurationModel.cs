@@ -148,7 +148,16 @@ namespace AirbusCatalogue.Model.Config
             SimpleIoc.Default.Unregister<IConfiguration>();
             configuration.ConfigurationDate = DateTime.Now.ToString("dd.MM.yyyy-HH.mm");
             new ConfigurationFileManager().WriteConfigurationToFile((Configuration)configuration);
+            var file = new ConfigurationFile(configuration.UniqueId, DateTime.Now.ToString("dd.MM.yyyy"), configuration.Upgrades.Count.ToString(),
+                configuration.SelectedAircrafts.Count.ToString(), configuration.ConfigurationDate, configuration.Programm.ImagePath, configuration.State);
+            SimpleIoc.Default.GetInstance<ICustomerConfigurationRespository>().SaveConfigurationForCustomer(file, configuration.ConfigurationCustomer.UniqueId);
         }
-        
+
+
+        public async Task LoadConfigurationFromFileSystemAndSetItAsCurrentConfiguration(string fileName)
+        {
+            var configuration = await new ConfigurationFileManager().GetConfigurationByDate(fileName);
+            SetConfiguration(configuration);
+        }
     }
 }

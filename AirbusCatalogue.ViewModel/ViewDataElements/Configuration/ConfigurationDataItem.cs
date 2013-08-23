@@ -8,22 +8,22 @@ namespace AirbusCatalogue.ViewModel.ViewDataElements.Configuration
     [KnownType(typeof(IConfiguration))]
     public class ConfigurationDataItem:BasicDataItem
     {
-        private readonly IConfiguration _configuration;
+        private readonly IConfigurationFile _configuration;
 
-        public ConfigurationDataItem(IConfiguration configuration, DataGroup @group)
-            : base(configuration.UniqueId, configuration.ConfigurationDate, configuration.Programm.ImagePath,  @group, 28, 25)
+        public ConfigurationDataItem(IConfigurationFile configuration, DataGroup @group)
+            : base(configuration.UniqueId, configuration.ConfigurationDate, configuration.AircraftProgrammImage,  @group, 28, 25)
         {
             _configuration = configuration;
         }
 
-        public IConfiguration Configuration
+        public IConfigurationFile Configuration
         {
             get { return _configuration; }
         }
 
-        public string ItemsCount { get { return "" + _configuration.Upgrades.Count; } }
+        public string ItemsCount { get { return _configuration.UpgradeCount; } }
 
-        public string AircraftCount { get { return "" + _configuration.Upgrades.Count; } }
+        public string AircraftCount { get { return _configuration.AircraftCount; } }
 
         public string State { get { return _configuration.State.ConfiguationStateIconValue; } }
 
