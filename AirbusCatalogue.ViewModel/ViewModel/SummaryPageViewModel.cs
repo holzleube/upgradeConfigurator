@@ -223,8 +223,6 @@ namespace AirbusCatalogue.ViewModel.ViewModel
                 classToNavigate = SimpleIoc.Default.GetInstance<IConfigurationAlternativeSelection>();
                 parameter = configurationGroup;
             }
-            
-
             if (classToNavigate == null)
             {
                 return;
@@ -253,7 +251,6 @@ namespace AirbusCatalogue.ViewModel.ViewModel
                 return;
             }
             navigationService.Navigate(classToNavigate.GetType(), parameter);
-
         }
 
         public override void Initialize(object parameter)
@@ -267,7 +264,6 @@ namespace AirbusCatalogue.ViewModel.ViewModel
             {
                 InitializeDataGrid();
             }
-            
         }
 
         private async void GetDataFromConfigurationFile(IConfigurationFile configurationFile)
