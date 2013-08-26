@@ -31,5 +31,18 @@ namespace AirbusCatalogue.Model.Aircrafts
         [DataMember]
         public string AircraftType { get; set; }
 
+        /// <summary>
+        /// This ovverriding is necessary for deserialization of
+        /// a json file.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(object obj)
+        {
+            var aircraft = obj as Aircraft;
+            if (aircraft == null) return false;
+
+            return aircraft.UniqueId.Equals(this.UniqueId);
+        }
     }
 }

@@ -108,6 +108,7 @@
     <Compile Include="DataObjects\Aircrafts\IAircraftProgramm.cs" />
     <Compile Include="DataObjects\Aircrafts\IAircraftType.cs" />
     <Compile Include="DataObjects\Aircrafts\IAircraftVersion.cs" />
+    <Compile Include="DataObjects\Config\ConfigurationColorMapper.cs" />
     <Compile Include="DataObjects\Config\ConfigurationState.cs" />
     <Compile Include="DataObjects\Config\IConfiguration.cs" />
     <Compile Include="DataObjects\Config\IConfigurationFile.cs" />

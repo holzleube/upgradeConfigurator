@@ -46,7 +46,6 @@ namespace AirbusCatalogue.Model.Config
         {
             SimpleIoc.Default.Unregister<IConfiguration>();
             SimpleIoc.Default.Register<IConfiguration>(() => configuration);
-            
         }
 
         public async Task ConfigureCurrentConfiguration()
@@ -142,9 +141,13 @@ namespace AirbusCatalogue.Model.Config
             }
         }
 
-        public void SaveCurrentConfigurationToFile()
+        public void SaveCurrentConfigurationToFile(bool isOrdered)
         {
             var configuration = GetCurrentConfiguration();
+            if (isOrdered)
+            {
+                configuration.State = ConfigurationState.ORDERED;
+            }
             SimpleIoc.Default.Unregister<IConfiguration>();
             configuration.ConfigurationDate = DateTime.Now.ToString("dd.MM.yyyy-HH.mm");
             new ConfigurationFileManager().WriteConfigurationToFile((Configuration)configuration);

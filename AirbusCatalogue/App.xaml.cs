@@ -50,6 +50,7 @@ namespace AirbusCatalogue
             SimpleIoc.Default.Register<IUpgradeSelection, SelectUpgradePage>();
             SimpleIoc.Default.Register<INavigationService, NavigationService>();
             SimpleIoc.Default.Register<IConfigurationAlternativeSelection, ConfigurationDetailPage>();
+            SimpleIoc.Default.Register<ICabinDetailUpgrade, CabinDetailUpgradePage>();
         }
 
         /// <summary>

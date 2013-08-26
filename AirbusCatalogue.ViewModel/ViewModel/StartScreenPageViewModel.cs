@@ -14,6 +14,8 @@ using AirbusCatalogue.ViewModel.ViewInterfaces.Aircraft;
 using GalaSoft.MvvmLight.Ioc;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
+using AirbusCatalogue.ViewModel.ViewInterfaces.Upgrades;
+using AirbusCatalogue.ViewModel.ViewDataElements.Upgrades;
 
 namespace AirbusCatalogue.ViewModel.ViewModel
 {
@@ -61,12 +63,17 @@ namespace AirbusCatalogue.ViewModel.ViewModel
             if (obj.GetType() == typeof(ConfigurationDataItem))
             {
                 var configurationDataItem = obj as ConfigurationDataItem;
-                //_configurationModel.SetConfiguration(configurationDataItem.Configuration);
                 navigation.Navigate(SimpleIoc.Default.GetInstance<ISummary>().GetType(), configurationDataItem.Configuration);
             }
             else if (obj.UniqueId.Equals("startScreenImage"))
             {
                 navigation.Navigate(SimpleIoc.Default.GetInstance<IAircraftFamilySelection>().GetType());
+            }
+            else if (obj is IUpgradeDataItem)
+            {
+                var upgradeObj = obj as IUpgradeDataItem;
+                
+                navigation.Navigate(SimpleIoc.Default.GetInstance<ICabinDetailUpgrade>().GetType(), upgradeObj.DataItem);
             }
 
         }

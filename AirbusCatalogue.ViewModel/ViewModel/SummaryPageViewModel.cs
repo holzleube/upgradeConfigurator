@@ -62,8 +62,10 @@ namespace AirbusCatalogue.ViewModel.ViewModel
             
             var message = "Your configuration was ";
             var headline = "";
+            var isOrdered = false;
             if (name.Equals("order"))
             {
+                isOrdered = true;
                 headline = "Order";
                 message += "ordered.";
             }
@@ -72,7 +74,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel
                 headline = "Save";
                 message += "saved.";
             }
-            _model.SaveCurrentConfigurationToFile();
+            _model.SaveCurrentConfigurationToFile(isOrdered);
              var messageDialog = new MessageDialog(message,
                 headline);
             messageDialog.ShowAsync();
@@ -94,6 +96,11 @@ namespace AirbusCatalogue.ViewModel.ViewModel
         {
             Configuration = _model.GetCurrentConfiguration();
             AddAircraftProgramm(Configuration.Programm);
+            if (Configuration.State.ReadableName.Equals(ConfigurationState.ORDERED.ReadableName) || Configuration.State.ReadableName.Equals(ConfigurationState.DELIVERED.ReadableName))
+            {
+                SetConfigurationGroupInPage();
+                return;
+            }
             ConfigureSelectionIfPossible();
         }
 
@@ -134,12 +141,16 @@ namespace AirbusCatalogue.ViewModel.ViewModel
 
         private async void CalculateConfigurationAndGetConfigurationGroup()
         {
-            var group = GetConfigurationGroup();
-            
             if (Configuration.HasConfigurationChanged)
             {
                 if (await TryToConfigureConfiguration()) return;
             }
+            SetConfigurationGroupInPage();
+        }
+
+        private void SetConfigurationGroupInPage()
+        {
+            var group = GetConfigurationGroup();
             Configuration = _model.GetCurrentConfiguration();
             group.Items.Clear();
             IsBottomAppBarOpen = true;
@@ -148,6 +159,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel
             {
                 group.Items.Add(new ConfigurationGroupDataItem(configuration, group, Configuration.Upgrades.Count));
             }
+
         }
 
         private async Task<bool> TryToConfigureConfiguration()

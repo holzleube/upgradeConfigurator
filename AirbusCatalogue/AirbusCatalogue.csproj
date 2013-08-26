@@ -14,7 +14,7 @@
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>AirbusCatalogue_TemporaryKey.pfx</PackageCertificateKeyFile>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
-    <AppxPackageDir>C:\Users\Dane.Leube\SkyDrive\Dev\v0.9.8\</AppxPackageDir>
+    <AppxPackageDir>C:\Users\Dane.Leube\SkyDrive\Dev\v1.0.0\</AppxPackageDir>
     <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
     <ExpressionBlendVersion>5.0.40218.0</ExpressionBlendVersion>
   </PropertyGroup>
@@ -143,6 +143,9 @@
     <Compile Include="Pages\SummaryPage.xaml.cs">
       <DependentUpon>SummaryPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Upgrades\CabinDetailUpgradePage.xaml.cs">
+      <DependentUpon>CabinDetailUpgradePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Upgrades\SelectUpgradePage.xaml.cs">
       <DependentUpon>SelectUpgradePage.xaml</DependentUpon>
     </Compile>
@@ -215,6 +218,12 @@
     <Content Include="Assets\allTypes\head_a380.png" />
     <Content Include="Assets\background\a320_top.png" />
     <Content Include="Assets\background\cockpit.jpg" />
+    <Content Include="Assets\cabin\airbus_cross_section.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\cabin\upper_deck.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\customers\a380Front.jpg" />
     <Content Include="Assets\customers\airBerlin.jpg" />
     <Content Include="Assets\customers\airCanada.gif" />
@@ -286,6 +295,9 @@
     <Content Include="Assets\upgrades\telex_headphone.png" />
     <Content Include="Assets\upgrades\telex_logo.png" />
     <Content Include="Common\ReadMe.txt" />
+    <Content Include="Pages\Upgrades\upper_deck.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -361,6 +373,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Upgrades\CabinDetailUpgradePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Upgrades\SelectUpgradePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -378,7 +394,6 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Reference Include="Callisto">
       <HintPath>..\packages\Callisto.1.3.1\lib\winrt45\Callisto.dll</HintPath>

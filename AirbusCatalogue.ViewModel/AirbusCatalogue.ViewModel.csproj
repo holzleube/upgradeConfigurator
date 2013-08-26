@@ -137,6 +137,7 @@
     <Compile Include="ViewDataElements\Summary\SummaryConfigurationGroup.cs" />
     <Compile Include="ViewDataElements\Summary\SummarySelectionDataItem.cs" />
     <Compile Include="ViewDataElements\Summary\UnknownConfigurationDataItem.cs" />
+    <Compile Include="ViewDataElements\Upgrades\IUpgradeDataItem.cs" />
     <Compile Include="ViewDataElements\Upgrades\NewUpgradeBigDataItem.cs" />
     <Compile Include="ViewDataElements\Upgrades\NewUpgradeSmallDataItem.cs" />
     <Compile Include="ViewInterfaces\Aircraft\IAircraftFamilySelection.cs" />
@@ -146,6 +147,7 @@
     <Compile Include="ViewInterfaces\Customer\ICustomerSelection.cs" />
     <Compile Include="ViewInterfaces\IStartScreen.cs" />
     <Compile Include="ViewInterfaces\ISummary.cs" />
+    <Compile Include="ViewInterfaces\Upgrades\ICabinDetailUpgrade.cs" />
     <Compile Include="ViewInterfaces\Upgrades\ISystemUpgrade.cs" />
     <Compile Include="ViewInterfaces\Upgrades\IUpgradeSelection.cs" />
     <Compile Include="ViewInterfaces\Upgrades\IUpgradeTypeSelection.cs" />
@@ -156,6 +158,7 @@
     <Compile Include="ViewModel\GlobalPageViewModel.cs" />
     <Compile Include="ViewModel\StartScreenPageViewModel.cs" />
     <Compile Include="ViewModel\SummaryPageViewModel.cs" />
+    <Compile Include="ViewModel\Upgrades\CabinDetailUpgradeViewModel.cs" />
     <Compile Include="ViewModel\Upgrades\SelectUpgradeTypeViewModel.cs" />
     <Compile Include="ViewModel\Upgrades\SelectUpgradeViewModel.cs" />
     <Compile Include="ViewModel\Upgrades\SystemUpgradeViewModel.cs" />
