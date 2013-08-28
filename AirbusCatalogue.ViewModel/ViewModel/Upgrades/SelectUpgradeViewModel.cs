@@ -17,29 +17,22 @@ using AirbusCatalogue.Model.Config;
 
 namespace AirbusCatalogue.ViewModel.ViewModel.Upgrades
 {
-    public class SelectUpgradeViewModel : ViewModelBase, IUpgradeSelectionViewModel
+    public class SelectUpgradeViewModel : AUpgradeItemViewModel, IUpgradeSelectionViewModel
     {
         private string _ataChapterTitle;
-        private readonly UpgradeModel _model;
-        private bool _isAppBarVisible;
+
+
         private ObservableCollection<ISubAtaChapter> _subAtaChapter;
-        private ObservableCollection<IUpgradeItem> _selectedUpgradeItems = new ObservableCollection<IUpgradeItem>();
         private ISubAtaChapter _currentSelectedItem ;
-        private IUpgradeItem _selectedTdu;
-        private ICommand _gridViewItemWasSelectedCommand;
         private ICommand _subAtaChapterWasClickedCommand;
 
-        public SelectUpgradeViewModel()
+        public SelectUpgradeViewModel():base()
         {
-            _model = new UpgradeModel();
             SelectedUpgradeItems = new ObservableCollection<IUpgradeItem>( new ConfigurationModel().GetCurrentConfiguration().Upgrades);
             SetIsAppBarVisible();
         }
 
-        private void SetIsAppBarVisible()
-        {
-            IsAppBarVisible = (SelectedUpgradeItems.Count > 0);
-        }
+        
 
         public ObservableCollection<ISubAtaChapter> SubAtaChapter
         {
@@ -51,15 +44,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Upgrades
             }
         } 
 
-        public bool IsAppBarVisible
-        {
-            get { return _isAppBarVisible; }
-            set 
-            {
-                _isAppBarVisible = value;
-                OnPropertyChanged();
-            }
-        }
+        
 
         public string AtaChapterTitle
         {
@@ -81,7 +66,6 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Upgrades
             if (ataChapter == null)
             {
                 AtaChapterTitle = parameter as string;
-
             }
             else
             {
@@ -92,39 +76,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Upgrades
             CurrentSelectedItem = SubAtaChapter[0];
         }
 
-        public ICommand UpgradeItemSelectedCommand
-        {
-            get
-            {
-                return new RelayCommand(UpgradesWereSelectedCommand);
-            }
-        }
-
-        private void UpgradesWereSelectedCommand()
-        {
-            _model.SelectUpgradeItem(SelectedUpgradeItems.ToList());
-            var classToNavigate = SimpleIoc.Default.GetInstance<ISummary>();
-            NavigateToClass(classToNavigate);
-        }
-
-        private void NavigateToClass(object classToNavigate)
-        {
-            var navigationService = SimpleIoc.Default.GetInstance<INavigationService>();
-            navigationService.Navigate(classToNavigate.GetType());
-        }
-
-        public ObservableCollection<IUpgradeItem> SelectedUpgradeItems
-        {
-            get
-            {
-                return _selectedUpgradeItems;
-            }
-            set 
-            { 
-                _selectedUpgradeItems = value;
-                OnPropertyChanged();
-            }
-        }
+        
 
         public ISubAtaChapter CurrentSelectedItem
         {
@@ -155,25 +107,6 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Upgrades
             return SelectedUpgradeItems.Contains(upgradeItem);
         }
 
-        public IUpgradeItem SelectedTdu
-        {
-            get { return _selectedTdu; }
-            set 
-            {
-                _selectedTdu = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public ICommand GridViewItemWasSelectedCommand
-        {
-            get 
-            { 
-                return _gridViewItemWasSelectedCommand ?? (_gridViewItemWasSelectedCommand = new RelayCommand<IUpgradeItem>(GridViewItemWasSelected)); 
-            }
-            
-        }
-
         public ICommand SubAtaChapterWasClickedCommand
         {
             get 
@@ -189,28 +122,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Upgrades
             SetCorrectSelectedTdu();
         }
 
-        private void GridViewItemWasSelected(IUpgradeItem obj)
-        {
-            if(SelectedTdu == null) 
-            {
-                SelectedTdu = obj;
-                SelectedUpgradeItems.Add(obj);
-                SetIsAppBarVisible();
-                return;
-            }
-            if (SelectedTdu.Equals(obj))
-            {
-                SelectedTdu = null;
-                SelectedUpgradeItems.Remove(obj);
-                SetIsAppBarVisible();
-                return;
-            }
-            SelectedUpgradeItems.Remove(SelectedTdu);
-            SelectedUpgradeItems.Add(obj);
-            SelectedTdu = obj;
-            SetIsAppBarVisible();
-            
-        }
+        
         
     }
 }

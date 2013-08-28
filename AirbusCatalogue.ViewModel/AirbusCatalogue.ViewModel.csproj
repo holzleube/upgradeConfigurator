@@ -158,6 +158,7 @@
     <Compile Include="ViewModel\GlobalPageViewModel.cs" />
     <Compile Include="ViewModel\StartScreenPageViewModel.cs" />
     <Compile Include="ViewModel\SummaryPageViewModel.cs" />
+    <Compile Include="ViewModel\Upgrades\AUpgradeItemViewModel.cs" />
     <Compile Include="ViewModel\Upgrades\CabinDetailUpgradeViewModel.cs" />
     <Compile Include="ViewModel\Upgrades\SelectUpgradeTypeViewModel.cs" />
     <Compile Include="ViewModel\Upgrades\SelectUpgradeViewModel.cs" />

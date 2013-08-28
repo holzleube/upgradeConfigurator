@@ -1948,15 +1948,12 @@
 									</VisualTransition>
 								</VisualStateGroup.Transitions>
 								<VisualState x:Name="Dragging"/>
-								<VisualState x:Name="Off">
-									<Storyboard>
-										<DoubleAnimation Duration="0" To="-44" Storyboard.TargetProperty="X" Storyboard.TargetName="CurtainTranslateTransform"/>
-									</Storyboard>
-								</VisualState>
+								<VisualState x:Name="Off"/>
 								<VisualState x:Name="On">
 									<Storyboard>
-										<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="X" Storyboard.TargetName="CurtainTranslateTransform"/>
 										<DoubleAnimation Duration="0" To="38" Storyboard.TargetProperty="X" Storyboard.TargetName="KnobTranslateTransform"/>
+										<DoubleAnimation Duration="0" To="1.216" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="SwitchCurtain" d:IsOptimized="True"/>
+										<DoubleAnimation Duration="0" To="-9.503" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="SwitchCurtain" d:IsOptimized="True"/>
 									</Storyboard>
 								</VisualState>
 							</VisualStateGroup>
@@ -2002,9 +1999,9 @@
 								<RowDefinition Height="Auto"/>
 								<RowDefinition Height="Auto"/>
 							</Grid.RowDefinitions>
-								<ContentPresenter x:Name="OffContentPresenter" ContentTemplate="{TemplateBinding OffContentTemplate}"  IsHitTestVisible="False" Margin="6,5,0,16" MinWidth="65" Opacity="0" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="Upper Deck" HorizontalAlignment="Center"/>
-								<ContentPresenter x:Name="OnContentPresenter"  ContentTemplate="{TemplateBinding OnContentTemplate}" IsHitTestVisible="False" Margin="6,5,0,16" MinWidth="65" Opacity="0" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="Main Deck" HorizontalAlignment="Center" />
-								<Grid Background="Transparent" Height="200" RenderTransformOrigin="0.5,0.5" Margin="32.583,8.649,32.12,32.35" Grid.RowSpan="2" UseLayoutRounding="False" d:LayoutRounding="Auto">
+                            <ContentPresenter x:Name="OffContentPresenter"  ContentTemplate="{TemplateBinding OffContentTemplate}"  IsHitTestVisible="False" Margin="6,5,0,80" MinWidth="65" Opacity="0" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="upper deck" HorizontalAlignment="Center" FontSize="25" FontWeight="Light"/>
+                            <ContentPresenter x:Name="OnContentPresenter"   ContentTemplate="{TemplateBinding OnContentTemplate}" IsHitTestVisible="False" Margin="6,5,0,80" MinWidth="65" Opacity="0" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="main deck" HorizontalAlignment="Center" FontSize="25" FontWeight="Light" FontFamily="Segoe UI"  />
+								<Grid Background="Transparent" Height="200" RenderTransformOrigin="0.5,0.5" Margin="32.583,30,32.12,32.35" Grid.RowSpan="2" UseLayoutRounding="False" d:LayoutRounding="Auto">
 									<Grid.RenderTransform>
 										<CompositeTransform Rotation="90.41"/>
 									</Grid.RenderTransform>
@@ -2015,7 +2012,7 @@
 													<ContentPresenter x:Name="SwitchCurtainClip">
 														<Rectangle x:Name="SwitchCurtain" Fill="{StaticResource ToggleSwitchCurtainBackgroundThemeBrush}" Width="44">
 															<Rectangle.RenderTransform>
-																<TranslateTransform x:Name="CurtainTranslateTransform" X="-44"/>
+																<CompositeTransform TranslateX="-44"/>
 															</Rectangle.RenderTransform>
 														</Rectangle>
 													</ContentPresenter>

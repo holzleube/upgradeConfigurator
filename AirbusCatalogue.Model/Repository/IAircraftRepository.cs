@@ -12,5 +12,7 @@ namespace AirbusCatalogue.Model.Repository
         IAircraft GetAircraftByMSN(string msn);
 
         List<IAircraft> GetAllAircrafts();
+
+        List<IAircraftProgramm> GetAllAircraftProgramms();
     }
 }

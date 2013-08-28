@@ -121,8 +121,25 @@ namespace AirbusCatalogue.Model.Repository
                         "bt", new UpgradeItem("bt","bridgestone tyres","new bridgestone tyres","Assets/upgrades/bridgestone.jpg","",24, 3, false)
                     },
                     {
+                        "CN33.21.136-01", new UpgradeItem("CN33.21.136-01","RGB-LED full colored lighting","The basic single integrated ballast unit is replaced by a hybrid LED-white fluorescent tube ballast unit.","/Assets/cabin/blue_light.jpg","", 33,1, false)
+                    },
+                    {
+                        "CN33.21.136-02", new UpgradeItem("CN33.21.136-02","Fluorescent tube colored lighting","The basic single integrated ballast unit is replaced by double integrated ballast units (with one white fluorescent tube).","/Assets/cabin/ambient.jpg","", 33,2, false)
+                    },
+                    {
                         "isisId", new UpgradeItem("isisId","isis display","the isis cockpit display","Assets/upgrades/isis.jpg","",24,3, false)
-                    }
+                    },
+                    {
+                        "1046GT2116", new UpgradeItem("1046GT2116", "Boomset alternate equipment with two jack plugs - Telex",
+                                    "DC resistance, soft ear cushions, 70-inch straight cord", "/Assets/upgrades/telex_headphone.png",
+                                    "/Assets/upgrades/telex_logo.png", 27,0, false)
+                    },
+                    {
+                        "1046GT2117",
+                    new UpgradeItem("1046GT2117", "Boomset alternate equipment with two jack plugs - Sennheiser",
+                                    "DC resistance, soft ear cushions, 70-inch straight cord", "/Assets/upgrades/sennheiser_headphone.png",
+                                    "/Assets/upgrades/sennheiser_logo.png", 30,0, false)
+                                    }
                     
                 };
         }

@@ -119,6 +119,7 @@
     <Compile Include="DataObjects\General\INameable.cs" />
     <Compile Include="DataObjects\Upgrades\IAtaChapter.cs" />
     <Compile Include="DataObjects\Upgrades\ISubAtaChapter.cs" />
+    <Compile Include="DataObjects\Upgrades\IUpgradeArea.cs" />
     <Compile Include="DataObjects\Upgrades\IUpgradeItem.cs" />
     <Compile Include="DataObjects\Upgrades\IUpgradeType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

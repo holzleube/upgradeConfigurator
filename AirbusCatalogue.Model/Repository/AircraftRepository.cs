@@ -11,10 +11,12 @@ namespace AirbusCatalogue.Model.Repository
     public class AircraftRepository:IAircraftRepository
     {
         private Dictionary<string, IAircraft> _dataMap;
-        private const string A320Image = "/Assets/allTypes/head_a320.png";
-        private const string A321Image = "/Assets/allTypes/head_a321.png";
-        private const string A319Image = "/Assets/allTypes/head_a319.png";
-        private const string A318Image = "/Assets/allTypes/head_a319.png";
+        private const string BASE_PATH = "/Assets/allTypes/";
+        private const string BASE_PATH2 = "/Assets/slider/";
+        private const string A320Image = BASE_PATH + "head_a320.png";
+        private const string A321Image = BASE_PATH + "head_a321.png";
+        private const string A319Image = BASE_PATH + "head_a319.png";
+        private const string A318Image = BASE_PATH + "head_a319.png";
 
         public AircraftRepository()
         {
@@ -62,6 +64,16 @@ namespace AirbusCatalogue.Model.Repository
                 };
         }
 
+        public List<IAircraftProgramm> GetAllAircraftProgramms()
+        {
+            return new List<IAircraftProgramm>
+                {
+                    new AircraftProgramm("N-Series", "A320-Family", BASE_PATH2 + "slider_a320.png"),
+                    new AircraftProgramm("L-Series", "A330/A340", BASE_PATH2 + "slider_a330.png"),
+                    new AircraftProgramm("P-Series", "A350", BASE_PATH2 + "slider_a350.png"),
+                    new AircraftProgramm("R-Series", "A380", BASE_PATH2 + "slider_a380.png")
+                };
+        }
 
         public IAircraft GetAircraftByMSN(string msn)
         {

@@ -10,6 +10,7 @@ using AirbusCatalogue.ViewModel.ViewDataElements;
 using AirbusCatalogue.ViewModel.ViewDataElements.Aircraft;
 using AirbusCatalogue.ViewModel.ViewInterfaces;
 using GalaSoft.MvvmLight.Ioc;
+using AirbusCatalogue.Common.DataObjects.Aircrafts;
 
 namespace AirbusCatalogue.ViewModel.ViewModel.Aircraft
 {
@@ -30,7 +31,6 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Aircraft
 
         private void InitializeDataSource()
         {
-
             DataGroupElements = new ObservableCollection<IIdentable>
                 {
                     new AircraftProgrammGroup(_model.GetAllAircraftProgramms())
@@ -56,7 +56,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Aircraft
             navigationService.Navigate(classToNavigate.GetType());
         }
 
-        private AircraftProgramm GetSelectedProgramm(string uniqueId)
+        private IAircraftProgramm GetSelectedProgramm(string uniqueId)
         {
             return _model.GetAllAircraftProgramms().FirstOrDefault(programm => programm.UniqueId.Equals(uniqueId));
         }

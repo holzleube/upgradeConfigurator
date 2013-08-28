@@ -34,6 +34,11 @@ namespace AirbusCatalogue.Pages.Aircrafts
         /// session.  This will be null the first time a page is visited.</param>
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
+            SetSelectedItemsOnView();
+        }
+
+        private void SetSelectedItemsOnView()
+        {
             foreach (var item in _viewModel.SelectedItems)
             {
                 itemGridView.SelectedItems.Add(item);
@@ -74,12 +79,14 @@ namespace AirbusCatalogue.Pages.Aircrafts
             {
                 bottomAppBar.IsOpen = false;
             }
+            SetSelectedItemsOnView();
         }
 
         private void UpdateZoomOutView(object sender, SelectionChangedEventArgs e)
         {
             var collectionGroups = groupedItemsViewSource.View.CollectionGroups;
             ((ListViewBase)this.Zoom.ZoomedOutView).ItemsSource = collectionGroups;
+            SetSelectedItemsOnView();
         }
     }
 }

@@ -9,6 +9,7 @@ using AirbusCatalogue.Common.DataObjects.Upgrades;
 using AirbusCatalogue.Model.Templates;
 using GalaSoft.MvvmLight.Ioc;
 using AirbusCatalogue.Model.Repository;
+using AirbusCatalogue.Model.ConfigurationData;
 
 namespace AirbusCatalogue.Model.Aircrafts
 {
@@ -19,18 +20,11 @@ namespace AirbusCatalogue.Model.Aircrafts
     /// </summary>
     public class AircraftModel
     {
-        private const string BASE_PATH = "/Assets/slider/";
+        
 
-        public List<AircraftProgramm> GetAllAircraftProgramms()
+        public List<IAircraftProgramm> GetAllAircraftProgramms()
         {
-            var result = new List<AircraftProgramm>
-                {
-                    new AircraftProgramm("N-Series", "A320-Family", BASE_PATH + "slider_a320.png"),
-                    new AircraftProgramm("L-Series", "A330/A340", BASE_PATH + "slider_a330.png"),
-                    new AircraftProgramm("P-Series", "A350", BASE_PATH + "slider_a350.png"),
-                    new AircraftProgramm("R-Series", "A380", BASE_PATH + "slider_a380.png")
-                };
-            return result;
+            return SimpleIoc.Default.GetInstance<IAircraftRepository>().GetAllAircraftProgramms();
         }
 
         public List<IAircraft> GetAllAircraftsForCurrentSelectedAircraftProgrammAndCustomer()
@@ -49,12 +43,13 @@ namespace AirbusCatalogue.Model.Aircrafts
             return SimpleIoc.Default.GetInstance<IConfiguration>();
         }
 
-        public void SelectAircraftProgramm(AircraftProgramm programm)
+        public void SelectAircraftProgramm(IAircraftProgramm programm)
         {
             var configuration = SimpleIoc.Default.GetInstance<IConfiguration>();
             configuration.Programm = programm;
             configuration.SelectedAircrafts = new List<IAircraft>();
             configuration.Upgrades = new List<IUpgradeItem>();
+            configuration.ConfigurationGroups = new List<IConfigurationGroup>();
         }
 
         public void SetAircraftsInConfiguration(List<IAircraft> aircrafts)

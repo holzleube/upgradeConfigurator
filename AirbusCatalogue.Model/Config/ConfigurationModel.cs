@@ -26,15 +26,22 @@ namespace AirbusCatalogue.Model.Config
     public class ConfigurationModel
     {
         private IUpgradeRepository _upgradeRepository;
+        private IAircraftRepository _aircraftRepository;
         
 
         public ConfigurationModel()
         {
             _upgradeRepository = SimpleIoc.Default.GetInstance<IUpgradeRepository>();
+            _aircraftRepository = SimpleIoc.Default.GetInstance<IAircraftRepository>();
         }
         public IConfiguration GetCurrentConfiguration()
         {
-            return GetConfiguration();
+            var config = GetConfiguration();
+            if (config.Programm == null)
+            {
+                config.Programm = _aircraftRepository.GetAllAircraftProgramms()[0];
+            }
+            return config;
         }
 
         private IConfiguration GetConfiguration()

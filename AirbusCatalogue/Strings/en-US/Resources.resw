@@ -159,6 +159,9 @@
   <data name="SelectAircraftVersionHeadline" xml:space="preserve">
     <value>select aircrafts</value>
   </data>
+  <data name="SelectAircraftZone.Text" xml:space="preserve">
+    <value>select zone</value>
+  </data>
   <data name="SelectAlternative.Text" xml:space="preserve">
     <value>select</value>
   </data>

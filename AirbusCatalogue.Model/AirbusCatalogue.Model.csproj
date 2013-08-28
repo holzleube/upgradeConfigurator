@@ -148,6 +148,7 @@
     <Compile Include="Transferable\TransferableConverter.cs" />
     <Compile Include="Upgrades\AtaChapter.cs" />
     <Compile Include="Upgrades\SubAtaChapter.cs" />
+    <Compile Include="Upgrades\UpgradeArea.cs" />
     <Compile Include="Upgrades\UpgradeItem.cs" />
     <Compile Include="Upgrades\UpgradeModel.cs" />
     <Compile Include="Upgrades\UpgradeType.cs" />

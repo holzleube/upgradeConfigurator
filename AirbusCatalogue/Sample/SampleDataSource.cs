@@ -433,6 +433,7 @@ namespace AirbusCatalogue.Sample
             var newGroup = new ConfigurationGroup("confGroup1", "Group 1", "");
             
             this.AllGroups.Add(group);
+            this.AllGroups.Add(group);
             //var group2 = new SampleDataGroup("Group-2",
             //        "Group Title: 2",
             //        "Group Subtitle: 2",

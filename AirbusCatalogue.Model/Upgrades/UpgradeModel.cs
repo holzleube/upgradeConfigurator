@@ -3,11 +3,17 @@ using System.Collections.ObjectModel;
 using AirbusCatalogue.Common.DataObjects.Config;
 using AirbusCatalogue.Common.DataObjects.Upgrades;
 using GalaSoft.MvvmLight.Ioc;
+using AirbusCatalogue.Model.Repository;
 
 namespace AirbusCatalogue.Model.Upgrades
 {
     public class UpgradeModel
     {
+        private IUpgradeRepository _upgradeRepository;
+        public UpgradeModel()
+        {
+            _upgradeRepository = SimpleIoc.Default.GetInstance<IUpgradeRepository>();
+        }
         public List<IUpgradeType> GetAllUpgradeTypes()
         {
             var result = new List<IUpgradeType>
@@ -41,7 +47,6 @@ namespace AirbusCatalogue.Model.Upgrades
                     new AtaChapter("doorsAta", "Doors", 52, "Complete"),
                     new AtaChapter("stabilizersAta", "Stabilizers", 55, "Complete"),
                     new AtaChapter("wingsAta", "Wings", 57, "Complete")
-                    
                 };
                 return new UpgradeType("cabinUpgrade", "Cabin", cabinChapters);
             }
@@ -62,7 +67,6 @@ namespace AirbusCatalogue.Model.Upgrades
                     new AtaChapter("doorsAta", "Doors", 52, "Complete"),
                     new AtaChapter("stabilizersAta", "Stabilizers", 55, "Complete"),
                     new AtaChapter("wingsAta", "Wings", 57, "Complete")
-                    
                 };
             return new UpgradeType("systemUpgrade", "System", ataChapters);
         }
@@ -75,121 +79,42 @@ namespace AirbusCatalogue.Model.Upgrades
                     new SubAtaChapter("11.116", "Installation of singe HF system (SFE)", 11, 116,
                                       "To install one HF system for voide communication in areas outside VHF coverage",
                                       "space provisions is made for single HF communication transceivers",
-                                      "The modification consists of: ", "Individual", GetHFUpgradeItems()),
+                                      "The modification consists of: ", "Individual", GetUpgradesFromRepoById(new List<string>(){"1046GT2103", "1046GT2104"})),
                     new SubAtaChapter("11.131", "Installation of single HF system and full provision for second one (SFE)",
                                       11, 131, "To install single HF system, with full provision for a secone one",
                                       "space provisions is made for dual HF communication transceivers",
-                                      "The modification consists of: ", "Individual", GetHFFullProvisionUpgradeItems()),
+                                      "The modification consists of: ", "Individual", GetUpgradesFromRepoById(new List<string>(){"1046GT2105", "1046GT2106"})),
                     new SubAtaChapter("13.100", "Installation of alternate Radio Management Panel (RMP)", 13, 100,
                                       "To provide alternate Radio Managment Panels",
                                       "The basic aircraft is equipped with two RMPs installed on the center pedestal",
-                                      "The basic RMPs are replaced by alternate euqipment", "Individual", GetRMPUpgradeItems()),
+                                      "The basic RMPs are replaced by alternate euqipment", "Individual", GetUpgradesFromRepoById(new List<string>(){"1046GT2107", "1046GT2108","1046GT2109"})),
                     new SubAtaChapter("50.110", "Installation of additional Audio Control Panel (ACP) and jack panel", 50,110,
                                       "To provide provision for two-way communication for a fourth occupant and/or additional communication capability in the avoinics compartment for maintenance purposes",
                                       "Three audio control panels for the Captain, the First Officer, and the thid occupant",
                                       "For the installation of an ACP for the fourth occupant the modification consists of:",
-                                      "Individual", GetJackPanelUpgrades()),
+                                      "Individual", GetUpgradesFromRepoById(new List<string>(){"1046GT2110", "1046GT2111","1046GT2112"})),
                     new SubAtaChapter("51.136", "Boomsets alternate equipment", 51, 136,
                                       "To provide alternate equipment for boomsets",
                                       "two jack panels, one for the Captaion and one for the First Officer, each with two connectors, one at each pilots station",
                                       "The basic boomsets are replaced by alternate equipment complying with ARINC 535A and 538B specifications",
-                                      "Individual", GetUpgradeItems()),
+                                      "Individual", GetUpgradesFromRepoById(new List<string>(){"CN23.51.136-27","CN23.51.136-30"})),
                     new SubAtaChapter("51.136", "Boomsets alternate equipment with two jack plugs", 51, 139,
                                       "To provide alternate equipment for boomsets",
                                       "two jack panels, one for the Captaion and one for the First Officer, each with two connectors, one at each pilots station",
                                       "The basic boomsets are replaced by alternate equipment complying with ARINC 535A and 538B specifications",
-                                      "Individual", GetJackUpgradeItems())
+                                      "Individual", GetUpgradesFromRepoById(new List<string>(){"1046GT2116", "1046GT2117"}))
                 };
             IAtaChapter chapter = new AtaChapter("communicationAta", "Communications", 23, subAtaChapters, "Cockpit");
             return chapter;
         }
-
-        private List<IUpgradeItem> GetHFUpgradeItems()
+        private List<IUpgradeItem> GetUpgradesFromRepoById(List<string> idList)
         {
-            return new List<IUpgradeItem>
-                {
-                    new UpgradeItem("1046GT2103", "Single HF system - Rockwell Collins 900",
-                                    "HF - Antenna, HFDR antenna coupler, HFDR transceiver",
-                                    "/Assets/upgrades/rockwell.png", "", 116,02, false),
-                    new UpgradeItem("1046GT2104", "Single HF system - Honeywell",
-                                    "HF - Antenna (Airbus), HFDR antenna coupler, HFDR transceiver", "/Assets/upgrades/rockwell.png",
-                                    "", 116,05, false)
-                };
-        }
-        private List<IUpgradeItem> GetHFFullProvisionUpgradeItems()
-        {
-            return new List<IUpgradeItem>
-                {
-                    new UpgradeItem("1046GT2105", "Single HF system & full Provision - Rockwell Collins 900",
-                                    "HF - Antenna, HFDR antenna coupler, HFDR transceiver",
-                                    "/Assets/upgrades/rockwell.png", "", 116,02, false),
-                    new UpgradeItem("1046GT2106", "Single HF system & full Provision - Honeywell",
-                                    "HF - Antenna, HFDR antenna coupler, HFDR transceiver", "/Assets/upgrades/rockwell.png",
-                                    "", 116,05, false)
-                };
-        }
-
-        private List<IUpgradeItem> GetRMPUpgradeItems()
-        {
-            return new List<IUpgradeItem>
-                {
-                    new UpgradeItem("1046GT2107", "Basic equip. with turbo tuning & HF data activation capab.",
-                                    "Radio Management Panel - Thales Avionics SA",
-                                    "/Assets/upgrades/rmp.jpg", "", 100,00, true),
-                   new UpgradeItem("1046GT2108", "Alternate equip. with turbo tuning & HF data activation capab.",
-                                    "Radio Management Panel - Thales Avionics SA",
-                                    "/Assets/upgrades/rmp.jpg", "", 100,03, false),
-                   new UpgradeItem("1046GT2109", "Alternate equip. - with CPDLC function capability",
-                                    "Radio Management Panel - Thales Avionics SA",
-                                    "/Assets/upgrades/rmp.jpg", "", 100,04, false)
-                };
-        }
-
-        private List<IUpgradeItem> GetJackPanelUpgrades()
-        {
-            return new List<IUpgradeItem>
-                {
-                    new UpgradeItem("1046GT2110", "Installation of ACP for fourth occupant - T.E.A.M.",
-                                    "Audio Control Panel (ACP) - Audio Management Unit (AMU)",
-                                    "/Assets/upgrades/jackPanel.jpg", "", 110,21, false),
-                    new UpgradeItem("1046GT2111", "Installation of ACP and jack panel in avionics compartment - T.E.A.M.",
-                                    "Audio Control Panel (ACP) - Audio Management Unit (AMU)",
-                                    "/Assets/upgrades/jackPanel.jpg", "", 110,21, false),
-                    new UpgradeItem("1046GT2112", "Installation of ACP for fourth occupant and ACP and jack panel in avionics compartment - T.E.A.M.",
-                                    "Audio Control Panel (ACP) - Audio Management Unit (AMU)",
-                                    "/Assets/upgrades/jackPanel.jpg", "", 110,21, false),
-                };
-        }
-
-       
-
-        private static List<IUpgradeItem> GetUpgradeItems()
-        {
-            return new List<IUpgradeItem>
-                {
-                    new UpgradeItem("1046GT2113", "Boomset basic equipment - Holmberg",
-                                    "DC resistance, soft ear cushions, 70-inch straight cord",
-                                    "/Assets/upgrades/holmberg_headphone.png", "/Assets/upgrades/holmberg_logo.jpg", 0,0, true),
-                    new UpgradeItem("CN23.51.136-27", "Boomset alternate equipment - Telex",
-                                    "DC resistance, soft ear cushions, 70-inch straight cord", "/Assets/upgrades/telex_headphone.png",
-                                    "/Assets/upgrades/telex_logo.png", 27,0, false),
-                    new UpgradeItem("CN23.51.136-30", "Boomset alternate equipment - Sennheiser",
-                                    "DC resistance, soft ear cushions, 70-inch straight cord", "/Assets/upgrades/sennheiser_headphone.png",
-                                    "/Assets/upgrades/sennheiser_logo.png", 30,0, false)
-                };
-        }
-
-        private static List<IUpgradeItem> GetJackUpgradeItems()
-        {
-            return new List<IUpgradeItem>
-                {
-                    new UpgradeItem("1046GT2116", "Boomset alternate equipment with two jack plugs - Telex",
-                                    "DC resistance, soft ear cushions, 70-inch straight cord", "/Assets/upgrades/telex_headphone.png",
-                                    "/Assets/upgrades/telex_logo.png", 27,0, false),
-                    new UpgradeItem("1046GT2117", "Boomset alternate equipment with two jack plugs - Sennheiser",
-                                    "DC resistance, soft ear cushions, 70-inch straight cord", "/Assets/upgrades/sennheiser_headphone.png",
-                                    "/Assets/upgrades/sennheiser_logo.png", 30,0, false)
-                };
+            var result = new List<IUpgradeItem>();
+            foreach (var id in idList)
+            {
+              result.Add(_upgradeRepository.GetUpgradeItemById(id));
+            }
+            return result;
         }
 
         public void SelectUpgradeItem(IUpgradeItem upgradeItem)
@@ -216,6 +141,41 @@ namespace AirbusCatalogue.Model.Upgrades
         private static IConfiguration GetCurrentConfiguration()
         {
             return SimpleIoc.Default.GetInstance<IConfiguration>();
+        }
+
+        public List<IUpgradeArea> GetUpgradeAreasByDeck(string deckName)
+        {
+            if (deckName.Equals("mainDeck"))
+            {
+                return new List<IUpgradeArea>
+                {
+                    new UpgradeArea("firstArea", "Zone 1",11, "/Assets/cabin/zones/zone_a.png"),
+                    new UpgradeArea("secondArea", "Zone 2",11, "/Assets/cabin/zones/zone_b.png"),
+                    new UpgradeArea("thirdArea", "Zone 3",6, "/Assets/cabin/zones/zone_c.png"),
+                    new UpgradeArea("fourthArea", "Zone 4",15, "/Assets/cabin/zones/zone_d.png"),
+                    new UpgradeArea("fifthArea", "Zone 5",4, "/Assets/cabin/zones/zone_e.png"),
+                    new UpgradeArea("sixthArea", "Zone 6",13, "/Assets/cabin/zones/zone_f.png"),
+                    new UpgradeArea("eightArea", "Zone 7",4, "/Assets/cabin/zones/zone_g.png"),
+                    new UpgradeArea("ninthArea", "Zone 8",9, "/Assets/cabin/zones/zone_h.png"),
+                    new UpgradeArea("tenthArea", "Zone 9",6, "/Assets/cabin/zones/zone_i.png")
+                };
+                    
+            }
+            return new List<IUpgradeArea>
+                {
+                    new UpgradeArea("firstArea", "Zone 10",6, "/Assets/cabin/zones/zone_j.png"),
+                    new UpgradeArea("secondArea", "Zone 11",9, "/Assets/cabin/zones/zone_k.png"),
+                    new UpgradeArea("thirdArea", "Zone 12",10, "/Assets/cabin/zones/zone_l.png"),
+                    new UpgradeArea("fourthArea", "Zone 13",17, "/Assets/cabin/zones/zone_m.png"),
+                    new UpgradeArea("fifthArea", "Zone 14",6, "/Assets/cabin/zones/zone_n.png"),
+                    new UpgradeArea("fifthArea", "Zone 15",8, "/Assets/cabin/zones/zone_o.png"),
+                    new UpgradeArea("sixthArea", "Zone 16",12, "/Assets/cabin/zones/zone_p.png")
+                };
+        }
+
+        public List<IUpgradeItem> GetUpgradeItemsByArea(List<IUpgradeArea> zones)
+        {
+            return GetUpgradesFromRepoById(new List<string>(){"CN33.21.136-01", "CN33.21.136-02"});
         }
     }
 }

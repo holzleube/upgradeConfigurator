@@ -38,6 +38,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Aircraft
             _model = new AircraftModel();
             _filterList = new ObservableCollection<IAircraftCategory>(new AircraftCategoryFactory().CreateAircraftCategories());
             _selectedFilterValue = _filterList[0];
+            SelectedItems = new ObservableCollection<IAircraft>(_model.GetSelectedAircrafts());
         }
 
         public override void Initialize(object parameter)
@@ -47,11 +48,9 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Aircraft
             BuildAndSetAircraftsOnView(_allAircrafts, new AircraftVersionCategoryCriteria());
         }
 
-        
-
         private void BuildAndSetAircraftsOnView(List<IAircraft> aircrafts, ICategoryCriteria<IAircraft> categoryCriteria)
         {
-            SelectedItems = new ObservableCollection<IAircraft>(_model.GetSelectedAircrafts());
+            
 
             var groupedAircrafts =
                 from aircraft in aircrafts
@@ -59,6 +58,7 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Aircraft
                 group aircraft by categoryCriteria.GetFilterValue(aircraft)
                 into aircraftGroup
                 select new {Category = aircraftGroup.Key, Products = aircraftGroup};
+
             var result = new ObservableCollection<IIdentable>();
             foreach (var g in groupedAircrafts)
             {

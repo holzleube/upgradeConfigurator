@@ -1,4 +1,5 @@
 ﻿using AirbusCatalogue.ViewModel.ViewInterfaces.Upgrades;
+using AirbusCatalogue.ViewModel.ViewModel.Upgrades;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,9 +23,12 @@ namespace AirbusCatalogue.Pages.Upgrades
     /// </summary>
     public sealed partial class CabinDetailUpgradePage : AirbusCatalogue.Common.LayoutAwarePage, ICabinDetailUpgrade
     {
+        private CabinDetailUpgradeViewModel _viewModel;
         public CabinDetailUpgradePage()
         {
             this.InitializeComponent();
+            _viewModel = new CabinDetailUpgradeViewModel();
+            DataContext = _viewModel;
         }
 
         /// <summary>
@@ -48,6 +52,19 @@ namespace AirbusCatalogue.Pages.Upgrades
         /// <param name="pageState">An empty dictionary to be populated with serializable state.</param>
         protected override void SaveState(Dictionary<String, Object> pageState)
         {
+        }
+
+        private void ItemClicked(object sender, ItemClickEventArgs e)
+        {
+            if (itemGridView.SelectedItems.Contains(e.ClickedItem))
+            {
+                itemGridView.SelectedItems.Remove(e.ClickedItem);
+            }
+            else
+            {
+                itemGridView.SelectedItems.Add(e.ClickedItem);
+            }
+            _viewModel.SetSelectedItems(itemGridView.SelectedItems);
         }
     }
 }

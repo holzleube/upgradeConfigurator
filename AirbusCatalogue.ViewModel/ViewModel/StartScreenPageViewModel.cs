@@ -72,7 +72,6 @@ namespace AirbusCatalogue.ViewModel.ViewModel
             else if (obj is IUpgradeDataItem)
             {
                 var upgradeObj = obj as IUpgradeDataItem;
-                
                 navigation.Navigate(SimpleIoc.Default.GetInstance<ICabinDetailUpgrade>().GetType(), upgradeObj.DataItem);
             }
 
