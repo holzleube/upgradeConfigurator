@@ -53,15 +53,6 @@ namespace AirbusCatalogue.Pages.Aircrafts
             ((ListViewBase)this.Zoom.ZoomedOutView).ItemsSource = collectionGroups;
         }
 
-        //private void RemoveItemFromViewModel(object removedItem)
-        //{
-        //    _viewModel.SelectedItems.Remove((DataCommon)removedItem);
-        //}
-
-        //private void AddItemToViewModel(object addItem)
-        //{
-        //    _viewModel.SelectedItems.Add((DataCommon)addItem);
-        //}
 
         private void ItemClicked(object sender, ItemClickEventArgs e)
         {

@@ -50,18 +50,6 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Upgrades
 
         public List<IUpgradeArea> SelectedUpgradeAreas{get;set;}
 
-        public ObservableCollection<IUpgradeItem> CurrentSelectionForAppBarSummary
-        {
-            get
-            {
-                if (SelectedTdu == null)
-                {
-                    return new ObservableCollection<IUpgradeItem>();
-                }
-                return new ObservableCollection<IUpgradeItem>(){SelectedTdu};
-            }
-        }
-
         public bool IsMainDeck
         {
             get
@@ -99,22 +87,6 @@ namespace AirbusCatalogue.ViewModel.ViewModel.Upgrades
                 OnPropertyChanged();
             }
         }
-
-        public IUpgradeItem SelectedTdu
-        {
-            get
-            {
-                return _selectedTdu;
-            }
-            set
-            {
-                _selectedTdu = value;
-                OnPropertyChanged();
-                OnPropertyChanged("CurrentSelectionForAppBarSummary");
-            }
-        }
-
-        
 
         private void InitilizeViewData(IUpgradeItem upgradeToShow)
         {

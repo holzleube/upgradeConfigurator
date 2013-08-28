@@ -153,6 +153,9 @@
   <data name="SelectAircraftFamilyHeadline.Text" xml:space="preserve">
     <value>select aircraft family</value>
   </data>
+  <data name="SelectAircraftsHeadline.Text" xml:space="preserve">
+    <value>select aircrafts</value>
+  </data>
   <data name="SelectAircraftTypeHeadline" xml:space="preserve">
     <value>select aircraft type</value>
   </data>
